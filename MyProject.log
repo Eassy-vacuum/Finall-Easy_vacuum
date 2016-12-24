@@ -333,23 +333,8 @@ hint: 4920	1011	Hint: Variable "ok1" has been eliminated by optimizer	libs/keypa
 hint: 5240	1011	Hint: Variable "ok1" has been eliminated by optimizer	libs/keypad.mbas
 hint: 5902	1010	Hint: Unit "libs/keypad.mbas" has been recompiled	libs/keypad.mbas
 hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names\libs/main_function.mbas"	libs/main_function.mbas
-error: 79	303	Identifier "chanel_active" was not declared	libs/main_function.mbas
-error: 79	304	Syntax error: Expected "else" but "chanel_active" found	libs/main_function.mbas
-error: 79	301	"="is not valid identifier	libs/main_function.mbas
-error: 79	304	Syntax error: Expected "end" but "=" found	libs/main_function.mbas
-error: 79	304	Syntax error: Expected "if" but "chanel" found	libs/main_function.mbas
-error: 80	304	Syntax error: Expected "else" but "inttostr" found	libs/main_function.mbas
-error: 80	301	"("is not valid identifier	libs/main_function.mbas
-error: 80	304	Syntax error: Expected "end" but "(" found	libs/main_function.mbas
-error: 80	304	Syntax error: Expected "if" but "chanel_active" found	libs/main_function.mbas
-error: 80	304	Syntax error: Expected "next" but "," found	libs/main_function.mbas
-error: 80	303	Identifier "txt" was not declared	libs/main_function.mbas
-error: 80	304	Syntax error: Expected "next" but ")" found	libs/main_function.mbas
-error: 81	303	Identifier "Lcd_0" was not declared	libs/main_function.mbas
-error: 81	304	Syntax error: Expected "next" but "(" found	libs/main_function.mbas
-error: 81	303	Identifier ")" was not declared	libs/main_function.mbas
-error: 82	304	Syntax error: Expected "end" but "Lcd_Out" found	libs/main_function.mbas
-error: 82	304	Syntax error: Expected "sub" but "(" found	libs/main_function.mbas
-error: 82	304	Syntax error: Expected "end" but "1" found	libs/main_function.mbas
-error: 82	304	Syntax error: Expected "." but "," found	libs/main_function.mbas
-error: 0	102	Finished (with errors): 24 œ”«„»— 2016, 10:39:45	MyProject.mbpav
+hint: 157	1010	Hint: Unit "libs/main_function.mbas" has been recompiled	libs/main_function.mbas
+error: 34	314	Identifier "on_a_1" has been already declared in "libs/main_function.mbas"	MyProject.mbas
+error: 37	304	Syntax error: Expected "end" but "dim" found	MyProject.mbas
+error: 37	304	Syntax error: Expected "." but "st" found	MyProject.mbas
+error: 0	102	Finished (with errors): 24 œ”«„»— 2016, 10:49:57	MyProject.mbpav
