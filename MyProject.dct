@@ -34,6 +34,7 @@ __spi_lcd8_enable
 __spi_lcd8_rs
 __spi_lcd8_rw
 _a
+_a
 _canspi_config_all_msg
 _canspi_config_all_valid_msg
 _canspi_config_dbl_buffer_bit
@@ -107,6 +108,7 @@ _cf_status
 _cf_write_sec_cmd
 _ch
 _command
+_count
 _count
 _glcd_horizontal
 _glcd_vertical
@@ -198,6 +200,7 @@ _spi_slave
 _spi_t6963c_horizontal
 _spi_t6963c_vertical
 _ss
+_ss
 _t6963c_horizontal
 _t6963c_vertical
 _timer1
@@ -213,6 +216,7 @@ _uart_noparity
 _uart_oddparity
 _uart_one_stopbit
 _uart_two_stopbits
+_zz
 _zz
 abs
 acbg
@@ -296,6 +300,7 @@ adps2_bit
 adsc
 adsc_bit
 anz
+anz
 as0
 as0_bit
 asin
@@ -357,7 +362,6 @@ caption_length_16bit
 cdate
 ceil
 cf
-cf
 cf_detect
 cf_disable
 cf_enable
@@ -387,8 +391,6 @@ chanel
 chanel_active
 char_bit
 character
-character
-character_b
 character_b
 character8x7
 cl_aqua
@@ -424,8 +426,6 @@ cl_white_16bit
 cl_yellow
 cl_yellow_16bit
 cn
-cn
-co
 co
 com00
 com00_bit
@@ -497,7 +497,6 @@ cs32
 cs32_bit
 ctime
 ctime
-customchar
 customchar
 dataarea
 day
@@ -668,6 +667,7 @@ dor1_bit
 dord
 dord_bit
 e
+easy_vacuum_95_10_4
 eear10
 eear10_bit
 eear11
@@ -866,6 +866,7 @@ freadneedsupdate
 free
 freemem
 freq
+freq
 frexp
 fsect
 fsect
@@ -978,7 +979,6 @@ gyear
 gyear_
 half_pi
 halfbits
-heart
 heart
 hh
 hours
@@ -1327,42 +1327,29 @@ keypad_set__date_time_import_pwm_red_teben
 keypad_set__date_time_import_save_exit_teben
 keypad_set__date_time_import_yes_no_teben
 korrekturfaktor
+korrekturfaktor
 kp
 kp1
 labs
-lcd_0
 lcd_0
 lcd_chr
 lcd_chr_cp
 lcd_cmd
 lcd_d4
-lcd_d4
-lcd_d4_direction
 lcd_d4_direction
 lcd_d5
-lcd_d5
-lcd_d5_direction
 lcd_d5_direction
 lcd_d6
-lcd_d6
-lcd_d6_direction
 lcd_d6_direction
 lcd_d7
-lcd_d7
-lcd_d7_direction
 lcd_d7_direction
 lcd_en
-lcd_en
-lcd_en_direction
 lcd_en_direction
 lcd_init
-lcd_load
 lcd_load
 lcd_out
 lcd_out_cp
 lcd_rs
-lcd_rs
-lcd_rs_direction
 lcd_rs_direction
 ldexp
 left_to_right
@@ -1805,6 +1792,7 @@ on_a_0
 on_a_1
 on_off
 on_off_initial
+on_off_initial
 on_off2
 on_test
 opcoderead
@@ -2071,8 +2059,11 @@ pud_bit
 pwm_chanel
 pwm_chanel_main
 pwm_initialize
+pwm_initialize
+pwm_make
 pwm_make
 pwm_percent
+pwm_set_1b
 pwm_set_1b
 pwm1_init
 pwm1_set_duty
@@ -2118,6 +2109,7 @@ r6
 r7
 r8
 r9
+radeon_github_10_95
 rampz
 rampz0
 rampz0_bit
@@ -2245,6 +2237,7 @@ sectpercluster
 sectperfat
 seqmodebank0
 seqmodebank1
+setpwm0
 setpwm0
 sfior
 shamsi_call
@@ -3431,6 +3424,7 @@ wdp2_bit
 wdrf
 wdrf_bit
 wdt_on
+wdt_on
 wdtcr
 week
 week_new
@@ -3512,4 +3506,5 @@ yy
 z
 zh
 zl
+ztmp
 ztmp

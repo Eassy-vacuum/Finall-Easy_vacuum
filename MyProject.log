@@ -39,9 +39,11 @@ warning: 104	1509	Warning: Implicit typecast performed from "longint" to "double
 warning: 105	1516	Warning: Source size (4) does not match destination size (23)	libs/PWM_timers.mbas
 warning: 124	1509	Warning: Implicit typecast performed from "longint" to "double"	libs/PWM_timers.mbas
 warning: 125	1516	Warning: Source size (4) does not match destination size (23)	libs/PWM_timers.mbas
+warning: 186	1509	Warning: Implicit typecast performed from "longint" to "double"	libs/PWM_timers.mbas
+warning: 187	1516	Warning: Source size (4) does not match destination size (23)	libs/PWM_timers.mbas
 hint: 101	1011	Hint: Variable "ii" has been eliminated by optimizer	libs/PWM_timers.mbas
 hint: 102	1011	Hint: Variable "jjyear" has been eliminated by optimizer	libs/PWM_timers.mbas
-hint: 318	1010	Hint: Unit "libs/PWM_timers.mbas" has been recompiled	libs/PWM_timers.mbas
+hint: 408	1010	Hint: Unit "libs/PWM_timers.mbas" has been recompiled	libs/PWM_timers.mbas
 hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names\libs/LCD.mbas"	libs/LCD.mbas
 hint: 71	1010	Hint: Unit "libs/LCD.mbas" has been recompiled	libs/LCD.mbas
 hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names\libs/I2C.mbas"	libs/I2C.mbas
@@ -333,8 +335,20 @@ hint: 4920	1011	Hint: Variable "ok1" has been eliminated by optimizer	libs/keypa
 hint: 5240	1011	Hint: Variable "ok1" has been eliminated by optimizer	libs/keypad.mbas
 hint: 5902	1010	Hint: Unit "libs/keypad.mbas" has been recompiled	libs/keypad.mbas
 hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names\libs/main_function.mbas"	libs/main_function.mbas
-hint: 157	1010	Hint: Unit "libs/main_function.mbas" has been recompiled	libs/main_function.mbas
-error: 34	314	Identifier "on_a_1" has been already declared in "libs/main_function.mbas"	MyProject.mbas
-error: 37	304	Syntax error: Expected "end" but "dim" found	MyProject.mbas
-error: 37	304	Syntax error: Expected "." but "st" found	MyProject.mbas
-error: 0	102	Finished (with errors): 24 œ”«„»— 2016, 10:49:57	MyProject.mbpav
+hint: 158	1001	Hint: Variable "program_number" has been declared, but not used	libs/main_function.mbas
+hint: 292	1010	Hint: Unit "libs/main_function.mbas" has been recompiled	libs/main_function.mbas
+hint: 77	1021	Hint: interrupt handler (interrupt_ISR at 0x0006)	MyProject.mbas
+warning: 106	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 113	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+hint: 135	1021	Hint: interrupt handler (interrupt_ISR_0 at 0x0002)	MyProject.mbas
+hint: 329	1010	Hint: Unit "MyProject.mbas" has been recompiled	MyProject.mbas
+diagnostics: 0	134	Compiled Successfully	E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names\MyProject.mbas
+diagnostics: 0	139	All files Compiled in 12355 ms	 
+hint: 0	1144	Used RX (bytes): 32 (100%)   Free RX (bytes): 0 (0%)	Used RX (bytes): 32 (100%)   Free RX (bytes): 0 (0%)
+hint: 0	1144	Static RAM (bytes): 3320   Dynamic RAM (bytes): 776	Static RAM (bytes): 3320   Dynamic RAM (bytes): 776
+hint: 0	1144	Used ROM (bytes): 88186 (67%)  Free ROM (bytes): 42886 (33%)	Used ROM (bytes): 88186 (67%)  Free ROM (bytes): 42886 (33%)
+diagnostics: 0	145	Project Linked Successfully	MyProject.mbpav
+hint: 0	1004	COFF file successfully generated	COFF file successfully generated
+diagnostics: 0	140	Linked in 8814 ms	 
+diagnostics: 0	141	Project 'MyProject.mbpav' completed: 23041 ms	 
+diagnostics: 0	103	Finished successfully: 24 œ”«„»— 2016, 12:32:46	MyProject.mbpav

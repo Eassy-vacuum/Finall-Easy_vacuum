@@ -184,9 +184,9 @@ main:
    DDB5_bit = 1                    ' Set PORTB pin 3 as output pin for the PWM (according to datasheet)
    DDB6_bit = 1                    ' Set PORTB pin 3 as output pin for the PWM (according to datasheet)
    DDB7_bit = 1                    ' Set PORTB pin 3 as output pin for the PWM (according to datasheet)
-'   DDE3_bit = 1                    ' Set PORTD pin 7 as output pin for the PWM1 (according to datasheet)
-'   DDE4_bit = 1                    ' Set PORTD pin 7 as output pin for the PWM1 (according to datasheet)
-'   DDE5_bit = 1                    ' Set PORTD pin 7 as output pin for the PWM1 (according to datasheet)
+   DDE3_bit = 1                    ' Set PORTD pin 7 as output pin for the PWM1 (according to datasheet)
+   DDE4_bit = 1                    ' Set PORTD pin 7 as output pin for the PWM1 (according to datasheet)
+   DDE5_bit = 1                    ' Set PORTD pin 7 as output pin for the PWM1 (according to datasheet)
 
       ''################timer test part #############
 
@@ -276,7 +276,7 @@ LCD_Out(2,1,"TEST")
 '    ###################### Start of EEPROM   #########################'
    on_off_initial (1,1,0,0,18)    '' off mode on_off initial (dim on_off22,en,hr,mint,prc as integer)
    on_off_initial (2,1,0,0,18)    '''on mode
-   int_eeprom_ini()   ''internal AVR EEPROM Writing
+'   int_eeprom_ini()   ''internal AVR EEPROM Writing   77777777777777777777777777777777777
 '   ext_eeprom_ini()
 
 '
@@ -320,7 +320,10 @@ LCD_Out(2,1,"TEST")
   PWM_Initialize ()
 '  SetPWM0(0)
   while TRUE
-        radeon_github_10_95()
+'        radeon_github_10_95()
+         chanel=1
+         Easy_vacuum_95_10_4(chanel)
+
   wend
 
 end.

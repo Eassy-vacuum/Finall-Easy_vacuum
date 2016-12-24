@@ -359,9 +359,9 @@ _PWM_MAKE:
 ;libs/PWM_timers.mbas,143 :: 		case 1
 	LDI        R27, 1
 	CP         R5, R27
-	BREQ       L__PWM_MAKE73
+	BREQ       L__PWM_MAKE122
 	JMP        L__PWM_MAKE12
-L__PWM_MAKE73:
+L__PWM_MAKE122:
 ;libs/PWM_timers.mbas,146 :: 		PWM16bit_Change_Duty(ii, _TIMER1_CH_A )
 	LDI        R27, 17
 	MOV        R4, R27
@@ -373,9 +373,9 @@ L__PWM_MAKE12:
 ;libs/PWM_timers.mbas,147 :: 		case 2
 	LDI        R27, 2
 	CP         R5, R27
-	BREQ       L__PWM_MAKE74
+	BREQ       L__PWM_MAKE123
 	JMP        L__PWM_MAKE15
-L__PWM_MAKE74:
+L__PWM_MAKE123:
 ;libs/PWM_timers.mbas,150 :: 		PWM16bit_Change_Duty(ii,_TIMER1_CH_B )
 	LDI        R27, 18
 	MOV        R4, R27
@@ -387,9 +387,9 @@ L__PWM_MAKE15:
 ;libs/PWM_timers.mbas,151 :: 		case 3
 	LDI        R27, 3
 	CP         R5, R27
-	BREQ       L__PWM_MAKE75
+	BREQ       L__PWM_MAKE124
 	JMP        L__PWM_MAKE18
-L__PWM_MAKE75:
+L__PWM_MAKE124:
 ;libs/PWM_timers.mbas,155 :: 		PWM16bit_Change_Duty(ii,2 )
 	LDI        R27, 2
 	MOV        R4, R27
@@ -401,15 +401,15 @@ L__PWM_MAKE18:
 ;libs/PWM_timers.mbas,156 :: 		case 4
 	LDI        R27, 4
 	CP         R5, R27
-	BREQ       L__PWM_MAKE76
+	BREQ       L__PWM_MAKE125
 	JMP        L__PWM_MAKE21
-L__PWM_MAKE76:
+L__PWM_MAKE125:
 ;libs/PWM_timers.mbas,159 :: 		if jj=0 then
 	LDI        R27, 0
 	CP         R2, R27
-	BREQ       L__PWM_MAKE77
+	BREQ       L__PWM_MAKE126
 	JMP        L__PWM_MAKE23
-L__PWM_MAKE77:
+L__PWM_MAKE126:
 ;libs/PWM_timers.mbas,160 :: 		SetPWM0(max_duty-ii)
 	LDD        R0, Y+0
 	LDD        R1, Y+1
@@ -438,25 +438,25 @@ L__PWM_MAKE21:
 ;libs/PWM_timers.mbas,167 :: 		case 5
 	LDI        R27, 5
 	CP         R5, R27
-	BREQ       L__PWM_MAKE78
+	BREQ       L__PWM_MAKE127
 	JMP        L__PWM_MAKE27
-L__PWM_MAKE78:
+L__PWM_MAKE127:
 	JMP        L__PWM_MAKE9
 L__PWM_MAKE27:
 ;libs/PWM_timers.mbas,171 :: 		case 6
 	LDI        R27, 6
 	CP         R5, R27
-	BREQ       L__PWM_MAKE79
+	BREQ       L__PWM_MAKE128
 	JMP        L__PWM_MAKE30
-L__PWM_MAKE79:
+L__PWM_MAKE128:
 	JMP        L__PWM_MAKE9
 L__PWM_MAKE30:
 ;libs/PWM_timers.mbas,175 :: 		case 7
 	LDI        R27, 7
 	CP         R5, R27
-	BREQ       L__PWM_MAKE80
+	BREQ       L__PWM_MAKE129
 	JMP        L__PWM_MAKE33
-L__PWM_MAKE80:
+L__PWM_MAKE129:
 	JMP        L__PWM_MAKE9
 L__PWM_MAKE33:
 L__PWM_MAKE9:
@@ -475,6 +475,233 @@ L_end_PWM_MAKE:
 	RET
 ; end of _PWM_MAKE
 
+libs/PWM_timers_PWM_MAKE_Stop:
+	PUSH       R28
+	PUSH       R29
+	IN         R28, SPL+0
+	IN         R29, SPL+1
+	SBIW       R28, 6
+	OUT        SPL+0, R28
+	OUT        SPL+1, R29
+	ADIW       R28, 1
+
+;libs/PWM_timers.mbas,184 :: 		jjyear as float
+;libs/PWM_timers.mbas,186 :: 		jjyear=ceil((jj*max_duty)/100)
+	PUSH       R2
+	PUSH       R3
+	PUSH       R4
+	PUSH       R6
+	PUSH       R7
+	MOV        R16, R2
+	LDI        R17, 0
+	MOV        R18, R17
+	MOV        R19, R17
+	MOV        R20, R3
+	MOV        R21, R4
+	LDI        R22, 0
+	SBRC       R4, 7
+	LDI        R22, 255
+	MOV        R23, R22
+	CALL       _HWMul_32x32+0
+	CALL       _float_slong2fp+0
+	PUSH       R5
+	PUSH       R4
+	PUSH       R3
+	PUSH       R2
+	LDI        R20, 0
+	LDI        R21, 0
+	LDI        R22, 200
+	LDI        R23, 66
+	CALL       _float_fpdiv1+0
+	MOVW       R2, R16
+	MOVW       R4, R18
+	CALL       _ceil+0
+	STD        Y+2, R16
+	STD        Y+3, R17
+	STD        Y+4, R18
+	STD        Y+5, R19
+;libs/PWM_timers.mbas,187 :: 		FloatToStr(jjyear, st)
+	LDI        R27, #lo_addr(_st+0)
+	MOV        R6, R27
+	LDI        R27, hi_addr(_st+0)
+	MOV        R7, R27
+	MOVW       R2, R16
+	MOVW       R4, R18
+	CALL       _FloatToStr+0
+;libs/PWM_timers.mbas,192 :: 		Lcd_0()
+	CALL       _Lcd_0+0
+;libs/PWM_timers.mbas,196 :: 		ii = integer (jjyear)
+	LDD        R16, Y+2
+	LDD        R17, Y+3
+	LDD        R18, Y+4
+	LDD        R19, Y+5
+	CALL       _float_fpint+0
+	STD        Y+0, R16
+	STD        Y+1, R17
+;libs/PWM_timers.mbas,197 :: 		IntToStr(ii, txt)
+	LDI        R27, #lo_addr(_txt+0)
+	MOV        R4, R27
+	LDI        R27, hi_addr(_txt+0)
+	MOV        R5, R27
+	MOVW       R2, R16
+	CALL       _IntToStr+0
+;libs/PWM_timers.mbas,198 :: 		Lcd_Out(1,1,st)
+	LDI        R27, #lo_addr(_st+0)
+	MOV        R4, R27
+	LDI        R27, hi_addr(_st+0)
+	MOV        R5, R27
+	LDI        R27, 1
+	MOV        R3, R27
+	LDI        R27, 1
+	MOV        R2, R27
+	CALL       _Lcd_Out+0
+;libs/PWM_timers.mbas,199 :: 		Lcd_Out(2,6,txt)
+	LDI        R27, #lo_addr(_txt+0)
+	MOV        R4, R27
+	LDI        R27, hi_addr(_txt+0)
+	MOV        R5, R27
+	LDI        R27, 6
+	MOV        R3, R27
+	LDI        R27, 2
+	MOV        R2, R27
+	CALL       _Lcd_Out+0
+	POP        R2
+;libs/PWM_timers.mbas,200 :: 		IntToStr(jj, txt)
+	PUSH       R2
+	LDI        R27, #lo_addr(_txt+0)
+	MOV        R4, R27
+	LDI        R27, hi_addr(_txt+0)
+	MOV        R5, R27
+	LDI        R27, 0
+	MOV        R3, R27
+	CALL       _IntToStr+0
+;libs/PWM_timers.mbas,201 :: 		Lcd_Out(2,1,txt)
+	LDI        R27, #lo_addr(_txt+0)
+	MOV        R4, R27
+	LDI        R27, hi_addr(_txt+0)
+	MOV        R5, R27
+	LDI        R27, 1
+	MOV        R3, R27
+	LDI        R27, 2
+	MOV        R2, R27
+	CALL       _Lcd_Out+0
+	POP        R2
+	POP        R3
+	POP        R4
+	POP        R5
+;libs/PWM_timers.mbas,205 :: 		case 2
+	LDI        R27, 2
+	CP         R5, R27
+	BREQ       L_libs/PWM_timers_PWM_MAKE_Stop131
+	JMP        L_libs/PWM_timers_PWM_MAKE_Stop38
+L_libs/PWM_timers_PWM_MAKE_Stop131:
+;libs/PWM_timers.mbas,208 :: 		PWM16bit_Stop( _TIMER1_CH_A ) 'PWM16bit_Change_Duty(ii, _TIMER1_CH_A )
+	LDI        R27, 17
+	MOV        R2, R27
+	CALL       _PWM16bit_Stop+0
+	JMP        L_libs/PWM_timers_PWM_MAKE_Stop35
+L_libs/PWM_timers_PWM_MAKE_Stop38:
+;libs/PWM_timers.mbas,209 :: 		case 3
+	LDI        R27, 3
+	CP         R5, R27
+	BREQ       L_libs/PWM_timers_PWM_MAKE_Stop132
+	JMP        L_libs/PWM_timers_PWM_MAKE_Stop41
+L_libs/PWM_timers_PWM_MAKE_Stop132:
+;libs/PWM_timers.mbas,212 :: 		PWM16bit_Stop( _TIMER1_CH_B ) 'PWM16bit_Change_Duty(ii,_TIMER1_CH_B )
+	LDI        R27, 18
+	MOV        R2, R27
+	CALL       _PWM16bit_Stop+0
+	JMP        L_libs/PWM_timers_PWM_MAKE_Stop35
+L_libs/PWM_timers_PWM_MAKE_Stop41:
+;libs/PWM_timers.mbas,213 :: 		case 4
+	LDI        R27, 4
+	CP         R5, R27
+	BREQ       L_libs/PWM_timers_PWM_MAKE_Stop133
+	JMP        L_libs/PWM_timers_PWM_MAKE_Stop44
+L_libs/PWM_timers_PWM_MAKE_Stop133:
+;libs/PWM_timers.mbas,217 :: 		PWM16bit_Stop( 2 ) 'PWM16bit_Change_Duty(ii,2 )
+	LDI        R27, 2
+	MOV        R2, R27
+	CALL       _PWM16bit_Stop+0
+	JMP        L_libs/PWM_timers_PWM_MAKE_Stop35
+L_libs/PWM_timers_PWM_MAKE_Stop44:
+;libs/PWM_timers.mbas,218 :: 		case 1
+	LDI        R27, 1
+	CP         R5, R27
+	BREQ       L_libs/PWM_timers_PWM_MAKE_Stop134
+	JMP        L_libs/PWM_timers_PWM_MAKE_Stop47
+L_libs/PWM_timers_PWM_MAKE_Stop134:
+;libs/PWM_timers.mbas,221 :: 		if jj=0 then
+	LDI        R27, 0
+	CP         R2, R27
+	BREQ       L_libs/PWM_timers_PWM_MAKE_Stop135
+	JMP        L_libs/PWM_timers_PWM_MAKE_Stop49
+L_libs/PWM_timers_PWM_MAKE_Stop135:
+;libs/PWM_timers.mbas,222 :: 		SetPWM0(max_duty-ii)
+	LDD        R0, Y+0
+	LDD        R1, Y+1
+	MOV        R16, R3
+	MOV        R17, R4
+	SUB        R16, R0
+	SBC        R17, R1
+	MOVW       R2, R16
+	CALL       _SetPWM0+0
+	JMP        L_libs/PWM_timers_PWM_MAKE_Stop50
+;libs/PWM_timers.mbas,223 :: 		else
+L_libs/PWM_timers_PWM_MAKE_Stop49:
+;libs/PWM_timers.mbas,224 :: 		SetPWM0(max_duty-ii)
+	LDD        R0, Y+0
+	LDD        R1, Y+1
+	MOV        R16, R3
+	MOV        R17, R4
+	SUB        R16, R0
+	SBC        R17, R1
+	MOVW       R2, R16
+	CALL       _SetPWM0+0
+;libs/PWM_timers.mbas,226 :: 		end if
+L_libs/PWM_timers_PWM_MAKE_Stop50:
+	JMP        L_libs/PWM_timers_PWM_MAKE_Stop35
+L_libs/PWM_timers_PWM_MAKE_Stop47:
+;libs/PWM_timers.mbas,229 :: 		case 5
+	LDI        R27, 5
+	CP         R5, R27
+	BREQ       L_libs/PWM_timers_PWM_MAKE_Stop136
+	JMP        L_libs/PWM_timers_PWM_MAKE_Stop53
+L_libs/PWM_timers_PWM_MAKE_Stop136:
+	JMP        L_libs/PWM_timers_PWM_MAKE_Stop35
+L_libs/PWM_timers_PWM_MAKE_Stop53:
+;libs/PWM_timers.mbas,233 :: 		case 6
+	LDI        R27, 6
+	CP         R5, R27
+	BREQ       L_libs/PWM_timers_PWM_MAKE_Stop137
+	JMP        L_libs/PWM_timers_PWM_MAKE_Stop56
+L_libs/PWM_timers_PWM_MAKE_Stop137:
+	JMP        L_libs/PWM_timers_PWM_MAKE_Stop35
+L_libs/PWM_timers_PWM_MAKE_Stop56:
+;libs/PWM_timers.mbas,237 :: 		case 7
+	LDI        R27, 7
+	CP         R5, R27
+	BREQ       L_libs/PWM_timers_PWM_MAKE_Stop138
+	JMP        L_libs/PWM_timers_PWM_MAKE_Stop59
+L_libs/PWM_timers_PWM_MAKE_Stop138:
+	JMP        L_libs/PWM_timers_PWM_MAKE_Stop35
+L_libs/PWM_timers_PWM_MAKE_Stop59:
+L_libs/PWM_timers_PWM_MAKE_Stop35:
+;libs/PWM_timers.mbas,242 :: 		end sub
+L_end_PWM_MAKE_Stop:
+	POP        R7
+	POP        R6
+	POP        R4
+	POP        R3
+	POP        R2
+	ADIW       R28, 5
+	OUT        SPL+0, R28
+	OUT        SPL+1, R29
+	POP        R29
+	POP        R28
+	RET
+; end of libs/PWM_timers_PWM_MAKE_Stop
+
 _PWM_Initialize:
 	PUSH       R28
 	PUSH       R29
@@ -485,8 +712,8 @@ _PWM_Initialize:
 	OUT        SPL+1, R29
 	ADIW       R28, 1
 
-;libs/PWM_timers.mbas,185 :: 		k as integer
-;libs/PWM_timers.mbas,186 :: 		J=0
+;libs/PWM_timers.mbas,246 :: 		k as integer
+;libs/PWM_timers.mbas,247 :: 		J=0
 	PUSH       R2
 	PUSH       R3
 	PUSH       R4
@@ -495,29 +722,29 @@ _PWM_Initialize:
 	PUSH       R7
 	LDI        R27, 0
 	STD        Y+0, R27
-;libs/PWM_timers.mbas,190 :: 		DDB4_bit = 1                    ' Set PORTB pin 3 as output pin for the PWM (according to datasheet)
+;libs/PWM_timers.mbas,251 :: 		DDB4_bit = 1                    ' Set PORTB pin 3 as output pin for the PWM (according to datasheet)
 	IN         R27, DDB4_bit+0
 	SBR        R27, BitMask(DDB4_bit+0)
 	OUT        DDB4_bit+0, R27
-;libs/PWM_timers.mbas,191 :: 		DDB5_bit = 1                    ' Set PORTB pin 3 as output pin for the PWM (according to datasheet)
+;libs/PWM_timers.mbas,252 :: 		DDB5_bit = 1                    ' Set PORTB pin 3 as output pin for the PWM (according to datasheet)
 	IN         R27, DDB5_bit+0
 	SBR        R27, BitMask(DDB5_bit+0)
 	OUT        DDB5_bit+0, R27
-;libs/PWM_timers.mbas,192 :: 		DDB6_bit = 1                    ' Set PORTB pin 3 as output pin for the PWM (according to datasheet)
+;libs/PWM_timers.mbas,253 :: 		DDB6_bit = 1                    ' Set PORTB pin 3 as output pin for the PWM (according to datasheet)
 	IN         R27, DDB6_bit+0
 	SBR        R27, BitMask(DDB6_bit+0)
 	OUT        DDB6_bit+0, R27
-;libs/PWM_timers.mbas,193 :: 		DDB7_bit = 1                    ' Set PORTB pin 3 as output pin for the PWM (according to datasheet)
+;libs/PWM_timers.mbas,254 :: 		DDB7_bit = 1                    ' Set PORTB pin 3 as output pin for the PWM (according to datasheet)
 	IN         R27, DDB7_bit+0
 	SBR        R27, BitMask(DDB7_bit+0)
 	OUT        DDB7_bit+0, R27
-;libs/PWM_timers.mbas,208 :: 		TCCR0=(1<<WGM00) or (1<<COM01) or (1<<COM00) or (1<<WGM01) or (1<<CS02) or (0<<CS01) or (1<<CS00)
+;libs/PWM_timers.mbas,269 :: 		TCCR0=(1<<WGM00) or (1<<COM01) or (1<<COM00) or (1<<WGM01) or (1<<CS02) or (0<<CS01) or (1<<CS00)
 	LDI        R27, 125
 	OUT        TCCR0+0, R27
-;libs/PWM_timers.mbas,209 :: 		TCNT0=0x00
+;libs/PWM_timers.mbas,270 :: 		TCNT0=0x00
 	LDI        R27, 0
 	OUT        TCNT0+0, R27
-;libs/PWM_timers.mbas,212 :: 		PWM16bit_Init(_PWM16_PHASE_CORRECT_MODE_8BIT, _PWM16_PRESCALER_16bit_8, _PWM16_NON_INVERTED, j , _TIMER1)
+;libs/PWM_timers.mbas,273 :: 		PWM16bit_Init(_PWM16_PHASE_CORRECT_MODE_8BIT, _PWM16_PRESCALER_16bit_8, _PWM16_NON_INVERTED, j , _TIMER1)
 	LDI        R27, 1
 	MOV        R7, R27
 	CLR        R5
@@ -529,7 +756,7 @@ _PWM_Initialize:
 	LDI        R27, 11
 	MOV        R2, R27
 	CALL       _PWM16bit_Init+0
-;libs/PWM_timers.mbas,213 :: 		PWM16bit_Init(_PWM16_PHASE_CORRECT_MODE_8BIT, _PWM16_PRESCALER_16bit_8, _PWM16_NON_INVERTED, j , 2)
+;libs/PWM_timers.mbas,274 :: 		PWM16bit_Init(_PWM16_PHASE_CORRECT_MODE_8BIT, _PWM16_PRESCALER_16bit_8, _PWM16_NON_INVERTED, j , 2)
 	LDI        R27, 2
 	MOV        R7, R27
 	LDD        R5, Y+0
@@ -542,29 +769,29 @@ _PWM_Initialize:
 	LDI        R27, 11
 	MOV        R2, R27
 	CALL       _PWM16bit_Init+0
-;libs/PWM_timers.mbas,216 :: 		PWM1_Set_Duty(j)
+;libs/PWM_timers.mbas,277 :: 		PWM1_Set_Duty(j)
 	LDD        R2, Y+0
 	CALL       _PWM1_Set_Duty+0
-;libs/PWM_timers.mbas,217 :: 		PWM2_Set_Duty(j)
+;libs/PWM_timers.mbas,278 :: 		PWM2_Set_Duty(j)
 	LDD        R2, Y+0
 	CALL       _PWM2_Set_Duty+0
-;libs/PWM_timers.mbas,219 :: 		ocr0=0 ocr2=0
+;libs/PWM_timers.mbas,280 :: 		ocr0=0 ocr2=0
 	LDI        R27, 0
 	OUT        OCR0+0, R27
 	LDI        R27, 0
 	OUT        OCR2+0, R27
-;libs/PWM_timers.mbas,221 :: 		for k=0 to 10
+;libs/PWM_timers.mbas,282 :: 		for k=0 to 10
 	LDI        R27, 0
 	STD        Y+1, R27
 	STD        Y+2, R27
-L__PWM_Initialize36:
-;libs/PWM_timers.mbas,222 :: 		PWM_MAKE (k*10,255,1)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+L__PWM_Initialize62:
+;libs/PWM_timers.mbas,283 :: 		PWM_MAKE (k*10,255,4)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
 	LDD        R20, Y+1
 	LDD        R21, Y+2
 	LDI        R16, 10
 	MUL        R20, R16
 	MOV        R16, R0
-	LDI        R27, 1
+	LDI        R27, 4
 	MOV        R5, R27
 	LDI        R27, 255
 	MOV        R3, R27
@@ -572,37 +799,36 @@ L__PWM_Initialize36:
 	MOV        R4, R27
 	MOV        R2, R16
 	CALL       _PWM_MAKE+0
-;libs/PWM_timers.mbas,223 :: 		delay_ms(200)
-	LDI        R18, 9
-	LDI        R17, 30
-	LDI        R16, 229
-L__PWM_Initialize40:
+;libs/PWM_timers.mbas,284 :: 		delay_ms(50)
+	LDI        R18, 3
+	LDI        R17, 8
+	LDI        R16, 120
+L__PWM_Initialize66:
 	DEC        R16
-	BRNE       L__PWM_Initialize40
+	BRNE       L__PWM_Initialize66
 	DEC        R17
-	BRNE       L__PWM_Initialize40
+	BRNE       L__PWM_Initialize66
 	DEC        R18
-	BRNE       L__PWM_Initialize40
-	NOP
-;libs/PWM_timers.mbas,224 :: 		next k
+	BRNE       L__PWM_Initialize66
+;libs/PWM_timers.mbas,285 :: 		next k
 	LDD        R16, Y+1
 	LDD        R17, Y+2
 	CPI        R17, 0
-	BRNE       L__PWM_Initialize82
+	BRNE       L__PWM_Initialize140
 	CPI        R16, 10
-L__PWM_Initialize82:
-	BRNE       L__PWM_Initialize83
-	JMP        L__PWM_Initialize39
-L__PWM_Initialize83:
+L__PWM_Initialize140:
+	BRNE       L__PWM_Initialize141
+	JMP        L__PWM_Initialize65
+L__PWM_Initialize141:
 	LDD        R16, Y+1
 	LDD        R17, Y+2
 	SUBI       R16, 255
 	SBCI       R17, 255
 	STD        Y+1, R16
 	STD        Y+2, R17
-	JMP        L__PWM_Initialize36
-L__PWM_Initialize39:
-;libs/PWM_timers.mbas,242 :: 		end sub
+	JMP        L__PWM_Initialize62
+L__PWM_Initialize65:
+;libs/PWM_timers.mbas,303 :: 		end sub
 L_end_PWM_Initialize:
 	POP        R7
 	POP        R6
@@ -618,7 +844,7 @@ L_end_PWM_Initialize:
 	RET
 ; end of _PWM_Initialize
 
-_on_off_initial:
+libs/PWM_timers_on_off_initial_old_chnged_newxt_hourtosecond:
 	PUSH       R28
 	PUSH       R29
 	IN         R28, SPL+0
@@ -628,8 +854,8 @@ _on_off_initial:
 	OUT        SPL+1, R29
 	ADIW       R28, 1
 
-;libs/PWM_timers.mbas,245 :: 		dim Pwm_chanel_ini,chanel_ini,week_ini as byte
-;libs/PWM_timers.mbas,246 :: 		Lcd_0() lcd_out(1,1,"Initialsiing on_a_0")
+;libs/PWM_timers.mbas,306 :: 		dim Pwm_chanel_ini,chanel_ini,week_ini as byte
+;libs/PWM_timers.mbas,307 :: 		Lcd_0() lcd_out(1,1,"Initialsiing on_a_0")
 	PUSH       R6
 	PUSH       R5
 	PUSH       R4
@@ -692,31 +918,31 @@ _on_off_initial:
 	POP        R4
 	POP        R5
 	POP        R6
-;libs/PWM_timers.mbas,247 :: 		delay_ms(500)
+;libs/PWM_timers.mbas,308 :: 		delay_ms(500)
 	LDI        R18, 21
 	LDI        R17, 75
 	LDI        R16, 191
-L__on_off_initial43:
+L_libs/PWM_timers_on_off_initial_old_chnged_newxt_hourtosecond69:
 	DEC        R16
-	BRNE       L__on_off_initial43
+	BRNE       L_libs/PWM_timers_on_off_initial_old_chnged_newxt_hourtosecond69
 	DEC        R17
-	BRNE       L__on_off_initial43
+	BRNE       L_libs/PWM_timers_on_off_initial_old_chnged_newxt_hourtosecond69
 	DEC        R18
-	BRNE       L__on_off_initial43
+	BRNE       L_libs/PWM_timers_on_off_initial_old_chnged_newxt_hourtosecond69
 	NOP
-;libs/PWM_timers.mbas,248 :: 		for week_ini =1 to 7
+;libs/PWM_timers.mbas,309 :: 		for week_ini =1 to 7
 	LDI        R27, 1
 	STD        Y+2, R27
-L__on_off_initial46:
-;libs/PWM_timers.mbas,249 :: 		for Pwm_chanel_ini=1 to 7
+L_libs/PWM_timers_on_off_initial_old_chnged_newxt_hourtosecond72:
+;libs/PWM_timers.mbas,310 :: 		for Pwm_chanel_ini=1 to 7
 	LDI        R27, 1
 	STD        Y+0, R27
-L__on_off_initial51:
-;libs/PWM_timers.mbas,250 :: 		for chanel_ini =1 to 1
+L_libs/PWM_timers_on_off_initial_old_chnged_newxt_hourtosecond77:
+;libs/PWM_timers.mbas,311 :: 		for chanel_ini =1 to 1
 	LDI        R27, 1
 	STD        Y+1, R27
-L__on_off_initial56:
-;libs/PWM_timers.mbas,251 :: 		on_a_0 [week_ini-1][chanel_ini-1][Pwm_chanel_ini-1][on_off22-1][0] =en
+L_libs/PWM_timers_on_off_initial_old_chnged_newxt_hourtosecond82:
+;libs/PWM_timers.mbas,312 :: 		on_a_0 [week_ini-1][chanel_ini-1][Pwm_chanel_ini-1][on_off22-1][0] =en
 	LDD        R16, Y+2
 	SUBI       R16, 1
 	LDI        R17, 0
@@ -761,7 +987,7 @@ L__on_off_initial56:
 	ADD        R30, R18
 	ADC        R31, R19
 	ST         Z, R3
-;libs/PWM_timers.mbas,252 :: 		on_a_0 [week_ini-1][chanel_ini-1][Pwm_chanel_ini-1][on_off22-1][1]=hr
+;libs/PWM_timers.mbas,313 :: 		on_a_0 [week_ini-1][chanel_ini-1][Pwm_chanel_ini-1][on_off22-1][1]=hr
 	LDD        R16, Y+2
 	SUBI       R16, 1
 	LDI        R17, 0
@@ -807,7 +1033,7 @@ L__on_off_initial56:
 	MOVW       R30, R16
 	ADIW       R30, 1
 	ST         Z, R4
-;libs/PWM_timers.mbas,253 :: 		on_a_0 [week_ini-1][chanel_ini-1][Pwm_chanel_ini-1][on_off22-1][2] =mint
+;libs/PWM_timers.mbas,314 :: 		on_a_0 [week_ini-1][chanel_ini-1][Pwm_chanel_ini-1][on_off22-1][2] =mint
 	LDD        R16, Y+2
 	SUBI       R16, 1
 	LDI        R17, 0
@@ -853,7 +1079,7 @@ L__on_off_initial56:
 	MOVW       R30, R16
 	ADIW       R30, 2
 	ST         Z, R5
-;libs/PWM_timers.mbas,254 :: 		on_a_0 [week_ini-1][chanel_ini-1][Pwm_chanel_ini-1][on_off22-1][3]=prc
+;libs/PWM_timers.mbas,315 :: 		on_a_0 [week_ini-1][chanel_ini-1][Pwm_chanel_ini-1][on_off22-1][3]=prc
 	LDD        R16, Y+2
 	SUBI       R16, 1
 	LDI        R17, 0
@@ -899,22 +1125,22 @@ L__on_off_initial56:
 	MOVW       R30, R16
 	ADIW       R30, 3
 	ST         Z, R6
-;libs/PWM_timers.mbas,257 :: 		next chanel_ini
+;libs/PWM_timers.mbas,318 :: 		next chanel_ini
 	LDD        R16, Y+1
 	CPI        R16, 1
-	BRNE       L__on_off_initial85
-	JMP        L__on_off_initial59
-L__on_off_initial85:
+	BRNE       L_libs/PWM_timers_on_off_initial_old_chnged_newxt_hourtosecond143
+	JMP        L_libs/PWM_timers_on_off_initial_old_chnged_newxt_hourtosecond85
+L_libs/PWM_timers_on_off_initial_old_chnged_newxt_hourtosecond143:
 	LDD        R16, Y+1
 	SUBI       R16, 255
 	STD        Y+1, R16
-	JMP        L__on_off_initial56
-L__on_off_initial59:
-;libs/PWM_timers.mbas,258 :: 		for chanel_ini =2 to 4
+	JMP        L_libs/PWM_timers_on_off_initial_old_chnged_newxt_hourtosecond82
+L_libs/PWM_timers_on_off_initial_old_chnged_newxt_hourtosecond85:
+;libs/PWM_timers.mbas,319 :: 		for chanel_ini =2 to 4
 	LDI        R27, 2
 	STD        Y+1, R27
-L__on_off_initial61:
-;libs/PWM_timers.mbas,259 :: 		on_a_0 [week_ini-1][chanel_ini-1][Pwm_chanel_ini-1][on_off22-1][0] =0
+L_libs/PWM_timers_on_off_initial_old_chnged_newxt_hourtosecond87:
+;libs/PWM_timers.mbas,320 :: 		on_a_0 [week_ini-1][chanel_ini-1][Pwm_chanel_ini-1][on_off22-1][0] =0
 	LDD        R16, Y+2
 	SUBI       R16, 1
 	LDI        R17, 0
@@ -960,7 +1186,7 @@ L__on_off_initial61:
 	ADC        R31, R19
 	LDI        R27, 0
 	ST         Z, R27
-;libs/PWM_timers.mbas,260 :: 		on_a_0 [week_ini-1][chanel_ini-1][Pwm_chanel_ini-1][on_off22-1][1]=hr
+;libs/PWM_timers.mbas,321 :: 		on_a_0 [week_ini-1][chanel_ini-1][Pwm_chanel_ini-1][on_off22-1][1]=hr
 	LDD        R16, Y+2
 	SUBI       R16, 1
 	LDI        R17, 0
@@ -1006,7 +1232,7 @@ L__on_off_initial61:
 	MOVW       R30, R16
 	ADIW       R30, 1
 	ST         Z, R4
-;libs/PWM_timers.mbas,261 :: 		on_a_0 [week_ini-1][chanel_ini-1][Pwm_chanel_ini-1][on_off22-1][2] =mint
+;libs/PWM_timers.mbas,322 :: 		on_a_0 [week_ini-1][chanel_ini-1][Pwm_chanel_ini-1][on_off22-1][2] =mint
 	LDD        R16, Y+2
 	SUBI       R16, 1
 	LDI        R17, 0
@@ -1052,7 +1278,7 @@ L__on_off_initial61:
 	MOVW       R30, R16
 	ADIW       R30, 2
 	ST         Z, R5
-;libs/PWM_timers.mbas,262 :: 		on_a_0 [week_ini-1][chanel_ini-1][Pwm_chanel_ini-1][on_off22-1][3]=0
+;libs/PWM_timers.mbas,323 :: 		on_a_0 [week_ini-1][chanel_ini-1][Pwm_chanel_ini-1][on_off22-1][3]=0
 	LDD        R16, Y+2
 	SUBI       R16, 1
 	LDI        R17, 0
@@ -1099,40 +1325,564 @@ L__on_off_initial61:
 	ADIW       R30, 3
 	LDI        R27, 0
 	ST         Z, R27
-;libs/PWM_timers.mbas,265 :: 		next chanel_ini
+;libs/PWM_timers.mbas,326 :: 		next chanel_ini
 	LDD        R16, Y+1
 	CPI        R16, 4
-	BRNE       L__on_off_initial86
-	JMP        L__on_off_initial64
-L__on_off_initial86:
+	BRNE       L_libs/PWM_timers_on_off_initial_old_chnged_newxt_hourtosecond144
+	JMP        L_libs/PWM_timers_on_off_initial_old_chnged_newxt_hourtosecond90
+L_libs/PWM_timers_on_off_initial_old_chnged_newxt_hourtosecond144:
 	LDD        R16, Y+1
 	SUBI       R16, 255
 	STD        Y+1, R16
-	JMP        L__on_off_initial61
-L__on_off_initial64:
-;libs/PWM_timers.mbas,266 :: 		next Pwm_chanel_ini
+	JMP        L_libs/PWM_timers_on_off_initial_old_chnged_newxt_hourtosecond87
+L_libs/PWM_timers_on_off_initial_old_chnged_newxt_hourtosecond90:
+;libs/PWM_timers.mbas,327 :: 		next Pwm_chanel_ini
 	LDD        R16, Y+0
 	CPI        R16, 7
-	BRNE       L__on_off_initial87
-	JMP        L__on_off_initial54
-L__on_off_initial87:
+	BRNE       L_libs/PWM_timers_on_off_initial_old_chnged_newxt_hourtosecond145
+	JMP        L_libs/PWM_timers_on_off_initial_old_chnged_newxt_hourtosecond80
+L_libs/PWM_timers_on_off_initial_old_chnged_newxt_hourtosecond145:
 	LDD        R16, Y+0
 	SUBI       R16, 255
 	STD        Y+0, R16
-	JMP        L__on_off_initial51
-L__on_off_initial54:
-;libs/PWM_timers.mbas,267 :: 		next week_ini
+	JMP        L_libs/PWM_timers_on_off_initial_old_chnged_newxt_hourtosecond77
+L_libs/PWM_timers_on_off_initial_old_chnged_newxt_hourtosecond80:
+;libs/PWM_timers.mbas,328 :: 		next week_ini
 	LDD        R16, Y+2
 	CPI        R16, 7
-	BRNE       L__on_off_initial88
-	JMP        L__on_off_initial49
-L__on_off_initial88:
+	BRNE       L_libs/PWM_timers_on_off_initial_old_chnged_newxt_hourtosecond146
+	JMP        L_libs/PWM_timers_on_off_initial_old_chnged_newxt_hourtosecond75
+L_libs/PWM_timers_on_off_initial_old_chnged_newxt_hourtosecond146:
 	LDD        R16, Y+2
 	SUBI       R16, 255
 	STD        Y+2, R16
-	JMP        L__on_off_initial46
-L__on_off_initial49:
-;libs/PWM_timers.mbas,269 :: 		end sub
+	JMP        L_libs/PWM_timers_on_off_initial_old_chnged_newxt_hourtosecond72
+L_libs/PWM_timers_on_off_initial_old_chnged_newxt_hourtosecond75:
+;libs/PWM_timers.mbas,330 :: 		end sub
+L_end_on_off_initial_old_chnged_newxt_hourtosecond:
+	ADIW       R28, 26
+	OUT        SPL+0, R28
+	OUT        SPL+1, R29
+	POP        R29
+	POP        R28
+	RET
+; end of libs/PWM_timers_on_off_initial_old_chnged_newxt_hourtosecond
+
+_on_off_initial:
+	PUSH       R28
+	PUSH       R29
+	IN         R28, SPL+0
+	IN         R29, SPL+1
+	SBIW       R28, 27
+	OUT        SPL+0, R28
+	OUT        SPL+1, R29
+	ADIW       R28, 1
+
+;libs/PWM_timers.mbas,334 :: 		dim Pwm_chanel_ini,chanel_ini,week_ini as byte
+;libs/PWM_timers.mbas,335 :: 		Lcd_0() lcd_out(1,1,"Initialsiing on_a_0")
+	PUSH       R6
+	PUSH       R5
+	PUSH       R4
+	PUSH       R3
+	PUSH       R2
+	CALL       _Lcd_0+0
+	MOVW       R30, R28
+	ADIW       R30, 3
+	LDI        R27, 73
+	ST         Z+, R27
+	LDI        R27, 110
+	ST         Z+, R27
+	LDI        R27, 105
+	ST         Z+, R27
+	LDI        R27, 116
+	ST         Z+, R27
+	LDI        R27, 105
+	ST         Z+, R27
+	LDI        R27, 97
+	ST         Z+, R27
+	LDI        R27, 108
+	ST         Z+, R27
+	LDI        R27, 115
+	ST         Z+, R27
+	LDI        R27, 105
+	ST         Z+, R27
+	LDI        R27, 105
+	ST         Z+, R27
+	LDI        R27, 110
+	ST         Z+, R27
+	LDI        R27, 103
+	ST         Z+, R27
+	LDI        R27, 32
+	ST         Z+, R27
+	LDI        R27, 111
+	ST         Z+, R27
+	LDI        R27, 110
+	ST         Z+, R27
+	LDI        R27, 95
+	ST         Z+, R27
+	LDI        R27, 97
+	ST         Z+, R27
+	LDI        R27, 95
+	ST         Z+, R27
+	LDI        R27, 48
+	ST         Z+, R27
+	LDI        R27, 0
+	ST         Z+, R27
+	MOVW       R16, R28
+	SUBI       R16, 253
+	SBCI       R17, 255
+	MOVW       R4, R16
+	LDI        R27, 1
+	MOV        R3, R27
+	LDI        R27, 1
+	MOV        R2, R27
+	CALL       _Lcd_Out+0
+	POP        R2
+	POP        R3
+	POP        R4
+	POP        R5
+	POP        R6
+;libs/PWM_timers.mbas,336 :: 		delay_ms(500)
+	LDI        R18, 21
+	LDI        R17, 75
+	LDI        R16, 191
+L__on_off_initial92:
+	DEC        R16
+	BRNE       L__on_off_initial92
+	DEC        R17
+	BRNE       L__on_off_initial92
+	DEC        R18
+	BRNE       L__on_off_initial92
+	NOP
+;libs/PWM_timers.mbas,337 :: 		for week_ini =1 to 7
+	LDI        R27, 1
+	STD        Y+2, R27
+L__on_off_initial95:
+;libs/PWM_timers.mbas,338 :: 		for Pwm_chanel_ini=1 to 7
+	LDI        R27, 1
+	STD        Y+0, R27
+L__on_off_initial100:
+;libs/PWM_timers.mbas,339 :: 		for chanel_ini =1 to 1
+	LDI        R27, 1
+	STD        Y+1, R27
+L__on_off_initial105:
+;libs/PWM_timers.mbas,340 :: 		on_a_0 [week_ini-1][chanel_ini-1][Pwm_chanel_ini-1][on_off22-1][0] =en
+	LDD        R16, Y+2
+	SUBI       R16, 1
+	LDI        R17, 0
+	LDI        R20, 224
+	LDI        R21, 0
+	CALL       _HWMul_16x16+0
+	LDI        R18, #lo_addr(_on_a_0+0)
+	LDI        R19, hi_addr(_on_a_0+0)
+	ADD        R16, R18
+	ADC        R17, R19
+	LDD        R20, Y+1
+	SUBI       R20, 1
+	STD        Y+25, R16
+	STD        Y+26, R17
+	LDI        R16, 56
+	LDI        R17, 0
+	LDI        R21, 0
+	CALL       _HWMul_16x16+0
+	LDD        R18, Y+25
+	LDD        R19, Y+26
+	ADD        R18, R16
+	ADC        R19, R17
+	LDD        R16, Y+0
+	SUBI       R16, 1
+	LDI        R17, 0
+	LSL        R16
+	ROL        R17
+	LSL        R16
+	ROL        R17
+	LSL        R16
+	ROL        R17
+	ADD        R18, R16
+	ADC        R19, R17
+	MOV        R16, R2
+	SUBI       R16, 1
+	LDI        R17, 0
+	LSL        R16
+	ROL        R17
+	LSL        R16
+	ROL        R17
+	MOVW       R30, R16
+	ADD        R30, R18
+	ADC        R31, R19
+	ST         Z, R3
+;libs/PWM_timers.mbas,341 :: 		on_a_0 [week_ini-1][chanel_ini-1][Pwm_chanel_ini-1][on_off22-1][1]=hr
+	LDD        R16, Y+2
+	SUBI       R16, 1
+	LDI        R17, 0
+	LDI        R20, 224
+	LDI        R21, 0
+	CALL       _HWMul_16x16+0
+	LDI        R18, #lo_addr(_on_a_0+0)
+	LDI        R19, hi_addr(_on_a_0+0)
+	ADD        R16, R18
+	ADC        R17, R19
+	LDD        R20, Y+1
+	SUBI       R20, 1
+	STD        Y+25, R16
+	STD        Y+26, R17
+	LDI        R16, 56
+	LDI        R17, 0
+	LDI        R21, 0
+	CALL       _HWMul_16x16+0
+	LDD        R18, Y+25
+	LDD        R19, Y+26
+	ADD        R18, R16
+	ADC        R19, R17
+	LDD        R16, Y+0
+	SUBI       R16, 1
+	LDI        R17, 0
+	LSL        R16
+	ROL        R17
+	LSL        R16
+	ROL        R17
+	LSL        R16
+	ROL        R17
+	ADD        R18, R16
+	ADC        R19, R17
+	MOV        R16, R2
+	SUBI       R16, 1
+	LDI        R17, 0
+	LSL        R16
+	ROL        R17
+	LSL        R16
+	ROL        R17
+	ADD        R16, R18
+	ADC        R17, R19
+	MOVW       R30, R16
+	ADIW       R30, 1
+	ST         Z, R4
+;libs/PWM_timers.mbas,342 :: 		on_a_0 [week_ini-1][chanel_ini-1][Pwm_chanel_ini-1][on_off22-1][2] =mint
+	LDD        R16, Y+2
+	SUBI       R16, 1
+	LDI        R17, 0
+	LDI        R20, 224
+	LDI        R21, 0
+	CALL       _HWMul_16x16+0
+	LDI        R18, #lo_addr(_on_a_0+0)
+	LDI        R19, hi_addr(_on_a_0+0)
+	ADD        R16, R18
+	ADC        R17, R19
+	LDD        R20, Y+1
+	SUBI       R20, 1
+	STD        Y+25, R16
+	STD        Y+26, R17
+	LDI        R16, 56
+	LDI        R17, 0
+	LDI        R21, 0
+	CALL       _HWMul_16x16+0
+	LDD        R18, Y+25
+	LDD        R19, Y+26
+	ADD        R18, R16
+	ADC        R19, R17
+	LDD        R16, Y+0
+	SUBI       R16, 1
+	LDI        R17, 0
+	LSL        R16
+	ROL        R17
+	LSL        R16
+	ROL        R17
+	LSL        R16
+	ROL        R17
+	ADD        R18, R16
+	ADC        R19, R17
+	MOV        R16, R2
+	SUBI       R16, 1
+	LDI        R17, 0
+	LSL        R16
+	ROL        R17
+	LSL        R16
+	ROL        R17
+	ADD        R16, R18
+	ADC        R17, R19
+	MOVW       R30, R16
+	ADIW       R30, 2
+	ST         Z, R5
+;libs/PWM_timers.mbas,343 :: 		on_a_0 [week_ini-1][chanel_ini-1][Pwm_chanel_ini-1][on_off22-1][3]=prc
+	LDD        R16, Y+2
+	SUBI       R16, 1
+	LDI        R17, 0
+	LDI        R20, 224
+	LDI        R21, 0
+	CALL       _HWMul_16x16+0
+	LDI        R18, #lo_addr(_on_a_0+0)
+	LDI        R19, hi_addr(_on_a_0+0)
+	ADD        R16, R18
+	ADC        R17, R19
+	LDD        R20, Y+1
+	SUBI       R20, 1
+	STD        Y+25, R16
+	STD        Y+26, R17
+	LDI        R16, 56
+	LDI        R17, 0
+	LDI        R21, 0
+	CALL       _HWMul_16x16+0
+	LDD        R18, Y+25
+	LDD        R19, Y+26
+	ADD        R18, R16
+	ADC        R19, R17
+	LDD        R16, Y+0
+	SUBI       R16, 1
+	LDI        R17, 0
+	LSL        R16
+	ROL        R17
+	LSL        R16
+	ROL        R17
+	LSL        R16
+	ROL        R17
+	ADD        R18, R16
+	ADC        R19, R17
+	MOV        R16, R2
+	SUBI       R16, 1
+	LDI        R17, 0
+	LSL        R16
+	ROL        R17
+	LSL        R16
+	ROL        R17
+	ADD        R16, R18
+	ADC        R17, R19
+	MOVW       R30, R16
+	ADIW       R30, 3
+	ST         Z, R6
+;libs/PWM_timers.mbas,346 :: 		next chanel_ini
+	LDD        R16, Y+1
+	CPI        R16, 1
+	BRNE       L__on_off_initial148
+	JMP        L__on_off_initial108
+L__on_off_initial148:
+	LDD        R16, Y+1
+	SUBI       R16, 255
+	STD        Y+1, R16
+	JMP        L__on_off_initial105
+L__on_off_initial108:
+;libs/PWM_timers.mbas,347 :: 		for chanel_ini =2 to 4
+	LDI        R27, 2
+	STD        Y+1, R27
+L__on_off_initial110:
+;libs/PWM_timers.mbas,348 :: 		on_a_0 [week_ini-1][chanel_ini-1][Pwm_chanel_ini-1][on_off22-1][0] =0
+	LDD        R16, Y+2
+	SUBI       R16, 1
+	LDI        R17, 0
+	LDI        R20, 224
+	LDI        R21, 0
+	CALL       _HWMul_16x16+0
+	LDI        R18, #lo_addr(_on_a_0+0)
+	LDI        R19, hi_addr(_on_a_0+0)
+	ADD        R16, R18
+	ADC        R17, R19
+	LDD        R20, Y+1
+	SUBI       R20, 1
+	STD        Y+25, R16
+	STD        Y+26, R17
+	LDI        R16, 56
+	LDI        R17, 0
+	LDI        R21, 0
+	CALL       _HWMul_16x16+0
+	LDD        R18, Y+25
+	LDD        R19, Y+26
+	ADD        R18, R16
+	ADC        R19, R17
+	LDD        R16, Y+0
+	SUBI       R16, 1
+	LDI        R17, 0
+	LSL        R16
+	ROL        R17
+	LSL        R16
+	ROL        R17
+	LSL        R16
+	ROL        R17
+	ADD        R18, R16
+	ADC        R19, R17
+	MOV        R16, R2
+	SUBI       R16, 1
+	LDI        R17, 0
+	LSL        R16
+	ROL        R17
+	LSL        R16
+	ROL        R17
+	MOVW       R30, R16
+	ADD        R30, R18
+	ADC        R31, R19
+	LDI        R27, 0
+	ST         Z, R27
+;libs/PWM_timers.mbas,349 :: 		on_a_0 [week_ini-1][chanel_ini-1][Pwm_chanel_ini-1][on_off22-1][1]=hr
+	LDD        R16, Y+2
+	SUBI       R16, 1
+	LDI        R17, 0
+	LDI        R20, 224
+	LDI        R21, 0
+	CALL       _HWMul_16x16+0
+	LDI        R18, #lo_addr(_on_a_0+0)
+	LDI        R19, hi_addr(_on_a_0+0)
+	ADD        R16, R18
+	ADC        R17, R19
+	LDD        R20, Y+1
+	SUBI       R20, 1
+	STD        Y+25, R16
+	STD        Y+26, R17
+	LDI        R16, 56
+	LDI        R17, 0
+	LDI        R21, 0
+	CALL       _HWMul_16x16+0
+	LDD        R18, Y+25
+	LDD        R19, Y+26
+	ADD        R18, R16
+	ADC        R19, R17
+	LDD        R16, Y+0
+	SUBI       R16, 1
+	LDI        R17, 0
+	LSL        R16
+	ROL        R17
+	LSL        R16
+	ROL        R17
+	LSL        R16
+	ROL        R17
+	ADD        R18, R16
+	ADC        R19, R17
+	MOV        R16, R2
+	SUBI       R16, 1
+	LDI        R17, 0
+	LSL        R16
+	ROL        R17
+	LSL        R16
+	ROL        R17
+	ADD        R16, R18
+	ADC        R17, R19
+	MOVW       R30, R16
+	ADIW       R30, 1
+	ST         Z, R4
+;libs/PWM_timers.mbas,350 :: 		on_a_0 [week_ini-1][chanel_ini-1][Pwm_chanel_ini-1][on_off22-1][2] =mint
+	LDD        R16, Y+2
+	SUBI       R16, 1
+	LDI        R17, 0
+	LDI        R20, 224
+	LDI        R21, 0
+	CALL       _HWMul_16x16+0
+	LDI        R18, #lo_addr(_on_a_0+0)
+	LDI        R19, hi_addr(_on_a_0+0)
+	ADD        R16, R18
+	ADC        R17, R19
+	LDD        R20, Y+1
+	SUBI       R20, 1
+	STD        Y+25, R16
+	STD        Y+26, R17
+	LDI        R16, 56
+	LDI        R17, 0
+	LDI        R21, 0
+	CALL       _HWMul_16x16+0
+	LDD        R18, Y+25
+	LDD        R19, Y+26
+	ADD        R18, R16
+	ADC        R19, R17
+	LDD        R16, Y+0
+	SUBI       R16, 1
+	LDI        R17, 0
+	LSL        R16
+	ROL        R17
+	LSL        R16
+	ROL        R17
+	LSL        R16
+	ROL        R17
+	ADD        R18, R16
+	ADC        R19, R17
+	MOV        R16, R2
+	SUBI       R16, 1
+	LDI        R17, 0
+	LSL        R16
+	ROL        R17
+	LSL        R16
+	ROL        R17
+	ADD        R16, R18
+	ADC        R17, R19
+	MOVW       R30, R16
+	ADIW       R30, 2
+	ST         Z, R5
+;libs/PWM_timers.mbas,351 :: 		on_a_0 [week_ini-1][chanel_ini-1][Pwm_chanel_ini-1][on_off22-1][3]=0
+	LDD        R16, Y+2
+	SUBI       R16, 1
+	LDI        R17, 0
+	LDI        R20, 224
+	LDI        R21, 0
+	CALL       _HWMul_16x16+0
+	LDI        R18, #lo_addr(_on_a_0+0)
+	LDI        R19, hi_addr(_on_a_0+0)
+	ADD        R16, R18
+	ADC        R17, R19
+	LDD        R20, Y+1
+	SUBI       R20, 1
+	STD        Y+25, R16
+	STD        Y+26, R17
+	LDI        R16, 56
+	LDI        R17, 0
+	LDI        R21, 0
+	CALL       _HWMul_16x16+0
+	LDD        R18, Y+25
+	LDD        R19, Y+26
+	ADD        R18, R16
+	ADC        R19, R17
+	LDD        R16, Y+0
+	SUBI       R16, 1
+	LDI        R17, 0
+	LSL        R16
+	ROL        R17
+	LSL        R16
+	ROL        R17
+	LSL        R16
+	ROL        R17
+	ADD        R18, R16
+	ADC        R19, R17
+	MOV        R16, R2
+	SUBI       R16, 1
+	LDI        R17, 0
+	LSL        R16
+	ROL        R17
+	LSL        R16
+	ROL        R17
+	ADD        R16, R18
+	ADC        R17, R19
+	MOVW       R30, R16
+	ADIW       R30, 3
+	LDI        R27, 0
+	ST         Z, R27
+;libs/PWM_timers.mbas,354 :: 		next chanel_ini
+	LDD        R16, Y+1
+	CPI        R16, 4
+	BRNE       L__on_off_initial149
+	JMP        L__on_off_initial113
+L__on_off_initial149:
+	LDD        R16, Y+1
+	SUBI       R16, 255
+	STD        Y+1, R16
+	JMP        L__on_off_initial110
+L__on_off_initial113:
+;libs/PWM_timers.mbas,355 :: 		next Pwm_chanel_ini
+	LDD        R16, Y+0
+	CPI        R16, 7
+	BRNE       L__on_off_initial150
+	JMP        L__on_off_initial103
+L__on_off_initial150:
+	LDD        R16, Y+0
+	SUBI       R16, 255
+	STD        Y+0, R16
+	JMP        L__on_off_initial100
+L__on_off_initial103:
+;libs/PWM_timers.mbas,356 :: 		next week_ini
+	LDD        R16, Y+2
+	CPI        R16, 7
+	BRNE       L__on_off_initial151
+	JMP        L__on_off_initial98
+L__on_off_initial151:
+	LDD        R16, Y+2
+	SUBI       R16, 255
+	STD        Y+2, R16
+	JMP        L__on_off_initial95
+L__on_off_initial98:
+;libs/PWM_timers.mbas,358 :: 		end sub
 L_end_on_off_initial:
 	ADIW       R28, 26
 	OUT        SPL+0, R28
@@ -1152,19 +1902,19 @@ _WDT_on:
 	OUT        SPL+1, R29
 	ADIW       R28, 1
 
-;libs/PWM_timers.mbas,270 :: 		sub procedure  WDT_on()
-;libs/PWM_timers.mbas,302 :: 		WDTCR =(1<<WDP2) or (1<<WDP1)  or (1<<WDP0)
+;libs/PWM_timers.mbas,360 :: 		sub procedure  WDT_on()
+;libs/PWM_timers.mbas,392 :: 		WDTCR =(1<<WDP2) or (1<<WDP1)  or (1<<WDP0)
 	PUSH       R2
 	PUSH       R3
 	PUSH       R4
 	PUSH       R5
 	LDI        R27, 7
 	OUT        WDTCR+0, R27
-;libs/PWM_timers.mbas,308 :: 		Lcd_Cmd(_LCD_CLEAR)
+;libs/PWM_timers.mbas,398 :: 		Lcd_Cmd(_LCD_CLEAR)
 	LDI        R27, 1
 	MOV        R2, R27
 	CALL       _Lcd_Cmd+0
-;libs/PWM_timers.mbas,309 :: 		Lcd_Out(2,2,"Reset.")
+;libs/PWM_timers.mbas,399 :: 		Lcd_Out(2,2,"Reset.")
 	MOVW       R30, R28
 	LDI        R27, 82
 	ST         Z+, R27
@@ -1187,7 +1937,7 @@ _WDT_on:
 	LDI        R27, 2
 	MOV        R2, R27
 	CALL       _Lcd_Out+0
-;libs/PWM_timers.mbas,315 :: 		end sub
+;libs/PWM_timers.mbas,405 :: 		end sub
 L_end_WDT_on:
 	POP        R5
 	POP        R4
@@ -1203,7 +1953,7 @@ L_end_WDT_on:
 
 _libs/PWM_timers_?main:
 
-;libs/PWM_timers.mbas,318 :: 		end.
+;libs/PWM_timers.mbas,408 :: 		end.
 L_end_libs/PWM_timers_?main:
 	RET
 ; end of _libs/PWM_timers_?main

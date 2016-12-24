@@ -1,6 +1,6 @@
 module PWM_timers
-dim on_a_0 as Byte[7][4][7][2][4]  external ''[week-1][chanel-1][pwm_chanel-1][on_off2-1][0]
-dim on_a_1 as Byte[7][4][7][2][4]  external ''[week-1][chanel-1][pwm_chanel-1][on_off2-1][0]
+dim on_a_0 as Byte[7][4][7][2][4]  external ''[week-1][chanel-1][pwm_chanel-1][on_off2-1][0]     4 end changed to 5 for adding second setting to on...
+dim on_a_1 as Byte[7][4][7][2][4]  external ''[week-1][chanel-1][pwm_chanel-1][on_off2-1][0]     4 end changed to 5 for adding second setting to on...
 'dim on_a_1 as integer[7][4][7][2][4]  external ''[week-1][chanel-1][pwm_chanel-1][on_off2-1][0]
 'dim on_a_0 as byte[7][1][3][2][4]   external'' on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off22-1][0]
 
@@ -178,7 +178,68 @@ end sub
 '          PWM16bit_Change_Duty(ii, _TIMER3_CH_C )
      end select
  end sub
+ sub procedure PWM_MAKE_Stop(dim jj as byte,dim max_duty as integer,dim Pwm_chanel_make as byte)
+'      dim st as string[4]
+      dim  ii as integer
+        jjyear as float
+'        jjyear=jj
+      jjyear=ceil((jj*max_duty)/100)
+      FloatToStr(jjyear, st)
+'      st[3]=(jjyear div 1000)  + 48
+'       st[2]=((jjyear mod 1000)div 100)  + 48
+'       st[1]= (((jjyear mod 1000)mod 100) div 10)  + 48
+'       st[0]= ((((jjyear mod 1000)mod 100) mod 10) div 1) + 48
+       Lcd_0()
+'         ii = StrToInt(st)
+'         strToInt1()
+'         ii =output
+          ii = integer (jjyear)
+         IntToStr(ii, txt)
+     Lcd_Out(1,1,st)
+     Lcd_Out(2,6,txt)
+     IntToStr(jj, txt)
+     Lcd_Out(2,1,txt)
 
+'     Delay_mS(100)
+     select case Pwm_chanel_make
+     case 2
+'     jj=floor((jj*1024)/100)
+'           PWM_MAKE_as_max(jj,1024) ii=output
+          PWM16bit_Stop( _TIMER1_CH_A ) 'PWM16bit_Change_Duty(ii, _TIMER1_CH_A )
+     case 3
+
+'          jj=ceil((jj*1024)/100)
+          PWM16bit_Stop( _TIMER1_CH_B ) 'PWM16bit_Change_Duty(ii,_TIMER1_CH_B )
+     case 4
+'     PWM_MAKE_as_max(jj,512) ii=output
+'     jj=floor((jj*255)/100)
+'          PWM2_Set_Duty(ii)
+          PWM16bit_Stop( 2 ) 'PWM16bit_Change_Duty(ii,2 )
+     case 1
+'     PWM_MAKE_as_max(jj,512) ii=output
+'     jj=floor((jj*255)/100)
+          if jj=0 then
+             SetPWM0(max_duty-ii)
+           else
+                SetPWM0(max_duty-ii)
+'                PWM1_Set_Duty(ii)
+           end if
+
+
+     case 5
+'     PWM_MAKE_as_max(jj,512) ii=output
+'     jj=floor((jj*255)/100)
+'          PWM16bit_Change_Duty(ii, _TIMER3_CH_A )
+     case 6
+'     PWM_MAKE_as_max(jj,512) ii=output
+'     jj=floor((jj*255)/100)
+'          PWM16bit_Change_Duty(ii, _TIMER3_CH_B )
+     case 7
+'     PWM_MAKE_as_max(jj,512) ii=output
+'     jj=floor((jj*255)/100)
+'          PWM16bit_Change_Duty(ii, _TIMER3_CH_C )
+     end select
+ end sub
 ' ######################################################################################################################################
 sub procedure PWM_Initialize ()
 dim j as byte
@@ -219,8 +280,8 @@ J=0
     ocr0=0 ocr2=0
 
     for k=0 to 10
-        PWM_MAKE (k*10,255,1)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
-        delay_ms(200)
+        PWM_MAKE (k*10,255,4)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+        delay_ms(50)
     next k
 '    PWM_MAKE (100,255,1)
 '    PWM_MAKE (100,255,2)
@@ -240,6 +301,34 @@ J=0
 
 '    SetPWM0(0)
 end sub
+sub procedure on_off_initial_old_chnged_newxt_hourtosecond (dim on_off22,en,hr,mint,prc as byte)
+' on_off2=1       'on time
+dim Pwm_chanel_ini,chanel_ini,week_ini as byte
+     Lcd_0() lcd_out(1,1,"Initialsiing on_a_0")
+     delay_ms(500)
+     for week_ini =1 to 7
+     for Pwm_chanel_ini=1 to 7
+     for chanel_ini =1 to 1
+         on_a_0 [week_ini-1][chanel_ini-1][Pwm_chanel_ini-1][on_off22-1][0] =en
+         on_a_0 [week_ini-1][chanel_ini-1][Pwm_chanel_ini-1][on_off22-1][1]=hr
+         on_a_0 [week_ini-1][chanel_ini-1][Pwm_chanel_ini-1][on_off22-1][2] =mint
+         on_a_0 [week_ini-1][chanel_ini-1][Pwm_chanel_ini-1][on_off22-1][3]=prc
+'      Delay_mS(1000)
+'       next on_off2
+     next chanel_ini
+     for chanel_ini =2 to 4
+         on_a_0 [week_ini-1][chanel_ini-1][Pwm_chanel_ini-1][on_off22-1][0] =0
+         on_a_0 [week_ini-1][chanel_ini-1][Pwm_chanel_ini-1][on_off22-1][1]=hr
+         on_a_0 [week_ini-1][chanel_ini-1][Pwm_chanel_ini-1][on_off22-1][2] =mint
+         on_a_0 [week_ini-1][chanel_ini-1][Pwm_chanel_ini-1][on_off22-1][3]=0
+'      Delay_mS(1000)
+'       next on_off2
+     next chanel_ini
+      next Pwm_chanel_ini
+      next week_ini
+
+end sub
+
 sub procedure on_off_initial (dim on_off22,en,hr,mint,prc as byte)
 ' on_off2=1       'on time
 dim Pwm_chanel_ini,chanel_ini,week_ini as byte
@@ -267,6 +356,7 @@ dim Pwm_chanel_ini,chanel_ini,week_ini as byte
       next week_ini
 
 end sub
+
 sub procedure  WDT_on()
 
 
