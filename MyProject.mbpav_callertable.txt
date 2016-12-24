@@ -118,34 +118,39 @@ main
 					float_tstr16_r19
 			float_fpint
 		HWMul_16x16
-	Easy_vacuum_95_10_4
+	Easy_vacuum_95_10_4_simple
 		Read_Time
 		Shamsi_call
 		Shamsi_show_lcd
 		miladi_call
-		IntToStr
-		Lcd_0
+		Button
+			Delay_500us
 		Lcd_Out
-		PWM_MAKE
-		Lcd_Chr
-		ByteToStr
+		Dec2Bcd
 			Div_8x8_U
+		Write_Time
+		Lcd_0
+		IntToStr
+		PWM_MAKE
 		HWMul_16x16
-		Div_8x8_U
 Timer0_overflow
 Timer2_Compare
+interrupt_ISR_6
+	WDT_on
+		Lcd_Cmd
+		Lcd_Out
+	Easy_vacuum_95_10_4_simple
+	Lcd_Out
 interrupt_ISR
 	Lcd_0
 	Lcd_Out
 	WDT_on
-		Lcd_Cmd
-		Lcd_Out
 	Keypad_set__date_time_import_On_hour_teben
 		Lcd_0
 		ByteToStr
+			Div_8x8_U
 		Lcd_Out
 		Button
-			Delay_500us
 	Keypad_set__date_time_import_On_minut_teben
 		Lcd_0
 		ByteToStr
@@ -193,7 +198,6 @@ interrupt_ISR
 				Button
 				Lcd_0
 			Dec2Bcd
-				Div_8x8_U
 			Write_Time
 		Keypad_Relay_set__date_time_stack_overflow_teben
 			__CA2AW

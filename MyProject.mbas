@@ -132,6 +132,40 @@ if (Button(PIND, 2, 0.1, 1)<> 0) then    ' Detect logical one setting key
  end if
 end sub
 
+sub procedure interrupt_ISR_6 () org IVT_ADDR_INT6            ''// Interrupt rutine
+'dim while_satate_in_1 as bit
+
+
+  SREG_I_bit = 0                                   '' // Disable Interrupts
+
+   WDT_on()
+'  INTF2_bit=0                                                  '  // Clear interrupt flag
+  INT6_bit = 0
+  ' ## ############## Because of Disappering the Pwm Part we need to run this comands #########################
+' while_state_import_main=0
+'Keypad_set__date_time_import_On_hour_teben(week,hours,minutes,23,0)
+'Keypad_set__date_time_import_On_minut_teben(week,on_a_0[week-1][chanel-1][Pwm_chanel-1][on_off2-1][1],minutes,59,0)
+'Keypad_set__date_time_import_Yes_No_teben( week,chanel,1, 2,1 )
+'Keypad_set__date_time_import_PWM_Red_teben(1,1,on_a_0[week_new-1][chanel-1][Pwm_chanel-1][on_off2-1][3],100,0,on_a_0[week_new-1][0][Pwm_chanel-1][on_off2-1][3],on_a_0[week_new-1][1][Pwm_chanel-1][on_off2-1][3],on_a_0[week_new-1][2][Pwm_chanel-1][on_off2-1][3],on_a_0[week_new-1][3][Pwm_chanel-1][on_off2-1][3],0,0,0,0,0)''on_a_0[week_new-1][4][Pwm_chanel-1][on_off2-1][3],0,0,0,0) ''on_a_0[week_new-1][5][Pwm_chanel-1][on_off2-1][3],on_a_0[week_new-1][6][Pwm_chanel-1][on_off2-1][3],0,0) ''on_a_0[week_new-1][7][Pwm_chanel-1][on_off2-1][3],on_a_0[week_new-1][8][Pwm_chanel-1][on_off2-1][3]) ''(dim mode_1,Pwm_chanel,var_in as byte, dim p_max as  byte, dim p_min as  byte )
+'Keypad_set__date_time_import_save_exit_teben (week,1,1,0)
+'while_state_import_main=1
+ ' ## ############## Because of Disappering the Pwm Part  we need to run this comands #########################
+
+  Easy_vacuum_95_10_4_simple(chanel,1)
+
+       Lcd_Out(1,1,txt1)
+
+  '/* Turn off WDT */
+
+  WDTCR = 0x00
+  INT6_bit = 1
+
+  SREG_I_bit = 1                                  ''  // Enable Interrupts
+
+
+end sub
+
+
 sub procedure interrupt_ISR_0 () org IVT_ADDR_INT0            ''// Interrupt rutine
 'dim while_satate_in_1 as bit
 
@@ -171,9 +205,13 @@ main:
   DDC4_bit =1   DDC5_bit =1  ' configure PORTD as output
   DDC6_bit =1
   DDC7_bit =1
+  ''################switches Ports #############
   'DDD0_bit =0  DDD1_bit =0
-   DDD2_bit =0 DDD3_bit =1   DDD4_bit =0  ' configure PORTD as output
-  DDD5_bit =0 DDD6_bit =0     DDD7_bit =1
+   DDD2_bit =0 DDD3_bit =0   DDD4_bit =0  ' configure PORTD as output
+  DDD5_bit =0 DDD6_bit =0     DDD7_bit =0
+  DDE6_bit = 0                    ' Set PORTE pin 7 as input pin for the Heater switches
+  ''################ End of switches Ports #############
+  
   DDB1_bit =1      DDB3_bit =1
   DDA0_bit =1 DDA1_bit =1      DDA2_bit =1  DDA3_bit =1
 '  PORTC = 0xAA                                        ' initial PORTC value
@@ -187,6 +225,7 @@ main:
    DDE3_bit = 1                    ' Set PORTD pin 7 as output pin for the PWM1 (according to datasheet)
    DDE4_bit = 1                    ' Set PORTD pin 7 as output pin for the PWM1 (according to datasheet)
    DDE5_bit = 1                    ' Set PORTD pin 7 as output pin for the PWM1 (according to datasheet)
+
 
       ''################timer test part #############
 
@@ -312,6 +351,7 @@ LCD_Out(2,1,"TEST")
     SREG_I_bit = 1
 
     INT2_bit =1
+    INT6_bit =1
 
 '#########################################
 
@@ -319,10 +359,12 @@ LCD_Out(2,1,"TEST")
 '  PWM_Initialize ()
   PWM_Initialize ()
 '  SetPWM0(0)
+  chanel=1
   while TRUE
 '        radeon_github_10_95()
-         chanel=1
-         Easy_vacuum_95_10_4(chanel)
+
+'         Easy_vacuum_95_10_4(chanel)
+        Easy_vacuum_95_10_4_simple(chanel,0)
 
   wend
 

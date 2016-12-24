@@ -668,6 +668,7 @@ dord
 dord_bit
 e
 easy_vacuum_95_10_4
+easy_vacuum_95_10_4_simple
 eear10
 eear10_bit
 eear11
@@ -732,6 +733,8 @@ eicra
 eicrb
 eifr
 eimsk
+end_minutes_next
+end_seconds_next
 entry
 etifr
 etimsk
@@ -982,6 +985,10 @@ halfbits
 heart
 hh
 hours
+ht_end_min
+ht_end_sec
+ht_start_min
+ht_start_sec
 hwmul_16x16
 hwmul_32x32
 i
@@ -1127,6 +1134,7 @@ intconb_ioc6
 intconb_ioc7
 interrupt_isr
 interrupt_isr_0
+interrupt_isr_6
 interupt_first_time
 intf0
 intf0_bit
@@ -1439,6 +1447,10 @@ mmc_read_sector
 mmc_write_sector
 mn
 mo
+mo_end_min
+mo_end_sec
+mo_start_min
+mo_start_sec
 modf
 month
 mpcm0
@@ -2652,6 +2664,15 @@ srw11
 srw11_bit
 ss
 st
+start_day
+start_hours
+start_minutes
+start_minutes_next
+start_month
+start_seconds
+start_seconds_next
+start_week
+start_year
 status
 strappendpre
 strappendsuf

@@ -26,9 +26,9 @@ _interrupt_ISR:
 	PUSH       R9
 	LDS        R16, _Interupt_first_time+0
 	CPI        R16, 0
-	BREQ       L__interrupt_ISR30
+	BREQ       L__interrupt_ISR31
 	JMP        L__interrupt_ISR2
-L__interrupt_ISR30:
+L__interrupt_ISR31:
 ;MyProject.mbas,81 :: 		Interupt_first_time=1
 	LDI        R27, 1
 	STS        _Interupt_first_time+0, R27
@@ -393,9 +393,9 @@ L__interrupt_ISR2:
 	MOV        R3, R27
 	CALL       _Button+0
 	CPI        R16, 0
-	BRNE       L__interrupt_ISR31
+	BRNE       L__interrupt_ISR32
 	JMP        L__interrupt_ISR7
-L__interrupt_ISR31:
+L__interrupt_ISR32:
 ;MyProject.mbas,107 :: 		oldstate = 1
 	LDS        R27, _oldstate+0
 	SBR        R27, BitMask(_oldstate+0)
@@ -429,9 +429,9 @@ L__interrupt_ISR7:
 	SBRC       R0, BitPos(_oldstate+0)
 	INC        R17
 	AND        R16, R17
-	BRNE       L__interrupt_ISR32
+	BRNE       L__interrupt_ISR33
 	JMP        L__interrupt_ISR12
-L__interrupt_ISR32:
+L__interrupt_ISR33:
 ;MyProject.mbas,114 :: 		oldstate = 0
 	LDS        R27, _oldstate+0
 	CBR        R27, BitMask(_oldstate+0)
@@ -511,6 +511,66 @@ L_end_interrupt_ISR:
 	RETI
 ; end of _interrupt_ISR
 
+_interrupt_ISR_6:
+	PUSH       R30
+	PUSH       R31
+	PUSH       R27
+	IN         R27, SREG+0
+	PUSH       R27
+
+;MyProject.mbas,135 :: 		sub procedure interrupt_ISR_6 () org IVT_ADDR_INT6            ''// Interrupt rutine
+;MyProject.mbas,139 :: 		SREG_I_bit = 0                                   '' // Disable Interrupts
+	PUSH       R2
+	PUSH       R3
+	PUSH       R4
+	PUSH       R5
+	IN         R27, SREG_I_bit+0
+	CBR        R27, BitMask(SREG_I_bit+0)
+	OUT        SREG_I_bit+0, R27
+;MyProject.mbas,141 :: 		WDT_on()
+	CALL       _WDT_on+0
+;MyProject.mbas,143 :: 		INT6_bit = 0
+	IN         R27, INT6_bit+0
+	CBR        R27, BitMask(INT6_bit+0)
+	OUT        INT6_bit+0, R27
+;MyProject.mbas,154 :: 		Easy_vacuum_95_10_4_simple(chanel)
+	LDS        R2, _chanel+0
+	CALL       _Easy_vacuum_95_10_4_simple+0
+;MyProject.mbas,156 :: 		Lcd_Out(1,1,txt1)
+	LDI        R27, #lo_addr(_txt1+0)
+	MOV        R4, R27
+	LDI        R27, hi_addr(_txt1+0)
+	MOV        R5, R27
+	LDI        R27, 1
+	MOV        R3, R27
+	LDI        R27, 1
+	MOV        R2, R27
+	CALL       _Lcd_Out+0
+;MyProject.mbas,160 :: 		WDTCR = 0x00
+	LDI        R27, 0
+	OUT        WDTCR+0, R27
+;MyProject.mbas,161 :: 		INT6_bit = 1
+	IN         R27, INT6_bit+0
+	SBR        R27, BitMask(INT6_bit+0)
+	OUT        INT6_bit+0, R27
+;MyProject.mbas,163 :: 		SREG_I_bit = 1                                  ''  // Enable Interrupts
+	IN         R27, SREG_I_bit+0
+	SBR        R27, BitMask(SREG_I_bit+0)
+	OUT        SREG_I_bit+0, R27
+;MyProject.mbas,166 :: 		end sub
+L_end_interrupt_ISR_6:
+	POP        R5
+	POP        R4
+	POP        R3
+	POP        R2
+	POP        R27
+	OUT        SREG+0, R27
+	POP        R27
+	POP        R31
+	POP        R30
+	RETI
+; end of _interrupt_ISR_6
+
 _interrupt_ISR_0:
 	PUSH       R30
 	PUSH       R31
@@ -526,8 +586,8 @@ _interrupt_ISR_0:
 	OUT        SPL+1, R29
 	ADIW       R28, 1
 
-;MyProject.mbas,135 :: 		sub procedure interrupt_ISR_0 () org IVT_ADDR_INT0            ''// Interrupt rutine
-;MyProject.mbas,138 :: 		SREG_I_bit = 0                                   '' // Disable Interrupts
+;MyProject.mbas,169 :: 		sub procedure interrupt_ISR_0 () org IVT_ADDR_INT0            ''// Interrupt rutine
+;MyProject.mbas,172 :: 		SREG_I_bit = 0                                   '' // Disable Interrupts
 	PUSH       R2
 	PUSH       R3
 	PUSH       R4
@@ -535,7 +595,7 @@ _interrupt_ISR_0:
 	IN         R27, SREG_I_bit+0
 	CBR        R27, BitMask(SREG_I_bit+0)
 	OUT        SREG_I_bit+0, R27
-;MyProject.mbas,139 :: 		LCD_Out(2,1, "INT0")
+;MyProject.mbas,173 :: 		LCD_Out(2,1, "INT0")
 	MOVW       R30, R28
 	LDI        R27, 73
 	ST         Z+, R27
@@ -554,41 +614,41 @@ _interrupt_ISR_0:
 	LDI        R27, 2
 	MOV        R2, R27
 	CALL       _Lcd_Out+0
-;MyProject.mbas,140 :: 		Delay_mS(1000)
+;MyProject.mbas,174 :: 		Delay_mS(1000)
 	LDI        R18, 41
 	LDI        R17, 150
 	LDI        R16, 128
-L__interrupt_ISR_017:
+L__interrupt_ISR_018:
 	DEC        R16
-	BRNE       L__interrupt_ISR_017
+	BRNE       L__interrupt_ISR_018
 	DEC        R17
-	BRNE       L__interrupt_ISR_017
+	BRNE       L__interrupt_ISR_018
 	DEC        R18
-	BRNE       L__interrupt_ISR_017
-;MyProject.mbas,141 :: 		WDT_on()
+	BRNE       L__interrupt_ISR_018
+;MyProject.mbas,175 :: 		WDT_on()
 	CALL       _WDT_on+0
-;MyProject.mbas,142 :: 		INTF0_bit=0                                                  '  // Clear interrupt flag
+;MyProject.mbas,176 :: 		INTF0_bit=0                                                  '  // Clear interrupt flag
 	IN         R27, INTF0_bit+0
 	CBR        R27, BitMask(INTF0_bit+0)
 	OUT        INTF0_bit+0, R27
-;MyProject.mbas,143 :: 		INT0_bit = 0
+;MyProject.mbas,177 :: 		INT0_bit = 0
 	IN         R27, INT0_bit+0
 	CBR        R27, BitMask(INT0_bit+0)
 	OUT        INT0_bit+0, R27
-;MyProject.mbas,144 :: 		Keypad_3()
+;MyProject.mbas,178 :: 		Keypad_3()
 	CALL       _Keypad_3+0
-;MyProject.mbas,147 :: 		WDTCR = 0x00
+;MyProject.mbas,181 :: 		WDTCR = 0x00
 	LDI        R27, 0
 	OUT        WDTCR+0, R27
-;MyProject.mbas,148 :: 		INT0_bit = 1
+;MyProject.mbas,182 :: 		INT0_bit = 1
 	IN         R27, INT0_bit+0
 	SBR        R27, BitMask(INT0_bit+0)
 	OUT        INT0_bit+0, R27
-;MyProject.mbas,150 :: 		SREG_I_bit = 1                                  ''  // Enable Interrupts
+;MyProject.mbas,184 :: 		SREG_I_bit = 1                                  ''  // Enable Interrupts
 	IN         R27, SREG_I_bit+0
 	SBR        R27, BitMask(SREG_I_bit+0)
 	OUT        SREG_I_bit+0, R27
-;MyProject.mbas,158 :: 		end sub
+;MyProject.mbas,192 :: 		end sub
 L_end_interrupt_ISR_0:
 	POP        R5
 	POP        R4
@@ -619,8 +679,8 @@ _main:
 	OUT        SPL+1, R29
 	ADIW       R28, 1
 
-;MyProject.mbas,162 :: 		main:
-;MyProject.mbas,163 :: 		DDB0_bit = 1                                       ' set Button pin as input
+;MyProject.mbas,196 :: 		main:
+;MyProject.mbas,197 :: 		DDB0_bit = 1                                       ' set Button pin as input
 	PUSH       R2
 	PUSH       R3
 	PUSH       R4
@@ -632,55 +692,55 @@ _main:
 	IN         R27, DDB0_bit+0
 	SBR        R27, BitMask(DDB0_bit+0)
 	OUT        DDB0_bit+0, R27
-;MyProject.mbas,164 :: 		DDA2_bit = 1                                        ' set Button pin as input
+;MyProject.mbas,198 :: 		DDA2_bit = 1                                        ' set Button pin as input
 	IN         R27, DDA2_bit+0
 	SBR        R27, BitMask(DDA2_bit+0)
 	OUT        DDA2_bit+0, R27
-;MyProject.mbas,167 :: 		DDA5_bit = 1                                        ' set Button pin as input
+;MyProject.mbas,201 :: 		DDA5_bit = 1                                        ' set Button pin as input
 	IN         R27, DDA5_bit+0
 	SBR        R27, BitMask(DDA5_bit+0)
 	OUT        DDA5_bit+0, R27
-;MyProject.mbas,168 :: 		DDA4_bit = 1                                        ' set Button pin as input
+;MyProject.mbas,202 :: 		DDA4_bit = 1                                        ' set Button pin as input
 	IN         R27, DDA4_bit+0
 	SBR        R27, BitMask(DDA4_bit+0)
 	OUT        DDA4_bit+0, R27
-;MyProject.mbas,169 :: 		DDA3_bit = 1                                        ' set Button pin as input
+;MyProject.mbas,203 :: 		DDA3_bit = 1                                        ' set Button pin as input
 	IN         R27, DDA3_bit+0
 	SBR        R27, BitMask(DDA3_bit+0)
 	OUT        DDA3_bit+0, R27
-;MyProject.mbas,170 :: 		DDC2_bit =1   DDC3_bit =1
+;MyProject.mbas,204 :: 		DDC2_bit =1   DDC3_bit =1
 	IN         R27, DDC2_bit+0
 	SBR        R27, BitMask(DDC2_bit+0)
 	OUT        DDC2_bit+0, R27
 	IN         R27, DDC3_bit+0
 	SBR        R27, BitMask(DDC3_bit+0)
 	OUT        DDC3_bit+0, R27
-;MyProject.mbas,171 :: 		DDC4_bit =1   DDC5_bit =1  ' configure PORTD as output
+;MyProject.mbas,205 :: 		DDC4_bit =1   DDC5_bit =1  ' configure PORTD as output
 	IN         R27, DDC4_bit+0
 	SBR        R27, BitMask(DDC4_bit+0)
 	OUT        DDC4_bit+0, R27
 	IN         R27, DDC5_bit+0
 	SBR        R27, BitMask(DDC5_bit+0)
 	OUT        DDC5_bit+0, R27
-;MyProject.mbas,172 :: 		DDC6_bit =1
+;MyProject.mbas,206 :: 		DDC6_bit =1
 	IN         R27, DDC6_bit+0
 	SBR        R27, BitMask(DDC6_bit+0)
 	OUT        DDC6_bit+0, R27
-;MyProject.mbas,173 :: 		DDC7_bit =1
+;MyProject.mbas,207 :: 		DDC7_bit =1
 	IN         R27, DDC7_bit+0
 	SBR        R27, BitMask(DDC7_bit+0)
 	OUT        DDC7_bit+0, R27
-;MyProject.mbas,175 :: 		DDD2_bit =0 DDD3_bit =1   DDD4_bit =0  ' configure PORTD as output
+;MyProject.mbas,210 :: 		DDD2_bit =0 DDD3_bit =0   DDD4_bit =0  ' configure PORTD as output
 	IN         R27, DDD2_bit+0
 	CBR        R27, BitMask(DDD2_bit+0)
 	OUT        DDD2_bit+0, R27
 	IN         R27, DDD3_bit+0
-	SBR        R27, BitMask(DDD3_bit+0)
+	CBR        R27, BitMask(DDD3_bit+0)
 	OUT        DDD3_bit+0, R27
 	IN         R27, DDD4_bit+0
 	CBR        R27, BitMask(DDD4_bit+0)
 	OUT        DDD4_bit+0, R27
-;MyProject.mbas,176 :: 		DDD5_bit =0 DDD6_bit =0     DDD7_bit =1
+;MyProject.mbas,211 :: 		DDD5_bit =0 DDD6_bit =0     DDD7_bit =0
 	IN         R27, DDD5_bit+0
 	CBR        R27, BitMask(DDD5_bit+0)
 	OUT        DDD5_bit+0, R27
@@ -688,16 +748,20 @@ _main:
 	CBR        R27, BitMask(DDD6_bit+0)
 	OUT        DDD6_bit+0, R27
 	IN         R27, DDD7_bit+0
-	SBR        R27, BitMask(DDD7_bit+0)
+	CBR        R27, BitMask(DDD7_bit+0)
 	OUT        DDD7_bit+0, R27
-;MyProject.mbas,177 :: 		DDB1_bit =1      DDB3_bit =1
+;MyProject.mbas,212 :: 		DDE6_bit = 0                    ' Set PORTE pin 7 as input pin for the Heater switches
+	IN         R27, DDE6_bit+0
+	CBR        R27, BitMask(DDE6_bit+0)
+	OUT        DDE6_bit+0, R27
+;MyProject.mbas,215 :: 		DDB1_bit =1      DDB3_bit =1
 	IN         R27, DDB1_bit+0
 	SBR        R27, BitMask(DDB1_bit+0)
 	OUT        DDB1_bit+0, R27
 	IN         R27, DDB3_bit+0
 	SBR        R27, BitMask(DDB3_bit+0)
 	OUT        DDB3_bit+0, R27
-;MyProject.mbas,178 :: 		DDA0_bit =1 DDA1_bit =1      DDA2_bit =1  DDA3_bit =1
+;MyProject.mbas,216 :: 		DDA0_bit =1 DDA1_bit =1      DDA2_bit =1  DDA3_bit =1
 	IN         R27, DDA0_bit+0
 	SBR        R27, BitMask(DDA0_bit+0)
 	OUT        DDA0_bit+0, R27
@@ -710,45 +774,45 @@ _main:
 	IN         R27, DDA3_bit+0
 	SBR        R27, BitMask(DDA3_bit+0)
 	OUT        DDA3_bit+0, R27
-;MyProject.mbas,183 :: 		DDB4_bit = 1                    ' Set PORTB pin 3 as output pin for the PWM (according to datasheet)
+;MyProject.mbas,221 :: 		DDB4_bit = 1                    ' Set PORTB pin 3 as output pin for the PWM (according to datasheet)
 	IN         R27, DDB4_bit+0
 	SBR        R27, BitMask(DDB4_bit+0)
 	OUT        DDB4_bit+0, R27
-;MyProject.mbas,184 :: 		DDB5_bit = 1                    ' Set PORTB pin 3 as output pin for the PWM (according to datasheet)
+;MyProject.mbas,222 :: 		DDB5_bit = 1                    ' Set PORTB pin 3 as output pin for the PWM (according to datasheet)
 	IN         R27, DDB5_bit+0
 	SBR        R27, BitMask(DDB5_bit+0)
 	OUT        DDB5_bit+0, R27
-;MyProject.mbas,185 :: 		DDB6_bit = 1                    ' Set PORTB pin 3 as output pin for the PWM (according to datasheet)
+;MyProject.mbas,223 :: 		DDB6_bit = 1                    ' Set PORTB pin 3 as output pin for the PWM (according to datasheet)
 	IN         R27, DDB6_bit+0
 	SBR        R27, BitMask(DDB6_bit+0)
 	OUT        DDB6_bit+0, R27
-;MyProject.mbas,186 :: 		DDB7_bit = 1                    ' Set PORTB pin 3 as output pin for the PWM (according to datasheet)
+;MyProject.mbas,224 :: 		DDB7_bit = 1                    ' Set PORTB pin 3 as output pin for the PWM (according to datasheet)
 	IN         R27, DDB7_bit+0
 	SBR        R27, BitMask(DDB7_bit+0)
 	OUT        DDB7_bit+0, R27
-;MyProject.mbas,187 :: 		DDE3_bit = 1                    ' Set PORTD pin 7 as output pin for the PWM1 (according to datasheet)
+;MyProject.mbas,225 :: 		DDE3_bit = 1                    ' Set PORTD pin 7 as output pin for the PWM1 (according to datasheet)
 	IN         R27, DDE3_bit+0
 	SBR        R27, BitMask(DDE3_bit+0)
 	OUT        DDE3_bit+0, R27
-;MyProject.mbas,188 :: 		DDE4_bit = 1                    ' Set PORTD pin 7 as output pin for the PWM1 (according to datasheet)
+;MyProject.mbas,226 :: 		DDE4_bit = 1                    ' Set PORTD pin 7 as output pin for the PWM1 (according to datasheet)
 	IN         R27, DDE4_bit+0
 	SBR        R27, BitMask(DDE4_bit+0)
 	OUT        DDE4_bit+0, R27
-;MyProject.mbas,189 :: 		DDE5_bit = 1                    ' Set PORTD pin 7 as output pin for the PWM1 (according to datasheet)
+;MyProject.mbas,227 :: 		DDE5_bit = 1                    ' Set PORTD pin 7 as output pin for the PWM1 (according to datasheet)
 	IN         R27, DDE5_bit+0
 	SBR        R27, BitMask(DDE5_bit+0)
 	OUT        DDE5_bit+0, R27
-;MyProject.mbas,194 :: 		LCD_Init() ' Initialize LCD
+;MyProject.mbas,233 :: 		LCD_Init() ' Initialize LCD
 	CALL       _Lcd_Init+0
-;MyProject.mbas,195 :: 		LCD_cmd(_LCD_CLEAR) ' Clear LCD
+;MyProject.mbas,234 :: 		LCD_cmd(_LCD_CLEAR) ' Clear LCD
 	LDI        R27, 1
 	MOV        R2, R27
 	CALL       _Lcd_Cmd+0
-;MyProject.mbas,196 :: 		LCD_cmd(_LCD_CURSOR_OFF)
+;MyProject.mbas,235 :: 		LCD_cmd(_LCD_CURSOR_OFF)
 	LDI        R27, 12
 	MOV        R2, R27
 	CALL       _Lcd_Cmd+0
-;MyProject.mbas,197 :: 		LCD_Out(2,1,"TEST")
+;MyProject.mbas,236 :: 		LCD_Out(2,1,"TEST")
 	MOVW       R30, R28
 	LDI        R27, 84
 	ST         Z+, R27
@@ -767,7 +831,7 @@ _main:
 	LDI        R27, 2
 	MOV        R2, R27
 	CALL       _Lcd_Out+0
-;MyProject.mbas,198 :: 		hours=0x0  minutes=0x0   seconds=0x00 day= 0x2 week=2   month=0x11  year=0x15
+;MyProject.mbas,237 :: 		hours=0x0  minutes=0x0   seconds=0x00 day= 0x2 week=2   month=0x11  year=0x15
 	LDI        R27, 0
 	STS        _hours+0, R27
 	LDI        R27, 0
@@ -782,7 +846,7 @@ _main:
 	STS        _month+0, R27
 	LDI        R27, 21
 	STS        _year+0, R27
-;MyProject.mbas,201 :: 		Write_Time(hours, minutes, seconds, 0x13, 0x02,   0x11,year)'
+;MyProject.mbas,240 :: 		Write_Time(hours, minutes, seconds, 0x13, 0x02,   0x11,year)'
 	LDI        R27, 21
 	MOV        R8, R27
 	LDI        R27, 17
@@ -795,15 +859,15 @@ _main:
 	CLR        R3
 	CLR        R2
 	CALL       _Write_Time+0
-;MyProject.mbas,207 :: 		while_state_import=1
+;MyProject.mbas,246 :: 		while_state_import=1
 	LDS        R27, _while_state_import+0
 	SBR        R27, BitMask(_while_state_import+0)
 	STS        _while_state_import+0, R27
-;MyProject.mbas,208 :: 		oldstate_2=0
+;MyProject.mbas,247 :: 		oldstate_2=0
 	LDS        R27, _oldstate_2+0
 	CBR        R27, BitMask(_oldstate_2+0)
 	STS        _oldstate_2+0, R27
-;MyProject.mbas,210 :: 		chanel=1  Pwm_chanel=1  on_off2=1   week_new=week    chanel_active=1
+;MyProject.mbas,249 :: 		chanel=1  Pwm_chanel=1  on_off2=1   week_new=week    chanel_active=1
 	LDI        R27, 1
 	STS        _chanel+0, R27
 	LDI        R27, 1
@@ -814,17 +878,17 @@ _main:
 	STS        _week_new+0, R16
 	LDI        R27, 1
 	STS        _chanel_active+0, R27
-;MyProject.mbas,269 :: 		Lcd_0()
+;MyProject.mbas,308 :: 		Lcd_0()
 	CALL       _Lcd_0+0
-;MyProject.mbas,270 :: 		LCD_Load()
+;MyProject.mbas,309 :: 		LCD_Load()
 	CALL       _LCD_Load+0
-;MyProject.mbas,271 :: 		CustomChar(1,1)
+;MyProject.mbas,310 :: 		CustomChar(1,1)
 	LDI        R27, 1
 	MOV        R3, R27
 	LDI        R27, 1
 	MOV        R2, R27
 	CALL       _CustomChar+0
-;MyProject.mbas,272 :: 		LCD_Chr(1,5,3)
+;MyProject.mbas,311 :: 		LCD_Chr(1,5,3)
 	LDI        R27, 3
 	MOV        R4, R27
 	LDI        R27, 5
@@ -832,14 +896,14 @@ _main:
 	LDI        R27, 1
 	MOV        R2, R27
 	CALL       _Lcd_Chr+0
-;MyProject.mbas,273 :: 		LCD_Chr(2,2,0)    ' Display custom char 0 (heart)
+;MyProject.mbas,312 :: 		LCD_Chr(2,2,0)    ' Display custom char 0 (heart)
 	CLR        R4
 	LDI        R27, 2
 	MOV        R3, R27
 	LDI        R27, 2
 	MOV        R2, R27
 	CALL       _Lcd_Chr+0
-;MyProject.mbas,274 :: 		LCD_Chr(2,4,4)    ' Display custom char B
+;MyProject.mbas,313 :: 		LCD_Chr(2,4,4)    ' Display custom char B
 	LDI        R27, 4
 	MOV        R4, R27
 	LDI        R27, 4
@@ -847,20 +911,20 @@ _main:
 	LDI        R27, 2
 	MOV        R2, R27
 	CALL       _Lcd_Chr+0
-;MyProject.mbas,275 :: 		Delay_ms(1500)
+;MyProject.mbas,314 :: 		Delay_ms(1500)
 	LDI        R18, 61
 	LDI        R17, 225
 	LDI        R16, 64
-L__main20:
+L__main21:
 	DEC        R16
-	BRNE       L__main20
+	BRNE       L__main21
 	DEC        R17
-	BRNE       L__main20
+	BRNE       L__main21
 	DEC        R18
-	BRNE       L__main20
+	BRNE       L__main21
 	NOP
 	NOP
-;MyProject.mbas,277 :: 		on_off_initial (1,1,0,0,18)    '' off mode on_off initial (dim on_off22,en,hr,mint,prc as integer)
+;MyProject.mbas,316 :: 		on_off_initial (1,1,0,0,18)    '' off mode on_off initial (dim on_off22,en,hr,mint,prc as integer)
 	LDI        R27, 18
 	MOV        R6, R27
 	CLR        R5
@@ -870,7 +934,7 @@ L__main20:
 	LDI        R27, 1
 	MOV        R2, R27
 	CALL       _on_off_initial+0
-;MyProject.mbas,278 :: 		on_off_initial (2,1,0,0,18)    '''on mode
+;MyProject.mbas,317 :: 		on_off_initial (2,1,0,0,18)    '''on mode
 	LDI        R27, 18
 	MOV        R6, R27
 	CLR        R5
@@ -880,7 +944,7 @@ L__main20:
 	LDI        R27, 2
 	MOV        R2, R27
 	CALL       _on_off_initial+0
-;MyProject.mbas,287 :: 		Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
+;MyProject.mbas,326 :: 		Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
 	LDI        R27, #lo_addr(_day+0)
 	MOV        R8, R27
 	LDI        R27, hi_addr(_day+0)
@@ -915,9 +979,9 @@ L__main20:
 	ADIW       R26, 6
 	OUT        SPL+0, R26
 	OUT        SPL+1, R27
-;MyProject.mbas,288 :: 		Shamsi_call()
+;MyProject.mbas,327 :: 		Shamsi_call()
 	CALL       _Shamsi_call+0
-;MyProject.mbas,289 :: 		Shamsi_show_lcd( jmonth,jday,jyear,week,hours ,minutes,seconds )
+;MyProject.mbas,328 :: 		Shamsi_show_lcd( jmonth,jday,jyear,week,hours ,minutes,seconds )
 	LDS        R8, _week+0
 	LDI        R27, 0
 	MOV        R9, R27
@@ -945,7 +1009,7 @@ L__main20:
 	ADIW       R26, 6
 	OUT        SPL+0, R26
 	OUT        SPL+1, R27
-;MyProject.mbas,292 :: 		miladi_call(jmonth,jday,jyear,week,hours ,minutes,seconds )
+;MyProject.mbas,331 :: 		miladi_call(jmonth,jday,jyear,week,hours ,minutes,seconds )
 	LDS        R8, _week+0
 	LDI        R27, 0
 	MOV        R9, R27
@@ -973,57 +1037,60 @@ L__main20:
 	ADIW       R26, 6
 	OUT        SPL+0, R26
 	OUT        SPL+1, R27
-;MyProject.mbas,306 :: 		Interupt_first_time=0
+;MyProject.mbas,345 :: 		Interupt_first_time=0
 	LDI        R27, 0
 	STS        _Interupt_first_time+0, R27
-;MyProject.mbas,307 :: 		ISC20_Bit = 1                                    '' // Set interrupts to be detected on rising edge
+;MyProject.mbas,346 :: 		ISC20_Bit = 1                                    '' // Set interrupts to be detected on rising edge
 	LDS        R27, ISC20_bit+0
 	SBR        R27, BitMask(ISC20_bit+0)
 	STS        ISC20_bit+0, R27
-;MyProject.mbas,308 :: 		ISC00_bit = 1
+;MyProject.mbas,347 :: 		ISC00_bit = 1
 	LDS        R27, ISC00_bit+0
 	SBR        R27, BitMask(ISC00_bit+0)
 	STS        ISC00_bit+0, R27
-;MyProject.mbas,309 :: 		INTF2_bit = 0
+;MyProject.mbas,348 :: 		INTF2_bit = 0
 	IN         R27, INTF2_bit+0
 	CBR        R27, BitMask(INTF2_bit+0)
 	OUT        INTF2_bit+0, R27
-;MyProject.mbas,310 :: 		SREG_I_bit = 0
+;MyProject.mbas,349 :: 		SREG_I_bit = 0
 	IN         R27, SREG_I_bit+0
 	CBR        R27, BitMask(SREG_I_bit+0)
 	OUT        SREG_I_bit+0, R27
-;MyProject.mbas,311 :: 		Delay_ms(100)                                  ''  // Enable Interrupts
+;MyProject.mbas,350 :: 		Delay_ms(100)                                  ''  // Enable Interrupts
 	LDI        R18, 5
 	LDI        R17, 15
 	LDI        R16, 242
-L__main22:
+L__main23:
 	DEC        R16
-	BRNE       L__main22
+	BRNE       L__main23
 	DEC        R17
-	BRNE       L__main22
+	BRNE       L__main23
 	DEC        R18
-	BRNE       L__main22
-;MyProject.mbas,312 :: 		SREG_I_bit = 1
+	BRNE       L__main23
+;MyProject.mbas,351 :: 		SREG_I_bit = 1
 	IN         R27, SREG_I_bit+0
 	SBR        R27, BitMask(SREG_I_bit+0)
 	OUT        SREG_I_bit+0, R27
-;MyProject.mbas,314 :: 		INT2_bit =1
+;MyProject.mbas,353 :: 		INT2_bit =1
 	IN         R27, INT2_bit+0
 	SBR        R27, BitMask(INT2_bit+0)
 	OUT        INT2_bit+0, R27
-;MyProject.mbas,320 :: 		PWM_Initialize ()
+;MyProject.mbas,354 :: 		INT6_bit =1
+	IN         R27, INT6_bit+0
+	SBR        R27, BitMask(INT6_bit+0)
+	OUT        INT6_bit+0, R27
+;MyProject.mbas,360 :: 		PWM_Initialize ()
 	CALL       _PWM_Initialize+0
-;MyProject.mbas,322 :: 		while TRUE
-L__main25:
-;MyProject.mbas,324 :: 		chanel=1
+;MyProject.mbas,362 :: 		chanel=1
 	LDI        R27, 1
 	STS        _chanel+0, R27
-;MyProject.mbas,325 :: 		Easy_vacuum_95_10_4(chanel)
-	LDI        R27, 1
-	MOV        R2, R27
-	CALL       _Easy_vacuum_95_10_4+0
-;MyProject.mbas,327 :: 		wend
-	JMP        L__main25
+;MyProject.mbas,363 :: 		while TRUE
+L__main26:
+;MyProject.mbas,367 :: 		Easy_vacuum_95_10_4_simple(chanel)
+	LDS        R2, _chanel+0
+	CALL       _Easy_vacuum_95_10_4_simple+0
+;MyProject.mbas,369 :: 		wend
+	JMP        L__main26
 L_end_main:
 	POP        R9
 	POP        R8
