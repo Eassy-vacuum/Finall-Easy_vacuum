@@ -1,0 +1,71 @@
+module LCD
+' Lcd module connections
+dim LCD_RS as sbit at PORTc2_bit
+dim LCD_EN as sbit at PORTc3_bit
+dim LCD_D4 as sbit at PORTc4_bit
+dim LCD_D5 as sbit at PORTc5_bit
+dim LCD_D6 as sbit at PORTc6_bit
+dim LCD_D7 as sbit at PORTc7_bit
+
+dim LCD_RS_Direction as sbit at DDc2_bit
+dim LCD_EN_Direction as sbit at DDc3_bit
+dim LCD_D4_Direction as sbit at DDc4_bit
+dim LCD_D5_Direction as sbit at DDc5_bit
+dim LCD_D6_Direction as sbit at DDc6_bit
+dim LCD_D7_Direction as sbit at DDc7_bit
+
+''################# LCD Farsi character #################
+const character as byte[8] = (1,14,20,4,4,4,4,0)
+ const heart as byte[8] = (0,10,21,17,10,4,0,0)
+    const co as byte[8] = (0,0,0,15,9,9,15,0)       ' Custom letter O
+    const cn as byte[8] = (0,0,0,9,13,11,9,0)       ' Custom letter N
+    const cf as byte[8] = (0,0,0,15,8,14,8,0)       ' Custom letter F
+    const character_b as byte[8] = (0,0,17,17,31,0,4,0)
+
+sub procedure Lcd_0()
+sub procedure LCD_Load()
+sub procedure CustomChar(dim pos_row as byte, dim pos_char as byte)
+implements
+''################# LCD Initial #################
+
+sub procedure Lcd_0()
+              Lcd_Init()
+              Lcd_Cmd(_LCD_CLEAR)               ' Clear display
+              Lcd_Cmd(_LCD_CURSOR_OFF)          ' Cursor off
+
+end sub
+
+
+sub procedure LCD_Load()
+       dim i, dchar as byte
+       for dchar = 0 to 4
+          LCD_Cmd(64 + (dchar * 8))               ' Select 2x16 memory location for custom character
+          for i = 0 to 7
+            select case dchar                     ' Select custom character array
+               case 0
+                  LCD_Chr_Cp(heart[i])
+               case 1
+                  LCD_Chr_Cp(co[i])
+               case 2
+                  LCD_Chr_Cp(cn[i])
+               case 3
+                  LCD_Chr_Cp(cf[i])
+               case 4
+                  LCD_Chr_Cp(character_b[i])
+            end select
+          next i
+       next dchar
+    end sub
+
+sub procedure CustomChar(dim pos_row as byte, dim pos_char as byte)
+  dim i as byte
+    Lcd_Cmd(120)
+    for i = 0 to 7
+      Lcd_Chr_CP(character[i])
+    next i
+    Lcd_Cmd(_LCD_RETURN_HOME)
+    Lcd_Chr(pos_row, pos_char, 7)
+end sub
+
+
+end.
