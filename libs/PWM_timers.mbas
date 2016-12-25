@@ -28,6 +28,7 @@ sub procedure Lcd_0() external
 sub procedure strToInt1()     external
 sub procedure PWM_Initialize ()
 sub procedure  WDT_on()
+sub procedure PWM_Port_Initialize ()
 implements
 
 
@@ -241,23 +242,31 @@ end sub
      end select
  end sub
 ' ######################################################################################################################################
+sub procedure PWM_Port_Initialize ()
+    #IFDEF ATmega128
+      ''################PWM Ports #############
+       DDB4_bit = 1                    ' Set PORTB pin 3 as output pin for the PWM (according to datasheet)
+       DDB5_bit = 1                    ' Set PORTB pin 3 as output pin for the PWM (according to datasheet)
+       DDB6_bit = 1                    ' Set PORTB pin 3 as output pin for the PWM (according to datasheet)
+       DDB7_bit = 1                    ' Set PORTB pin 3 as output pin for the PWM (according to datasheet)
+      ''################timer test part #############
+    #ENDIF
+    #IFDEF ATmega32
+      ''################PWM Ports #############
+       DDB3_bit = 1                    ' Set PORTB pin 3 as output pin for the PWM (according to datasheet)
+       DDD7_bit = 1                    ' Set PORTB pin 3 as output pin for the PWM (according to datasheet)
+       DDD4_bit = 1                    ' Set PORTB pin 3 as output pin for the PWM (according to datasheet)
+      ''################timer test part #############
+    #ENDIF
+end  sub
+' ######################################################################################################################################
+
 sub procedure PWM_Initialize ()
 dim j as byte
     k as integer
-J=0
+J=0  
 
-   ' DDD2_bit = 1
-    'DDd6_bit = 1                    ' set portd pin0 as output pin for ufa fountain
-   DDB4_bit = 1                    ' Set PORTB pin 3 as output pin for the PWM (according to datasheet)
-   DDB5_bit = 1                    ' Set PORTB pin 3 as output pin for the PWM (according to datasheet)
-   DDB6_bit = 1                    ' Set PORTB pin 3 as output pin for the PWM (according to datasheet)
-   DDB7_bit = 1                    ' Set PORTB pin 3 as output pin for the PWM (according to datasheet)
-'   DDE3_bit = 1                    ' Set PORTD pin 7 as output pin for the PWM1 (according to datasheet)
-'   DDE4_bit = 1                    ' Set PORTD pin 7 as output pin for the PWM1 (according to datasheet)
-'   DDE5_bit = 1                    ' Set PORTD pin 7 as output pin for the PWM1 (according to datasheet)
-    'DDD4_bit = 1                      'Set PORTD pin 4 as output pin for the PWM1 (according to datasheet oc1a)
-    'DDD5_bit = 1                      'Set PORTD pin 5 as output pin for the PWM1 (according to datasheet oc1b)
-
+    
 '    PWM1_Init(_PWM1_FAST_MODE, _PWM1_PRESCALER_8, _PWM1_NON_INVERTED,J)
 '     TCCR0 = (1<<FOC2) or (1<<COM21) or (1<<COM20) or (1<<WGM20) or (1<<CS00) ''Pwm0 or pwm1 in meicrobasic
     '' From mikroc pwm

@@ -200,10 +200,10 @@ end sub
 
 
 main:
+'
+#IFDEF ATmega128
   DDB0_bit = 1                                       ' set Button pin as input
   DDA2_bit = 1                                        ' set Button pin as input
-
-
   DDA5_bit = 1                                        ' set Button pin as input
   DDA4_bit = 1                                        ' set Button pin as input
   DDA3_bit = 1                                        ' set Button pin as input
@@ -217,7 +217,7 @@ main:
   DDD5_bit =0 DDD6_bit =0     DDD7_bit =0
   DDE6_bit = 0                    ' Set PORTE pin 7 as input pin for the Heater switches
   ''################ End of switches Ports #############
-  
+
   DDB1_bit =1      DDB3_bit =1
   DDA0_bit =1 DDA1_bit =1      DDA2_bit =1  DDA3_bit =1
 '  PORTC = 0xAA                                        ' initial PORTC value
@@ -235,7 +235,32 @@ main:
 
       ''################timer test part #############
 
-
+#ENDIF
+'
+'#IFDEF ATmega32
+' ''################LCD Ports #############
+'  DDC2_bit =1   DDC3_bit =1
+'  DDC4_bit =1   DDC5_bit =1  ' configure PORTD as output
+'  DDC6_bit =1   DDC7_bit =1
+'
+'   ''################LCD Ports #############
+'  ''################switches Ports #############
+'  DDB4_bit = 0 DDB2_bit = 0                  ' Set PORTE pin 7 as input pin for the Heater switches
+'  DDD2_bit = 0 DDD3_bit = 0   DDD5_bit = 0  DDD6_bit = 0
+'  ''################ End of switches Ports #############
+'
+' ''################PWM Ports #############
+'   DDB3_bit = 1                    ' Set PORTB pin 3 as output pin for the PWM (according to datasheet)
+'   DDD7_bit = 1                    ' Set PORTB pin 3 as output pin for the PWM (according to datasheet)
+'   DDD4_bit = 1                    ' Set PORTB pin 3 as output pin for the PWM (according to datasheet)
+'  ''################timer test part #############
+'
+'#ENDIF
+''################ Port Initilization #############
+    Lcd_Port_Init()
+    Key_Port_Init()
+    PWM_Port_Initialize ()
+''################ Port Initilization #############
 LCD_Init() ' Initialize LCD
 LCD_cmd(_LCD_CLEAR) ' Clear LCD
 LCD_cmd(_LCD_CURSOR_OFF)
@@ -319,7 +344,7 @@ LCD_Out(2,1,"TEST")
      LCD_Chr(2,4,4)    ' Display custom char B
      Delay_ms(1500)
 '    ###################### Start of EEPROM   #########################'
-   on_off_initial (1,1,0,2,18)    '' off mode on_off initial (dim on_off22,en,hr,mint,prc as integer)
+   on_off_initial (1,1,0,20,18)    '' off mode on_off initial (dim on_off22,en,hr,mint,prc as integer)
    on_off_initial (2,1,0,0,18)    '''on mode
 '   int_eeprom_ini()   ''internal AVR EEPROM Writing   77777777777777777777777777777777777
 '   ext_eeprom_ini()

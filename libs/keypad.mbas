@@ -55,9 +55,26 @@ sub procedure Keypad_set__date_time_import_On_minut_teben(dim week_day,var_in,va
 sub procedure Keypad_set__date_time_import_Yes_No_teben(dim week_day,chanel_1,var_in as byte, dim p_max as  byte, dim p_min as  byte )
 sub procedure Keypad_set__date_time_import_save_exit_teben(dim week_day,var_in as byte, dim p_max as  byte, dim p_min as  byte )
 sub procedure Keypad_3()
-
+sub procedure Key_Port_Init()
 
 implements
+
+sub procedure Key_Port_Init()
+    #IFDEF ATmega128
+         ''################switches Ports #############
+         'DDD0_bit =0  DDD1_bit =0
+         DDD2_bit =0 DDD3_bit =0     DDD4_bit =0  ' configure PORTD as output
+         DDD5_bit =0 DDD6_bit =0     DDD7_bit =0
+         DDE6_bit = 0                    ' Set PORTE pin 7 as input pin for the Heater switches
+         ''################ End of switches Ports #############
+    #ENDIF
+    #IFDEF ATmega32
+     ''################switches Ports #############
+     DDB4_bit = 0 DDB2_bit = 0                  ' Set PORTE pin 7 as input pin for the Heater switches
+     DDD2_bit = 0 DDD3_bit = 0   DDD5_bit = 0  DDD6_bit = 0
+     ''################ End of switches Ports #############
+    #ENDIF
+ end sub
 '**************************************************************************************************
 '* Keypad PROGRAM
 '**************************************************************************************************}

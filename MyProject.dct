@@ -1326,6 +1326,7 @@ jtrf_bit
 jyear
 k_set
 k_set_max
+key_port_init
 keypad_3
 keypad_init
 keypad_key_click
@@ -1358,6 +1359,7 @@ lcd_init
 lcd_load
 lcd_out
 lcd_out_cp
+lcd_port_init
 lcd_rs
 lcd_rs_direction
 ldexp
@@ -2076,6 +2078,8 @@ pwm_initialize
 pwm_make
 pwm_make
 pwm_percent
+pwm_port_initialize
+pwm_port_initialize
 pwm_set_1b
 pwm_set_1b
 pwm1_init

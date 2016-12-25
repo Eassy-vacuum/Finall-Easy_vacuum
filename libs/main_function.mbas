@@ -10,6 +10,36 @@ include "libs/Calculations"
 include "libs/milady_shamsi"
 include "libs/keypad"
 
+#IFDEF ATmega128
+  symbol  HET_SW_Port  = PINE
+  symbol HET_SW_bit =   6
+  symbol Mot_SW_Port = PIND
+  symbol Mot_SW_bit=   7
+  symbol Ok_SW_Port  = PINE
+  symbol Ok_SW_bit =   6
+  symbol Menu_SW_Port  = PINE
+  symbol Menu_SW_bit =   6
+  symbol Up_SW_Port  = PINE
+  symbol UP_SW_bit =   6
+  symbol Down_SW_Port  = PINE
+  symbol Down_SW_bit =   6
+#ENDIF
+
+#IFDEF ATmega32
+  symbol HET_SW_Port  = PINB
+  symbol HET_SW_bit =   2
+  symbol Mot_SW_Port = PINB
+  symbol Mot_SW_bit=   4
+
+  symbol Ok_SW_Port  = PIND
+  symbol Ok_SW_bit =   6
+  symbol Menu_SW_Port  = PIND
+  symbol Menu_SW_bit =   2
+  symbol Up_SW_Port  = PIND
+  symbol UP_SW_bit =   5
+  symbol Down_SW_Port  =PIND
+  symbol Down_SW_bit =   4
+#ENDIF
 
  dim hours, minutes, seconds, day, week, month, year as byte  external  ' Global date/time variables
  dim kp,ok,k_set,week_new,chanel,Pwm_Percent,Pwm_chanel,Pwm_chanel_main ,Yes_no,on_off,on_off2 as  byte  external
@@ -377,6 +407,10 @@ sub procedure Easy_vacuum_95_10_4_simple_main(dim program_number as byte,dim Hea
  end sub
 
 sub procedure Easy_vacuum_95_10_4_simple(dim program_number as byte,dim Interupt_en as byte)
+
+
+
+     
      Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
      Shamsi_call()
      Shamsi_show_lcd( jmonth,jday,jyear,week,hours ,minutes,seconds )
@@ -386,10 +420,10 @@ sub procedure Easy_vacuum_95_10_4_simple(dim program_number as byte,dim Interupt
      while_state_import=1  oldstate_3=0 chanel=program_number
      while  (while_state_import )
        if (Interupt_en=0) then
-         if (Button(PORTE, 6, 0.5, 0)) then    ' Detect logical one up key
+         if (Button(HET_SW_Port, HET_SW_bit, 0.5, 0)) then    ' Detect logical one up key
                     oldstate_3 = 1                      ' Update flag
          end if
-         if (oldstate_3 and Button(PINE, 6,0.5, 1)) then
+         if (oldstate_3 and Button(HET_SW_Port, HET_SW_bit,0.5, 1)) then
            Interupt_en=1 while_state_import=0
          end if
        else
@@ -500,17 +534,16 @@ sub procedure Easy_vacuum_95_10_4_simple(dim program_number as byte,dim Interupt
       while_state_import=1  ''while_state_import_main2=1
        oldstate_3=0
          while_state_import_main=1
-         Lcd_0()
+         Lcd_0() '' DDD7_bit =0
          while  (while_state_import_main )
 
-             if (Button(PORTD, 7, 0.5, 0)) then    ' Detect logical one up key
+             if (Button(Mot_SW_Port,Mot_SW_bit, 0.5, 0)) then    ' Detect logical one up key
                         oldstate_3 = 1                      ' Update flag
              end if
-             if (oldstate_3 and Button(PIND, 7,0.5, 1)) then
+             if (oldstate_3 and Button(Mot_SW_Port,Mot_SW_bit,0.5, 1)) then
                 while_state_import_main=0
              end if
-
-             Lcd_Out(1,1,"Wating for :") Lcd_Out(2,1,"Pressing Motor micro SW") delay_ms(200)
+              Lcd_Out(1,1,"Wating for :") Lcd_Out(2,1,"Pressing Motor micro SW") delay_ms(200)
          wend
         if (1) then
               LCD_Out(2,9, "motor running")  ''Show on LCD

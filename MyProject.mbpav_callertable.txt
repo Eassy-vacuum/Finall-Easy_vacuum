@@ -1,4 +1,7 @@
 main
+	Lcd_Port_Init
+	Key_Port_Init
+	PWM_Port_Initialize
 	Lcd_Init
 		Delay_5500us
 		Delay_1us
