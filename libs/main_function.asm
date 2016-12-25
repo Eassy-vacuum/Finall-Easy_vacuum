@@ -207,9 +207,9 @@ L__radeon_github_10_9516:
 	LDS        R18, _hours+0
 	CP         R19, R18
 	LDI        R20, 0
-	BRLO       L__radeon_github_10_95331
+	BRLO       L__radeon_github_10_95337
 	LDI        R20, 255
-L__radeon_github_10_95331:
+L__radeon_github_10_95337:
 	LDI        R18, #lo_addr(_on_a_0+0)
 	LDI        R19, hi_addr(_on_a_0+0)
 	LDD        R21, Y+20
@@ -228,9 +228,9 @@ L__radeon_github_10_95331:
 	LDS        R18, _minutes+0
 	CP         R19, R18
 	LDI        R18, 0
-	BRLO       L__radeon_github_10_95332
+	BRLO       L__radeon_github_10_95338
 	LDI        R18, 255
-L__radeon_github_10_95332:
+L__radeon_github_10_95338:
 	AND        R20, R18
 	LDI        R18, #lo_addr(_on_a_0+0)
 	LDI        R19, hi_addr(_on_a_0+0)
@@ -256,14 +256,14 @@ L__radeon_github_10_95332:
 	LD         R16, Z
 	CPI        R16, 0
 	LDI        R27, 0
-	BREQ       L__radeon_github_10_95333
+	BREQ       L__radeon_github_10_95339
 	LDI        R27, 255
-L__radeon_github_10_95333:
+L__radeon_github_10_95339:
 	MOV        R16, R27
 	AND        R16, R20
-	BRNE       L__radeon_github_10_95334
+	BRNE       L__radeon_github_10_95340
 	JMP        L__radeon_github_10_9521
-L__radeon_github_10_95334:
+L__radeon_github_10_95340:
 ;libs/main_function.mbas,84 :: 		if  (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2-1][1]<= hours ) and     (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2-1][2]<= minutes)  then
 	LDS        R16, _week+0
 	SUBI       R16, 1
@@ -322,9 +322,9 @@ L__radeon_github_10_95334:
 	LDS        R18, _hours+0
 	CP         R18, R19
 	LDI        R22, 0
-	BRLO       L__radeon_github_10_95335
+	BRLO       L__radeon_github_10_95341
 	LDI        R22, 255
-L__radeon_github_10_95335:
+L__radeon_github_10_95341:
 	LDI        R20, #lo_addr(_on_a_0+0)
 	LDI        R21, hi_addr(_on_a_0+0)
 	LDD        R18, Y+20
@@ -343,14 +343,14 @@ L__radeon_github_10_95335:
 	LDS        R16, _minutes+0
 	CP         R16, R17
 	LDI        R27, 0
-	BRLO       L__radeon_github_10_95336
+	BRLO       L__radeon_github_10_95342
 	LDI        R27, 255
-L__radeon_github_10_95336:
+L__radeon_github_10_95342:
 	MOV        R16, R27
 	AND        R16, R22
-	BRNE       L__radeon_github_10_95337
+	BRNE       L__radeon_github_10_95343
 	JMP        L__radeon_github_10_9524
-L__radeon_github_10_95337:
+L__radeon_github_10_95343:
 ;libs/main_function.mbas,86 :: 		on_test=1
 	LDI        R27, 1
 	STS        _on_test+0, R27
@@ -467,9 +467,9 @@ L__radeon_github_10_9521:
 ;libs/main_function.mbas,105 :: 		if (on_test=0) then
 	LDS        R16, _on_test+0
 	CPI        R16, 0
-	BREQ       L__radeon_github_10_95338
+	BREQ       L__radeon_github_10_95344
 	JMP        L__radeon_github_10_9529
-L__radeon_github_10_95338:
+L__radeon_github_10_95344:
 ;libs/main_function.mbas,107 :: 		Lcd_Chr(2, 6, (hours div 10)   + 48)
 	LDS        R16, _hours+0
 	LDI        R20, 10
@@ -509,9 +509,9 @@ L__radeon_github_10_9522:
 ;libs/main_function.mbas,121 :: 		next on_off2
 	LDS        R16, _on_off2+0
 	CPI        R16, 1
-	BRNE       L__radeon_github_10_95339
+	BRNE       L__radeon_github_10_95345
 	JMP        L__radeon_github_10_9519
-L__radeon_github_10_95339:
+L__radeon_github_10_95345:
 	LDS        R16, _on_off2+0
 	SUBI       R16, 255
 	STS        _on_off2+0, R16
@@ -520,9 +520,9 @@ L__radeon_github_10_9519:
 ;libs/main_function.mbas,122 :: 		next chanel
 	LDS        R16, _chanel+0
 	CPI        R16, 4
-	BRNE       L__radeon_github_10_95340
+	BRNE       L__radeon_github_10_95346
 	JMP        L__radeon_github_10_9514
-L__radeon_github_10_95340:
+L__radeon_github_10_95346:
 	LDS        R16, _chanel+0
 	SUBI       R16, 255
 	STS        _chanel+0, R16
@@ -623,9 +623,9 @@ L__radeon_github_10_9533:
 ;libs/main_function.mbas,128 :: 		if   (on_test=1) then
 	LDS        R16, _on_test+0
 	CPI        R16, 1
-	BREQ       L__radeon_github_10_95341
+	BREQ       L__radeon_github_10_95347
 	JMP        L__radeon_github_10_9536
-L__radeon_github_10_95341:
+L__radeon_github_10_95347:
 ;libs/main_function.mbas,129 :: 		Lcd_0()
 	CALL       _Lcd_0+0
 ;libs/main_function.mbas,130 :: 		Lcd_Out(1,1,"on pwm mode")
@@ -908,9 +908,9 @@ L__radeon_github_10_9537:
 ;libs/main_function.mbas,155 :: 		next Pwm_chanel_main
 	LDS        R16, _Pwm_chanel_main+0
 	CPI        R16, 7
-	BRNE       L__radeon_github_10_95342
+	BRNE       L__radeon_github_10_95348
 	JMP        L__radeon_github_10_959
-L__radeon_github_10_95342:
+L__radeon_github_10_95348:
 	LDS        R16, _Pwm_chanel_main+0
 	SUBI       R16, 255
 	STS        _Pwm_chanel_main+0, R16
@@ -1142,9 +1142,9 @@ L__Easy_vacuum_95_10_458:
 	LDS        R18, _minutes+0
 	CP         R19, R18
 	LDI        R20, 0
-	BRLO       L__Easy_vacuum_95_10_4344
+	BRLO       L__Easy_vacuum_95_10_4350
 	LDI        R20, 255
-L__Easy_vacuum_95_10_4344:
+L__Easy_vacuum_95_10_4350:
 	LDI        R18, #lo_addr(_on_a_0+0)
 	LDI        R19, hi_addr(_on_a_0+0)
 	LDD        R21, Y+25
@@ -1163,9 +1163,9 @@ L__Easy_vacuum_95_10_4344:
 	LDS        R18, _seconds+0
 	CP         R19, R18
 	LDI        R18, 0
-	BRLO       L__Easy_vacuum_95_10_4345
+	BRLO       L__Easy_vacuum_95_10_4351
 	LDI        R18, 255
-L__Easy_vacuum_95_10_4345:
+L__Easy_vacuum_95_10_4351:
 	AND        R20, R18
 	LDI        R18, #lo_addr(_on_a_0+0)
 	LDI        R19, hi_addr(_on_a_0+0)
@@ -1191,14 +1191,14 @@ L__Easy_vacuum_95_10_4345:
 	LD         R16, Z
 	CPI        R16, 0
 	LDI        R27, 0
-	BREQ       L__Easy_vacuum_95_10_4346
+	BREQ       L__Easy_vacuum_95_10_4352
 	LDI        R27, 255
-L__Easy_vacuum_95_10_4346:
+L__Easy_vacuum_95_10_4352:
 	MOV        R16, R27
 	AND        R16, R20
-	BRNE       L__Easy_vacuum_95_10_4347
+	BRNE       L__Easy_vacuum_95_10_4353
 	JMP        L__Easy_vacuum_95_10_463
-L__Easy_vacuum_95_10_4347:
+L__Easy_vacuum_95_10_4353:
 ;libs/main_function.mbas,189 :: 		if  (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2-1][1]<= minutes ) and     (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2-1][2]<= seconds)  then
 	LDS        R16, _week+0
 	SUBI       R16, 1
@@ -1257,9 +1257,9 @@ L__Easy_vacuum_95_10_4347:
 	LDS        R18, _minutes+0
 	CP         R18, R19
 	LDI        R22, 0
-	BRLO       L__Easy_vacuum_95_10_4348
+	BRLO       L__Easy_vacuum_95_10_4354
 	LDI        R22, 255
-L__Easy_vacuum_95_10_4348:
+L__Easy_vacuum_95_10_4354:
 	LDI        R20, #lo_addr(_on_a_0+0)
 	LDI        R21, hi_addr(_on_a_0+0)
 	LDD        R18, Y+25
@@ -1278,14 +1278,14 @@ L__Easy_vacuum_95_10_4348:
 	LDS        R16, _seconds+0
 	CP         R16, R17
 	LDI        R27, 0
-	BRLO       L__Easy_vacuum_95_10_4349
+	BRLO       L__Easy_vacuum_95_10_4355
 	LDI        R27, 255
-L__Easy_vacuum_95_10_4349:
+L__Easy_vacuum_95_10_4355:
 	MOV        R16, R27
 	AND        R16, R22
-	BRNE       L__Easy_vacuum_95_10_4350
+	BRNE       L__Easy_vacuum_95_10_4356
 	JMP        L__Easy_vacuum_95_10_466
-L__Easy_vacuum_95_10_4350:
+L__Easy_vacuum_95_10_4356:
 ;libs/main_function.mbas,192 :: 		chanel_active=chanel
 	LDS        R16, _chanel+0
 	STS        _chanel_active+0, R16
@@ -1511,9 +1511,9 @@ L__Easy_vacuum_95_10_463:
 ;libs/main_function.mbas,204 :: 		if (on_test=0) then
 	LDS        R16, _on_test+0
 	CPI        R16, 0
-	BREQ       L__Easy_vacuum_95_10_4351
+	BREQ       L__Easy_vacuum_95_10_4357
 	JMP        L__Easy_vacuum_95_10_471
-L__Easy_vacuum_95_10_4351:
+L__Easy_vacuum_95_10_4357:
 ;libs/main_function.mbas,206 :: 		Lcd_Chr(2, 6, (hours div 10)   + 48)
 	LDS        R16, _hours+0
 	LDI        R20, 10
@@ -1555,9 +1555,9 @@ L__Easy_vacuum_95_10_464:
 ;libs/main_function.mbas,213 :: 		next on_off2
 	LDS        R16, _on_off2+0
 	CPI        R16, 1
-	BRNE       L__Easy_vacuum_95_10_4352
+	BRNE       L__Easy_vacuum_95_10_4358
 	JMP        L__Easy_vacuum_95_10_461
-L__Easy_vacuum_95_10_4352:
+L__Easy_vacuum_95_10_4358:
 	LDS        R16, _on_off2+0
 	SUBI       R16, 255
 	STS        _on_off2+0, R16
@@ -1566,9 +1566,9 @@ L__Easy_vacuum_95_10_461:
 ;libs/main_function.mbas,214 :: 		next chanel
 	LDS        R16, _chanel+0
 	CPI        R16, 1
-	BRNE       L__Easy_vacuum_95_10_4353
+	BRNE       L__Easy_vacuum_95_10_4359
 	JMP        L__Easy_vacuum_95_10_456
-L__Easy_vacuum_95_10_4353:
+L__Easy_vacuum_95_10_4359:
 	LDS        R16, _chanel+0
 	SUBI       R16, 255
 	STS        _chanel+0, R16
@@ -1588,9 +1588,9 @@ L__Easy_vacuum_95_10_456:
 ;libs/main_function.mbas,219 :: 		if   (on_test=1) then
 	LDS        R16, _on_test+0
 	CPI        R16, 1
-	BREQ       L__Easy_vacuum_95_10_4354
+	BREQ       L__Easy_vacuum_95_10_4360
 	JMP        L__Easy_vacuum_95_10_476
-L__Easy_vacuum_95_10_4354:
+L__Easy_vacuum_95_10_4360:
 ;libs/main_function.mbas,220 :: 		Lcd_0()
 	PUSH       R2
 	CALL       _Lcd_0+0
@@ -2048,9 +2048,9 @@ L__Easy_vacuum_95_10_477:
 ;libs/main_function.mbas,249 :: 		next Pwm_chanel_main
 	LDS        R16, _Pwm_chanel_main+0
 	CPI        R16, 1
-	BRNE       L__Easy_vacuum_95_10_4355
+	BRNE       L__Easy_vacuum_95_10_4361
 	JMP        L__Easy_vacuum_95_10_451
-L__Easy_vacuum_95_10_4355:
+L__Easy_vacuum_95_10_4361:
 	LDS        R16, _Pwm_chanel_main+0
 	SUBI       R16, 255
 	STS        _Pwm_chanel_main+0, R16
@@ -2176,9 +2176,9 @@ L__Easy_vacuum_95_10_499:
 	LDS        R18, _minutes+0
 	CP         R19, R18
 	LDI        R20, 0
-	BRLO       L__Easy_vacuum_95_10_4356
+	BRLO       L__Easy_vacuum_95_10_4362
 	LDI        R20, 255
-L__Easy_vacuum_95_10_4356:
+L__Easy_vacuum_95_10_4362:
 	LDI        R18, #lo_addr(_on_a_0+0)
 	LDI        R19, hi_addr(_on_a_0+0)
 	LDD        R21, Y+25
@@ -2197,9 +2197,9 @@ L__Easy_vacuum_95_10_4356:
 	LDS        R18, _seconds+0
 	CP         R19, R18
 	LDI        R18, 0
-	BRLO       L__Easy_vacuum_95_10_4357
+	BRLO       L__Easy_vacuum_95_10_4363
 	LDI        R18, 255
-L__Easy_vacuum_95_10_4357:
+L__Easy_vacuum_95_10_4363:
 	AND        R20, R18
 	LDI        R18, #lo_addr(_on_a_0+0)
 	LDI        R19, hi_addr(_on_a_0+0)
@@ -2225,14 +2225,14 @@ L__Easy_vacuum_95_10_4357:
 	LD         R16, Z
 	CPI        R16, 0
 	LDI        R27, 0
-	BREQ       L__Easy_vacuum_95_10_4358
+	BREQ       L__Easy_vacuum_95_10_4364
 	LDI        R27, 255
-L__Easy_vacuum_95_10_4358:
+L__Easy_vacuum_95_10_4364:
 	MOV        R16, R27
 	AND        R16, R20
-	BRNE       L__Easy_vacuum_95_10_4359
+	BRNE       L__Easy_vacuum_95_10_4365
 	JMP        L__Easy_vacuum_95_10_4104
-L__Easy_vacuum_95_10_4359:
+L__Easy_vacuum_95_10_4365:
 ;libs/main_function.mbas,264 :: 		if  (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2-1][1]<= minutes ) and     (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2-1][2]<= seconds)  then
 	LDS        R16, _week+0
 	SUBI       R16, 1
@@ -2291,9 +2291,9 @@ L__Easy_vacuum_95_10_4359:
 	LDS        R18, _minutes+0
 	CP         R18, R19
 	LDI        R22, 0
-	BRLO       L__Easy_vacuum_95_10_4360
+	BRLO       L__Easy_vacuum_95_10_4366
 	LDI        R22, 255
-L__Easy_vacuum_95_10_4360:
+L__Easy_vacuum_95_10_4366:
 	LDI        R20, #lo_addr(_on_a_0+0)
 	LDI        R21, hi_addr(_on_a_0+0)
 	LDD        R18, Y+25
@@ -2312,14 +2312,14 @@ L__Easy_vacuum_95_10_4360:
 	LDS        R16, _seconds+0
 	CP         R16, R17
 	LDI        R27, 0
-	BRLO       L__Easy_vacuum_95_10_4361
+	BRLO       L__Easy_vacuum_95_10_4367
 	LDI        R27, 255
-L__Easy_vacuum_95_10_4361:
+L__Easy_vacuum_95_10_4367:
 	MOV        R16, R27
 	AND        R16, R22
-	BRNE       L__Easy_vacuum_95_10_4362
+	BRNE       L__Easy_vacuum_95_10_4368
 	JMP        L__Easy_vacuum_95_10_4107
-L__Easy_vacuum_95_10_4362:
+L__Easy_vacuum_95_10_4368:
 ;libs/main_function.mbas,266 :: 		on_test=1
 	LDI        R27, 1
 	STS        _on_test+0, R27
@@ -2548,9 +2548,9 @@ L__Easy_vacuum_95_10_4104:
 ;libs/main_function.mbas,279 :: 		if (on_test=0) then
 	LDS        R16, _on_test+0
 	CPI        R16, 0
-	BREQ       L__Easy_vacuum_95_10_4363
+	BREQ       L__Easy_vacuum_95_10_4369
 	JMP        L__Easy_vacuum_95_10_4112
-L__Easy_vacuum_95_10_4363:
+L__Easy_vacuum_95_10_4369:
 ;libs/main_function.mbas,281 :: 		Lcd_Chr(2, 6, (hours div 10)   + 48)
 	LDS        R16, _hours+0
 	LDI        R20, 10
@@ -2594,9 +2594,9 @@ L__Easy_vacuum_95_10_4105:
 ;libs/main_function.mbas,287 :: 		next on_off2
 	LDS        R16, _on_off2+0
 	CPI        R16, 1
-	BRNE       L__Easy_vacuum_95_10_4364
+	BRNE       L__Easy_vacuum_95_10_4370
 	JMP        L__Easy_vacuum_95_10_4102
-L__Easy_vacuum_95_10_4364:
+L__Easy_vacuum_95_10_4370:
 	LDS        R16, _on_off2+0
 	SUBI       R16, 255
 	STS        _on_off2+0, R16
@@ -2605,9 +2605,9 @@ L__Easy_vacuum_95_10_4102:
 ;libs/main_function.mbas,288 :: 		next chanel
 	LDS        R16, _chanel+0
 	CPI        R16, 1
-	BRNE       L__Easy_vacuum_95_10_4365
+	BRNE       L__Easy_vacuum_95_10_4371
 	JMP        L__Easy_vacuum_95_10_497
-L__Easy_vacuum_95_10_4365:
+L__Easy_vacuum_95_10_4371:
 	LDS        R16, _chanel+0
 	SUBI       R16, 255
 	STS        _chanel+0, R16
@@ -2718,9 +2718,9 @@ L__Easy_vacuum_95_10_4116:
 ;libs/main_function.mbas,294 :: 		if   (on_test=1) then
 	LDS        R16, _on_test+0
 	CPI        R16, 1
-	BREQ       L__Easy_vacuum_95_10_4366
+	BREQ       L__Easy_vacuum_95_10_4372
 	JMP        L__Easy_vacuum_95_10_4119
-L__Easy_vacuum_95_10_4366:
+L__Easy_vacuum_95_10_4372:
 ;libs/main_function.mbas,295 :: 		Lcd_0()
 	PUSH       R2
 	CALL       _Lcd_0+0
@@ -3061,9 +3061,9 @@ L__Easy_vacuum_95_10_4120:
 ;libs/main_function.mbas,318 :: 		next Pwm_chanel_main
 	LDS        R16, _Pwm_chanel_main+0
 	CPI        R16, 2
-	BRNE       L__Easy_vacuum_95_10_4367
+	BRNE       L__Easy_vacuum_95_10_4373
 	JMP        L__Easy_vacuum_95_10_492
-L__Easy_vacuum_95_10_4367:
+L__Easy_vacuum_95_10_4373:
 	LDS        R16, _Pwm_chanel_main+0
 	SUBI       R16, 255
 	STS        _Pwm_chanel_main+0, R16
@@ -3153,9 +3153,9 @@ libs/main_function_Easy_vacuum_95_10_4_simple_main:
 ;libs/main_function.mbas,330 :: 		if  (Pwm_chanel_main=0) then
 	LDI        R27, 0
 	CP         R3, R27
-	BREQ       L_libs/main_function_Easy_vacuum_95_10_4_simple_main369
+	BREQ       L_libs/main_function_Easy_vacuum_95_10_4_simple_main375
 	JMP        L_libs/main_function_Easy_vacuum_95_10_4_simple_main129
-L_libs/main_function_Easy_vacuum_95_10_4_simple_main369:
+L_libs/main_function_Easy_vacuum_95_10_4_simple_main375:
 ;libs/main_function.mbas,331 :: 		txt="Heater"
 	LDI        R30, #lo_addr(_txt+0)
 	LDI        R31, hi_addr(_txt+0)
@@ -3183,9 +3183,9 @@ L_libs/main_function_Easy_vacuum_95_10_4_simple_main369:
 L_libs/main_function_Easy_vacuum_95_10_4_simple_main129:
 	LDS        R16, _Pwm_chanel_main+0
 	CPI        R16, 1
-	BREQ       L_libs/main_function_Easy_vacuum_95_10_4_simple_main370
+	BREQ       L_libs/main_function_Easy_vacuum_95_10_4_simple_main376
 	JMP        L_libs/main_function_Easy_vacuum_95_10_4_simple_main132
-L_libs/main_function_Easy_vacuum_95_10_4_simple_main370:
+L_libs/main_function_Easy_vacuum_95_10_4_simple_main376:
 ;libs/main_function.mbas,334 :: 		txt="Heater"
 	LDI        R30, #lo_addr(_txt+0)
 	LDI        R31, hi_addr(_txt+0)
@@ -3281,9 +3281,9 @@ L_libs/main_function_Easy_vacuum_95_10_4_simple_main140:
 	LDS        R18, _minutes+0
 	CP         R19, R18
 	LDI        R20, 0
-	BRLO       L_libs/main_function_Easy_vacuum_95_10_4_simple_main371
+	BRLO       L_libs/main_function_Easy_vacuum_95_10_4_simple_main377
 	LDI        R20, 255
-L_libs/main_function_Easy_vacuum_95_10_4_simple_main371:
+L_libs/main_function_Easy_vacuum_95_10_4_simple_main377:
 	LDI        R18, #lo_addr(_on_a_0+0)
 	LDI        R19, hi_addr(_on_a_0+0)
 	LDD        R21, Y+22
@@ -3302,9 +3302,9 @@ L_libs/main_function_Easy_vacuum_95_10_4_simple_main371:
 	LDS        R18, _seconds+0
 	CP         R19, R18
 	LDI        R18, 0
-	BRLO       L_libs/main_function_Easy_vacuum_95_10_4_simple_main372
+	BRLO       L_libs/main_function_Easy_vacuum_95_10_4_simple_main378
 	LDI        R18, 255
-L_libs/main_function_Easy_vacuum_95_10_4_simple_main372:
+L_libs/main_function_Easy_vacuum_95_10_4_simple_main378:
 	AND        R20, R18
 	LDI        R18, #lo_addr(_on_a_0+0)
 	LDI        R19, hi_addr(_on_a_0+0)
@@ -3330,14 +3330,14 @@ L_libs/main_function_Easy_vacuum_95_10_4_simple_main372:
 	LD         R16, Z
 	CPI        R16, 0
 	LDI        R27, 0
-	BREQ       L_libs/main_function_Easy_vacuum_95_10_4_simple_main373
+	BREQ       L_libs/main_function_Easy_vacuum_95_10_4_simple_main379
 	LDI        R27, 255
-L_libs/main_function_Easy_vacuum_95_10_4_simple_main373:
+L_libs/main_function_Easy_vacuum_95_10_4_simple_main379:
 	MOV        R16, R27
 	AND        R16, R20
-	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_main374
+	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_main380
 	JMP        L_libs/main_function_Easy_vacuum_95_10_4_simple_main145
-L_libs/main_function_Easy_vacuum_95_10_4_simple_main374:
+L_libs/main_function_Easy_vacuum_95_10_4_simple_main380:
 ;libs/main_function.mbas,350 :: 		if  (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2-1][1]<= minutes ) and     (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2-1][2]<= seconds)  then
 	LDS        R16, _week+0
 	SUBI       R16, 1
@@ -3396,9 +3396,9 @@ L_libs/main_function_Easy_vacuum_95_10_4_simple_main374:
 	LDS        R18, _minutes+0
 	CP         R18, R19
 	LDI        R22, 0
-	BRLO       L_libs/main_function_Easy_vacuum_95_10_4_simple_main375
+	BRLO       L_libs/main_function_Easy_vacuum_95_10_4_simple_main381
 	LDI        R22, 255
-L_libs/main_function_Easy_vacuum_95_10_4_simple_main375:
+L_libs/main_function_Easy_vacuum_95_10_4_simple_main381:
 	LDI        R20, #lo_addr(_on_a_0+0)
 	LDI        R21, hi_addr(_on_a_0+0)
 	LDD        R18, Y+22
@@ -3417,14 +3417,14 @@ L_libs/main_function_Easy_vacuum_95_10_4_simple_main375:
 	LDS        R16, _seconds+0
 	CP         R16, R17
 	LDI        R27, 0
-	BRLO       L_libs/main_function_Easy_vacuum_95_10_4_simple_main376
+	BRLO       L_libs/main_function_Easy_vacuum_95_10_4_simple_main382
 	LDI        R27, 255
-L_libs/main_function_Easy_vacuum_95_10_4_simple_main376:
+L_libs/main_function_Easy_vacuum_95_10_4_simple_main382:
 	MOV        R16, R27
 	AND        R16, R22
-	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_main377
+	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_main383
 	JMP        L_libs/main_function_Easy_vacuum_95_10_4_simple_main148
-L_libs/main_function_Easy_vacuum_95_10_4_simple_main377:
+L_libs/main_function_Easy_vacuum_95_10_4_simple_main383:
 ;libs/main_function.mbas,351 :: 		chanel_active=chanel
 	LDS        R16, _chanel+0
 	STS        _chanel_active+0, R16
@@ -3864,9 +3864,9 @@ L_libs/main_function_Easy_vacuum_95_10_4_simple_main146:
 ;libs/main_function.mbas,374 :: 		next on_off2
 	LDS        R16, _on_off2+0
 	CPI        R16, 1
-	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_main378
+	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_main384
 	JMP        L_libs/main_function_Easy_vacuum_95_10_4_simple_main143
-L_libs/main_function_Easy_vacuum_95_10_4_simple_main378:
+L_libs/main_function_Easy_vacuum_95_10_4_simple_main384:
 	LDS        R16, _on_off2+0
 	SUBI       R16, 255
 	STS        _on_off2+0, R16
@@ -3896,7 +3896,7 @@ _Easy_vacuum_95_10_4_simple:
 	PUSH       R29
 	IN         R28, SPL+0
 	IN         R29, SPL+1
-	SBIW       R28, 29
+	SBIW       R28, 32
 	OUT        SPL+0, R28
 	OUT        SPL+1, R29
 	ADIW       R28, 1
@@ -4047,9 +4047,9 @@ L__Easy_vacuum_95_10_4_simple160:
 ;libs/main_function.mbas,388 :: 		if (Interupt_en=0) then
 	LDI        R27, 0
 	CP         R3, R27
-	BREQ       L__Easy_vacuum_95_10_4_simple380
+	BREQ       L__Easy_vacuum_95_10_4_simple386
 	JMP        L__Easy_vacuum_95_10_4_simple165
-L__Easy_vacuum_95_10_4_simple380:
+L__Easy_vacuum_95_10_4_simple386:
 ;libs/main_function.mbas,389 :: 		if (Button(PORTE, 6, 0.5, 0)) then    ' Detect logical one up key
 	PUSH       R3
 	PUSH       R2
@@ -4065,9 +4065,9 @@ L__Easy_vacuum_95_10_4_simple380:
 	POP        R2
 	POP        R3
 	TST        R16
-	BRNE       L__Easy_vacuum_95_10_4_simple381
+	BRNE       L__Easy_vacuum_95_10_4_simple387
 	JMP        L__Easy_vacuum_95_10_4_simple168
-L__Easy_vacuum_95_10_4_simple381:
+L__Easy_vacuum_95_10_4_simple387:
 ;libs/main_function.mbas,390 :: 		oldstate_3 = 1                      ' Update flag
 	LDS        R27, _oldstate_3+0
 	SBR        R27, BitMask(_oldstate_3+0)
@@ -4093,9 +4093,9 @@ L__Easy_vacuum_95_10_4_simple168:
 	SBRC       R0, BitPos(_oldstate_3+0)
 	INC        R17
 	AND        R16, R17
-	BRNE       L__Easy_vacuum_95_10_4_simple382
+	BRNE       L__Easy_vacuum_95_10_4_simple388
 	JMP        L__Easy_vacuum_95_10_4_simple171
-L__Easy_vacuum_95_10_4_simple382:
+L__Easy_vacuum_95_10_4_simple388:
 ;libs/main_function.mbas,393 :: 		Interupt_en=1 while_state_import=0
 	LDI        R27, 1
 	MOV        R3, R27
@@ -4113,16 +4113,139 @@ L__Easy_vacuum_95_10_4_simple165:
 	STS        _while_state_import+0, R27
 ;libs/main_function.mbas,397 :: 		end if
 L__Easy_vacuum_95_10_4_simple166:
-;libs/main_function.mbas,398 :: 		wend
+;libs/main_function.mbas,399 :: 		Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
+	PUSH       R3
+	PUSH       R2
+	LDI        R27, #lo_addr(_day+0)
+	MOV        R8, R27
+	LDI        R27, hi_addr(_day+0)
+	MOV        R9, R27
+	LDI        R27, #lo_addr(_seconds+0)
+	MOV        R6, R27
+	LDI        R27, hi_addr(_seconds+0)
+	MOV        R7, R27
+	LDI        R27, #lo_addr(_minutes+0)
+	MOV        R4, R27
+	LDI        R27, hi_addr(_minutes+0)
+	MOV        R5, R27
+	LDI        R27, #lo_addr(_hours+0)
+	MOV        R2, R27
+	LDI        R27, hi_addr(_hours+0)
+	MOV        R3, R27
+	LDI        R27, hi_addr(_year+0)
+	PUSH       R27
+	LDI        R27, #lo_addr(_year+0)
+	PUSH       R27
+	LDI        R27, hi_addr(_month+0)
+	PUSH       R27
+	LDI        R27, #lo_addr(_month+0)
+	PUSH       R27
+	LDI        R27, hi_addr(_week+0)
+	PUSH       R27
+	LDI        R27, #lo_addr(_week+0)
+	PUSH       R27
+	CALL       _Read_Time+0
+	IN         R26, SPL+0
+	IN         R27, SPL+1
+	ADIW       R26, 6
+	OUT        SPL+0, R26
+	OUT        SPL+1, R27
+;libs/main_function.mbas,400 :: 		Shamsi_call()
+	CALL       _Shamsi_call+0
+;libs/main_function.mbas,401 :: 		Shamsi_show_lcd( jmonth,jday,jyear,week,hours ,minutes,seconds )
+	LDS        R8, _week+0
+	LDI        R27, 0
+	MOV        R9, R27
+	LDS        R6, _Jyear+0
+	LDS        R7, _Jyear+1
+	LDS        R4, _Jday+0
+	LDS        R5, _Jday+1
+	LDS        R2, _Jmonth+0
+	LDS        R3, _Jmonth+1
+	LDS        R16, _seconds+0
+	LDI        R27, 0
+	PUSH       R27
+	PUSH       R16
+	LDS        R16, _minutes+0
+	LDI        R27, 0
+	PUSH       R27
+	PUSH       R16
+	LDS        R16, _hours+0
+	LDI        R27, 0
+	PUSH       R27
+	PUSH       R16
+	CALL       _Shamsi_show_lcd+0
+	IN         R26, SPL+0
+	IN         R27, SPL+1
+	ADIW       R26, 6
+	OUT        SPL+0, R26
+	OUT        SPL+1, R27
+;libs/main_function.mbas,402 :: 		Delay_mS(300)
+	LDI        R18, 13
+	LDI        R17, 45
+	LDI        R16, 216
+L__Easy_vacuum_95_10_4_simple173:
+	DEC        R16
+	BRNE       L__Easy_vacuum_95_10_4_simple173
+	DEC        R17
+	BRNE       L__Easy_vacuum_95_10_4_simple173
+	DEC        R18
+	BRNE       L__Easy_vacuum_95_10_4_simple173
+	NOP
+	NOP
+;libs/main_function.mbas,403 :: 		miladi_call(jmonth,jday,jyear,week,hours ,minutes,seconds )
+	LDS        R8, _week+0
+	LDI        R27, 0
+	MOV        R9, R27
+	LDS        R6, _Jyear+0
+	LDS        R7, _Jyear+1
+	LDS        R4, _Jday+0
+	LDS        R5, _Jday+1
+	LDS        R2, _Jmonth+0
+	LDS        R3, _Jmonth+1
+	LDS        R16, _seconds+0
+	LDI        R27, 0
+	PUSH       R27
+	PUSH       R16
+	LDS        R16, _minutes+0
+	LDI        R27, 0
+	PUSH       R27
+	PUSH       R16
+	LDS        R16, _hours+0
+	LDI        R27, 0
+	PUSH       R27
+	PUSH       R16
+	CALL       _miladi_call+0
+	IN         R26, SPL+0
+	IN         R27, SPL+1
+	ADIW       R26, 6
+	OUT        SPL+0, R26
+	OUT        SPL+1, R27
+	POP        R2
+	POP        R3
+;libs/main_function.mbas,404 :: 		Delay_mS(300)
+	LDI        R18, 13
+	LDI        R17, 45
+	LDI        R16, 216
+L__Easy_vacuum_95_10_4_simple175:
+	DEC        R16
+	BRNE       L__Easy_vacuum_95_10_4_simple175
+	DEC        R17
+	BRNE       L__Easy_vacuum_95_10_4_simple175
+	DEC        R18
+	BRNE       L__Easy_vacuum_95_10_4_simple175
+	NOP
+	NOP
+;libs/main_function.mbas,406 :: 		wend
 	JMP        L__Easy_vacuum_95_10_4_simple160
 L__Easy_vacuum_95_10_4_simple161:
-;libs/main_function.mbas,402 :: 		if (Interupt_en=1) then
+;libs/main_function.mbas,410 :: 		if (Interupt_en=1) then
 	LDI        R27, 1
 	CP         R3, R27
-	BREQ       L__Easy_vacuum_95_10_4_simple383
-	JMP        L__Easy_vacuum_95_10_4_simple174
-L__Easy_vacuum_95_10_4_simple383:
-;libs/main_function.mbas,403 :: 		LCD_Out(2,9, "Heater running")  ''Show on LCD
+	BREQ       L__Easy_vacuum_95_10_4_simple389
+	JMP        L__Easy_vacuum_95_10_4_simple178
+L__Easy_vacuum_95_10_4_simple389:
+;libs/main_function.mbas,411 :: 		LCD_Out(2,9, "Heater running")  ''Show on LCD
 	MOVW       R30, R28
 	LDI        R27, 72
 	ST         Z+, R27
@@ -4163,7 +4286,7 @@ L__Easy_vacuum_95_10_4_simple383:
 	LDI        R27, 2
 	MOV        R2, R27
 	CALL       _Lcd_Out+0
-;libs/main_function.mbas,404 :: 		LCD_Out(2,1, "Value: ")  ''Show on LCD
+;libs/main_function.mbas,412 :: 		LCD_Out(2,1, "Value: ")  ''Show on LCD
 	MOVW       R30, R28
 	LDI        R27, 86
 	ST         Z+, R27
@@ -4188,18 +4311,18 @@ L__Easy_vacuum_95_10_4_simple383:
 	LDI        R27, 2
 	MOV        R2, R27
 	CALL       _Lcd_Out+0
-;libs/main_function.mbas,405 :: 		Delay_mS(100)
+;libs/main_function.mbas,413 :: 		Delay_mS(100)
 	LDI        R18, 5
 	LDI        R17, 15
 	LDI        R16, 242
-L__Easy_vacuum_95_10_4_simple176:
+L__Easy_vacuum_95_10_4_simple180:
 	DEC        R16
-	BRNE       L__Easy_vacuum_95_10_4_simple176
+	BRNE       L__Easy_vacuum_95_10_4_simple180
 	DEC        R17
-	BRNE       L__Easy_vacuum_95_10_4_simple176
+	BRNE       L__Easy_vacuum_95_10_4_simple180
 	DEC        R18
-	BRNE       L__Easy_vacuum_95_10_4_simple176
-;libs/main_function.mbas,406 :: 		Read_Time(@Start_hours, @Start_minutes, @Start_seconds, @Start_day, @Start_week, @Start_month, @Start_year)
+	BRNE       L__Easy_vacuum_95_10_4_simple180
+;libs/main_function.mbas,414 :: 		Read_Time(@Start_hours, @Start_minutes, @Start_seconds, @Start_day, @Start_week, @Start_month, @Start_year)
 	LDI        R27, #lo_addr(_Start_day+0)
 	MOV        R8, R27
 	LDI        R27, hi_addr(_Start_day+0)
@@ -4234,37 +4357,37 @@ L__Easy_vacuum_95_10_4_simple176:
 	ADIW       R26, 6
 	OUT        SPL+0, R26
 	OUT        SPL+1, R27
-;libs/main_function.mbas,407 :: 		Write_Time(Dec2Bcd(1),Dec2Bcd(0),Dec2Bcd(0),Dec2Bcd(1),Dec2Bcd(1),Dec2Bcd(1),Dec2Bcd(Start_year))
+;libs/main_function.mbas,415 :: 		Write_Time(Dec2Bcd(1),Dec2Bcd(0),Dec2Bcd(0),Dec2Bcd(1),Dec2Bcd(1),Dec2Bcd(1),Dec2Bcd(Start_year))
+	LDI        R27, 1
+	MOV        R2, R27
+	CALL       _Dec2Bcd+0
+	STD        Y+31, R16
+	CLR        R2
+	CALL       _Dec2Bcd+0
+	STD        Y+30, R16
+	CLR        R2
+	CALL       _Dec2Bcd+0
+	STD        Y+29, R16
 	LDI        R27, 1
 	MOV        R2, R27
 	CALL       _Dec2Bcd+0
 	STD        Y+28, R16
-	CLR        R2
-	CALL       _Dec2Bcd+0
-	STD        Y+27, R16
-	CLR        R2
+	LDI        R27, 1
+	MOV        R2, R27
 	CALL       _Dec2Bcd+0
 	STD        Y+26, R16
 	LDI        R27, 1
 	MOV        R2, R27
 	CALL       _Dec2Bcd+0
-	STD        Y+25, R16
-	LDI        R27, 1
-	MOV        R2, R27
-	CALL       _Dec2Bcd+0
-	STD        Y+23, R16
-	LDI        R27, 1
-	MOV        R2, R27
-	CALL       _Dec2Bcd+0
-	STD        Y+21, R16
+	STD        Y+24, R16
 	LDS        R2, _Start_year+0
 	CALL       _Dec2Bcd+0
-	LDD        R22, Y+28
-	LDD        R21, Y+27
-	LDD        R20, Y+26
-	LDD        R19, Y+25
-	LDD        R18, Y+23
-	LDD        R17, Y+21
+	LDD        R22, Y+31
+	LDD        R21, Y+30
+	LDD        R20, Y+29
+	LDD        R19, Y+28
+	LDD        R18, Y+26
+	LDD        R17, Y+24
 	MOV        R8, R16
 	MOV        R7, R17
 	MOV        R6, R18
@@ -4273,7 +4396,7 @@ L__Easy_vacuum_95_10_4_simple176:
 	MOV        R3, R21
 	MOV        R2, R22
 	CALL       _Write_Time+0
-;libs/main_function.mbas,410 :: 		Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
+;libs/main_function.mbas,418 :: 		Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
 	LDI        R27, #lo_addr(_day+0)
 	MOV        R8, R27
 	LDI        R27, hi_addr(_day+0)
@@ -4310,13 +4433,13 @@ L__Easy_vacuum_95_10_4_simple176:
 	OUT        SPL+1, R27
 	POP        R2
 	POP        R3
-;libs/main_function.mbas,411 :: 		week=1
+;libs/main_function.mbas,419 :: 		week=1
 	LDI        R27, 1
 	STS        _week+0, R27
-;libs/main_function.mbas,413 :: 		Pwm_chanel_main=1 ''heater
+;libs/main_function.mbas,421 :: 		Pwm_chanel_main=1 ''heater
 	LDI        R27, 1
 	STS        _Pwm_chanel_main+0, R27
-;libs/main_function.mbas,415 :: 		txt="Heater"
+;libs/main_function.mbas,423 :: 		txt="Heater"
 	LDI        R30, #lo_addr(_txt+0)
 	LDI        R31, hi_addr(_txt+0)
 	LDI        R27, 72
@@ -4333,21 +4456,21 @@ L__Easy_vacuum_95_10_4_simple176:
 	ST         Z+, R27
 	LDI        R27, 0
 	ST         Z+, R27
-;libs/main_function.mbas,416 :: 		ht_start_min= minutes   ht_start_sec=seconds
+;libs/main_function.mbas,424 :: 		ht_start_min= minutes   ht_start_sec=seconds
 	LDS        R16, _minutes+0
 	STS        _ht_start_min+0, R16
 	LDS        R16, _seconds+0
 	STS        _ht_start_sec+0, R16
-;libs/main_function.mbas,421 :: 		end if
-L__Easy_vacuum_95_10_4_simple180:
-;libs/main_function.mbas,423 :: 		on_off2 = 1
+;libs/main_function.mbas,429 :: 		end if
+L__Easy_vacuum_95_10_4_simple184:
+;libs/main_function.mbas,431 :: 		on_off2 = 1
 	LDI        R27, 1
 	STS        _on_off2+0, R27
-;libs/main_function.mbas,428 :: 		Lcd_0()
+;libs/main_function.mbas,436 :: 		Lcd_0()
 	PUSH       R3
 	PUSH       R2
 	CALL       _Lcd_0+0
-;libs/main_function.mbas,429 :: 		inttostr(on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2-1][1],txt)
+;libs/main_function.mbas,437 :: 		inttostr(on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2-1][1],txt)
 	LDS        R16, _week+0
 	SUBI       R16, 1
 	LDI        R17, 0
@@ -4360,14 +4483,14 @@ L__Easy_vacuum_95_10_4_simple180:
 	ADC        R17, R19
 	LDS        R20, _chanel+0
 	SUBI       R20, 1
-	STD        Y+21, R16
-	STD        Y+22, R17
+	STD        Y+24, R16
+	STD        Y+25, R17
 	LDI        R16, 56
 	LDI        R17, 0
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
-	LDD        R18, Y+21
-	LDD        R19, Y+22
+	LDD        R18, Y+24
+	LDD        R19, Y+25
 	ADD        R18, R16
 	ADC        R19, R17
 	LDS        R16, _Pwm_chanel_main+0
@@ -4400,7 +4523,7 @@ L__Easy_vacuum_95_10_4_simple180:
 	MOV        R5, R27
 	MOVW       R2, R16
 	CALL       _IntToStr+0
-;libs/main_function.mbas,430 :: 		inttostr(seconds,txt)
+;libs/main_function.mbas,438 :: 		inttostr(seconds,txt)
 	LDI        R27, #lo_addr(_txt+0)
 	MOV        R4, R27
 	LDI        R27, hi_addr(_txt+0)
@@ -4409,7 +4532,7 @@ L__Easy_vacuum_95_10_4_simple180:
 	LDI        R27, 0
 	MOV        R3, R27
 	CALL       _IntToStr+0
-;libs/main_function.mbas,431 :: 		Lcd_Out(2,1,txt) Lcd_Out(1,1,"min in a is :") delay_ms(1000)
+;libs/main_function.mbas,439 :: 		Lcd_Out(2,1,txt) Lcd_Out(1,1,"min in a is :") delay_ms(1000)
 	LDI        R27, #lo_addr(_txt+0)
 	MOV        R4, R27
 	LDI        R27, hi_addr(_txt+0)
@@ -4460,36 +4583,36 @@ L__Easy_vacuum_95_10_4_simple180:
 	LDI        R18, 41
 	LDI        R17, 150
 	LDI        R16, 128
-L__Easy_vacuum_95_10_4_simple184:
+L__Easy_vacuum_95_10_4_simple188:
 	DEC        R16
-	BRNE       L__Easy_vacuum_95_10_4_simple184
+	BRNE       L__Easy_vacuum_95_10_4_simple188
 	DEC        R17
-	BRNE       L__Easy_vacuum_95_10_4_simple184
+	BRNE       L__Easy_vacuum_95_10_4_simple188
 	DEC        R18
-	BRNE       L__Easy_vacuum_95_10_4_simple184
-;libs/main_function.mbas,433 :: 		if  (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2-1][1]>= minutes ) and (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2-1][2]>= seconds) then ''and (on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off2][0]<>0)  then
+	BRNE       L__Easy_vacuum_95_10_4_simple188
+;libs/main_function.mbas,441 :: 		if  (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2-1][1]>= minutes ) and (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2-1][2]>= seconds) then ''and (on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off2][0]<>0)  then
 	LDS        R16, _week+0
 	SUBI       R16, 1
 	LDI        R17, 0
 	LDI        R20, 224
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
-	STD        Y+23, R16
-	STD        Y+24, R17
+	STD        Y+26, R16
+	STD        Y+27, R17
 	LDI        R18, #lo_addr(_on_a_0+0)
 	LDI        R19, hi_addr(_on_a_0+0)
 	ADD        R16, R18
 	ADC        R17, R19
 	LDS        R20, _chanel+0
 	SUBI       R20, 1
-	STD        Y+21, R16
-	STD        Y+22, R17
+	STD        Y+24, R16
+	STD        Y+25, R17
 	LDI        R16, 56
 	LDI        R17, 0
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
-	LDD        R18, Y+21
-	LDD        R19, Y+22
+	LDD        R18, Y+24
+	LDD        R19, Y+25
 	MOVW       R22, R16
 	ADD        R22, R18
 	ADC        R23, R19
@@ -4525,13 +4648,13 @@ L__Easy_vacuum_95_10_4_simple184:
 	LDS        R18, _minutes+0
 	CP         R19, R18
 	LDI        R22, 0
-	BRLO       L__Easy_vacuum_95_10_4_simple384
+	BRLO       L__Easy_vacuum_95_10_4_simple390
 	LDI        R22, 255
-L__Easy_vacuum_95_10_4_simple384:
+L__Easy_vacuum_95_10_4_simple390:
 	LDI        R20, #lo_addr(_on_a_0+0)
 	LDI        R21, hi_addr(_on_a_0+0)
-	LDD        R18, Y+23
-	LDD        R19, Y+24
+	LDD        R18, Y+26
+	LDD        R19, Y+27
 	ADD        R18, R20
 	ADC        R19, R21
 	ADD        R16, R18
@@ -4546,36 +4669,36 @@ L__Easy_vacuum_95_10_4_simple384:
 	LDS        R16, _seconds+0
 	CP         R17, R16
 	LDI        R16, 0
-	BRLO       L__Easy_vacuum_95_10_4_simple385
+	BRLO       L__Easy_vacuum_95_10_4_simple391
 	LDI        R16, 255
-L__Easy_vacuum_95_10_4_simple385:
+L__Easy_vacuum_95_10_4_simple391:
 	AND        R16, R22
-	BRNE       L__Easy_vacuum_95_10_4_simple386
-	JMP        L__Easy_vacuum_95_10_4_simple187
-L__Easy_vacuum_95_10_4_simple386:
-;libs/main_function.mbas,435 :: 		if  (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][1]<= minutes ) and     (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][2]<= seconds) then
+	BRNE       L__Easy_vacuum_95_10_4_simple392
+	JMP        L__Easy_vacuum_95_10_4_simple191
+L__Easy_vacuum_95_10_4_simple392:
+;libs/main_function.mbas,443 :: 		if  (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][1]<= minutes ) and     (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][2]<= seconds) then
 	LDS        R16, _week+0
 	SUBI       R16, 1
 	LDI        R17, 0
 	LDI        R20, 224
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
-	STD        Y+23, R16
-	STD        Y+24, R17
+	STD        Y+26, R16
+	STD        Y+27, R17
 	LDI        R18, #lo_addr(_on_a_0+0)
 	LDI        R19, hi_addr(_on_a_0+0)
 	ADD        R16, R18
 	ADC        R17, R19
 	LDS        R20, _chanel+0
 	SUBI       R20, 1
-	STD        Y+21, R16
-	STD        Y+22, R17
+	STD        Y+24, R16
+	STD        Y+25, R17
 	LDI        R16, 56
 	LDI        R17, 0
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
-	LDD        R18, Y+21
-	LDD        R19, Y+22
+	LDD        R18, Y+24
+	LDD        R19, Y+25
 	MOVW       R22, R16
 	ADD        R22, R18
 	ADC        R23, R19
@@ -4610,13 +4733,13 @@ L__Easy_vacuum_95_10_4_simple386:
 	LDS        R18, _minutes+0
 	CP         R18, R19
 	LDI        R22, 0
-	BRLO       L__Easy_vacuum_95_10_4_simple387
+	BRLO       L__Easy_vacuum_95_10_4_simple393
 	LDI        R22, 255
-L__Easy_vacuum_95_10_4_simple387:
+L__Easy_vacuum_95_10_4_simple393:
 	LDI        R20, #lo_addr(_on_a_0+0)
 	LDI        R21, hi_addr(_on_a_0+0)
-	LDD        R18, Y+23
-	LDD        R19, Y+24
+	LDD        R18, Y+26
+	LDD        R19, Y+27
 	ADD        R18, R20
 	ADC        R19, R21
 	ADD        R16, R18
@@ -4631,19 +4754,19 @@ L__Easy_vacuum_95_10_4_simple387:
 	LDS        R16, _seconds+0
 	CP         R16, R17
 	LDI        R27, 0
-	BRLO       L__Easy_vacuum_95_10_4_simple388
+	BRLO       L__Easy_vacuum_95_10_4_simple394
 	LDI        R27, 255
-L__Easy_vacuum_95_10_4_simple388:
+L__Easy_vacuum_95_10_4_simple394:
 	MOV        R16, R27
 	AND        R16, R22
-	BRNE       L__Easy_vacuum_95_10_4_simple389
-	JMP        L__Easy_vacuum_95_10_4_simple190
-L__Easy_vacuum_95_10_4_simple389:
-;libs/main_function.mbas,436 :: 		Lcd_0()
+	BRNE       L__Easy_vacuum_95_10_4_simple395
+	JMP        L__Easy_vacuum_95_10_4_simple194
+L__Easy_vacuum_95_10_4_simple395:
+;libs/main_function.mbas,444 :: 		Lcd_0()
 	PUSH       R3
 	PUSH       R2
 	CALL       _Lcd_0+0
-;libs/main_function.mbas,437 :: 		inttostr(on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][1],txt)
+;libs/main_function.mbas,445 :: 		inttostr(on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][1],txt)
 	LDS        R16, _week+0
 	SUBI       R16, 1
 	LDI        R17, 0
@@ -4656,14 +4779,14 @@ L__Easy_vacuum_95_10_4_simple389:
 	ADC        R17, R19
 	LDS        R20, _chanel+0
 	SUBI       R20, 1
-	STD        Y+21, R16
-	STD        Y+22, R17
+	STD        Y+24, R16
+	STD        Y+25, R17
 	LDI        R16, 56
 	LDI        R17, 0
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
-	LDD        R18, Y+21
-	LDD        R19, Y+22
+	LDD        R18, Y+24
+	LDD        R19, Y+25
 	ADD        R18, R16
 	ADC        R19, R17
 	LDS        R16, _Pwm_chanel_main+0
@@ -4695,7 +4818,7 @@ L__Easy_vacuum_95_10_4_simple389:
 	MOV        R5, R27
 	MOVW       R2, R16
 	CALL       _IntToStr+0
-;libs/main_function.mbas,438 :: 		inttostr(minutes,txt)
+;libs/main_function.mbas,446 :: 		inttostr(minutes,txt)
 	LDI        R27, #lo_addr(_txt+0)
 	MOV        R4, R27
 	LDI        R27, hi_addr(_txt+0)
@@ -4704,7 +4827,7 @@ L__Easy_vacuum_95_10_4_simple389:
 	LDI        R27, 0
 	MOV        R3, R27
 	CALL       _IntToStr+0
-;libs/main_function.mbas,439 :: 		Lcd_Out(2,1,txt) Lcd_Out(1,1,"1 chcked:")
+;libs/main_function.mbas,447 :: 		Lcd_Out(2,1,txt) Lcd_Out(1,1,"1 chcked:")
 	LDI        R27, #lo_addr(_txt+0)
 	MOV        R4, R27
 	LDI        R27, hi_addr(_txt+0)
@@ -4744,47 +4867,47 @@ L__Easy_vacuum_95_10_4_simple389:
 	CALL       _Lcd_Out+0
 	POP        R2
 	POP        R3
-;libs/main_function.mbas,441 :: 		delay_ms(1000)
+;libs/main_function.mbas,449 :: 		delay_ms(1000)
 	LDI        R18, 41
 	LDI        R17, 150
 	LDI        R16, 128
-L__Easy_vacuum_95_10_4_simple192:
+L__Easy_vacuum_95_10_4_simple196:
 	DEC        R16
-	BRNE       L__Easy_vacuum_95_10_4_simple192
+	BRNE       L__Easy_vacuum_95_10_4_simple196
 	DEC        R17
-	BRNE       L__Easy_vacuum_95_10_4_simple192
+	BRNE       L__Easy_vacuum_95_10_4_simple196
 	DEC        R18
-	BRNE       L__Easy_vacuum_95_10_4_simple192
-L__Easy_vacuum_95_10_4_simple190:
-;libs/main_function.mbas,443 :: 		end if end if
-L__Easy_vacuum_95_10_4_simple187:
-;libs/main_function.mbas,446 :: 		for on_off2 =1 to 1   ' equal to on or off estate
+	BRNE       L__Easy_vacuum_95_10_4_simple196
+L__Easy_vacuum_95_10_4_simple194:
+;libs/main_function.mbas,451 :: 		end if end if
+L__Easy_vacuum_95_10_4_simple191:
+;libs/main_function.mbas,454 :: 		for on_off2 =1 to 1   ' equal to on or off estate
 	LDI        R27, 1
 	STS        _on_off2+0, R27
-L__Easy_vacuum_95_10_4_simple195:
-;libs/main_function.mbas,448 :: 		if  (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][1]<= minutes ) and     (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][2]<= seconds) and (on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off2][0]<>0) then
+L__Easy_vacuum_95_10_4_simple199:
+;libs/main_function.mbas,456 :: 		if  (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][1]<= minutes ) and     (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][2]<= seconds) and (on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off2][0]<>0) then
 	LDS        R16, _week+0
 	SUBI       R16, 1
 	LDI        R17, 0
 	LDI        R20, 224
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
-	STD        Y+23, R16
-	STD        Y+24, R17
+	STD        Y+26, R16
+	STD        Y+27, R17
 	LDI        R18, #lo_addr(_on_a_0+0)
 	LDI        R19, hi_addr(_on_a_0+0)
 	ADD        R16, R18
 	ADC        R17, R19
 	LDS        R20, _chanel+0
 	SUBI       R20, 1
-	STD        Y+21, R16
-	STD        Y+22, R17
+	STD        Y+24, R16
+	STD        Y+25, R17
 	LDI        R16, 56
 	LDI        R17, 0
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
-	LDD        R18, Y+21
-	LDD        R19, Y+22
+	LDD        R18, Y+24
+	LDD        R19, Y+25
 	MOVW       R22, R16
 	ADD        R22, R18
 	ADC        R23, R19
@@ -4819,13 +4942,13 @@ L__Easy_vacuum_95_10_4_simple195:
 	LDS        R18, _minutes+0
 	CP         R18, R19
 	LDI        R20, 0
-	BRLO       L__Easy_vacuum_95_10_4_simple390
+	BRLO       L__Easy_vacuum_95_10_4_simple396
 	LDI        R20, 255
-L__Easy_vacuum_95_10_4_simple390:
+L__Easy_vacuum_95_10_4_simple396:
 	LDI        R18, #lo_addr(_on_a_0+0)
 	LDI        R19, hi_addr(_on_a_0+0)
-	LDD        R21, Y+23
-	LDD        R22, Y+24
+	LDD        R21, Y+26
+	LDD        R22, Y+27
 	ADD        R18, R21
 	ADC        R19, R22
 	ADD        R18, R16
@@ -4840,9 +4963,9 @@ L__Easy_vacuum_95_10_4_simple390:
 	LDS        R18, _seconds+0
 	CP         R18, R19
 	LDI        R27, 0
-	BRLO       L__Easy_vacuum_95_10_4_simple391
+	BRLO       L__Easy_vacuum_95_10_4_simple397
 	LDI        R27, 255
-L__Easy_vacuum_95_10_4_simple391:
+L__Easy_vacuum_95_10_4_simple397:
 	MOV        R18, R27
 	AND        R20, R18
 	LDI        R18, #lo_addr(_on_a_0+0)
@@ -4869,46 +4992,46 @@ L__Easy_vacuum_95_10_4_simple391:
 	LD         R16, Z
 	CPI        R16, 0
 	LDI        R27, 0
-	BREQ       L__Easy_vacuum_95_10_4_simple392
+	BREQ       L__Easy_vacuum_95_10_4_simple398
 	LDI        R27, 255
-L__Easy_vacuum_95_10_4_simple392:
+L__Easy_vacuum_95_10_4_simple398:
 	MOV        R16, R27
 	AND        R16, R20
-	BRNE       L__Easy_vacuum_95_10_4_simple393
-	JMP        L__Easy_vacuum_95_10_4_simple200
-L__Easy_vacuum_95_10_4_simple393:
-;libs/main_function.mbas,449 :: 		while_state_import=1
+	BRNE       L__Easy_vacuum_95_10_4_simple399
+	JMP        L__Easy_vacuum_95_10_4_simple204
+L__Easy_vacuum_95_10_4_simple399:
+;libs/main_function.mbas,457 :: 		while_state_import=1
 	LDS        R27, _while_state_import+0
 	SBR        R27, BitMask(_while_state_import+0)
 	STS        _while_state_import+0, R27
-;libs/main_function.mbas,450 :: 		while( while_state_import)
-L__Easy_vacuum_95_10_4_simple203:
+;libs/main_function.mbas,458 :: 		while( while_state_import)
+L__Easy_vacuum_95_10_4_simple207:
 	LDS        R27, _while_state_import+0
 	SBRS       R27, BitPos(_while_state_import+0)
-	JMP        L__Easy_vacuum_95_10_4_simple204
-;libs/main_function.mbas,452 :: 		if  (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2-1][1]>= minutes ) and    (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2-1][2]>= seconds)  and (on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off2-1][0]<>0) then  '''OFF mode
+	JMP        L__Easy_vacuum_95_10_4_simple208
+;libs/main_function.mbas,460 :: 		if  (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2-1][1]>= minutes ) and    (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2-1][2]>= seconds)  and (on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off2-1][0]<>0) then  '''OFF mode
 	LDS        R16, _week+0
 	SUBI       R16, 1
 	LDI        R17, 0
 	LDI        R20, 224
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
-	STD        Y+23, R16
-	STD        Y+24, R17
+	STD        Y+26, R16
+	STD        Y+27, R17
 	LDI        R18, #lo_addr(_on_a_0+0)
 	LDI        R19, hi_addr(_on_a_0+0)
 	ADD        R16, R18
 	ADC        R17, R19
 	LDS        R20, _chanel+0
 	SUBI       R20, 1
-	STD        Y+21, R16
-	STD        Y+22, R17
+	STD        Y+24, R16
+	STD        Y+25, R17
 	LDI        R16, 56
 	LDI        R17, 0
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
-	LDD        R18, Y+21
-	LDD        R19, Y+22
+	LDD        R18, Y+24
+	LDD        R19, Y+25
 	MOVW       R22, R16
 	ADD        R22, R18
 	ADC        R23, R19
@@ -4944,13 +5067,13 @@ L__Easy_vacuum_95_10_4_simple203:
 	LDS        R18, _minutes+0
 	CP         R19, R18
 	LDI        R20, 0
-	BRLO       L__Easy_vacuum_95_10_4_simple394
+	BRLO       L__Easy_vacuum_95_10_4_simple400
 	LDI        R20, 255
-L__Easy_vacuum_95_10_4_simple394:
+L__Easy_vacuum_95_10_4_simple400:
 	LDI        R18, #lo_addr(_on_a_0+0)
 	LDI        R19, hi_addr(_on_a_0+0)
-	LDD        R21, Y+23
-	LDD        R22, Y+24
+	LDD        R21, Y+26
+	LDD        R22, Y+27
 	ADD        R18, R21
 	ADC        R19, R22
 	ADD        R18, R16
@@ -4965,9 +5088,9 @@ L__Easy_vacuum_95_10_4_simple394:
 	LDS        R18, _seconds+0
 	CP         R19, R18
 	LDI        R18, 0
-	BRLO       L__Easy_vacuum_95_10_4_simple395
+	BRLO       L__Easy_vacuum_95_10_4_simple401
 	LDI        R18, 255
-L__Easy_vacuum_95_10_4_simple395:
+L__Easy_vacuum_95_10_4_simple401:
 	AND        R20, R18
 	LDI        R18, #lo_addr(_on_a_0+0)
 	LDI        R19, hi_addr(_on_a_0+0)
@@ -4993,22 +5116,22 @@ L__Easy_vacuum_95_10_4_simple395:
 	LD         R16, Z
 	CPI        R16, 0
 	LDI        R27, 0
-	BREQ       L__Easy_vacuum_95_10_4_simple396
+	BREQ       L__Easy_vacuum_95_10_4_simple402
 	LDI        R27, 255
-L__Easy_vacuum_95_10_4_simple396:
+L__Easy_vacuum_95_10_4_simple402:
 	MOV        R16, R27
 	AND        R16, R20
-	BRNE       L__Easy_vacuum_95_10_4_simple397
-	JMP        L__Easy_vacuum_95_10_4_simple208
-L__Easy_vacuum_95_10_4_simple397:
-;libs/main_function.mbas,455 :: 		chanel_active=chanel
+	BRNE       L__Easy_vacuum_95_10_4_simple403
+	JMP        L__Easy_vacuum_95_10_4_simple212
+L__Easy_vacuum_95_10_4_simple403:
+;libs/main_function.mbas,463 :: 		chanel_active=chanel
 	LDS        R16, _chanel+0
 	STS        _chanel_active+0, R16
-;libs/main_function.mbas,456 :: 		Lcd_0()
+;libs/main_function.mbas,464 :: 		Lcd_0()
 	PUSH       R3
 	PUSH       R2
 	CALL       _Lcd_0+0
-;libs/main_function.mbas,457 :: 		Lcd_Out(1,1,txt) Lcd_Out(1,8,"is ACTIVE:")
+;libs/main_function.mbas,465 :: 		Lcd_Out(1,1,txt) Lcd_Out(1,8,"is ACTIVE:")
 	LDI        R27, #lo_addr(_txt+0)
 	MOV        R4, R27
 	LDI        R27, hi_addr(_txt+0)
@@ -5048,7 +5171,7 @@ L__Easy_vacuum_95_10_4_simple397:
 	LDI        R27, 1
 	MOV        R2, R27
 	CALL       _Lcd_Out+0
-;libs/main_function.mbas,458 :: 		inttostr(chanel_active,txt)
+;libs/main_function.mbas,466 :: 		inttostr(chanel_active,txt)
 	LDI        R27, #lo_addr(_txt+0)
 	MOV        R4, R27
 	LDI        R27, hi_addr(_txt+0)
@@ -5057,7 +5180,7 @@ L__Easy_vacuum_95_10_4_simple397:
 	LDI        R27, 0
 	MOV        R3, R27
 	CALL       _IntToStr+0
-;libs/main_function.mbas,459 :: 		Lcd_Out(2,1,"Prog num:") Lcd_Out(2,10,txt) delay_ms(2000)
+;libs/main_function.mbas,467 :: 		Lcd_Out(2,1,"Prog num:") Lcd_Out(2,10,txt) delay_ms(2000)
 	MOVW       R30, R28
 	LDI        R27, 80
 	ST         Z+, R27
@@ -5098,18 +5221,18 @@ L__Easy_vacuum_95_10_4_simple397:
 	LDI        R18, 82
 	LDI        R17, 43
 	LDI        R16, 0
-L__Easy_vacuum_95_10_4_simple210:
+L__Easy_vacuum_95_10_4_simple214:
 	DEC        R16
-	BRNE       L__Easy_vacuum_95_10_4_simple210
+	BRNE       L__Easy_vacuum_95_10_4_simple214
 	DEC        R17
-	BRNE       L__Easy_vacuum_95_10_4_simple210
+	BRNE       L__Easy_vacuum_95_10_4_simple214
 	DEC        R18
-	BRNE       L__Easy_vacuum_95_10_4_simple210
+	BRNE       L__Easy_vacuum_95_10_4_simple214
 	NOP
 	NOP
 	NOP
 	NOP
-;libs/main_function.mbas,460 :: 		Lcd_Out(1,1,"On pwm heater mode")
+;libs/main_function.mbas,468 :: 		Lcd_Out(1,1,"On pwm heater mode")
 	MOVW       R30, R28
 	LDI        R27, 79
 	ST         Z+, R27
@@ -5156,7 +5279,7 @@ L__Easy_vacuum_95_10_4_simple210:
 	LDI        R27, 1
 	MOV        R2, R27
 	CALL       _Lcd_Out+0
-;libs/main_function.mbas,461 :: 		inttostr(chanel,txt)                     ' ??? ????? ???? ? ?????? ????? ? ????
+;libs/main_function.mbas,469 :: 		inttostr(chanel,txt)                     ' ??? ????? ???? ? ?????? ????? ? ????
 	LDI        R27, #lo_addr(_txt+0)
 	MOV        R4, R27
 	LDI        R27, hi_addr(_txt+0)
@@ -5165,7 +5288,7 @@ L__Easy_vacuum_95_10_4_simple210:
 	LDI        R27, 0
 	MOV        R3, R27
 	CALL       _IntToStr+0
-;libs/main_function.mbas,462 :: 		PWM_MAKE (on_a_0[week-1][chanel-1][Pwm_chanel_main-1][on_off2][3],255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+;libs/main_function.mbas,470 :: 		PWM_MAKE (on_a_0[week-1][chanel-1][Pwm_chanel_main-1][on_off2][3],255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
 	LDS        R16, _week+0
 	SUBI       R16, 1
 	LDI        R17, 0
@@ -5178,14 +5301,14 @@ L__Easy_vacuum_95_10_4_simple210:
 	ADC        R17, R19
 	LDS        R20, _chanel+0
 	SUBI       R20, 1
-	STD        Y+21, R16
-	STD        Y+22, R17
+	STD        Y+24, R16
+	STD        Y+25, R17
 	LDI        R16, 56
 	LDI        R17, 0
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
-	LDD        R18, Y+21
-	LDD        R19, Y+22
+	LDD        R18, Y+24
+	LDD        R19, Y+25
 	ADD        R18, R16
 	ADC        R19, R17
 	LDS        R16, _Pwm_chanel_main+0
@@ -5217,7 +5340,7 @@ L__Easy_vacuum_95_10_4_simple210:
 	MOV        R4, R27
 	MOV        R2, R16
 	CALL       _PWM_MAKE+0
-;libs/main_function.mbas,463 :: 		Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
+;libs/main_function.mbas,471 :: 		Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
 	LDI        R27, #lo_addr(_day+0)
 	MOV        R8, R27
 	LDI        R27, hi_addr(_day+0)
@@ -5254,14 +5377,14 @@ L__Easy_vacuum_95_10_4_simple210:
 	OUT        SPL+1, R27
 	POP        R2
 	POP        R3
-	JMP        L__Easy_vacuum_95_10_4_simple209
-;libs/main_function.mbas,465 :: 		else
-L__Easy_vacuum_95_10_4_simple208:
-;libs/main_function.mbas,466 :: 		Lcd_0()
+	JMP        L__Easy_vacuum_95_10_4_simple213
+;libs/main_function.mbas,473 :: 		else
+L__Easy_vacuum_95_10_4_simple212:
+;libs/main_function.mbas,474 :: 		Lcd_0()
 	PUSH       R3
 	PUSH       R2
 	CALL       _Lcd_0+0
-;libs/main_function.mbas,467 :: 		Lcd_Out(1,1,txt) Lcd_Out(1,8,"is Off:")
+;libs/main_function.mbas,475 :: 		Lcd_Out(1,1,txt) Lcd_Out(1,8,"is Off:")
 	LDI        R27, #lo_addr(_txt+0)
 	MOV        R4, R27
 	LDI        R27, hi_addr(_txt+0)
@@ -5295,7 +5418,7 @@ L__Easy_vacuum_95_10_4_simple208:
 	LDI        R27, 1
 	MOV        R2, R27
 	CALL       _Lcd_Out+0
-;libs/main_function.mbas,468 :: 		Lcd_Out(2,1,"Prog num:") Lcd_Out(2,10,txt) delay_ms(300)
+;libs/main_function.mbas,476 :: 		Lcd_Out(2,1,"Prog num:") Lcd_Out(2,10,txt) delay_ms(300)
 	MOVW       R30, R28
 	LDI        R27, 80
 	ST         Z+, R27
@@ -5336,16 +5459,16 @@ L__Easy_vacuum_95_10_4_simple208:
 	LDI        R18, 13
 	LDI        R17, 45
 	LDI        R16, 216
-L__Easy_vacuum_95_10_4_simple212:
+L__Easy_vacuum_95_10_4_simple216:
 	DEC        R16
-	BRNE       L__Easy_vacuum_95_10_4_simple212
+	BRNE       L__Easy_vacuum_95_10_4_simple216
 	DEC        R17
-	BRNE       L__Easy_vacuum_95_10_4_simple212
+	BRNE       L__Easy_vacuum_95_10_4_simple216
 	DEC        R18
-	BRNE       L__Easy_vacuum_95_10_4_simple212
+	BRNE       L__Easy_vacuum_95_10_4_simple216
 	NOP
 	NOP
-;libs/main_function.mbas,469 :: 		Lcd_Out(1,1,"Off pwm heater mode")
+;libs/main_function.mbas,477 :: 		Lcd_Out(1,1,"Off pwm heater mode")
 	MOVW       R30, R28
 	LDI        R27, 79
 	ST         Z+, R27
@@ -5394,7 +5517,7 @@ L__Easy_vacuum_95_10_4_simple212:
 	LDI        R27, 1
 	MOV        R2, R27
 	CALL       _Lcd_Out+0
-;libs/main_function.mbas,470 :: 		inttostr(chanel,txt)                     ' ??? ????? ???? ? ?????? ????? ? ????
+;libs/main_function.mbas,478 :: 		inttostr(chanel,txt)                     ' ??? ????? ???? ? ?????? ????? ? ????
 	LDI        R27, #lo_addr(_txt+0)
 	MOV        R4, R27
 	LDI        R27, hi_addr(_txt+0)
@@ -5403,7 +5526,7 @@ L__Easy_vacuum_95_10_4_simple212:
 	LDI        R27, 0
 	MOV        R3, R27
 	CALL       _IntToStr+0
-;libs/main_function.mbas,471 :: 		PWM_MAKE (0,255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+;libs/main_function.mbas,479 :: 		PWM_MAKE (0,255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
 	LDS        R5, _Pwm_chanel_main+0
 	LDI        R27, 255
 	MOV        R3, R27
@@ -5413,23 +5536,23 @@ L__Easy_vacuum_95_10_4_simple212:
 	CALL       _PWM_MAKE+0
 	POP        R2
 	POP        R3
-;libs/main_function.mbas,472 :: 		while_state_import=0
+;libs/main_function.mbas,480 :: 		while_state_import=0
 	LDS        R27, _while_state_import+0
 	CBR        R27, BitMask(_while_state_import+0)
 	STS        _while_state_import+0, R27
-;libs/main_function.mbas,473 :: 		end if
-L__Easy_vacuum_95_10_4_simple209:
-;libs/main_function.mbas,474 :: 		wend
-	JMP        L__Easy_vacuum_95_10_4_simple203
+;libs/main_function.mbas,481 :: 		end if
+L__Easy_vacuum_95_10_4_simple213:
+;libs/main_function.mbas,482 :: 		wend
+	JMP        L__Easy_vacuum_95_10_4_simple207
+L__Easy_vacuum_95_10_4_simple208:
+	JMP        L__Easy_vacuum_95_10_4_simple205
+;libs/main_function.mbas,483 :: 		else '' if  (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][1]>= minutes ) and    (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][2]>= seconds)  and (on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off2][0]<>0) then  '''OFF mode
 L__Easy_vacuum_95_10_4_simple204:
-	JMP        L__Easy_vacuum_95_10_4_simple201
-;libs/main_function.mbas,475 :: 		else '' if  (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][1]>= minutes ) and    (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][2]>= seconds)  and (on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off2][0]<>0) then  '''OFF mode
-L__Easy_vacuum_95_10_4_simple200:
-;libs/main_function.mbas,476 :: 		Lcd_0()
+;libs/main_function.mbas,484 :: 		Lcd_0()
 	PUSH       R3
 	PUSH       R2
 	CALL       _Lcd_0+0
-;libs/main_function.mbas,477 :: 		Lcd_Out(1,1,"ext form Ht one area")
+;libs/main_function.mbas,485 :: 		Lcd_Out(1,1,"ext form Ht one area")
 	MOVW       R30, R28
 	LDI        R27, 101
 	ST         Z+, R27
@@ -5482,49 +5605,55 @@ L__Easy_vacuum_95_10_4_simple200:
 	CALL       _Lcd_Out+0
 	POP        R2
 	POP        R3
-;libs/main_function.mbas,479 :: 		while_state_import=0
+;libs/main_function.mbas,487 :: 		while_state_import=0
 	LDS        R27, _while_state_import+0
 	CBR        R27, BitMask(_while_state_import+0)
 	STS        _while_state_import+0, R27
-;libs/main_function.mbas,480 :: 		end if
-L__Easy_vacuum_95_10_4_simple201:
-;libs/main_function.mbas,481 :: 		next on_off2
+;libs/main_function.mbas,488 :: 		end if
+L__Easy_vacuum_95_10_4_simple205:
+;libs/main_function.mbas,489 :: 		next on_off2
 	LDS        R16, _on_off2+0
 	CPI        R16, 1
-	BRNE       L__Easy_vacuum_95_10_4_simple398
-	JMP        L__Easy_vacuum_95_10_4_simple198
-L__Easy_vacuum_95_10_4_simple398:
+	BRNE       L__Easy_vacuum_95_10_4_simple404
+	JMP        L__Easy_vacuum_95_10_4_simple202
+L__Easy_vacuum_95_10_4_simple404:
 	LDS        R16, _on_off2+0
 	SUBI       R16, 255
 	STS        _on_off2+0, R16
-	JMP        L__Easy_vacuum_95_10_4_simple195
-L__Easy_vacuum_95_10_4_simple198:
-;libs/main_function.mbas,484 :: 		while_state_import=0
+	JMP        L__Easy_vacuum_95_10_4_simple199
+L__Easy_vacuum_95_10_4_simple202:
+;libs/main_function.mbas,492 :: 		while_state_import=0
 	LDS        R27, _while_state_import+0
 	CBR        R27, BitMask(_while_state_import+0)
 	STS        _while_state_import+0, R27
-L__Easy_vacuum_95_10_4_simple174:
-;libs/main_function.mbas,491 :: 		Pwm_chanel_main=2 ''Motor
+L__Easy_vacuum_95_10_4_simple178:
+;libs/main_function.mbas,499 :: 		Pwm_chanel_main=2 ''Motor
 	LDI        R27, 2
 	STS        _Pwm_chanel_main+0, R27
-;libs/main_function.mbas,492 :: 		while_state_import=1  ''while_state_import_main2=1
+;libs/main_function.mbas,500 :: 		while_state_import=1  ''while_state_import_main2=1
 	LDS        R27, _while_state_import+0
 	SBR        R27, BitMask(_while_state_import+0)
 	STS        _while_state_import+0, R27
-;libs/main_function.mbas,493 :: 		oldstate_3=0
+;libs/main_function.mbas,501 :: 		oldstate_3=0
 	LDS        R27, _oldstate_3+0
 	CBR        R27, BitMask(_oldstate_3+0)
 	STS        _oldstate_3+0, R27
-;libs/main_function.mbas,494 :: 		while_state_import_main=1
+;libs/main_function.mbas,502 :: 		while_state_import_main=1
 	LDS        R27, _while_state_import_main+0
 	SBR        R27, BitMask(_while_state_import_main+0)
 	STS        _while_state_import_main+0, R27
-;libs/main_function.mbas,495 :: 		while  (while_state_import_main )
-L__Easy_vacuum_95_10_4_simple215:
+;libs/main_function.mbas,503 :: 		Lcd_0()
+	PUSH       R3
+	PUSH       R2
+	CALL       _Lcd_0+0
+	POP        R2
+	POP        R3
+;libs/main_function.mbas,504 :: 		while  (while_state_import_main )
+L__Easy_vacuum_95_10_4_simple219:
 	LDS        R27, _while_state_import_main+0
 	SBRS       R27, BitPos(_while_state_import_main+0)
-	JMP        L__Easy_vacuum_95_10_4_simple216
-;libs/main_function.mbas,497 :: 		if (Button(PORTD, 7, 0.5, 0)) then    ' Detect logical one up key
+	JMP        L__Easy_vacuum_95_10_4_simple220
+;libs/main_function.mbas,506 :: 		if (Button(PORTD, 7, 0.5, 0)) then    ' Detect logical one up key
 	PUSH       R3
 	PUSH       R2
 	CLR        R6
@@ -5539,15 +5668,15 @@ L__Easy_vacuum_95_10_4_simple215:
 	POP        R2
 	POP        R3
 	TST        R16
-	BRNE       L__Easy_vacuum_95_10_4_simple399
-	JMP        L__Easy_vacuum_95_10_4_simple220
-L__Easy_vacuum_95_10_4_simple399:
-;libs/main_function.mbas,498 :: 		oldstate_3 = 1                      ' Update flag
+	BRNE       L__Easy_vacuum_95_10_4_simple405
+	JMP        L__Easy_vacuum_95_10_4_simple224
+L__Easy_vacuum_95_10_4_simple405:
+;libs/main_function.mbas,507 :: 		oldstate_3 = 1                      ' Update flag
 	LDS        R27, _oldstate_3+0
 	SBR        R27, BitMask(_oldstate_3+0)
 	STS        _oldstate_3+0, R27
-L__Easy_vacuum_95_10_4_simple220:
-;libs/main_function.mbas,500 :: 		if (oldstate_3 and Button(PIND, 7,0.5, 1)) then
+L__Easy_vacuum_95_10_4_simple224:
+;libs/main_function.mbas,509 :: 		if (oldstate_3 and Button(PIND, 7,0.5, 1)) then
 	PUSH       R3
 	PUSH       R2
 	LDI        R27, 1
@@ -5567,18 +5696,124 @@ L__Easy_vacuum_95_10_4_simple220:
 	SBRC       R0, BitPos(_oldstate_3+0)
 	INC        R17
 	AND        R16, R17
-	BRNE       L__Easy_vacuum_95_10_4_simple400
-	JMP        L__Easy_vacuum_95_10_4_simple223
-L__Easy_vacuum_95_10_4_simple400:
-;libs/main_function.mbas,501 :: 		while_state_import_main=0
+	BRNE       L__Easy_vacuum_95_10_4_simple406
+	JMP        L__Easy_vacuum_95_10_4_simple227
+L__Easy_vacuum_95_10_4_simple406:
+;libs/main_function.mbas,510 :: 		while_state_import_main=0
 	LDS        R27, _while_state_import_main+0
 	CBR        R27, BitMask(_while_state_import_main+0)
 	STS        _while_state_import_main+0, R27
-L__Easy_vacuum_95_10_4_simple223:
-;libs/main_function.mbas,504 :: 		wend
-	JMP        L__Easy_vacuum_95_10_4_simple215
-L__Easy_vacuum_95_10_4_simple216:
-;libs/main_function.mbas,506 :: 		LCD_Out(2,9, "motor running")  ''Show on LCD
+L__Easy_vacuum_95_10_4_simple227:
+;libs/main_function.mbas,513 :: 		Lcd_Out(1,1,"Wating for :") Lcd_Out(2,1,"Pressing Motor micro SW") delay_ms(200)
+	MOVW       R30, R28
+	LDI        R27, 87
+	ST         Z+, R27
+	LDI        R27, 97
+	ST         Z+, R27
+	LDI        R27, 116
+	ST         Z+, R27
+	LDI        R27, 105
+	ST         Z+, R27
+	LDI        R27, 110
+	ST         Z+, R27
+	LDI        R27, 103
+	ST         Z+, R27
+	LDI        R27, 32
+	ST         Z+, R27
+	LDI        R27, 102
+	ST         Z+, R27
+	LDI        R27, 111
+	ST         Z+, R27
+	LDI        R27, 114
+	ST         Z+, R27
+	LDI        R27, 32
+	ST         Z+, R27
+	LDI        R27, 58
+	ST         Z+, R27
+	LDI        R27, 0
+	ST         Z+, R27
+	MOVW       R16, R28
+	PUSH       R3
+	PUSH       R2
+	MOVW       R4, R16
+	LDI        R27, 1
+	MOV        R3, R27
+	LDI        R27, 1
+	MOV        R2, R27
+	CALL       _Lcd_Out+0
+	MOVW       R30, R28
+	LDI        R27, 80
+	ST         Z+, R27
+	LDI        R27, 114
+	ST         Z+, R27
+	LDI        R27, 101
+	ST         Z+, R27
+	LDI        R27, 115
+	ST         Z+, R27
+	LDI        R27, 115
+	ST         Z+, R27
+	LDI        R27, 105
+	ST         Z+, R27
+	LDI        R27, 110
+	ST         Z+, R27
+	LDI        R27, 103
+	ST         Z+, R27
+	LDI        R27, 32
+	ST         Z+, R27
+	LDI        R27, 77
+	ST         Z+, R27
+	LDI        R27, 111
+	ST         Z+, R27
+	LDI        R27, 116
+	ST         Z+, R27
+	LDI        R27, 111
+	ST         Z+, R27
+	LDI        R27, 114
+	ST         Z+, R27
+	LDI        R27, 32
+	ST         Z+, R27
+	LDI        R27, 109
+	ST         Z+, R27
+	LDI        R27, 105
+	ST         Z+, R27
+	LDI        R27, 99
+	ST         Z+, R27
+	LDI        R27, 114
+	ST         Z+, R27
+	LDI        R27, 111
+	ST         Z+, R27
+	LDI        R27, 32
+	ST         Z+, R27
+	LDI        R27, 83
+	ST         Z+, R27
+	LDI        R27, 87
+	ST         Z+, R27
+	LDI        R27, 0
+	ST         Z+, R27
+	MOVW       R16, R28
+	MOVW       R4, R16
+	LDI        R27, 1
+	MOV        R3, R27
+	LDI        R27, 2
+	MOV        R2, R27
+	CALL       _Lcd_Out+0
+	POP        R2
+	POP        R3
+	LDI        R18, 9
+	LDI        R17, 30
+	LDI        R16, 229
+L__Easy_vacuum_95_10_4_simple229:
+	DEC        R16
+	BRNE       L__Easy_vacuum_95_10_4_simple229
+	DEC        R17
+	BRNE       L__Easy_vacuum_95_10_4_simple229
+	DEC        R18
+	BRNE       L__Easy_vacuum_95_10_4_simple229
+	NOP
+;libs/main_function.mbas,514 :: 		wend
+	JMP        L__Easy_vacuum_95_10_4_simple219
+L__Easy_vacuum_95_10_4_simple220:
+;libs/main_function.mbas,516 :: 		LCD_Out(2,9, "motor running")  ''Show on LCD
 	MOVW       R30, R28
 	LDI        R27, 109
 	ST         Z+, R27
@@ -5617,7 +5852,7 @@ L__Easy_vacuum_95_10_4_simple216:
 	LDI        R27, 2
 	MOV        R2, R27
 	CALL       _Lcd_Out+0
-;libs/main_function.mbas,507 :: 		LCD_Out(2,1, "Value: ")  ''Show on LCD
+;libs/main_function.mbas,517 :: 		LCD_Out(2,1, "Value: ")  ''Show on LCD
 	MOVW       R30, R28
 	LDI        R27, 86
 	ST         Z+, R27
@@ -5642,18 +5877,18 @@ L__Easy_vacuum_95_10_4_simple216:
 	LDI        R27, 2
 	MOV        R2, R27
 	CALL       _Lcd_Out+0
-;libs/main_function.mbas,508 :: 		Delay_mS(100)
+;libs/main_function.mbas,518 :: 		Delay_mS(100)
 	LDI        R18, 5
 	LDI        R17, 15
 	LDI        R16, 242
-L__Easy_vacuum_95_10_4_simple228:
+L__Easy_vacuum_95_10_4_simple234:
 	DEC        R16
-	BRNE       L__Easy_vacuum_95_10_4_simple228
+	BRNE       L__Easy_vacuum_95_10_4_simple234
 	DEC        R17
-	BRNE       L__Easy_vacuum_95_10_4_simple228
+	BRNE       L__Easy_vacuum_95_10_4_simple234
 	DEC        R18
-	BRNE       L__Easy_vacuum_95_10_4_simple228
-;libs/main_function.mbas,509 :: 		Read_Time(@Start_hours, @Start_minutes_next, @Start_seconds_next, @Start_day, @Start_week, @Start_month, @Start_year)
+	BRNE       L__Easy_vacuum_95_10_4_simple234
+;libs/main_function.mbas,519 :: 		Read_Time(@Start_hours, @Start_minutes_next, @Start_seconds_next, @Start_day, @Start_week, @Start_month, @Start_year)
 	LDI        R27, #lo_addr(_Start_day+0)
 	MOV        R8, R27
 	LDI        R27, hi_addr(_Start_day+0)
@@ -5688,37 +5923,37 @@ L__Easy_vacuum_95_10_4_simple228:
 	ADIW       R26, 6
 	OUT        SPL+0, R26
 	OUT        SPL+1, R27
-;libs/main_function.mbas,510 :: 		Write_Time(Dec2Bcd(1),Dec2Bcd(0),Dec2Bcd(0),Dec2Bcd(1),Dec2Bcd(1),Dec2Bcd(1),Dec2Bcd(Start_year))
+;libs/main_function.mbas,520 :: 		Write_Time(Dec2Bcd(1),Dec2Bcd(0),Dec2Bcd(0),Dec2Bcd(1),Dec2Bcd(1),Dec2Bcd(1),Dec2Bcd(Start_year))
+	LDI        R27, 1
+	MOV        R2, R27
+	CALL       _Dec2Bcd+0
+	STD        Y+31, R16
+	CLR        R2
+	CALL       _Dec2Bcd+0
+	STD        Y+30, R16
+	CLR        R2
+	CALL       _Dec2Bcd+0
+	STD        Y+29, R16
 	LDI        R27, 1
 	MOV        R2, R27
 	CALL       _Dec2Bcd+0
 	STD        Y+28, R16
-	CLR        R2
-	CALL       _Dec2Bcd+0
-	STD        Y+27, R16
-	CLR        R2
+	LDI        R27, 1
+	MOV        R2, R27
 	CALL       _Dec2Bcd+0
 	STD        Y+26, R16
 	LDI        R27, 1
 	MOV        R2, R27
 	CALL       _Dec2Bcd+0
-	STD        Y+25, R16
-	LDI        R27, 1
-	MOV        R2, R27
-	CALL       _Dec2Bcd+0
-	STD        Y+23, R16
-	LDI        R27, 1
-	MOV        R2, R27
-	CALL       _Dec2Bcd+0
-	STD        Y+21, R16
+	STD        Y+24, R16
 	LDS        R2, _Start_year+0
 	CALL       _Dec2Bcd+0
-	LDD        R22, Y+28
-	LDD        R21, Y+27
-	LDD        R20, Y+26
-	LDD        R19, Y+25
-	LDD        R18, Y+23
-	LDD        R17, Y+21
+	LDD        R22, Y+31
+	LDD        R21, Y+30
+	LDD        R20, Y+29
+	LDD        R19, Y+28
+	LDD        R18, Y+26
+	LDD        R17, Y+24
 	MOV        R8, R16
 	MOV        R7, R17
 	MOV        R6, R18
@@ -5729,18 +5964,18 @@ L__Easy_vacuum_95_10_4_simple228:
 	CALL       _Write_Time+0
 	POP        R2
 	POP        R3
-;libs/main_function.mbas,513 :: 		week=1
+;libs/main_function.mbas,523 :: 		week=1
 	LDI        R27, 1
 	STS        _week+0, R27
-;libs/main_function.mbas,514 :: 		chanel=program_number
+;libs/main_function.mbas,524 :: 		chanel=program_number
 	STS        _chanel+0, R2
-;libs/main_function.mbas,516 :: 		if  (Pwm_chanel_main=1) then
+;libs/main_function.mbas,526 :: 		if  (Pwm_chanel_main=1) then
 	LDS        R16, _Pwm_chanel_main+0
 	CPI        R16, 1
-	BREQ       L__Easy_vacuum_95_10_4_simple401
-	JMP        L__Easy_vacuum_95_10_4_simple231
-L__Easy_vacuum_95_10_4_simple401:
-;libs/main_function.mbas,517 :: 		txt="Heater"
+	BREQ       L__Easy_vacuum_95_10_4_simple407
+	JMP        L__Easy_vacuum_95_10_4_simple237
+L__Easy_vacuum_95_10_4_simple407:
+;libs/main_function.mbas,527 :: 		txt="Heater"
 	LDI        R30, #lo_addr(_txt+0)
 	LDI        R31, hi_addr(_txt+0)
 	LDI        R27, 72
@@ -5757,20 +5992,20 @@ L__Easy_vacuum_95_10_4_simple401:
 	ST         Z+, R27
 	LDI        R27, 0
 	ST         Z+, R27
-;libs/main_function.mbas,518 :: 		ht_start_min= minutes   ht_start_sec=seconds
+;libs/main_function.mbas,528 :: 		ht_start_min= minutes   ht_start_sec=seconds
 	LDS        R16, _minutes+0
 	STS        _ht_start_min+0, R16
 	LDS        R16, _seconds+0
 	STS        _ht_start_sec+0, R16
-	JMP        L__Easy_vacuum_95_10_4_simple232
-;libs/main_function.mbas,519 :: 		else if  (Pwm_chanel_main=2)  then
-L__Easy_vacuum_95_10_4_simple231:
+	JMP        L__Easy_vacuum_95_10_4_simple238
+;libs/main_function.mbas,529 :: 		else if  (Pwm_chanel_main=2)  then
+L__Easy_vacuum_95_10_4_simple237:
 	LDS        R16, _Pwm_chanel_main+0
 	CPI        R16, 2
-	BREQ       L__Easy_vacuum_95_10_4_simple402
-	JMP        L__Easy_vacuum_95_10_4_simple234
-L__Easy_vacuum_95_10_4_simple402:
-;libs/main_function.mbas,520 :: 		txt="Motor"
+	BREQ       L__Easy_vacuum_95_10_4_simple408
+	JMP        L__Easy_vacuum_95_10_4_simple240
+L__Easy_vacuum_95_10_4_simple408:
+;libs/main_function.mbas,530 :: 		txt="Motor"
 	LDI        R30, #lo_addr(_txt+0)
 	LDI        R31, hi_addr(_txt+0)
 	LDI        R27, 77
@@ -5785,19 +6020,19 @@ L__Easy_vacuum_95_10_4_simple402:
 	ST         Z+, R27
 	LDI        R27, 0
 	ST         Z+, R27
-;libs/main_function.mbas,521 :: 		Mo_start_min= minutes   Mo_start_sec=seconds
+;libs/main_function.mbas,531 :: 		Mo_start_min= minutes   Mo_start_sec=seconds
 	LDS        R16, _minutes+0
 	STS        _Mo_start_min+0, R16
 	LDS        R16, _seconds+0
 	STS        _Mo_start_sec+0, R16
-L__Easy_vacuum_95_10_4_simple234:
-;libs/main_function.mbas,523 :: 		end if
-L__Easy_vacuum_95_10_4_simple232:
-;libs/main_function.mbas,531 :: 		while_state_import=1
+L__Easy_vacuum_95_10_4_simple240:
+;libs/main_function.mbas,533 :: 		end if
+L__Easy_vacuum_95_10_4_simple238:
+;libs/main_function.mbas,541 :: 		while_state_import=1
 	LDS        R27, _while_state_import+0
 	SBR        R27, BitMask(_while_state_import+0)
 	STS        _while_state_import+0, R27
-;libs/main_function.mbas,532 :: 		Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
+;libs/main_function.mbas,542 :: 		Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
 	PUSH       R3
 	PUSH       R2
 	LDI        R27, #lo_addr(_day+0)
@@ -5836,33 +6071,33 @@ L__Easy_vacuum_95_10_4_simple232:
 	OUT        SPL+1, R27
 	POP        R2
 	POP        R3
-;libs/main_function.mbas,533 :: 		for on_off2 =1 to 1   ' equal to on or off estate
+;libs/main_function.mbas,543 :: 		for on_off2 =1 to 1   ' equal to on or off estate
 	LDI        R27, 1
 	STS        _on_off2+0, R27
-L__Easy_vacuum_95_10_4_simple237:
-;libs/main_function.mbas,535 :: 		if  (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][1]<= minutes ) and     (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][2]<= seconds) and (on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off2][0]<>0) then
+L__Easy_vacuum_95_10_4_simple243:
+;libs/main_function.mbas,545 :: 		if  (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][1]<= minutes ) and     (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][2]<= seconds) and (on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off2][0]<>0) then
 	LDS        R16, _week+0
 	SUBI       R16, 1
 	LDI        R17, 0
 	LDI        R20, 224
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
-	STD        Y+23, R16
-	STD        Y+24, R17
+	STD        Y+26, R16
+	STD        Y+27, R17
 	LDI        R18, #lo_addr(_on_a_0+0)
 	LDI        R19, hi_addr(_on_a_0+0)
 	ADD        R16, R18
 	ADC        R17, R19
 	LDS        R20, _chanel+0
 	SUBI       R20, 1
-	STD        Y+21, R16
-	STD        Y+22, R17
+	STD        Y+24, R16
+	STD        Y+25, R17
 	LDI        R16, 56
 	LDI        R17, 0
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
-	LDD        R18, Y+21
-	LDD        R19, Y+22
+	LDD        R18, Y+24
+	LDD        R19, Y+25
 	MOVW       R22, R16
 	ADD        R22, R18
 	ADC        R23, R19
@@ -5897,13 +6132,13 @@ L__Easy_vacuum_95_10_4_simple237:
 	LDS        R18, _minutes+0
 	CP         R18, R19
 	LDI        R20, 0
-	BRLO       L__Easy_vacuum_95_10_4_simple403
+	BRLO       L__Easy_vacuum_95_10_4_simple409
 	LDI        R20, 255
-L__Easy_vacuum_95_10_4_simple403:
+L__Easy_vacuum_95_10_4_simple409:
 	LDI        R18, #lo_addr(_on_a_0+0)
 	LDI        R19, hi_addr(_on_a_0+0)
-	LDD        R21, Y+23
-	LDD        R22, Y+24
+	LDD        R21, Y+26
+	LDD        R22, Y+27
 	ADD        R18, R21
 	ADC        R19, R22
 	ADD        R18, R16
@@ -5918,9 +6153,9 @@ L__Easy_vacuum_95_10_4_simple403:
 	LDS        R18, _seconds+0
 	CP         R18, R19
 	LDI        R27, 0
-	BRLO       L__Easy_vacuum_95_10_4_simple404
+	BRLO       L__Easy_vacuum_95_10_4_simple410
 	LDI        R27, 255
-L__Easy_vacuum_95_10_4_simple404:
+L__Easy_vacuum_95_10_4_simple410:
 	MOV        R18, R27
 	AND        R20, R18
 	LDI        R18, #lo_addr(_on_a_0+0)
@@ -5947,46 +6182,46 @@ L__Easy_vacuum_95_10_4_simple404:
 	LD         R16, Z
 	CPI        R16, 0
 	LDI        R27, 0
-	BREQ       L__Easy_vacuum_95_10_4_simple405
+	BREQ       L__Easy_vacuum_95_10_4_simple411
 	LDI        R27, 255
-L__Easy_vacuum_95_10_4_simple405:
+L__Easy_vacuum_95_10_4_simple411:
 	MOV        R16, R27
 	AND        R16, R20
-	BRNE       L__Easy_vacuum_95_10_4_simple406
-	JMP        L__Easy_vacuum_95_10_4_simple242
-L__Easy_vacuum_95_10_4_simple406:
-;libs/main_function.mbas,536 :: 		while_state_import=1
+	BRNE       L__Easy_vacuum_95_10_4_simple412
+	JMP        L__Easy_vacuum_95_10_4_simple248
+L__Easy_vacuum_95_10_4_simple412:
+;libs/main_function.mbas,546 :: 		while_state_import=1
 	LDS        R27, _while_state_import+0
 	SBR        R27, BitMask(_while_state_import+0)
 	STS        _while_state_import+0, R27
-;libs/main_function.mbas,537 :: 		while( while_state_import)
-L__Easy_vacuum_95_10_4_simple245:
+;libs/main_function.mbas,547 :: 		while( while_state_import)
+L__Easy_vacuum_95_10_4_simple251:
 	LDS        R27, _while_state_import+0
 	SBRS       R27, BitPos(_while_state_import+0)
-	JMP        L__Easy_vacuum_95_10_4_simple246
-;libs/main_function.mbas,539 :: 		if  (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2-1][1]>= minutes ) and    (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2-1][2]>= seconds)  and (on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off2-1][0]<>0) then  '''OFF mode
+	JMP        L__Easy_vacuum_95_10_4_simple252
+;libs/main_function.mbas,549 :: 		if  (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2-1][1]>= minutes ) and    (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2-1][2]>= seconds)  and (on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off2-1][0]<>0) then  '''OFF mode
 	LDS        R16, _week+0
 	SUBI       R16, 1
 	LDI        R17, 0
 	LDI        R20, 224
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
-	STD        Y+23, R16
-	STD        Y+24, R17
+	STD        Y+26, R16
+	STD        Y+27, R17
 	LDI        R18, #lo_addr(_on_a_0+0)
 	LDI        R19, hi_addr(_on_a_0+0)
 	ADD        R16, R18
 	ADC        R17, R19
 	LDS        R20, _chanel+0
 	SUBI       R20, 1
-	STD        Y+21, R16
-	STD        Y+22, R17
+	STD        Y+24, R16
+	STD        Y+25, R17
 	LDI        R16, 56
 	LDI        R17, 0
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
-	LDD        R18, Y+21
-	LDD        R19, Y+22
+	LDD        R18, Y+24
+	LDD        R19, Y+25
 	MOVW       R22, R16
 	ADD        R22, R18
 	ADC        R23, R19
@@ -6022,13 +6257,13 @@ L__Easy_vacuum_95_10_4_simple245:
 	LDS        R18, _minutes+0
 	CP         R19, R18
 	LDI        R20, 0
-	BRLO       L__Easy_vacuum_95_10_4_simple407
+	BRLO       L__Easy_vacuum_95_10_4_simple413
 	LDI        R20, 255
-L__Easy_vacuum_95_10_4_simple407:
+L__Easy_vacuum_95_10_4_simple413:
 	LDI        R18, #lo_addr(_on_a_0+0)
 	LDI        R19, hi_addr(_on_a_0+0)
-	LDD        R21, Y+23
-	LDD        R22, Y+24
+	LDD        R21, Y+26
+	LDD        R22, Y+27
 	ADD        R18, R21
 	ADC        R19, R22
 	ADD        R18, R16
@@ -6043,9 +6278,9 @@ L__Easy_vacuum_95_10_4_simple407:
 	LDS        R18, _seconds+0
 	CP         R19, R18
 	LDI        R18, 0
-	BRLO       L__Easy_vacuum_95_10_4_simple408
+	BRLO       L__Easy_vacuum_95_10_4_simple414
 	LDI        R18, 255
-L__Easy_vacuum_95_10_4_simple408:
+L__Easy_vacuum_95_10_4_simple414:
 	AND        R20, R18
 	LDI        R18, #lo_addr(_on_a_0+0)
 	LDI        R19, hi_addr(_on_a_0+0)
@@ -6071,19 +6306,19 @@ L__Easy_vacuum_95_10_4_simple408:
 	LD         R16, Z
 	CPI        R16, 0
 	LDI        R27, 0
-	BREQ       L__Easy_vacuum_95_10_4_simple409
+	BREQ       L__Easy_vacuum_95_10_4_simple415
 	LDI        R27, 255
-L__Easy_vacuum_95_10_4_simple409:
+L__Easy_vacuum_95_10_4_simple415:
 	MOV        R16, R27
 	AND        R16, R20
-	BRNE       L__Easy_vacuum_95_10_4_simple410
-	JMP        L__Easy_vacuum_95_10_4_simple250
-L__Easy_vacuum_95_10_4_simple410:
-;libs/main_function.mbas,541 :: 		Lcd_0()
+	BRNE       L__Easy_vacuum_95_10_4_simple416
+	JMP        L__Easy_vacuum_95_10_4_simple256
+L__Easy_vacuum_95_10_4_simple416:
+;libs/main_function.mbas,551 :: 		Lcd_0()
 	PUSH       R3
 	PUSH       R2
 	CALL       _Lcd_0+0
-;libs/main_function.mbas,542 :: 		Lcd_Out(1,1,txt) Lcd_Out(1,8,"is ACTIVE:")
+;libs/main_function.mbas,552 :: 		Lcd_Out(1,1,txt) Lcd_Out(1,8,"is ACTIVE:")
 	LDI        R27, #lo_addr(_txt+0)
 	MOV        R4, R27
 	LDI        R27, hi_addr(_txt+0)
@@ -6123,7 +6358,7 @@ L__Easy_vacuum_95_10_4_simple410:
 	LDI        R27, 1
 	MOV        R2, R27
 	CALL       _Lcd_Out+0
-;libs/main_function.mbas,543 :: 		inttostr(chanel_active,txt)
+;libs/main_function.mbas,553 :: 		inttostr(chanel_active,txt)
 	LDI        R27, #lo_addr(_txt+0)
 	MOV        R4, R27
 	LDI        R27, hi_addr(_txt+0)
@@ -6132,7 +6367,7 @@ L__Easy_vacuum_95_10_4_simple410:
 	LDI        R27, 0
 	MOV        R3, R27
 	CALL       _IntToStr+0
-;libs/main_function.mbas,544 :: 		Lcd_Out(2,1,"Prog num:") Lcd_Out(2,10,txt) delay_ms(200)
+;libs/main_function.mbas,554 :: 		Lcd_Out(2,1,"Prog num:") Lcd_Out(2,10,txt) delay_ms(200)
 	MOVW       R30, R28
 	LDI        R27, 80
 	ST         Z+, R27
@@ -6173,15 +6408,15 @@ L__Easy_vacuum_95_10_4_simple410:
 	LDI        R18, 9
 	LDI        R17, 30
 	LDI        R16, 229
-L__Easy_vacuum_95_10_4_simple252:
+L__Easy_vacuum_95_10_4_simple258:
 	DEC        R16
-	BRNE       L__Easy_vacuum_95_10_4_simple252
+	BRNE       L__Easy_vacuum_95_10_4_simple258
 	DEC        R17
-	BRNE       L__Easy_vacuum_95_10_4_simple252
+	BRNE       L__Easy_vacuum_95_10_4_simple258
 	DEC        R18
-	BRNE       L__Easy_vacuum_95_10_4_simple252
+	BRNE       L__Easy_vacuum_95_10_4_simple258
 	NOP
-;libs/main_function.mbas,545 :: 		Lcd_Out(1,1,"On pwm heater mode")
+;libs/main_function.mbas,555 :: 		Lcd_Out(1,1,"On pwm heater mode")
 	MOVW       R30, R28
 	LDI        R27, 79
 	ST         Z+, R27
@@ -6228,7 +6463,7 @@ L__Easy_vacuum_95_10_4_simple252:
 	LDI        R27, 1
 	MOV        R2, R27
 	CALL       _Lcd_Out+0
-;libs/main_function.mbas,546 :: 		inttostr(chanel,txt)                     ' ??? ????? ???? ? ?????? ????? ? ????
+;libs/main_function.mbas,556 :: 		inttostr(chanel,txt)                     ' ??? ????? ???? ? ?????? ????? ? ????
 	LDI        R27, #lo_addr(_txt+0)
 	MOV        R4, R27
 	LDI        R27, hi_addr(_txt+0)
@@ -6237,7 +6472,7 @@ L__Easy_vacuum_95_10_4_simple252:
 	LDI        R27, 0
 	MOV        R3, R27
 	CALL       _IntToStr+0
-;libs/main_function.mbas,547 :: 		PWM_MAKE (on_a_0[week-1][chanel-1][Pwm_chanel_main-1][on_off2][3],255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+;libs/main_function.mbas,557 :: 		PWM_MAKE (on_a_0[week-1][chanel-1][Pwm_chanel_main-1][on_off2][3],255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
 	LDS        R16, _week+0
 	SUBI       R16, 1
 	LDI        R17, 0
@@ -6250,14 +6485,14 @@ L__Easy_vacuum_95_10_4_simple252:
 	ADC        R17, R19
 	LDS        R20, _chanel+0
 	SUBI       R20, 1
-	STD        Y+21, R16
-	STD        Y+22, R17
+	STD        Y+24, R16
+	STD        Y+25, R17
 	LDI        R16, 56
 	LDI        R17, 0
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
-	LDD        R18, Y+21
-	LDD        R19, Y+22
+	LDD        R18, Y+24
+	LDD        R19, Y+25
 	ADD        R18, R16
 	ADC        R19, R17
 	LDS        R16, _Pwm_chanel_main+0
@@ -6289,7 +6524,7 @@ L__Easy_vacuum_95_10_4_simple252:
 	MOV        R4, R27
 	MOV        R2, R16
 	CALL       _PWM_MAKE+0
-;libs/main_function.mbas,548 :: 		Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
+;libs/main_function.mbas,558 :: 		Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
 	LDI        R27, #lo_addr(_day+0)
 	MOV        R8, R27
 	LDI        R27, hi_addr(_day+0)
@@ -6326,14 +6561,14 @@ L__Easy_vacuum_95_10_4_simple252:
 	OUT        SPL+1, R27
 	POP        R2
 	POP        R3
-	JMP        L__Easy_vacuum_95_10_4_simple251
-;libs/main_function.mbas,550 :: 		else
-L__Easy_vacuum_95_10_4_simple250:
-;libs/main_function.mbas,551 :: 		Lcd_0()
+	JMP        L__Easy_vacuum_95_10_4_simple257
+;libs/main_function.mbas,560 :: 		else
+L__Easy_vacuum_95_10_4_simple256:
+;libs/main_function.mbas,561 :: 		Lcd_0()
 	PUSH       R3
 	PUSH       R2
 	CALL       _Lcd_0+0
-;libs/main_function.mbas,552 :: 		Lcd_Out(1,1,txt) Lcd_Out(1,8,"is Off:")
+;libs/main_function.mbas,562 :: 		Lcd_Out(1,1,txt) Lcd_Out(1,8,"is Off:")
 	LDI        R27, #lo_addr(_txt+0)
 	MOV        R4, R27
 	LDI        R27, hi_addr(_txt+0)
@@ -6367,7 +6602,7 @@ L__Easy_vacuum_95_10_4_simple250:
 	LDI        R27, 1
 	MOV        R2, R27
 	CALL       _Lcd_Out+0
-;libs/main_function.mbas,553 :: 		Lcd_Out(2,1,"Prog num:") Lcd_Out(2,10,txt) delay_ms(200)
+;libs/main_function.mbas,563 :: 		Lcd_Out(2,1,"Prog num:") Lcd_Out(2,10,txt) delay_ms(200)
 	MOVW       R30, R28
 	LDI        R27, 80
 	ST         Z+, R27
@@ -6408,15 +6643,15 @@ L__Easy_vacuum_95_10_4_simple250:
 	LDI        R18, 9
 	LDI        R17, 30
 	LDI        R16, 229
-L__Easy_vacuum_95_10_4_simple254:
+L__Easy_vacuum_95_10_4_simple260:
 	DEC        R16
-	BRNE       L__Easy_vacuum_95_10_4_simple254
+	BRNE       L__Easy_vacuum_95_10_4_simple260
 	DEC        R17
-	BRNE       L__Easy_vacuum_95_10_4_simple254
+	BRNE       L__Easy_vacuum_95_10_4_simple260
 	DEC        R18
-	BRNE       L__Easy_vacuum_95_10_4_simple254
+	BRNE       L__Easy_vacuum_95_10_4_simple260
 	NOP
-;libs/main_function.mbas,554 :: 		Lcd_Out(1,1,"Off pwm heater mode")
+;libs/main_function.mbas,564 :: 		Lcd_Out(1,1,"Off pwm heater mode")
 	MOVW       R30, R28
 	LDI        R27, 79
 	ST         Z+, R27
@@ -6465,7 +6700,7 @@ L__Easy_vacuum_95_10_4_simple254:
 	LDI        R27, 1
 	MOV        R2, R27
 	CALL       _Lcd_Out+0
-;libs/main_function.mbas,555 :: 		inttostr(chanel,txt)                     ' ??? ????? ???? ? ?????? ????? ? ????
+;libs/main_function.mbas,565 :: 		inttostr(chanel,txt)                     ' ??? ????? ???? ? ?????? ????? ? ????
 	LDI        R27, #lo_addr(_txt+0)
 	MOV        R4, R27
 	LDI        R27, hi_addr(_txt+0)
@@ -6474,7 +6709,7 @@ L__Easy_vacuum_95_10_4_simple254:
 	LDI        R27, 0
 	MOV        R3, R27
 	CALL       _IntToStr+0
-;libs/main_function.mbas,556 :: 		PWM_MAKE (0,255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+;libs/main_function.mbas,566 :: 		PWM_MAKE (0,255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
 	LDS        R5, _Pwm_chanel_main+0
 	LDI        R27, 255
 	MOV        R3, R27
@@ -6484,23 +6719,23 @@ L__Easy_vacuum_95_10_4_simple254:
 	CALL       _PWM_MAKE+0
 	POP        R2
 	POP        R3
-;libs/main_function.mbas,557 :: 		while_state_import=0
+;libs/main_function.mbas,567 :: 		while_state_import=0
 	LDS        R27, _while_state_import+0
 	CBR        R27, BitMask(_while_state_import+0)
 	STS        _while_state_import+0, R27
-;libs/main_function.mbas,558 :: 		end if
-L__Easy_vacuum_95_10_4_simple251:
-;libs/main_function.mbas,559 :: 		wend
-	JMP        L__Easy_vacuum_95_10_4_simple245
-L__Easy_vacuum_95_10_4_simple246:
-	JMP        L__Easy_vacuum_95_10_4_simple243
-;libs/main_function.mbas,560 :: 		else '' if  (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][1]>= minutes ) and    (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][2]>= seconds)  and (on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off2][0]<>0) then  '''OFF mode
-L__Easy_vacuum_95_10_4_simple242:
-;libs/main_function.mbas,561 :: 		Lcd_0()
+;libs/main_function.mbas,568 :: 		end if
+L__Easy_vacuum_95_10_4_simple257:
+;libs/main_function.mbas,569 :: 		wend
+	JMP        L__Easy_vacuum_95_10_4_simple251
+L__Easy_vacuum_95_10_4_simple252:
+	JMP        L__Easy_vacuum_95_10_4_simple249
+;libs/main_function.mbas,570 :: 		else '' if  (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][1]>= minutes ) and    (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][2]>= seconds)  and (on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off2][0]<>0) then  '''OFF mode
+L__Easy_vacuum_95_10_4_simple248:
+;libs/main_function.mbas,571 :: 		Lcd_0()
 	PUSH       R3
 	PUSH       R2
 	CALL       _Lcd_0+0
-;libs/main_function.mbas,562 :: 		Lcd_Out(1,1,"out of off Mt area")
+;libs/main_function.mbas,572 :: 		Lcd_Out(1,1,"out of off Mt area")
 	MOVW       R30, R28
 	LDI        R27, 111
 	ST         Z+, R27
@@ -6549,24 +6784,24 @@ L__Easy_vacuum_95_10_4_simple242:
 	CALL       _Lcd_Out+0
 	POP        R2
 	POP        R3
-;libs/main_function.mbas,563 :: 		while_state_import=0
+;libs/main_function.mbas,573 :: 		while_state_import=0
 	LDS        R27, _while_state_import+0
 	CBR        R27, BitMask(_while_state_import+0)
 	STS        _while_state_import+0, R27
-;libs/main_function.mbas,564 :: 		end if
-L__Easy_vacuum_95_10_4_simple243:
-;libs/main_function.mbas,565 :: 		next on_off2
+;libs/main_function.mbas,574 :: 		end if
+L__Easy_vacuum_95_10_4_simple249:
+;libs/main_function.mbas,575 :: 		next on_off2
 	LDS        R16, _on_off2+0
 	CPI        R16, 1
-	BRNE       L__Easy_vacuum_95_10_4_simple411
-	JMP        L__Easy_vacuum_95_10_4_simple240
-L__Easy_vacuum_95_10_4_simple411:
+	BRNE       L__Easy_vacuum_95_10_4_simple417
+	JMP        L__Easy_vacuum_95_10_4_simple246
+L__Easy_vacuum_95_10_4_simple417:
 	LDS        R16, _on_off2+0
 	SUBI       R16, 255
 	STS        _on_off2+0, R16
-	JMP        L__Easy_vacuum_95_10_4_simple237
-L__Easy_vacuum_95_10_4_simple240:
-;libs/main_function.mbas,566 :: 		Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
+	JMP        L__Easy_vacuum_95_10_4_simple243
+L__Easy_vacuum_95_10_4_simple246:
+;libs/main_function.mbas,576 :: 		Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
 	PUSH       R3
 	PUSH       R2
 	LDI        R27, #lo_addr(_day+0)
@@ -6603,11 +6838,11 @@ L__Easy_vacuum_95_10_4_simple240:
 	ADIW       R26, 6
 	OUT        SPL+0, R26
 	OUT        SPL+1, R27
-;libs/main_function.mbas,568 :: 		while_state_import=0
+;libs/main_function.mbas,578 :: 		while_state_import=0
 	LDS        R27, _while_state_import+0
 	CBR        R27, BitMask(_while_state_import+0)
 	STS        _while_state_import+0, R27
-;libs/main_function.mbas,572 :: 		Read_Time(@Start_hours, @End_minutes_next, @End_seconds_next, @Start_day, @Start_week, @Start_month, @Start_year)
+;libs/main_function.mbas,582 :: 		Read_Time(@Start_hours, @End_minutes_next, @End_seconds_next, @Start_day, @Start_week, @Start_month, @Start_year)
 	LDI        R27, #lo_addr(_Start_day+0)
 	MOV        R8, R27
 	LDI        R27, hi_addr(_Start_day+0)
@@ -6642,40 +6877,40 @@ L__Easy_vacuum_95_10_4_simple240:
 	ADIW       R26, 6
 	OUT        SPL+0, R26
 	OUT        SPL+1, R27
-;libs/main_function.mbas,573 :: 		Write_Time(Dec2Bcd(Start_hours),Dec2Bcd(Start_minutes+End_minutes_next),Dec2Bcd(Start_seconds+End_seconds_next),
+;libs/main_function.mbas,583 :: 		Write_Time(Dec2Bcd(Start_hours),Dec2Bcd(Start_minutes+End_minutes_next),Dec2Bcd(Start_seconds+End_seconds_next),
 	LDS        R2, _Start_hours+0
 	CALL       _Dec2Bcd+0
-	STD        Y+28, R16
+	STD        Y+31, R16
 	LDS        R17, _Start_minutes+0
 	LDS        R16, _End_minutes_next+0
 	ADD        R16, R17
 	MOV        R2, R16
 	CALL       _Dec2Bcd+0
-	STD        Y+27, R16
+	STD        Y+30, R16
 	LDS        R17, _Start_seconds+0
 	LDS        R16, _End_seconds_next+0
 	ADD        R16, R17
 	MOV        R2, R16
 	CALL       _Dec2Bcd+0
-	STD        Y+26, R16
-;libs/main_function.mbas,574 :: 		Dec2Bcd(Start_day),Dec2Bcd(Start_week),Dec2Bcd(Start_month),Dec2Bcd(Start_year))
+	STD        Y+29, R16
+;libs/main_function.mbas,584 :: 		Dec2Bcd(Start_day),Dec2Bcd(Start_week),Dec2Bcd(Start_month),Dec2Bcd(Start_year))
 	LDS        R2, _Start_day+0
 	CALL       _Dec2Bcd+0
-	STD        Y+25, R16
+	STD        Y+28, R16
 	LDS        R2, _Start_week+0
 	CALL       _Dec2Bcd+0
-	STD        Y+23, R16
+	STD        Y+26, R16
 	LDS        R2, _Start_month+0
 	CALL       _Dec2Bcd+0
-	STD        Y+21, R16
+	STD        Y+24, R16
 	LDS        R2, _Start_year+0
 	CALL       _Dec2Bcd+0
-	LDD        R22, Y+28
-	LDD        R21, Y+27
-	LDD        R20, Y+26
-	LDD        R19, Y+25
-	LDD        R18, Y+23
-	LDD        R17, Y+21
+	LDD        R22, Y+31
+	LDD        R21, Y+30
+	LDD        R20, Y+29
+	LDD        R19, Y+28
+	LDD        R18, Y+26
+	LDD        R17, Y+24
 	MOV        R8, R16
 	MOV        R7, R17
 	MOV        R6, R18
@@ -6684,9 +6919,9 @@ L__Easy_vacuum_95_10_4_simple240:
 	MOV        R3, R21
 	MOV        R2, R22
 	CALL       _Write_Time+0
-;libs/main_function.mbas,576 :: 		Lcd_0()
+;libs/main_function.mbas,586 :: 		Lcd_0()
 	CALL       _Lcd_0+0
-;libs/main_function.mbas,577 :: 		inttostr(End_seconds_next,txt)
+;libs/main_function.mbas,587 :: 		inttostr(End_seconds_next,txt)
 	LDI        R27, #lo_addr(_txt+0)
 	MOV        R4, R27
 	LDI        R27, hi_addr(_txt+0)
@@ -6695,7 +6930,7 @@ L__Easy_vacuum_95_10_4_simple240:
 	LDI        R27, 0
 	MOV        R3, R27
 	CALL       _IntToStr+0
-;libs/main_function.mbas,578 :: 		Lcd_Out(1,1,"Sec ended is :") Lcd_Out(1,10,txt)
+;libs/main_function.mbas,588 :: 		Lcd_Out(1,1,"Sec ended is :") Lcd_Out(1,10,txt)
 	MOVW       R30, R28
 	LDI        R27, 83
 	ST         Z+, R27
@@ -6743,7 +6978,7 @@ L__Easy_vacuum_95_10_4_simple240:
 	LDI        R27, 1
 	MOV        R2, R27
 	CALL       _Lcd_Out+0
-;libs/main_function.mbas,579 :: 		inttostr(End_minutes_next,txt)
+;libs/main_function.mbas,589 :: 		inttostr(End_minutes_next,txt)
 	LDI        R27, #lo_addr(_txt+0)
 	MOV        R4, R27
 	LDI        R27, hi_addr(_txt+0)
@@ -6752,7 +6987,7 @@ L__Easy_vacuum_95_10_4_simple240:
 	LDI        R27, 0
 	MOV        R3, R27
 	CALL       _IntToStr+0
-;libs/main_function.mbas,580 :: 		Lcd_Out(2,1,"Min ended is :") Lcd_Out(2,10,txt) delay_ms(200)
+;libs/main_function.mbas,590 :: 		Lcd_Out(2,1,"Min ended is :") Lcd_Out(2,10,txt) delay_ms(200)
 	MOVW       R30, R28
 	LDI        R27, 77
 	ST         Z+, R27
@@ -6805,15 +7040,15 @@ L__Easy_vacuum_95_10_4_simple240:
 	LDI        R18, 9
 	LDI        R17, 30
 	LDI        R16, 229
-L__Easy_vacuum_95_10_4_simple256:
+L__Easy_vacuum_95_10_4_simple262:
 	DEC        R16
-	BRNE       L__Easy_vacuum_95_10_4_simple256
+	BRNE       L__Easy_vacuum_95_10_4_simple262
 	DEC        R17
-	BRNE       L__Easy_vacuum_95_10_4_simple256
+	BRNE       L__Easy_vacuum_95_10_4_simple262
 	DEC        R18
-	BRNE       L__Easy_vacuum_95_10_4_simple256
+	BRNE       L__Easy_vacuum_95_10_4_simple262
 	NOP
-;libs/main_function.mbas,581 :: 		end sub
+;libs/main_function.mbas,591 :: 		end sub
 L_end_Easy_vacuum_95_10_4_simple:
 	POP        R9
 	POP        R8
@@ -6821,7 +7056,7 @@ L_end_Easy_vacuum_95_10_4_simple:
 	POP        R6
 	POP        R5
 	POP        R4
-	ADIW       R28, 28
+	ADIW       R28, 31
 	OUT        SPL+0, R28
 	OUT        SPL+1, R29
 	POP        R29
@@ -6839,8 +7074,8 @@ libs/main_function_Easy_vacuum_95_10_4_simple_1:
 	OUT        SPL+1, R29
 	ADIW       R28, 1
 
-;libs/main_function.mbas,583 :: 		sub procedure Easy_vacuum_95_10_4_simple_1(dim program_number as byte,dim Heater_0_Motor_1 as byte)
-;libs/main_function.mbas,584 :: 		Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
+;libs/main_function.mbas,593 :: 		sub procedure Easy_vacuum_95_10_4_simple_1(dim program_number as byte,dim Heater_0_Motor_1 as byte)
+;libs/main_function.mbas,594 :: 		Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
 	PUSH       R2
 	PUSH       R3
 	PUSH       R4
@@ -6883,13 +7118,13 @@ libs/main_function_Easy_vacuum_95_10_4_simple_1:
 	ADIW       R26, 6
 	OUT        SPL+0, R26
 	OUT        SPL+1, R27
-;libs/main_function.mbas,586 :: 		chanel=1
+;libs/main_function.mbas,596 :: 		chanel=1
 	LDI        R27, 1
 	STS        _chanel+0, R27
-;libs/main_function.mbas,588 :: 		Pwm_chanel_main=1 ''heater port INT0
+;libs/main_function.mbas,598 :: 		Pwm_chanel_main=1 ''heater port INT0
 	LDI        R27, 1
 	STS        _Pwm_chanel_main+0, R27
-;libs/main_function.mbas,597 :: 		txt="Heater"
+;libs/main_function.mbas,607 :: 		txt="Heater"
 	LDI        R30, #lo_addr(_txt+0)
 	LDI        R31, hi_addr(_txt+0)
 	LDI        R27, 72
@@ -6906,20 +7141,20 @@ libs/main_function_Easy_vacuum_95_10_4_simple_1:
 	ST         Z+, R27
 	LDI        R27, 0
 	ST         Z+, R27
-;libs/main_function.mbas,598 :: 		while_state_import=1
+;libs/main_function.mbas,608 :: 		while_state_import=1
 	LDS        R27, _while_state_import+0
 	SBR        R27, BitMask(_while_state_import+0)
 	STS        _while_state_import+0, R27
-;libs/main_function.mbas,599 :: 		while( while_state_import)
-L_libs/main_function_Easy_vacuum_95_10_4_simple_1260:
+;libs/main_function.mbas,609 :: 		while( while_state_import)
+L_libs/main_function_Easy_vacuum_95_10_4_simple_1266:
 	LDS        R27, _while_state_import+0
 	SBRS       R27, BitPos(_while_state_import+0)
-	JMP        L_libs/main_function_Easy_vacuum_95_10_4_simple_1261
-;libs/main_function.mbas,600 :: 		for on_off2 =1 to 1   ' equal to on or off estate
+	JMP        L_libs/main_function_Easy_vacuum_95_10_4_simple_1267
+;libs/main_function.mbas,610 :: 		for on_off2 =1 to 1   ' equal to on or off estate
 	LDI        R27, 1
 	STS        _on_off2+0, R27
-L_libs/main_function_Easy_vacuum_95_10_4_simple_1265:
-;libs/main_function.mbas,602 :: 		if  (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][1]>= minutes ) and    (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][2]>= seconds)  and (on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off2][0]<>0) then  '''OFF mode
+L_libs/main_function_Easy_vacuum_95_10_4_simple_1271:
+;libs/main_function.mbas,612 :: 		if  (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][1]>= minutes ) and    (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][2]>= seconds)  and (on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off2][0]<>0) then  '''OFF mode
 	LDS        R16, _week+0
 	SUBI       R16, 1
 	LDI        R17, 0
@@ -6976,9 +7211,9 @@ L_libs/main_function_Easy_vacuum_95_10_4_simple_1265:
 	LDS        R18, _minutes+0
 	CP         R19, R18
 	LDI        R20, 0
-	BRLO       L_libs/main_function_Easy_vacuum_95_10_4_simple_1413
+	BRLO       L_libs/main_function_Easy_vacuum_95_10_4_simple_1419
 	LDI        R20, 255
-L_libs/main_function_Easy_vacuum_95_10_4_simple_1413:
+L_libs/main_function_Easy_vacuum_95_10_4_simple_1419:
 	LDI        R18, #lo_addr(_on_a_0+0)
 	LDI        R19, hi_addr(_on_a_0+0)
 	LDD        R21, Y+22
@@ -6997,9 +7232,9 @@ L_libs/main_function_Easy_vacuum_95_10_4_simple_1413:
 	LDS        R18, _seconds+0
 	CP         R19, R18
 	LDI        R18, 0
-	BRLO       L_libs/main_function_Easy_vacuum_95_10_4_simple_1414
+	BRLO       L_libs/main_function_Easy_vacuum_95_10_4_simple_1420
 	LDI        R18, 255
-L_libs/main_function_Easy_vacuum_95_10_4_simple_1414:
+L_libs/main_function_Easy_vacuum_95_10_4_simple_1420:
 	AND        R20, R18
 	LDI        R18, #lo_addr(_on_a_0+0)
 	LDI        R19, hi_addr(_on_a_0+0)
@@ -7025,15 +7260,15 @@ L_libs/main_function_Easy_vacuum_95_10_4_simple_1414:
 	LD         R16, Z
 	CPI        R16, 0
 	LDI        R27, 0
-	BREQ       L_libs/main_function_Easy_vacuum_95_10_4_simple_1415
+	BREQ       L_libs/main_function_Easy_vacuum_95_10_4_simple_1421
 	LDI        R27, 255
-L_libs/main_function_Easy_vacuum_95_10_4_simple_1415:
+L_libs/main_function_Easy_vacuum_95_10_4_simple_1421:
 	MOV        R16, R27
 	AND        R16, R20
-	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_1416
-	JMP        L_libs/main_function_Easy_vacuum_95_10_4_simple_1270
-L_libs/main_function_Easy_vacuum_95_10_4_simple_1416:
-;libs/main_function.mbas,604 :: 		if  (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2-1][1]<= minutes ) and     (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2-1][2]<= seconds)  then
+	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_1422
+	JMP        L_libs/main_function_Easy_vacuum_95_10_4_simple_1276
+L_libs/main_function_Easy_vacuum_95_10_4_simple_1422:
+;libs/main_function.mbas,614 :: 		if  (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2-1][1]<= minutes ) and     (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2-1][2]<= seconds)  then
 	LDS        R16, _week+0
 	SUBI       R16, 1
 	LDI        R17, 0
@@ -7091,9 +7326,9 @@ L_libs/main_function_Easy_vacuum_95_10_4_simple_1416:
 	LDS        R18, _minutes+0
 	CP         R18, R19
 	LDI        R22, 0
-	BRLO       L_libs/main_function_Easy_vacuum_95_10_4_simple_1417
+	BRLO       L_libs/main_function_Easy_vacuum_95_10_4_simple_1423
 	LDI        R22, 255
-L_libs/main_function_Easy_vacuum_95_10_4_simple_1417:
+L_libs/main_function_Easy_vacuum_95_10_4_simple_1423:
 	LDI        R20, #lo_addr(_on_a_0+0)
 	LDI        R21, hi_addr(_on_a_0+0)
 	LDD        R18, Y+22
@@ -7112,22 +7347,22 @@ L_libs/main_function_Easy_vacuum_95_10_4_simple_1417:
 	LDS        R16, _seconds+0
 	CP         R16, R17
 	LDI        R27, 0
-	BRLO       L_libs/main_function_Easy_vacuum_95_10_4_simple_1418
+	BRLO       L_libs/main_function_Easy_vacuum_95_10_4_simple_1424
 	LDI        R27, 255
-L_libs/main_function_Easy_vacuum_95_10_4_simple_1418:
+L_libs/main_function_Easy_vacuum_95_10_4_simple_1424:
 	MOV        R16, R27
 	AND        R16, R22
-	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_1419
-	JMP        L_libs/main_function_Easy_vacuum_95_10_4_simple_1273
-L_libs/main_function_Easy_vacuum_95_10_4_simple_1419:
-;libs/main_function.mbas,605 :: 		chanel_active=chanel
+	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_1425
+	JMP        L_libs/main_function_Easy_vacuum_95_10_4_simple_1279
+L_libs/main_function_Easy_vacuum_95_10_4_simple_1425:
+;libs/main_function.mbas,615 :: 		chanel_active=chanel
 	LDS        R16, _chanel+0
 	STS        _chanel_active+0, R16
-;libs/main_function.mbas,606 :: 		Lcd_0()
+;libs/main_function.mbas,616 :: 		Lcd_0()
 	PUSH       R3
 	PUSH       R2
 	CALL       _Lcd_0+0
-;libs/main_function.mbas,607 :: 		Lcd_Out(1,1,txt) Lcd_Out(1,8,"is ACTIVE:")
+;libs/main_function.mbas,617 :: 		Lcd_Out(1,1,txt) Lcd_Out(1,8,"is ACTIVE:")
 	LDI        R27, #lo_addr(_txt+0)
 	MOV        R4, R27
 	LDI        R27, hi_addr(_txt+0)
@@ -7167,7 +7402,7 @@ L_libs/main_function_Easy_vacuum_95_10_4_simple_1419:
 	LDI        R27, 1
 	MOV        R2, R27
 	CALL       _Lcd_Out+0
-;libs/main_function.mbas,608 :: 		inttostr(chanel_active,txt)
+;libs/main_function.mbas,618 :: 		inttostr(chanel_active,txt)
 	LDI        R27, #lo_addr(_txt+0)
 	MOV        R4, R27
 	LDI        R27, hi_addr(_txt+0)
@@ -7176,213 +7411,6 @@ L_libs/main_function_Easy_vacuum_95_10_4_simple_1419:
 	LDI        R27, 0
 	MOV        R3, R27
 	CALL       _IntToStr+0
-;libs/main_function.mbas,609 :: 		Lcd_Out(2,1,"Prog num:") Lcd_Out(2,10,txt) delay_ms(200)
-	MOVW       R30, R28
-	LDI        R27, 80
-	ST         Z+, R27
-	LDI        R27, 114
-	ST         Z+, R27
-	LDI        R27, 111
-	ST         Z+, R27
-	LDI        R27, 103
-	ST         Z+, R27
-	LDI        R27, 32
-	ST         Z+, R27
-	LDI        R27, 110
-	ST         Z+, R27
-	LDI        R27, 117
-	ST         Z+, R27
-	LDI        R27, 109
-	ST         Z+, R27
-	LDI        R27, 58
-	ST         Z+, R27
-	LDI        R27, 0
-	ST         Z+, R27
-	MOVW       R16, R28
-	MOVW       R4, R16
-	LDI        R27, 1
-	MOV        R3, R27
-	LDI        R27, 2
-	MOV        R2, R27
-	CALL       _Lcd_Out+0
-	LDI        R27, #lo_addr(_txt+0)
-	MOV        R4, R27
-	LDI        R27, hi_addr(_txt+0)
-	MOV        R5, R27
-	LDI        R27, 10
-	MOV        R3, R27
-	LDI        R27, 2
-	MOV        R2, R27
-	CALL       _Lcd_Out+0
-	LDI        R18, 9
-	LDI        R17, 30
-	LDI        R16, 229
-L_libs/main_function_Easy_vacuum_95_10_4_simple_1275:
-	DEC        R16
-	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_1275
-	DEC        R17
-	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_1275
-	DEC        R18
-	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_1275
-	NOP
-;libs/main_function.mbas,610 :: 		Lcd_Out(1,1,"On pwm heater mode")
-	MOVW       R30, R28
-	LDI        R27, 79
-	ST         Z+, R27
-	LDI        R27, 110
-	ST         Z+, R27
-	LDI        R27, 32
-	ST         Z+, R27
-	LDI        R27, 112
-	ST         Z+, R27
-	LDI        R27, 119
-	ST         Z+, R27
-	LDI        R27, 109
-	ST         Z+, R27
-	LDI        R27, 32
-	ST         Z+, R27
-	LDI        R27, 104
-	ST         Z+, R27
-	LDI        R27, 101
-	ST         Z+, R27
-	LDI        R27, 97
-	ST         Z+, R27
-	LDI        R27, 116
-	ST         Z+, R27
-	LDI        R27, 101
-	ST         Z+, R27
-	LDI        R27, 114
-	ST         Z+, R27
-	LDI        R27, 32
-	ST         Z+, R27
-	LDI        R27, 109
-	ST         Z+, R27
-	LDI        R27, 111
-	ST         Z+, R27
-	LDI        R27, 100
-	ST         Z+, R27
-	LDI        R27, 101
-	ST         Z+, R27
-	LDI        R27, 0
-	ST         Z+, R27
-	MOVW       R16, R28
-	MOVW       R4, R16
-	LDI        R27, 1
-	MOV        R3, R27
-	LDI        R27, 1
-	MOV        R2, R27
-	CALL       _Lcd_Out+0
-;libs/main_function.mbas,611 :: 		inttostr(chanel,txt)                     ' ??? ????? ???? ? ?????? ????? ? ????
-	LDI        R27, #lo_addr(_txt+0)
-	MOV        R4, R27
-	LDI        R27, hi_addr(_txt+0)
-	MOV        R5, R27
-	LDS        R2, _chanel+0
-	LDI        R27, 0
-	MOV        R3, R27
-	CALL       _IntToStr+0
-;libs/main_function.mbas,612 :: 		PWM_MAKE (on_a_0[week-1][chanel-1][pwm_chanel-1][on_off2-1][3],255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
-	LDS        R16, _week+0
-	SUBI       R16, 1
-	LDI        R17, 0
-	LDI        R20, 224
-	LDI        R21, 0
-	CALL       _HWMul_16x16+0
-	LDI        R18, #lo_addr(_on_a_0+0)
-	LDI        R19, hi_addr(_on_a_0+0)
-	ADD        R16, R18
-	ADC        R17, R19
-	LDS        R20, _chanel+0
-	SUBI       R20, 1
-	STD        Y+20, R16
-	STD        Y+21, R17
-	LDI        R16, 56
-	LDI        R17, 0
-	LDI        R21, 0
-	CALL       _HWMul_16x16+0
-	LDD        R18, Y+20
-	LDD        R19, Y+21
-	ADD        R18, R16
-	ADC        R19, R17
-	LDS        R16, _Pwm_chanel+0
-	SUBI       R16, 1
-	LDI        R17, 0
-	LSL        R16
-	ROL        R17
-	LSL        R16
-	ROL        R17
-	LSL        R16
-	ROL        R17
-	ADD        R18, R16
-	ADC        R19, R17
-	LDS        R16, _on_off2+0
-	SUBI       R16, 1
-	LDI        R17, 0
-	LSL        R16
-	ROL        R17
-	LSL        R16
-	ROL        R17
-	ADD        R16, R18
-	ADC        R17, R19
-	MOVW       R30, R16
-	ADIW       R30, 3
-	LD         R16, Z
-	LDS        R5, _Pwm_chanel_main+0
-	LDI        R27, 255
-	MOV        R3, R27
-	LDI        R27, 0
-	MOV        R4, R27
-	MOV        R2, R16
-	CALL       _PWM_MAKE+0
-	POP        R2
-	POP        R3
-L_libs/main_function_Easy_vacuum_95_10_4_simple_1273:
-;libs/main_function.mbas,614 :: 		end if
-	JMP        L_libs/main_function_Easy_vacuum_95_10_4_simple_1271
-;libs/main_function.mbas,615 :: 		else
-L_libs/main_function_Easy_vacuum_95_10_4_simple_1270:
-;libs/main_function.mbas,616 :: 		while_state_import=0
-	LDS        R27, _while_state_import+0
-	CBR        R27, BitMask(_while_state_import+0)
-	STS        _while_state_import+0, R27
-;libs/main_function.mbas,617 :: 		Lcd_0()
-	PUSH       R3
-	PUSH       R2
-	CALL       _Lcd_0+0
-;libs/main_function.mbas,618 :: 		Lcd_Out(1,1,txt) Lcd_Out(1,8,"is Off:")
-	LDI        R27, #lo_addr(_txt+0)
-	MOV        R4, R27
-	LDI        R27, hi_addr(_txt+0)
-	MOV        R5, R27
-	LDI        R27, 1
-	MOV        R3, R27
-	LDI        R27, 1
-	MOV        R2, R27
-	CALL       _Lcd_Out+0
-	MOVW       R30, R28
-	LDI        R27, 105
-	ST         Z+, R27
-	LDI        R27, 115
-	ST         Z+, R27
-	LDI        R27, 32
-	ST         Z+, R27
-	LDI        R27, 79
-	ST         Z+, R27
-	LDI        R27, 102
-	ST         Z+, R27
-	LDI        R27, 102
-	ST         Z+, R27
-	LDI        R27, 58
-	ST         Z+, R27
-	LDI        R27, 0
-	ST         Z+, R27
-	MOVW       R16, R28
-	MOVW       R4, R16
-	LDI        R27, 8
-	MOV        R3, R27
-	LDI        R27, 1
-	MOV        R2, R27
-	CALL       _Lcd_Out+0
 ;libs/main_function.mbas,619 :: 		Lcd_Out(2,1,"Prog num:") Lcd_Out(2,10,txt) delay_ms(200)
 	MOVW       R30, R28
 	LDI        R27, 80
@@ -7424,21 +7452,19 @@ L_libs/main_function_Easy_vacuum_95_10_4_simple_1270:
 	LDI        R18, 9
 	LDI        R17, 30
 	LDI        R16, 229
-L_libs/main_function_Easy_vacuum_95_10_4_simple_1277:
+L_libs/main_function_Easy_vacuum_95_10_4_simple_1281:
 	DEC        R16
-	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_1277
+	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_1281
 	DEC        R17
-	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_1277
+	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_1281
 	DEC        R18
-	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_1277
+	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_1281
 	NOP
-;libs/main_function.mbas,620 :: 		Lcd_Out(1,1,"Off pwm heater mode")
+;libs/main_function.mbas,620 :: 		Lcd_Out(1,1,"On pwm heater mode")
 	MOVW       R30, R28
 	LDI        R27, 79
 	ST         Z+, R27
-	LDI        R27, 102
-	ST         Z+, R27
-	LDI        R27, 102
+	LDI        R27, 110
 	ST         Z+, R27
 	LDI        R27, 32
 	ST         Z+, R27
@@ -7490,7 +7516,216 @@ L_libs/main_function_Easy_vacuum_95_10_4_simple_1277:
 	LDI        R27, 0
 	MOV        R3, R27
 	CALL       _IntToStr+0
-;libs/main_function.mbas,622 :: 		PWM_MAKE (0,255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+;libs/main_function.mbas,622 :: 		PWM_MAKE (on_a_0[week-1][chanel-1][pwm_chanel-1][on_off2-1][3],255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+	LDS        R16, _week+0
+	SUBI       R16, 1
+	LDI        R17, 0
+	LDI        R20, 224
+	LDI        R21, 0
+	CALL       _HWMul_16x16+0
+	LDI        R18, #lo_addr(_on_a_0+0)
+	LDI        R19, hi_addr(_on_a_0+0)
+	ADD        R16, R18
+	ADC        R17, R19
+	LDS        R20, _chanel+0
+	SUBI       R20, 1
+	STD        Y+20, R16
+	STD        Y+21, R17
+	LDI        R16, 56
+	LDI        R17, 0
+	LDI        R21, 0
+	CALL       _HWMul_16x16+0
+	LDD        R18, Y+20
+	LDD        R19, Y+21
+	ADD        R18, R16
+	ADC        R19, R17
+	LDS        R16, _Pwm_chanel+0
+	SUBI       R16, 1
+	LDI        R17, 0
+	LSL        R16
+	ROL        R17
+	LSL        R16
+	ROL        R17
+	LSL        R16
+	ROL        R17
+	ADD        R18, R16
+	ADC        R19, R17
+	LDS        R16, _on_off2+0
+	SUBI       R16, 1
+	LDI        R17, 0
+	LSL        R16
+	ROL        R17
+	LSL        R16
+	ROL        R17
+	ADD        R16, R18
+	ADC        R17, R19
+	MOVW       R30, R16
+	ADIW       R30, 3
+	LD         R16, Z
+	LDS        R5, _Pwm_chanel_main+0
+	LDI        R27, 255
+	MOV        R3, R27
+	LDI        R27, 0
+	MOV        R4, R27
+	MOV        R2, R16
+	CALL       _PWM_MAKE+0
+	POP        R2
+	POP        R3
+L_libs/main_function_Easy_vacuum_95_10_4_simple_1279:
+;libs/main_function.mbas,624 :: 		end if
+	JMP        L_libs/main_function_Easy_vacuum_95_10_4_simple_1277
+;libs/main_function.mbas,625 :: 		else
+L_libs/main_function_Easy_vacuum_95_10_4_simple_1276:
+;libs/main_function.mbas,626 :: 		while_state_import=0
+	LDS        R27, _while_state_import+0
+	CBR        R27, BitMask(_while_state_import+0)
+	STS        _while_state_import+0, R27
+;libs/main_function.mbas,627 :: 		Lcd_0()
+	PUSH       R3
+	PUSH       R2
+	CALL       _Lcd_0+0
+;libs/main_function.mbas,628 :: 		Lcd_Out(1,1,txt) Lcd_Out(1,8,"is Off:")
+	LDI        R27, #lo_addr(_txt+0)
+	MOV        R4, R27
+	LDI        R27, hi_addr(_txt+0)
+	MOV        R5, R27
+	LDI        R27, 1
+	MOV        R3, R27
+	LDI        R27, 1
+	MOV        R2, R27
+	CALL       _Lcd_Out+0
+	MOVW       R30, R28
+	LDI        R27, 105
+	ST         Z+, R27
+	LDI        R27, 115
+	ST         Z+, R27
+	LDI        R27, 32
+	ST         Z+, R27
+	LDI        R27, 79
+	ST         Z+, R27
+	LDI        R27, 102
+	ST         Z+, R27
+	LDI        R27, 102
+	ST         Z+, R27
+	LDI        R27, 58
+	ST         Z+, R27
+	LDI        R27, 0
+	ST         Z+, R27
+	MOVW       R16, R28
+	MOVW       R4, R16
+	LDI        R27, 8
+	MOV        R3, R27
+	LDI        R27, 1
+	MOV        R2, R27
+	CALL       _Lcd_Out+0
+;libs/main_function.mbas,629 :: 		Lcd_Out(2,1,"Prog num:") Lcd_Out(2,10,txt) delay_ms(200)
+	MOVW       R30, R28
+	LDI        R27, 80
+	ST         Z+, R27
+	LDI        R27, 114
+	ST         Z+, R27
+	LDI        R27, 111
+	ST         Z+, R27
+	LDI        R27, 103
+	ST         Z+, R27
+	LDI        R27, 32
+	ST         Z+, R27
+	LDI        R27, 110
+	ST         Z+, R27
+	LDI        R27, 117
+	ST         Z+, R27
+	LDI        R27, 109
+	ST         Z+, R27
+	LDI        R27, 58
+	ST         Z+, R27
+	LDI        R27, 0
+	ST         Z+, R27
+	MOVW       R16, R28
+	MOVW       R4, R16
+	LDI        R27, 1
+	MOV        R3, R27
+	LDI        R27, 2
+	MOV        R2, R27
+	CALL       _Lcd_Out+0
+	LDI        R27, #lo_addr(_txt+0)
+	MOV        R4, R27
+	LDI        R27, hi_addr(_txt+0)
+	MOV        R5, R27
+	LDI        R27, 10
+	MOV        R3, R27
+	LDI        R27, 2
+	MOV        R2, R27
+	CALL       _Lcd_Out+0
+	LDI        R18, 9
+	LDI        R17, 30
+	LDI        R16, 229
+L_libs/main_function_Easy_vacuum_95_10_4_simple_1283:
+	DEC        R16
+	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_1283
+	DEC        R17
+	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_1283
+	DEC        R18
+	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_1283
+	NOP
+;libs/main_function.mbas,630 :: 		Lcd_Out(1,1,"Off pwm heater mode")
+	MOVW       R30, R28
+	LDI        R27, 79
+	ST         Z+, R27
+	LDI        R27, 102
+	ST         Z+, R27
+	LDI        R27, 102
+	ST         Z+, R27
+	LDI        R27, 32
+	ST         Z+, R27
+	LDI        R27, 112
+	ST         Z+, R27
+	LDI        R27, 119
+	ST         Z+, R27
+	LDI        R27, 109
+	ST         Z+, R27
+	LDI        R27, 32
+	ST         Z+, R27
+	LDI        R27, 104
+	ST         Z+, R27
+	LDI        R27, 101
+	ST         Z+, R27
+	LDI        R27, 97
+	ST         Z+, R27
+	LDI        R27, 116
+	ST         Z+, R27
+	LDI        R27, 101
+	ST         Z+, R27
+	LDI        R27, 114
+	ST         Z+, R27
+	LDI        R27, 32
+	ST         Z+, R27
+	LDI        R27, 109
+	ST         Z+, R27
+	LDI        R27, 111
+	ST         Z+, R27
+	LDI        R27, 100
+	ST         Z+, R27
+	LDI        R27, 101
+	ST         Z+, R27
+	LDI        R27, 0
+	ST         Z+, R27
+	MOVW       R16, R28
+	MOVW       R4, R16
+	LDI        R27, 1
+	MOV        R3, R27
+	LDI        R27, 1
+	MOV        R2, R27
+	CALL       _Lcd_Out+0
+;libs/main_function.mbas,631 :: 		inttostr(chanel,txt)                     ' ??? ????? ???? ? ?????? ????? ? ????
+	LDI        R27, #lo_addr(_txt+0)
+	MOV        R4, R27
+	LDI        R27, hi_addr(_txt+0)
+	MOV        R5, R27
+	LDS        R2, _chanel+0
+	LDI        R27, 0
+	MOV        R3, R27
+	CALL       _IntToStr+0
+;libs/main_function.mbas,632 :: 		PWM_MAKE (0,255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
 	LDS        R5, _Pwm_chanel_main+0
 	LDI        R27, 255
 	MOV        R3, R27
@@ -7500,23 +7735,23 @@ L_libs/main_function_Easy_vacuum_95_10_4_simple_1277:
 	CALL       _PWM_MAKE+0
 	POP        R2
 	POP        R3
-;libs/main_function.mbas,623 :: 		end if
-L_libs/main_function_Easy_vacuum_95_10_4_simple_1271:
-;libs/main_function.mbas,624 :: 		next on_off2
+;libs/main_function.mbas,633 :: 		end if
+L_libs/main_function_Easy_vacuum_95_10_4_simple_1277:
+;libs/main_function.mbas,634 :: 		next on_off2
 	LDS        R16, _on_off2+0
 	CPI        R16, 1
-	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_1420
-	JMP        L_libs/main_function_Easy_vacuum_95_10_4_simple_1268
-L_libs/main_function_Easy_vacuum_95_10_4_simple_1420:
+	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_1426
+	JMP        L_libs/main_function_Easy_vacuum_95_10_4_simple_1274
+L_libs/main_function_Easy_vacuum_95_10_4_simple_1426:
 	LDS        R16, _on_off2+0
 	SUBI       R16, 255
 	STS        _on_off2+0, R16
-	JMP        L_libs/main_function_Easy_vacuum_95_10_4_simple_1265
-L_libs/main_function_Easy_vacuum_95_10_4_simple_1268:
-;libs/main_function.mbas,625 :: 		wend
-	JMP        L_libs/main_function_Easy_vacuum_95_10_4_simple_1260
-L_libs/main_function_Easy_vacuum_95_10_4_simple_1261:
-;libs/main_function.mbas,627 :: 		while_state_import=1 Pwm_chanel_main=2 txt="Motor"
+	JMP        L_libs/main_function_Easy_vacuum_95_10_4_simple_1271
+L_libs/main_function_Easy_vacuum_95_10_4_simple_1274:
+;libs/main_function.mbas,635 :: 		wend
+	JMP        L_libs/main_function_Easy_vacuum_95_10_4_simple_1266
+L_libs/main_function_Easy_vacuum_95_10_4_simple_1267:
+;libs/main_function.mbas,637 :: 		while_state_import=1 Pwm_chanel_main=2 txt="Motor"
 	LDS        R27, _while_state_import+0
 	SBR        R27, BitMask(_while_state_import+0)
 	STS        _while_state_import+0, R27
@@ -7536,16 +7771,16 @@ L_libs/main_function_Easy_vacuum_95_10_4_simple_1261:
 	ST         Z+, R27
 	LDI        R27, 0
 	ST         Z+, R27
-;libs/main_function.mbas,628 :: 		while( while_state_import)
-L_libs/main_function_Easy_vacuum_95_10_4_simple_1280:
+;libs/main_function.mbas,638 :: 		while( while_state_import)
+L_libs/main_function_Easy_vacuum_95_10_4_simple_1286:
 	LDS        R27, _while_state_import+0
 	SBRS       R27, BitPos(_while_state_import+0)
-	JMP        L_libs/main_function_Easy_vacuum_95_10_4_simple_1281
-;libs/main_function.mbas,629 :: 		for on_off2 =1 to 1   ' equal to on or off estate
+	JMP        L_libs/main_function_Easy_vacuum_95_10_4_simple_1287
+;libs/main_function.mbas,639 :: 		for on_off2 =1 to 1   ' equal to on or off estate
 	LDI        R27, 1
 	STS        _on_off2+0, R27
-L_libs/main_function_Easy_vacuum_95_10_4_simple_1285:
-;libs/main_function.mbas,631 :: 		if  (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][1]>= minutes ) and    (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][2]>= seconds)  and (on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off2][0]<>0) then  '''OFF mode
+L_libs/main_function_Easy_vacuum_95_10_4_simple_1291:
+;libs/main_function.mbas,641 :: 		if  (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][1]>= minutes ) and    (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][2]>= seconds)  and (on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off2][0]<>0) then  '''OFF mode
 	LDS        R16, _week+0
 	SUBI       R16, 1
 	LDI        R17, 0
@@ -7602,9 +7837,9 @@ L_libs/main_function_Easy_vacuum_95_10_4_simple_1285:
 	LDS        R18, _minutes+0
 	CP         R19, R18
 	LDI        R20, 0
-	BRLO       L_libs/main_function_Easy_vacuum_95_10_4_simple_1421
+	BRLO       L_libs/main_function_Easy_vacuum_95_10_4_simple_1427
 	LDI        R20, 255
-L_libs/main_function_Easy_vacuum_95_10_4_simple_1421:
+L_libs/main_function_Easy_vacuum_95_10_4_simple_1427:
 	LDI        R18, #lo_addr(_on_a_0+0)
 	LDI        R19, hi_addr(_on_a_0+0)
 	LDD        R21, Y+22
@@ -7623,9 +7858,9 @@ L_libs/main_function_Easy_vacuum_95_10_4_simple_1421:
 	LDS        R18, _seconds+0
 	CP         R19, R18
 	LDI        R18, 0
-	BRLO       L_libs/main_function_Easy_vacuum_95_10_4_simple_1422
+	BRLO       L_libs/main_function_Easy_vacuum_95_10_4_simple_1428
 	LDI        R18, 255
-L_libs/main_function_Easy_vacuum_95_10_4_simple_1422:
+L_libs/main_function_Easy_vacuum_95_10_4_simple_1428:
 	AND        R20, R18
 	LDI        R18, #lo_addr(_on_a_0+0)
 	LDI        R19, hi_addr(_on_a_0+0)
@@ -7651,15 +7886,15 @@ L_libs/main_function_Easy_vacuum_95_10_4_simple_1422:
 	LD         R16, Z
 	CPI        R16, 0
 	LDI        R27, 0
-	BREQ       L_libs/main_function_Easy_vacuum_95_10_4_simple_1423
+	BREQ       L_libs/main_function_Easy_vacuum_95_10_4_simple_1429
 	LDI        R27, 255
-L_libs/main_function_Easy_vacuum_95_10_4_simple_1423:
+L_libs/main_function_Easy_vacuum_95_10_4_simple_1429:
 	MOV        R16, R27
 	AND        R16, R20
-	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_1424
-	JMP        L_libs/main_function_Easy_vacuum_95_10_4_simple_1290
-L_libs/main_function_Easy_vacuum_95_10_4_simple_1424:
-;libs/main_function.mbas,633 :: 		if  (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2-1][1]<= minutes ) and     (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2-1][2]<= seconds)  then
+	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_1430
+	JMP        L_libs/main_function_Easy_vacuum_95_10_4_simple_1296
+L_libs/main_function_Easy_vacuum_95_10_4_simple_1430:
+;libs/main_function.mbas,643 :: 		if  (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2-1][1]<= minutes ) and     (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2-1][2]<= seconds)  then
 	LDS        R16, _week+0
 	SUBI       R16, 1
 	LDI        R17, 0
@@ -7717,9 +7952,9 @@ L_libs/main_function_Easy_vacuum_95_10_4_simple_1424:
 	LDS        R18, _minutes+0
 	CP         R18, R19
 	LDI        R22, 0
-	BRLO       L_libs/main_function_Easy_vacuum_95_10_4_simple_1425
+	BRLO       L_libs/main_function_Easy_vacuum_95_10_4_simple_1431
 	LDI        R22, 255
-L_libs/main_function_Easy_vacuum_95_10_4_simple_1425:
+L_libs/main_function_Easy_vacuum_95_10_4_simple_1431:
 	LDI        R20, #lo_addr(_on_a_0+0)
 	LDI        R21, hi_addr(_on_a_0+0)
 	LDD        R18, Y+22
@@ -7738,22 +7973,22 @@ L_libs/main_function_Easy_vacuum_95_10_4_simple_1425:
 	LDS        R16, _seconds+0
 	CP         R16, R17
 	LDI        R27, 0
-	BRLO       L_libs/main_function_Easy_vacuum_95_10_4_simple_1426
+	BRLO       L_libs/main_function_Easy_vacuum_95_10_4_simple_1432
 	LDI        R27, 255
-L_libs/main_function_Easy_vacuum_95_10_4_simple_1426:
+L_libs/main_function_Easy_vacuum_95_10_4_simple_1432:
 	MOV        R16, R27
 	AND        R16, R22
-	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_1427
-	JMP        L_libs/main_function_Easy_vacuum_95_10_4_simple_1293
-L_libs/main_function_Easy_vacuum_95_10_4_simple_1427:
-;libs/main_function.mbas,634 :: 		chanel_active=chanel
+	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_1433
+	JMP        L_libs/main_function_Easy_vacuum_95_10_4_simple_1299
+L_libs/main_function_Easy_vacuum_95_10_4_simple_1433:
+;libs/main_function.mbas,644 :: 		chanel_active=chanel
 	LDS        R16, _chanel+0
 	STS        _chanel_active+0, R16
-;libs/main_function.mbas,635 :: 		Lcd_0()
+;libs/main_function.mbas,645 :: 		Lcd_0()
 	PUSH       R3
 	PUSH       R2
 	CALL       _Lcd_0+0
-;libs/main_function.mbas,636 :: 		Lcd_Out(1,1,txt) Lcd_Out(1,8,"is ACTIVE:")
+;libs/main_function.mbas,646 :: 		Lcd_Out(1,1,txt) Lcd_Out(1,8,"is ACTIVE:")
 	LDI        R27, #lo_addr(_txt+0)
 	MOV        R4, R27
 	LDI        R27, hi_addr(_txt+0)
@@ -7793,7 +8028,7 @@ L_libs/main_function_Easy_vacuum_95_10_4_simple_1427:
 	LDI        R27, 1
 	MOV        R2, R27
 	CALL       _Lcd_Out+0
-;libs/main_function.mbas,637 :: 		inttostr(chanel_active,txt)
+;libs/main_function.mbas,647 :: 		inttostr(chanel_active,txt)
 	LDI        R27, #lo_addr(_txt+0)
 	MOV        R4, R27
 	LDI        R27, hi_addr(_txt+0)
@@ -7802,7 +8037,7 @@ L_libs/main_function_Easy_vacuum_95_10_4_simple_1427:
 	LDI        R27, 0
 	MOV        R3, R27
 	CALL       _IntToStr+0
-;libs/main_function.mbas,638 :: 		Lcd_Out(2,1,"Prog num:") Lcd_Out(2,10,txt) delay_ms(200)
+;libs/main_function.mbas,648 :: 		Lcd_Out(2,1,"Prog num:") Lcd_Out(2,10,txt) delay_ms(200)
 	MOVW       R30, R28
 	LDI        R27, 80
 	ST         Z+, R27
@@ -7843,15 +8078,15 @@ L_libs/main_function_Easy_vacuum_95_10_4_simple_1427:
 	LDI        R18, 9
 	LDI        R17, 30
 	LDI        R16, 229
-L_libs/main_function_Easy_vacuum_95_10_4_simple_1295:
+L_libs/main_function_Easy_vacuum_95_10_4_simple_1301:
 	DEC        R16
-	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_1295
+	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_1301
 	DEC        R17
-	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_1295
+	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_1301
 	DEC        R18
-	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_1295
+	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_1301
 	NOP
-;libs/main_function.mbas,639 :: 		Lcd_Out(1,1,"On pwm heater mode")
+;libs/main_function.mbas,649 :: 		Lcd_Out(1,1,"On pwm heater mode")
 	MOVW       R30, R28
 	LDI        R27, 79
 	ST         Z+, R27
@@ -7898,7 +8133,7 @@ L_libs/main_function_Easy_vacuum_95_10_4_simple_1295:
 	LDI        R27, 1
 	MOV        R2, R27
 	CALL       _Lcd_Out+0
-;libs/main_function.mbas,640 :: 		inttostr(chanel,txt)                     ' ??? ????? ???? ? ?????? ????? ? ????
+;libs/main_function.mbas,650 :: 		inttostr(chanel,txt)                     ' ??? ????? ???? ? ?????? ????? ? ????
 	LDI        R27, #lo_addr(_txt+0)
 	MOV        R4, R27
 	LDI        R27, hi_addr(_txt+0)
@@ -7907,7 +8142,7 @@ L_libs/main_function_Easy_vacuum_95_10_4_simple_1295:
 	LDI        R27, 0
 	MOV        R3, R27
 	CALL       _IntToStr+0
-;libs/main_function.mbas,641 :: 		PWM_MAKE (on_a_0[week-1][chanel-1][pwm_chanel-1][on_off2-1][3],255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+;libs/main_function.mbas,651 :: 		PWM_MAKE (on_a_0[week-1][chanel-1][pwm_chanel-1][on_off2-1][3],255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
 	LDS        R16, _week+0
 	SUBI       R16, 1
 	LDI        R17, 0
@@ -7962,20 +8197,20 @@ L_libs/main_function_Easy_vacuum_95_10_4_simple_1295:
 	CALL       _PWM_MAKE+0
 	POP        R2
 	POP        R3
-L_libs/main_function_Easy_vacuum_95_10_4_simple_1293:
-;libs/main_function.mbas,643 :: 		end if
-	JMP        L_libs/main_function_Easy_vacuum_95_10_4_simple_1291
-;libs/main_function.mbas,644 :: 		else
-L_libs/main_function_Easy_vacuum_95_10_4_simple_1290:
-;libs/main_function.mbas,645 :: 		while_state_import=0
+L_libs/main_function_Easy_vacuum_95_10_4_simple_1299:
+;libs/main_function.mbas,653 :: 		end if
+	JMP        L_libs/main_function_Easy_vacuum_95_10_4_simple_1297
+;libs/main_function.mbas,654 :: 		else
+L_libs/main_function_Easy_vacuum_95_10_4_simple_1296:
+;libs/main_function.mbas,655 :: 		while_state_import=0
 	LDS        R27, _while_state_import+0
 	CBR        R27, BitMask(_while_state_import+0)
 	STS        _while_state_import+0, R27
-;libs/main_function.mbas,646 :: 		Lcd_0()
+;libs/main_function.mbas,656 :: 		Lcd_0()
 	PUSH       R3
 	PUSH       R2
 	CALL       _Lcd_0+0
-;libs/main_function.mbas,647 :: 		Lcd_Out(1,1,txt) Lcd_Out(1,8,"is Off:")
+;libs/main_function.mbas,657 :: 		Lcd_Out(1,1,txt) Lcd_Out(1,8,"is Off:")
 	LDI        R27, #lo_addr(_txt+0)
 	MOV        R4, R27
 	LDI        R27, hi_addr(_txt+0)
@@ -8009,7 +8244,7 @@ L_libs/main_function_Easy_vacuum_95_10_4_simple_1290:
 	LDI        R27, 1
 	MOV        R2, R27
 	CALL       _Lcd_Out+0
-;libs/main_function.mbas,648 :: 		Lcd_Out(2,1,"Prog num:") Lcd_Out(2,10,txt) delay_ms(200)
+;libs/main_function.mbas,658 :: 		Lcd_Out(2,1,"Prog num:") Lcd_Out(2,10,txt) delay_ms(200)
 	MOVW       R30, R28
 	LDI        R27, 80
 	ST         Z+, R27
@@ -8050,15 +8285,15 @@ L_libs/main_function_Easy_vacuum_95_10_4_simple_1290:
 	LDI        R18, 9
 	LDI        R17, 30
 	LDI        R16, 229
-L_libs/main_function_Easy_vacuum_95_10_4_simple_1297:
+L_libs/main_function_Easy_vacuum_95_10_4_simple_1303:
 	DEC        R16
-	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_1297
+	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_1303
 	DEC        R17
-	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_1297
+	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_1303
 	DEC        R18
-	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_1297
+	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_1303
 	NOP
-;libs/main_function.mbas,649 :: 		Lcd_Out(1,1,"Off pwm heater mode")
+;libs/main_function.mbas,659 :: 		Lcd_Out(1,1,"Off pwm heater mode")
 	MOVW       R30, R28
 	LDI        R27, 79
 	ST         Z+, R27
@@ -8107,7 +8342,7 @@ L_libs/main_function_Easy_vacuum_95_10_4_simple_1297:
 	LDI        R27, 1
 	MOV        R2, R27
 	CALL       _Lcd_Out+0
-;libs/main_function.mbas,650 :: 		inttostr(chanel,txt)                     ' ??? ????? ???? ? ?????? ????? ? ????
+;libs/main_function.mbas,660 :: 		inttostr(chanel,txt)                     ' ??? ????? ???? ? ?????? ????? ? ????
 	LDI        R27, #lo_addr(_txt+0)
 	MOV        R4, R27
 	LDI        R27, hi_addr(_txt+0)
@@ -8116,7 +8351,7 @@ L_libs/main_function_Easy_vacuum_95_10_4_simple_1297:
 	LDI        R27, 0
 	MOV        R3, R27
 	CALL       _IntToStr+0
-;libs/main_function.mbas,651 :: 		PWM_MAKE (0,255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+;libs/main_function.mbas,661 :: 		PWM_MAKE (0,255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
 	LDS        R5, _Pwm_chanel_main+0
 	LDI        R27, 255
 	MOV        R3, R27
@@ -8126,23 +8361,23 @@ L_libs/main_function_Easy_vacuum_95_10_4_simple_1297:
 	CALL       _PWM_MAKE+0
 	POP        R2
 	POP        R3
-;libs/main_function.mbas,652 :: 		end if
-L_libs/main_function_Easy_vacuum_95_10_4_simple_1291:
-;libs/main_function.mbas,653 :: 		next on_off2
+;libs/main_function.mbas,662 :: 		end if
+L_libs/main_function_Easy_vacuum_95_10_4_simple_1297:
+;libs/main_function.mbas,663 :: 		next on_off2
 	LDS        R16, _on_off2+0
 	CPI        R16, 1
-	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_1428
-	JMP        L_libs/main_function_Easy_vacuum_95_10_4_simple_1288
-L_libs/main_function_Easy_vacuum_95_10_4_simple_1428:
+	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_simple_1434
+	JMP        L_libs/main_function_Easy_vacuum_95_10_4_simple_1294
+L_libs/main_function_Easy_vacuum_95_10_4_simple_1434:
 	LDS        R16, _on_off2+0
 	SUBI       R16, 255
 	STS        _on_off2+0, R16
-	JMP        L_libs/main_function_Easy_vacuum_95_10_4_simple_1285
-L_libs/main_function_Easy_vacuum_95_10_4_simple_1288:
-;libs/main_function.mbas,654 :: 		wend
-	JMP        L_libs/main_function_Easy_vacuum_95_10_4_simple_1280
-L_libs/main_function_Easy_vacuum_95_10_4_simple_1281:
-;libs/main_function.mbas,655 :: 		end sub
+	JMP        L_libs/main_function_Easy_vacuum_95_10_4_simple_1291
+L_libs/main_function_Easy_vacuum_95_10_4_simple_1294:
+;libs/main_function.mbas,664 :: 		wend
+	JMP        L_libs/main_function_Easy_vacuum_95_10_4_simple_1286
+L_libs/main_function_Easy_vacuum_95_10_4_simple_1287:
+;libs/main_function.mbas,665 :: 		end sub
 L_end_Easy_vacuum_95_10_4_simple_1:
 	POP        R9
 	POP        R8
@@ -8170,8 +8405,8 @@ libs/main_function_Easy_vacuum_95_10_4_key_actions:
 	OUT        SPL+1, R29
 	ADIW       R28, 1
 
-;libs/main_function.mbas,657 :: 		sub procedure Easy_vacuum_95_10_4_key_actions(dim prog_number as byte)',dim heater_switch as byte,dim Motor_switch as byte)
-;libs/main_function.mbas,658 :: 		Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
+;libs/main_function.mbas,667 :: 		sub procedure Easy_vacuum_95_10_4_key_actions(dim prog_number as byte)',dim heater_switch as byte,dim Motor_switch as byte)
+;libs/main_function.mbas,668 :: 		Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
 	PUSH       R3
 	PUSH       R4
 	PUSH       R5
@@ -8214,9 +8449,9 @@ libs/main_function_Easy_vacuum_95_10_4_key_actions:
 	ADIW       R26, 6
 	OUT        SPL+0, R26
 	OUT        SPL+1, R27
-;libs/main_function.mbas,659 :: 		Shamsi_call()
+;libs/main_function.mbas,669 :: 		Shamsi_call()
 	CALL       _Shamsi_call+0
-;libs/main_function.mbas,660 :: 		Shamsi_show_lcd( jmonth,jday,jyear,week,hours ,minutes,seconds )
+;libs/main_function.mbas,670 :: 		Shamsi_show_lcd( jmonth,jday,jyear,week,hours ,minutes,seconds )
 	LDS        R8, _week+0
 	LDI        R27, 0
 	MOV        R9, R27
@@ -8244,20 +8479,20 @@ libs/main_function_Easy_vacuum_95_10_4_key_actions:
 	ADIW       R26, 6
 	OUT        SPL+0, R26
 	OUT        SPL+1, R27
-;libs/main_function.mbas,661 :: 		Delay_mS(300)
+;libs/main_function.mbas,671 :: 		Delay_mS(300)
 	LDI        R18, 13
 	LDI        R17, 45
 	LDI        R16, 216
-L_libs/main_function_Easy_vacuum_95_10_4_key_actions300:
+L_libs/main_function_Easy_vacuum_95_10_4_key_actions306:
 	DEC        R16
-	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_key_actions300
+	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_key_actions306
 	DEC        R17
-	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_key_actions300
+	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_key_actions306
 	DEC        R18
-	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_key_actions300
+	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_key_actions306
 	NOP
 	NOP
-;libs/main_function.mbas,662 :: 		miladi_call(jmonth,jday,jyear,week,hours ,minutes,seconds )
+;libs/main_function.mbas,672 :: 		miladi_call(jmonth,jday,jyear,week,hours ,minutes,seconds )
 	LDS        R8, _week+0
 	LDI        R27, 0
 	MOV        R9, R27
@@ -8286,32 +8521,32 @@ L_libs/main_function_Easy_vacuum_95_10_4_key_actions300:
 	OUT        SPL+0, R26
 	OUT        SPL+1, R27
 	POP        R2
-;libs/main_function.mbas,663 :: 		Delay_mS(300)
+;libs/main_function.mbas,673 :: 		Delay_mS(300)
 	LDI        R18, 13
 	LDI        R17, 45
 	LDI        R16, 216
-L_libs/main_function_Easy_vacuum_95_10_4_key_actions302:
+L_libs/main_function_Easy_vacuum_95_10_4_key_actions308:
 	DEC        R16
-	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_key_actions302
+	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_key_actions308
 	DEC        R17
-	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_key_actions302
+	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_key_actions308
 	DEC        R18
-	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_key_actions302
+	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_key_actions308
 	NOP
 	NOP
-;libs/main_function.mbas,664 :: 		while_state_import=1  oldstate_3=0
+;libs/main_function.mbas,674 :: 		while_state_import=1  oldstate_3=0
 	LDS        R27, _while_state_import+0
 	SBR        R27, BitMask(_while_state_import+0)
 	STS        _while_state_import+0, R27
 	LDS        R27, _oldstate_3+0
 	CBR        R27, BitMask(_oldstate_3+0)
 	STS        _oldstate_3+0, R27
-;libs/main_function.mbas,665 :: 		while  (while_state_import )
-L_libs/main_function_Easy_vacuum_95_10_4_key_actions305:
+;libs/main_function.mbas,675 :: 		while  (while_state_import )
+L_libs/main_function_Easy_vacuum_95_10_4_key_actions311:
 	LDS        R27, _while_state_import+0
 	SBRS       R27, BitPos(_while_state_import+0)
-	JMP        L_libs/main_function_Easy_vacuum_95_10_4_key_actions306
-;libs/main_function.mbas,666 :: 		if (Button(PORTD, 0, 0.5, 0)) then    ' Detect logical one up key
+	JMP        L_libs/main_function_Easy_vacuum_95_10_4_key_actions312
+;libs/main_function.mbas,676 :: 		if (Button(PORTD, 0, 0.5, 0)) then    ' Detect logical one up key
 	PUSH       R2
 	CLR        R6
 	CLR        R5
@@ -8323,15 +8558,15 @@ L_libs/main_function_Easy_vacuum_95_10_4_key_actions305:
 	CALL       _Button+0
 	POP        R2
 	TST        R16
-	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_key_actions430
-	JMP        L_libs/main_function_Easy_vacuum_95_10_4_key_actions310
-L_libs/main_function_Easy_vacuum_95_10_4_key_actions430:
-;libs/main_function.mbas,667 :: 		oldstate_3 = 1                      ' Update flag
+	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_key_actions436
+	JMP        L_libs/main_function_Easy_vacuum_95_10_4_key_actions316
+L_libs/main_function_Easy_vacuum_95_10_4_key_actions436:
+;libs/main_function.mbas,677 :: 		oldstate_3 = 1                      ' Update flag
 	LDS        R27, _oldstate_3+0
 	SBR        R27, BitMask(_oldstate_3+0)
 	STS        _oldstate_3+0, R27
-L_libs/main_function_Easy_vacuum_95_10_4_key_actions310:
-;libs/main_function.mbas,669 :: 		if (oldstate_3 and Button(PIND, 0,0.5, 1)) then
+L_libs/main_function_Easy_vacuum_95_10_4_key_actions316:
+;libs/main_function.mbas,679 :: 		if (oldstate_3 and Button(PIND, 0,0.5, 1)) then
 	PUSH       R2
 	LDI        R27, 1
 	MOV        R6, R27
@@ -8348,10 +8583,10 @@ L_libs/main_function_Easy_vacuum_95_10_4_key_actions310:
 	SBRC       R0, BitPos(_oldstate_3+0)
 	INC        R17
 	AND        R16, R17
-	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_key_actions431
-	JMP        L_libs/main_function_Easy_vacuum_95_10_4_key_actions313
-L_libs/main_function_Easy_vacuum_95_10_4_key_actions431:
-;libs/main_function.mbas,670 :: 		LCD_Out(2,9, "Heater running")  ''Show on LCD
+	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_key_actions437
+	JMP        L_libs/main_function_Easy_vacuum_95_10_4_key_actions319
+L_libs/main_function_Easy_vacuum_95_10_4_key_actions437:
+;libs/main_function.mbas,680 :: 		LCD_Out(2,9, "Heater running")  ''Show on LCD
 	MOVW       R30, R28
 	LDI        R27, 72
 	ST         Z+, R27
@@ -8391,7 +8626,7 @@ L_libs/main_function_Easy_vacuum_95_10_4_key_actions431:
 	LDI        R27, 2
 	MOV        R2, R27
 	CALL       _Lcd_Out+0
-;libs/main_function.mbas,671 :: 		LCD_Out(2,1, "Value: ")  ''Show on LCD
+;libs/main_function.mbas,681 :: 		LCD_Out(2,1, "Value: ")  ''Show on LCD
 	MOVW       R30, R28
 	LDI        R27, 86
 	ST         Z+, R27
@@ -8416,18 +8651,18 @@ L_libs/main_function_Easy_vacuum_95_10_4_key_actions431:
 	LDI        R27, 2
 	MOV        R2, R27
 	CALL       _Lcd_Out+0
-;libs/main_function.mbas,672 :: 		Delay_mS(100)
+;libs/main_function.mbas,682 :: 		Delay_mS(100)
 	LDI        R18, 5
 	LDI        R17, 15
 	LDI        R16, 242
-L_libs/main_function_Easy_vacuum_95_10_4_key_actions315:
+L_libs/main_function_Easy_vacuum_95_10_4_key_actions321:
 	DEC        R16
-	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_key_actions315
+	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_key_actions321
 	DEC        R17
-	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_key_actions315
+	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_key_actions321
 	DEC        R18
-	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_key_actions315
-;libs/main_function.mbas,673 :: 		Read_Time(@Start_hours, @Start_minutes, @Start_seconds, @Start_day, @Start_week, @Start_month, @Start_year)
+	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_key_actions321
+;libs/main_function.mbas,683 :: 		Read_Time(@Start_hours, @Start_minutes, @Start_seconds, @Start_day, @Start_week, @Start_month, @Start_year)
 	LDI        R27, #lo_addr(_Start_day+0)
 	MOV        R8, R27
 	LDI        R27, hi_addr(_Start_day+0)
@@ -8462,7 +8697,7 @@ L_libs/main_function_Easy_vacuum_95_10_4_key_actions315:
 	ADIW       R26, 6
 	OUT        SPL+0, R26
 	OUT        SPL+1, R27
-;libs/main_function.mbas,674 :: 		Write_Time(Dec2Bcd(1),Dec2Bcd(0),Dec2Bcd(0),Dec2Bcd(1),Dec2Bcd(1),Dec2Bcd(1),Dec2Bcd(Start_year))
+;libs/main_function.mbas,684 :: 		Write_Time(Dec2Bcd(1),Dec2Bcd(0),Dec2Bcd(0),Dec2Bcd(1),Dec2Bcd(1),Dec2Bcd(1),Dec2Bcd(Start_year))
 	LDI        R27, 1
 	MOV        R2, R27
 	CALL       _Dec2Bcd+0
@@ -8502,33 +8737,33 @@ L_libs/main_function_Easy_vacuum_95_10_4_key_actions315:
 	MOV        R2, R22
 	CALL       _Write_Time+0
 	POP        R2
-;libs/main_function.mbas,677 :: 		Easy_vacuum_95_10_4_simple(prog_number,1)
+;libs/main_function.mbas,687 :: 		Easy_vacuum_95_10_4_simple(prog_number,1)
 	PUSH       R2
 	LDI        R27, 1
 	MOV        R3, R27
 	CALL       _Easy_vacuum_95_10_4_simple+0
 	POP        R2
-;libs/main_function.mbas,678 :: 		while_state_import=0
+;libs/main_function.mbas,688 :: 		while_state_import=0
 	LDS        R27, _while_state_import+0
 	CBR        R27, BitMask(_while_state_import+0)
 	STS        _while_state_import+0, R27
-L_libs/main_function_Easy_vacuum_95_10_4_key_actions313:
-;libs/main_function.mbas,680 :: 		wend
-	JMP        L_libs/main_function_Easy_vacuum_95_10_4_key_actions305
-L_libs/main_function_Easy_vacuum_95_10_4_key_actions306:
-;libs/main_function.mbas,682 :: 		while_state_import=1  oldstate_3=0
+L_libs/main_function_Easy_vacuum_95_10_4_key_actions319:
+;libs/main_function.mbas,690 :: 		wend
+	JMP        L_libs/main_function_Easy_vacuum_95_10_4_key_actions311
+L_libs/main_function_Easy_vacuum_95_10_4_key_actions312:
+;libs/main_function.mbas,692 :: 		while_state_import=1  oldstate_3=0
 	LDS        R27, _while_state_import+0
 	SBR        R27, BitMask(_while_state_import+0)
 	STS        _while_state_import+0, R27
 	LDS        R27, _oldstate_3+0
 	CBR        R27, BitMask(_oldstate_3+0)
 	STS        _oldstate_3+0, R27
-;libs/main_function.mbas,683 :: 		while  (while_state_import )
-L_libs/main_function_Easy_vacuum_95_10_4_key_actions318:
+;libs/main_function.mbas,693 :: 		while  (while_state_import )
+L_libs/main_function_Easy_vacuum_95_10_4_key_actions324:
 	LDS        R27, _while_state_import+0
 	SBRS       R27, BitPos(_while_state_import+0)
-	JMP        L_libs/main_function_Easy_vacuum_95_10_4_key_actions319
-;libs/main_function.mbas,684 :: 		if (Button(PORTD,1, 0.5, 0)) then    ' Detect logical one up key
+	JMP        L_libs/main_function_Easy_vacuum_95_10_4_key_actions325
+;libs/main_function.mbas,694 :: 		if (Button(PORTD,1, 0.5, 0)) then    ' Detect logical one up key
 	PUSH       R2
 	CLR        R6
 	CLR        R5
@@ -8541,15 +8776,15 @@ L_libs/main_function_Easy_vacuum_95_10_4_key_actions318:
 	CALL       _Button+0
 	POP        R2
 	TST        R16
-	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_key_actions432
-	JMP        L_libs/main_function_Easy_vacuum_95_10_4_key_actions323
-L_libs/main_function_Easy_vacuum_95_10_4_key_actions432:
-;libs/main_function.mbas,685 :: 		oldstate_3 = 1                      ' Update flag
+	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_key_actions438
+	JMP        L_libs/main_function_Easy_vacuum_95_10_4_key_actions329
+L_libs/main_function_Easy_vacuum_95_10_4_key_actions438:
+;libs/main_function.mbas,695 :: 		oldstate_3 = 1                      ' Update flag
 	LDS        R27, _oldstate_3+0
 	SBR        R27, BitMask(_oldstate_3+0)
 	STS        _oldstate_3+0, R27
-L_libs/main_function_Easy_vacuum_95_10_4_key_actions323:
-;libs/main_function.mbas,687 :: 		if (oldstate_3 and Button(PIND,1,0.5, 1)) then
+L_libs/main_function_Easy_vacuum_95_10_4_key_actions329:
+;libs/main_function.mbas,697 :: 		if (oldstate_3 and Button(PIND,1,0.5, 1)) then
 	PUSH       R2
 	LDI        R27, 1
 	MOV        R6, R27
@@ -8567,10 +8802,10 @@ L_libs/main_function_Easy_vacuum_95_10_4_key_actions323:
 	SBRC       R0, BitPos(_oldstate_3+0)
 	INC        R17
 	AND        R16, R17
-	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_key_actions433
-	JMP        L_libs/main_function_Easy_vacuum_95_10_4_key_actions326
-L_libs/main_function_Easy_vacuum_95_10_4_key_actions433:
-;libs/main_function.mbas,688 :: 		LCD_Out(2,9, "Motor running")  ''Show on LCD
+	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_key_actions439
+	JMP        L_libs/main_function_Easy_vacuum_95_10_4_key_actions332
+L_libs/main_function_Easy_vacuum_95_10_4_key_actions439:
+;libs/main_function.mbas,698 :: 		LCD_Out(2,9, "Motor running")  ''Show on LCD
 	MOVW       R30, R28
 	LDI        R27, 77
 	ST         Z+, R27
@@ -8608,7 +8843,7 @@ L_libs/main_function_Easy_vacuum_95_10_4_key_actions433:
 	LDI        R27, 2
 	MOV        R2, R27
 	CALL       _Lcd_Out+0
-;libs/main_function.mbas,689 :: 		LCD_Out(2,1, "Value: ")  ''Show on LCD
+;libs/main_function.mbas,699 :: 		LCD_Out(2,1, "Value: ")  ''Show on LCD
 	MOVW       R30, R28
 	LDI        R27, 86
 	ST         Z+, R27
@@ -8634,32 +8869,32 @@ L_libs/main_function_Easy_vacuum_95_10_4_key_actions433:
 	MOV        R2, R27
 	CALL       _Lcd_Out+0
 	POP        R2
-;libs/main_function.mbas,690 :: 		Delay_mS(100)
+;libs/main_function.mbas,700 :: 		Delay_mS(100)
 	LDI        R18, 5
 	LDI        R17, 15
 	LDI        R16, 242
-L_libs/main_function_Easy_vacuum_95_10_4_key_actions328:
+L_libs/main_function_Easy_vacuum_95_10_4_key_actions334:
 	DEC        R16
-	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_key_actions328
+	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_key_actions334
 	DEC        R17
-	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_key_actions328
+	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_key_actions334
 	DEC        R18
-	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_key_actions328
-;libs/main_function.mbas,691 :: 		Easy_vacuum_95_10_4_simple(prog_number,1)
+	BRNE       L_libs/main_function_Easy_vacuum_95_10_4_key_actions334
+;libs/main_function.mbas,701 :: 		Easy_vacuum_95_10_4_simple(prog_number,1)
 	PUSH       R2
 	LDI        R27, 1
 	MOV        R3, R27
 	CALL       _Easy_vacuum_95_10_4_simple+0
 	POP        R2
-;libs/main_function.mbas,692 :: 		while_state_import=0
+;libs/main_function.mbas,702 :: 		while_state_import=0
 	LDS        R27, _while_state_import+0
 	CBR        R27, BitMask(_while_state_import+0)
 	STS        _while_state_import+0, R27
-L_libs/main_function_Easy_vacuum_95_10_4_key_actions326:
-;libs/main_function.mbas,694 :: 		wend
-	JMP        L_libs/main_function_Easy_vacuum_95_10_4_key_actions318
-L_libs/main_function_Easy_vacuum_95_10_4_key_actions319:
-;libs/main_function.mbas,695 :: 		Write_Time(Dec2Bcd(Start_hours),Dec2Bcd(Start_minutes),Dec2Bcd(Start_seconds),
+L_libs/main_function_Easy_vacuum_95_10_4_key_actions332:
+;libs/main_function.mbas,704 :: 		wend
+	JMP        L_libs/main_function_Easy_vacuum_95_10_4_key_actions324
+L_libs/main_function_Easy_vacuum_95_10_4_key_actions325:
+;libs/main_function.mbas,705 :: 		Write_Time(Dec2Bcd(Start_hours),Dec2Bcd(Start_minutes),Dec2Bcd(Start_seconds),
 	PUSH       R2
 	LDS        R2, _Start_hours+0
 	CALL       _Dec2Bcd+0
@@ -8670,7 +8905,7 @@ L_libs/main_function_Easy_vacuum_95_10_4_key_actions319:
 	LDS        R2, _Start_seconds+0
 	CALL       _Dec2Bcd+0
 	STD        Y+18, R16
-;libs/main_function.mbas,696 :: 		Dec2Bcd(Start_day),Dec2Bcd(Start_week),Dec2Bcd(Start_month),Dec2Bcd(Start_year))
+;libs/main_function.mbas,706 :: 		Dec2Bcd(Start_day),Dec2Bcd(Start_week),Dec2Bcd(Start_month),Dec2Bcd(Start_year))
 	LDS        R2, _Start_day+0
 	CALL       _Dec2Bcd+0
 	STD        Y+17, R16
@@ -8697,7 +8932,7 @@ L_libs/main_function_Easy_vacuum_95_10_4_key_actions319:
 	MOV        R2, R22
 	CALL       _Write_Time+0
 	POP        R2
-;libs/main_function.mbas,698 :: 		end sub
+;libs/main_function.mbas,708 :: 		end sub
 L_end_Easy_vacuum_95_10_4_key_actions:
 	POP        R9
 	POP        R8
@@ -8716,7 +8951,7 @@ L_end_Easy_vacuum_95_10_4_key_actions:
 
 _libs/main_function_?main:
 
-;libs/main_function.mbas,699 :: 		end.
+;libs/main_function.mbas,709 :: 		end.
 L_end_libs/main_function_?main:
 	RET
 ; end of _libs/main_function_?main

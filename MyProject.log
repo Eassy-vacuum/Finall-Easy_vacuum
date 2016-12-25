@@ -338,29 +338,29 @@ hint: 5902	1010	Hint: Unit "libs/keypad.mbas" has been recompiled	libs/keypad.mb
 hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names\libs/main_function.mbas"	libs/main_function.mbas
 warning: 389	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
 warning: 392	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
-warning: 497	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
-warning: 500	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
-warning: 666	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
-warning: 669	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
-warning: 684	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
-warning: 687	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
+warning: 506	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
+warning: 509	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
+warning: 676	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
+warning: 679	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
+warning: 694	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
+warning: 697	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
 hint: 163	1001	Hint: Variable "program_number" has been declared, but not used	libs/main_function.mbas
-hint: 583	1001	Hint: Variable "program_number" has been declared, but not used	libs/main_function.mbas
-hint: 583	1001	Hint: Variable "Heater_0_Motor_1" has been declared, but not used	libs/main_function.mbas
-hint: 699	1010	Hint: Unit "libs/main_function.mbas" has been recompiled	libs/main_function.mbas
+hint: 593	1001	Hint: Variable "program_number" has been declared, but not used	libs/main_function.mbas
+hint: 593	1001	Hint: Variable "Heater_0_Motor_1" has been declared, but not used	libs/main_function.mbas
+hint: 709	1010	Hint: Unit "libs/main_function.mbas" has been recompiled	libs/main_function.mbas
 hint: 77	1021	Hint: interrupt handler (interrupt_ISR at 0x0006)	MyProject.mbas
 warning: 106	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
 warning: 113	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
 hint: 135	1021	Hint: interrupt handler (interrupt_ISR_6 at 0x000E)	MyProject.mbas
 hint: 169	1021	Hint: interrupt handler (interrupt_ISR_0 at 0x0002)	MyProject.mbas
-hint: 371	1010	Hint: Unit "MyProject.mbas" has been recompiled	MyProject.mbas
+hint: 374	1010	Hint: Unit "MyProject.mbas" has been recompiled	MyProject.mbas
 diagnostics: 0	134	Compiled Successfully	E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names\MyProject.mbas
-diagnostics: 0	139	All files Compiled in 9314 ms	 
+diagnostics: 0	139	All files Compiled in 5413 ms	 
 hint: 0	1144	Used RX (bytes): 32 (100%)   Free RX (bytes): 0 (0%)	Used RX (bytes): 32 (100%)   Free RX (bytes): 0 (0%)
 hint: 0	1144	Static RAM (bytes): 3333   Dynamic RAM (bytes): 763	Static RAM (bytes): 3333   Dynamic RAM (bytes): 763
-hint: 0	1144	Used ROM (bytes): 92412 (71%)  Free ROM (bytes): 38660 (29%)	Used ROM (bytes): 92412 (71%)  Free ROM (bytes): 38660 (29%)
+hint: 0	1144	Used ROM (bytes): 92924 (71%)  Free ROM (bytes): 38148 (29%)	Used ROM (bytes): 92924 (71%)  Free ROM (bytes): 38148 (29%)
 diagnostics: 0	145	Project Linked Successfully	MyProject.mbpav
 hint: 0	1004	COFF file successfully generated	COFF file successfully generated
-diagnostics: 0	140	Linked in 6146 ms	 
-diagnostics: 0	141	Project 'MyProject.mbpav' completed: 16692 ms	 
-diagnostics: 0	103	Finished successfully: 25 œ”«„»— 2016, 13:00:53	MyProject.mbpav
+diagnostics: 0	140	Linked in 3510 ms	 
+diagnostics: 0	141	Project 'MyProject.mbpav' completed: 9578 ms	 
+diagnostics: 0	103	Finished successfully: 25 œ”«„»— 2016, 18:20:44	MyProject.mbpav

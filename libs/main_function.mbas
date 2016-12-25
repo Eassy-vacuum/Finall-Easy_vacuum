@@ -395,6 +395,14 @@ sub procedure Easy_vacuum_95_10_4_simple(dim program_number as byte,dim Interupt
        else
           while_state_import=0
        end if
+       
+       Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
+       Shamsi_call()
+       Shamsi_show_lcd( jmonth,jday,jyear,week,hours ,minutes,seconds )
+       Delay_mS(300)
+       miladi_call(jmonth,jday,jyear,week,hours ,minutes,seconds )
+       Delay_mS(300)
+     
      wend
 
 
@@ -492,6 +500,7 @@ sub procedure Easy_vacuum_95_10_4_simple(dim program_number as byte,dim Interupt
       while_state_import=1  ''while_state_import_main2=1
        oldstate_3=0
          while_state_import_main=1
+         Lcd_0()
          while  (while_state_import_main )
 
              if (Button(PORTD, 7, 0.5, 0)) then    ' Detect logical one up key
@@ -500,6 +509,8 @@ sub procedure Easy_vacuum_95_10_4_simple(dim program_number as byte,dim Interupt
              if (oldstate_3 and Button(PIND, 7,0.5, 1)) then
                 while_state_import_main=0
              end if
+
+             Lcd_Out(1,1,"Wating for :") Lcd_Out(2,1,"Pressing Motor micro SW") delay_ms(200)
          wend
         if (1) then
               LCD_Out(2,9, "motor running")  ''Show on LCD

@@ -551,10 +551,6 @@ _interrupt_ISR_6:
 ;MyProject.mbas,160 :: 		WDTCR = 0x00
 	LDI        R27, 0
 	OUT        WDTCR+0, R27
-;MyProject.mbas,161 :: 		INT6_bit = 1
-	IN         R27, INT6_bit+0
-	SBR        R27, BitMask(INT6_bit+0)
-	OUT        INT6_bit+0, R27
 ;MyProject.mbas,163 :: 		SREG_I_bit = 1                                  ''  // Enable Interrupts
 	IN         R27, SREG_I_bit+0
 	SBR        R27, BitMask(SREG_I_bit+0)
@@ -926,10 +922,10 @@ L__main21:
 	BRNE       L__main21
 	NOP
 	NOP
-;MyProject.mbas,316 :: 		on_off_initial (1,1,0,20,18)    '' off mode on_off initial (dim on_off22,en,hr,mint,prc as integer)
+;MyProject.mbas,316 :: 		on_off_initial (1,1,0,2,18)    '' off mode on_off initial (dim on_off22,en,hr,mint,prc as integer)
 	LDI        R27, 18
 	MOV        R6, R27
-	LDI        R27, 20
+	LDI        R27, 2
 	MOV        R5, R27
 	CLR        R4
 	LDI        R27, 1
@@ -1040,26 +1036,28 @@ L__main21:
 	ADIW       R26, 6
 	OUT        SPL+0, R26
 	OUT        SPL+1, R27
-;MyProject.mbas,345 :: 		Interupt_first_time=0
+;MyProject.mbas,346 :: 		PWM_Initialize ()
+	CALL       _PWM_Initialize+0
+;MyProject.mbas,350 :: 		Interupt_first_time=0
 	LDI        R27, 0
 	STS        _Interupt_first_time+0, R27
-;MyProject.mbas,346 :: 		ISC20_Bit = 1                                    '' // Set interrupts to be detected on rising edge
+;MyProject.mbas,351 :: 		ISC20_Bit = 1                                    '' // Set interrupts to be detected on rising edge
 	LDS        R27, ISC20_bit+0
 	SBR        R27, BitMask(ISC20_bit+0)
 	STS        ISC20_bit+0, R27
-;MyProject.mbas,347 :: 		ISC00_bit = 1
+;MyProject.mbas,352 :: 		ISC00_bit = 1
 	LDS        R27, ISC00_bit+0
 	SBR        R27, BitMask(ISC00_bit+0)
 	STS        ISC00_bit+0, R27
-;MyProject.mbas,348 :: 		INTF2_bit = 0
+;MyProject.mbas,353 :: 		INTF2_bit = 0
 	IN         R27, INTF2_bit+0
 	CBR        R27, BitMask(INTF2_bit+0)
 	OUT        INTF2_bit+0, R27
-;MyProject.mbas,349 :: 		SREG_I_bit = 0
+;MyProject.mbas,354 :: 		SREG_I_bit = 0
 	IN         R27, SREG_I_bit+0
 	CBR        R27, BitMask(SREG_I_bit+0)
 	OUT        SREG_I_bit+0, R27
-;MyProject.mbas,350 :: 		Delay_ms(100)                                  ''  // Enable Interrupts
+;MyProject.mbas,355 :: 		Delay_ms(100)                                  ''  // Enable Interrupts
 	LDI        R18, 5
 	LDI        R17, 15
 	LDI        R16, 242
@@ -1070,22 +1068,28 @@ L__main23:
 	BRNE       L__main23
 	DEC        R18
 	BRNE       L__main23
-;MyProject.mbas,351 :: 		SREG_I_bit = 1
+;MyProject.mbas,358 :: 		INT2_bit =1
+	IN         R27, INT2_bit+0
+	SBR        R27, BitMask(INT2_bit+0)
+	OUT        INT2_bit+0, R27
+;MyProject.mbas,359 :: 		INT6_bit =1
+	IN         R27, INT6_bit+0
+	SBR        R27, BitMask(INT6_bit+0)
+	OUT        INT6_bit+0, R27
+;MyProject.mbas,360 :: 		SREG_I_bit = 1
 	IN         R27, SREG_I_bit+0
 	SBR        R27, BitMask(SREG_I_bit+0)
 	OUT        SREG_I_bit+0, R27
-;MyProject.mbas,360 :: 		PWM_Initialize ()
-	CALL       _PWM_Initialize+0
-;MyProject.mbas,362 :: 		chanel=1
+;MyProject.mbas,365 :: 		chanel=1
 	LDI        R27, 1
 	STS        _chanel+0, R27
-;MyProject.mbas,363 :: 		while TRUE
+;MyProject.mbas,366 :: 		while TRUE
 L__main26:
-;MyProject.mbas,367 :: 		Easy_vacuum_95_10_4_simple(chanel,0)
+;MyProject.mbas,370 :: 		Easy_vacuum_95_10_4_simple(chanel,0)
 	CLR        R3
 	LDS        R2, _chanel+0
 	CALL       _Easy_vacuum_95_10_4_simple+0
-;MyProject.mbas,369 :: 		wend
+;MyProject.mbas,372 :: 		wend
 	JMP        L__main26
 L_end_main:
 	POP        R9
