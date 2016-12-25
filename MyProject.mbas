@@ -24,7 +24,7 @@ dim kp,ok,k_set,week_new,chanel,Pwm_Percent,Pwm_chanel,Pwm_chanel_main ,Yes_no,o
 dim year_new as byte
 dim while_state_blinking,while_satat as bit
 dim oldstate,oldstate_up,oldstate_down,oldstate_ok,oldstate_ww,while_state,while_satate_in_1 as bit
-dim oldstate_4,oldstate_3,while_state_import,oldstate_2,while_state_import_main as bit
+dim oldstate_4,oldstate_3,while_state_import,oldstate_2,while_state_import_main,while_state_import_main2 as bit
 dim while_state_2,oldstate_menu as bit
 dim chanel_active as  byte
 '
@@ -313,7 +313,7 @@ LCD_Out(2,1,"TEST")
      LCD_Chr(2,4,4)    ' Display custom char B
      Delay_ms(1500)
 '    ###################### Start of EEPROM   #########################'
-   on_off_initial (1,1,0,0,18)    '' off mode on_off initial (dim on_off22,en,hr,mint,prc as integer)
+   on_off_initial (1,1,0,20,18)    '' off mode on_off initial (dim on_off22,en,hr,mint,prc as integer)
    on_off_initial (2,1,0,0,18)    '''on mode
 '   int_eeprom_ini()   ''internal AVR EEPROM Writing   77777777777777777777777777777777777
 '   ext_eeprom_ini()
@@ -350,8 +350,8 @@ LCD_Out(2,1,"TEST")
     Delay_ms(100)                                  ''  // Enable Interrupts
     SREG_I_bit = 1
 
-    INT2_bit =1
-    INT6_bit =1
+    'INT2_bit =1
+'    INT6_bit =1
 
 '#########################################
 

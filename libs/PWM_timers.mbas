@@ -279,8 +279,11 @@ J=0
 '    PWM3_Set_Duty(j)   ' Se
     ocr0=0 ocr2=0
 
-    for k=0 to 10
+    for k=10 to 0  step -5
+        PWM_MAKE (k*10,255,1)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+        PWM_MAKE (k*10,255,2)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
         PWM_MAKE (k*10,255,3)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+        PWM_MAKE (k*10,255,4)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
         delay_ms(50)
     next k
     PWM_MAKE (0,255,4)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)

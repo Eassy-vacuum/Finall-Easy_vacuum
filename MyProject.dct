@@ -3480,6 +3480,7 @@ while_state_2
 while_state_blinking
 while_state_import
 while_state_import_main
+while_state_import_main2
 wordtohex
 wordtostr
 wordtostrwithzeros

@@ -533,7 +533,9 @@ _interrupt_ISR_6:
 	IN         R27, INT6_bit+0
 	CBR        R27, BitMask(INT6_bit+0)
 	OUT        INT6_bit+0, R27
-;MyProject.mbas,154 :: 		Easy_vacuum_95_10_4_simple(chanel)
+;MyProject.mbas,154 :: 		Easy_vacuum_95_10_4_simple(chanel,1)
+	LDI        R27, 1
+	MOV        R3, R27
 	LDS        R2, _chanel+0
 	CALL       _Easy_vacuum_95_10_4_simple+0
 ;MyProject.mbas,156 :: 		Lcd_Out(1,1,txt1)
@@ -924,10 +926,11 @@ L__main21:
 	BRNE       L__main21
 	NOP
 	NOP
-;MyProject.mbas,316 :: 		on_off_initial (1,1,0,0,18)    '' off mode on_off initial (dim on_off22,en,hr,mint,prc as integer)
+;MyProject.mbas,316 :: 		on_off_initial (1,1,0,20,18)    '' off mode on_off initial (dim on_off22,en,hr,mint,prc as integer)
 	LDI        R27, 18
 	MOV        R6, R27
-	CLR        R5
+	LDI        R27, 20
+	MOV        R5, R27
 	CLR        R4
 	LDI        R27, 1
 	MOV        R3, R27
@@ -1071,14 +1074,6 @@ L__main23:
 	IN         R27, SREG_I_bit+0
 	SBR        R27, BitMask(SREG_I_bit+0)
 	OUT        SREG_I_bit+0, R27
-;MyProject.mbas,353 :: 		INT2_bit =1
-	IN         R27, INT2_bit+0
-	SBR        R27, BitMask(INT2_bit+0)
-	OUT        INT2_bit+0, R27
-;MyProject.mbas,354 :: 		INT6_bit =1
-	IN         R27, INT6_bit+0
-	SBR        R27, BitMask(INT6_bit+0)
-	OUT        INT6_bit+0, R27
 ;MyProject.mbas,360 :: 		PWM_Initialize ()
 	CALL       _PWM_Initialize+0
 ;MyProject.mbas,362 :: 		chanel=1
@@ -1086,7 +1081,8 @@ L__main23:
 	STS        _chanel+0, R27
 ;MyProject.mbas,363 :: 		while TRUE
 L__main26:
-;MyProject.mbas,367 :: 		Easy_vacuum_95_10_4_simple(chanel)
+;MyProject.mbas,367 :: 		Easy_vacuum_95_10_4_simple(chanel,0)
+	CLR        R3
 	LDS        R2, _chanel+0
 	CALL       _Easy_vacuum_95_10_4_simple+0
 ;MyProject.mbas,369 :: 		wend
