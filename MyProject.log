@@ -352,15 +352,15 @@ hint: 77	1021	Hint: interrupt handler (interrupt_ISR at 0x0006)	MyProject.mbas
 warning: 106	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
 warning: 113	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
 hint: 135	1021	Hint: interrupt handler (interrupt_ISR_6 at 0x000E)	MyProject.mbas
-hint: 169	1021	Hint: interrupt handler (interrupt_ISR_0 at 0x0002)	MyProject.mbas
-hint: 374	1010	Hint: Unit "MyProject.mbas" has been recompiled	MyProject.mbas
+hint: 175	1021	Hint: interrupt handler (interrupt_ISR_0 at 0x0002)	MyProject.mbas
+hint: 384	1010	Hint: Unit "MyProject.mbas" has been recompiled	MyProject.mbas
 diagnostics: 0	134	Compiled Successfully	E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names\MyProject.mbas
-diagnostics: 0	139	All files Compiled in 5413 ms	 
+diagnostics: 0	139	All files Compiled in 6350 ms	 
 hint: 0	1144	Used RX (bytes): 32 (100%)   Free RX (bytes): 0 (0%)	Used RX (bytes): 32 (100%)   Free RX (bytes): 0 (0%)
-hint: 0	1144	Static RAM (bytes): 3333   Dynamic RAM (bytes): 763	Static RAM (bytes): 3333   Dynamic RAM (bytes): 763
-hint: 0	1144	Used ROM (bytes): 92924 (71%)  Free ROM (bytes): 38148 (29%)	Used ROM (bytes): 92924 (71%)  Free ROM (bytes): 38148 (29%)
+hint: 0	1144	Static RAM (bytes): 3334   Dynamic RAM (bytes): 762	Static RAM (bytes): 3334   Dynamic RAM (bytes): 762
+hint: 0	1144	Used ROM (bytes): 93158 (71%)  Free ROM (bytes): 37914 (29%)	Used ROM (bytes): 93158 (71%)  Free ROM (bytes): 37914 (29%)
 diagnostics: 0	145	Project Linked Successfully	MyProject.mbpav
 hint: 0	1004	COFF file successfully generated	COFF file successfully generated
-diagnostics: 0	140	Linked in 3510 ms	 
-diagnostics: 0	141	Project 'MyProject.mbpav' completed: 9578 ms	 
-diagnostics: 0	103	Finished successfully: 25 œ”«„»— 2016, 18:20:44	MyProject.mbpav
+diagnostics: 0	140	Linked in 4492 ms	 
+diagnostics: 0	141	Project 'MyProject.mbpav' completed: 11715 ms	 
+diagnostics: 0	103	Finished successfully: 25 œ”«„»— 2016, 18:32:35	MyProject.mbpav

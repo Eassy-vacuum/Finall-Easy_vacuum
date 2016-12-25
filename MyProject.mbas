@@ -13,7 +13,7 @@ include "libs/main_function"
 
 ' Declarations section
  dim hours, minutes, seconds, day, week, month, year as byte    ' Global date/time variables
-    Interupt_first_time, on_test as byte
+    Interupt_first_time,Interupt_first_time2, on_test as byte
 dim var_in_global as Byte
 'module MyProject
 dim txt_inin as string[6]
@@ -135,33 +135,39 @@ end sub
 sub procedure interrupt_ISR_6 () org IVT_ADDR_INT6            ''// Interrupt rutine
 'dim while_satate_in_1 as bit
 
+  if Interupt_first_time2=0 then
+     Interupt_first_time2=1
 
-  SREG_I_bit = 0                                   '' // Disable Interrupts
+     Lcd_0()
+     Lcd_Out(1,1,"Interupt_first_time=0")
+     Delay_mS(1000)
+  else
+        SREG_I_bit = 0                                   '' // Disable Interrupts
 
-   WDT_on()
-'  INTF2_bit=0                                                  '  // Clear interrupt flag
-  INT6_bit = 0
-  ' ## ############## Because of Disappering the Pwm Part we need to run this comands #########################
-' while_state_import_main=0
-'Keypad_set__date_time_import_On_hour_teben(week,hours,minutes,23,0)
-'Keypad_set__date_time_import_On_minut_teben(week,on_a_0[week-1][chanel-1][Pwm_chanel-1][on_off2-1][1],minutes,59,0)
-'Keypad_set__date_time_import_Yes_No_teben( week,chanel,1, 2,1 )
-'Keypad_set__date_time_import_PWM_Red_teben(1,1,on_a_0[week_new-1][chanel-1][Pwm_chanel-1][on_off2-1][3],100,0,on_a_0[week_new-1][0][Pwm_chanel-1][on_off2-1][3],on_a_0[week_new-1][1][Pwm_chanel-1][on_off2-1][3],on_a_0[week_new-1][2][Pwm_chanel-1][on_off2-1][3],on_a_0[week_new-1][3][Pwm_chanel-1][on_off2-1][3],0,0,0,0,0)''on_a_0[week_new-1][4][Pwm_chanel-1][on_off2-1][3],0,0,0,0) ''on_a_0[week_new-1][5][Pwm_chanel-1][on_off2-1][3],on_a_0[week_new-1][6][Pwm_chanel-1][on_off2-1][3],0,0) ''on_a_0[week_new-1][7][Pwm_chanel-1][on_off2-1][3],on_a_0[week_new-1][8][Pwm_chanel-1][on_off2-1][3]) ''(dim mode_1,Pwm_chanel,var_in as byte, dim p_max as  byte, dim p_min as  byte )
-'Keypad_set__date_time_import_save_exit_teben (week,1,1,0)
-'while_state_import_main=1
- ' ## ############## Because of Disappering the Pwm Part  we need to run this comands #########################
+         WDT_on()
+      '  INTF2_bit=0                                                  '  // Clear interrupt flag
+        INT6_bit = 0
+        ' ## ############## Because of Disappering the Pwm Part we need to run this comands #########################
+      ' while_state_import_main=0
+      'Keypad_set__date_time_import_On_hour_teben(week,hours,minutes,23,0)
+      'Keypad_set__date_time_import_On_minut_teben(week,on_a_0[week-1][chanel-1][Pwm_chanel-1][on_off2-1][1],minutes,59,0)
+      'Keypad_set__date_time_import_Yes_No_teben( week,chanel,1, 2,1 )
+      'Keypad_set__date_time_import_PWM_Red_teben(1,1,on_a_0[week_new-1][chanel-1][Pwm_chanel-1][on_off2-1][3],100,0,on_a_0[week_new-1][0][Pwm_chanel-1][on_off2-1][3],on_a_0[week_new-1][1][Pwm_chanel-1][on_off2-1][3],on_a_0[week_new-1][2][Pwm_chanel-1][on_off2-1][3],on_a_0[week_new-1][3][Pwm_chanel-1][on_off2-1][3],0,0,0,0,0)''on_a_0[week_new-1][4][Pwm_chanel-1][on_off2-1][3],0,0,0,0) ''on_a_0[week_new-1][5][Pwm_chanel-1][on_off2-1][3],on_a_0[week_new-1][6][Pwm_chanel-1][on_off2-1][3],0,0) ''on_a_0[week_new-1][7][Pwm_chanel-1][on_off2-1][3],on_a_0[week_new-1][8][Pwm_chanel-1][on_off2-1][3]) ''(dim mode_1,Pwm_chanel,var_in as byte, dim p_max as  byte, dim p_min as  byte )
+      'Keypad_set__date_time_import_save_exit_teben (week,1,1,0)
+      'while_state_import_main=1
+       ' ## ############## Because of Disappering the Pwm Part  we need to run this comands #########################
 
-  Easy_vacuum_95_10_4_simple(chanel,1)
+        Easy_vacuum_95_10_4_simple(chanel,1)
 
-       Lcd_Out(1,1,txt1)
+        Lcd_Out(1,1,txt1)
 
-  '/* Turn off WDT */
+        '/* Turn off WDT */
 
-  WDTCR = 0x00
-'  INT6_bit = 1   ''simulating pressed  INT6 button by 1 in this bit
+        WDTCR = 0x00
+        INT6_bit = 1   ''simulating pressed  INT6 button by 1 in this bit
 
-  SREG_I_bit = 1                                  ''  // Enable Interrupts
-
+        SREG_I_bit = 1                                  ''  // Enable Interrupts
+  end if
 
 end sub
 
@@ -347,7 +353,7 @@ LCD_Out(2,1,"TEST")
      '  SetPWM0(0)
 
      ' ##########   Interupt 2 enalbleing   ##########
-    Interupt_first_time=0
+    Interupt_first_time=0 Interupt_first_time2=0
     ISC20_Bit = 1                                    '' // Set interrupts to be detected on rising edge
     ISC00_bit = 1
     INTF2_bit = 0
@@ -363,11 +369,15 @@ LCD_Out(2,1,"TEST")
 '#########################################
 
   chanel=1
+  Lcd_0()
   while TRUE
+
+
+        Lcd_Out(1,1,"main ")
 '        radeon_github_10_95()
 
 '         Easy_vacuum_95_10_4(chanel)
-        Easy_vacuum_95_10_4_simple(chanel,0)
+'        Easy_vacuum_95_10_4_simple(chanel,0)
 
   wend
 

@@ -1136,6 +1136,7 @@ interrupt_isr
 interrupt_isr_0
 interrupt_isr_6
 interupt_first_time
+interupt_first_time2
 intf0
 intf0_bit
 intf1

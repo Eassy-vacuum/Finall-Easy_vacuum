@@ -118,6 +118,14 @@ main
 					float_tstr16_r19
 			float_fpint
 		HWMul_16x16
+Timer0_overflow
+Timer2_Compare
+interrupt_ISR_6
+	Lcd_0
+	Lcd_Out
+	WDT_on
+		Lcd_Cmd
+		Lcd_Out
 	Easy_vacuum_95_10_4_simple
 		Read_Time
 		Shamsi_call
@@ -133,14 +141,6 @@ main
 		IntToStr
 		PWM_MAKE
 		HWMul_16x16
-Timer0_overflow
-Timer2_Compare
-interrupt_ISR_6
-	WDT_on
-		Lcd_Cmd
-		Lcd_Out
-	Easy_vacuum_95_10_4_simple
-	Lcd_Out
 interrupt_ISR
 	Lcd_0
 	Lcd_Out
