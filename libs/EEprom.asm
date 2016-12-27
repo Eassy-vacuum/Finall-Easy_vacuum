@@ -160,7 +160,7 @@ L_libs/EEprom_eeprom_call_back_ext23:
 	LDS        R16, _week+0
 	SUBI       R16, 1
 	LDI        R17, 0
-	LDI        R20, 224
+	LDI        R20, 96
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
 	LDI        R18, #lo_addr(_on_a_0+0)
@@ -171,7 +171,7 @@ L_libs/EEprom_eeprom_call_back_ext23:
 	SUBI       R20, 1
 	STD        Y+2, R16
 	STD        Y+3, R17
-	LDI        R16, 56
+	LDI        R16, 24
 	LDI        R17, 0
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
@@ -213,7 +213,7 @@ L_libs/EEprom_eeprom_call_back_ext23:
 	LDS        R16, _week+0
 	SUBI       R16, 1
 	LDI        R17, 0
-	LDI        R20, 224
+	LDI        R20, 96
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
 	LDI        R18, #lo_addr(_on_a_0+0)
@@ -224,7 +224,7 @@ L_libs/EEprom_eeprom_call_back_ext23:
 	SUBI       R20, 1
 	STD        Y+2, R16
 	STD        Y+3, R17
-	LDI        R16, 56
+	LDI        R16, 24
 	LDI        R17, 0
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
@@ -267,7 +267,7 @@ L_libs/EEprom_eeprom_call_back_ext23:
 	LDS        R16, _week+0
 	SUBI       R16, 1
 	LDI        R17, 0
-	LDI        R20, 224
+	LDI        R20, 96
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
 	LDI        R18, #lo_addr(_on_a_0+0)
@@ -278,7 +278,7 @@ L_libs/EEprom_eeprom_call_back_ext23:
 	SUBI       R20, 1
 	STD        Y+2, R16
 	STD        Y+3, R17
-	LDI        R16, 56
+	LDI        R16, 24
 	LDI        R17, 0
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
@@ -321,7 +321,7 @@ L_libs/EEprom_eeprom_call_back_ext23:
 	LDS        R16, _week+0
 	SUBI       R16, 1
 	LDI        R17, 0
-	LDI        R20, 224
+	LDI        R20, 96
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
 	LDI        R18, #lo_addr(_on_a_0+0)
@@ -332,7 +332,7 @@ L_libs/EEprom_eeprom_call_back_ext23:
 	SUBI       R20, 1
 	STD        Y+2, R16
 	STD        Y+3, R17
-	LDI        R16, 56
+	LDI        R16, 24
 	LDI        R17, 0
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
@@ -478,7 +478,7 @@ L__eeprom_save_ext44:
 	LDS        R16, _week+0
 	SUBI       R16, 1
 	LDI        R17, 0
-	LDI        R20, 224
+	LDI        R20, 96
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
 	LDI        R18, #lo_addr(_on_a_0+0)
@@ -489,7 +489,7 @@ L__eeprom_save_ext44:
 	SUBI       R20, 1
 	STD        Y+1, R16
 	STD        Y+2, R17
-	LDI        R16, 56
+	LDI        R16, 24
 	LDI        R17, 0
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
@@ -536,7 +536,7 @@ L__eeprom_save_ext44:
 	LDS        R16, _week+0
 	SUBI       R16, 1
 	LDI        R17, 0
-	LDI        R20, 224
+	LDI        R20, 96
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
 	LDI        R18, #lo_addr(_on_a_0+0)
@@ -547,7 +547,7 @@ L__eeprom_save_ext44:
 	SUBI       R20, 1
 	STD        Y+1, R16
 	STD        Y+2, R17
-	LDI        R16, 56
+	LDI        R16, 24
 	LDI        R17, 0
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
@@ -595,7 +595,7 @@ L__eeprom_save_ext44:
 	LDS        R16, _week+0
 	SUBI       R16, 1
 	LDI        R17, 0
-	LDI        R20, 224
+	LDI        R20, 96
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
 	LDI        R18, #lo_addr(_on_a_0+0)
@@ -606,7 +606,7 @@ L__eeprom_save_ext44:
 	SUBI       R20, 1
 	STD        Y+1, R16
 	STD        Y+2, R17
-	LDI        R16, 56
+	LDI        R16, 24
 	LDI        R17, 0
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
@@ -654,7 +654,7 @@ L__eeprom_save_ext44:
 	LDS        R16, _week+0
 	SUBI       R16, 1
 	LDI        R17, 0
-	LDI        R20, 224
+	LDI        R20, 96
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
 	LDI        R18, #lo_addr(_on_a_0+0)
@@ -665,7 +665,7 @@ L__eeprom_save_ext44:
 	SUBI       R20, 1
 	STD        Y+1, R16
 	STD        Y+2, R17
-	LDI        R16, 56
+	LDI        R16, 24
 	LDI        R17, 0
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
@@ -804,7 +804,7 @@ L_libs/EEprom_eeprom_call_back65:
 	LDD        R16, Y+2
 	SUBI       R16, 1
 	LDI        R17, 0
-	LDI        R20, 224
+	LDI        R20, 96
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
 	LDI        R18, #lo_addr(_on_a_0+0)
@@ -815,7 +815,7 @@ L_libs/EEprom_eeprom_call_back65:
 	SUBI       R20, 1
 	STD        Y+5, R16
 	STD        Y+6, R17
-	LDI        R16, 56
+	LDI        R16, 24
 	LDI        R17, 0
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
@@ -860,7 +860,7 @@ L_libs/EEprom_eeprom_call_back65:
 	LDD        R16, Y+2
 	SUBI       R16, 1
 	LDI        R17, 0
-	LDI        R20, 224
+	LDI        R20, 96
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
 	LDI        R18, #lo_addr(_on_a_0+0)
@@ -871,7 +871,7 @@ L_libs/EEprom_eeprom_call_back65:
 	SUBI       R20, 1
 	STD        Y+5, R16
 	STD        Y+6, R17
-	LDI        R16, 56
+	LDI        R16, 24
 	LDI        R17, 0
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
@@ -918,7 +918,7 @@ L_libs/EEprom_eeprom_call_back65:
 	LDD        R16, Y+2
 	SUBI       R16, 1
 	LDI        R17, 0
-	LDI        R20, 224
+	LDI        R20, 96
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
 	LDI        R18, #lo_addr(_on_a_0+0)
@@ -929,7 +929,7 @@ L_libs/EEprom_eeprom_call_back65:
 	SUBI       R20, 1
 	STD        Y+5, R16
 	STD        Y+6, R17
-	LDI        R16, 56
+	LDI        R16, 24
 	LDI        R17, 0
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
@@ -976,7 +976,7 @@ L_libs/EEprom_eeprom_call_back65:
 	LDD        R16, Y+2
 	SUBI       R16, 1
 	LDI        R17, 0
-	LDI        R20, 224
+	LDI        R20, 96
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
 	LDI        R18, #lo_addr(_on_a_0+0)
@@ -987,7 +987,7 @@ L_libs/EEprom_eeprom_call_back65:
 	SUBI       R20, 1
 	STD        Y+5, R16
 	STD        Y+6, R17
-	LDI        R16, 56
+	LDI        R16, 24
 	LDI        R17, 0
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
@@ -1146,7 +1146,7 @@ L__eeprom_save86:
 	LDD        R16, Y+2
 	SUBI       R16, 1
 	LDI        R17, 0
-	LDI        R20, 224
+	LDI        R20, 96
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
 	LDI        R18, #lo_addr(_on_a_0+0)
@@ -1157,7 +1157,7 @@ L__eeprom_save86:
 	SUBI       R20, 1
 	STD        Y+7, R16
 	STD        Y+8, R17
-	LDI        R16, 56
+	LDI        R16, 24
 	LDI        R17, 0
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
@@ -1204,7 +1204,7 @@ L__eeprom_save86:
 	LDD        R16, Y+2
 	SUBI       R16, 1
 	LDI        R17, 0
-	LDI        R20, 224
+	LDI        R20, 96
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
 	LDI        R18, #lo_addr(_on_a_0+0)
@@ -1215,7 +1215,7 @@ L__eeprom_save86:
 	SUBI       R20, 1
 	STD        Y+7, R16
 	STD        Y+8, R17
-	LDI        R16, 56
+	LDI        R16, 24
 	LDI        R17, 0
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
@@ -1263,7 +1263,7 @@ L__eeprom_save86:
 	LDD        R16, Y+2
 	SUBI       R16, 1
 	LDI        R17, 0
-	LDI        R20, 224
+	LDI        R20, 96
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
 	LDI        R18, #lo_addr(_on_a_0+0)
@@ -1274,7 +1274,7 @@ L__eeprom_save86:
 	SUBI       R20, 1
 	STD        Y+7, R16
 	STD        Y+8, R17
-	LDI        R16, 56
+	LDI        R16, 24
 	LDI        R17, 0
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
@@ -1322,7 +1322,7 @@ L__eeprom_save86:
 	LDD        R16, Y+2
 	SUBI       R16, 1
 	LDI        R17, 0
-	LDI        R20, 224
+	LDI        R20, 96
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
 	LDI        R18, #lo_addr(_on_a_0+0)
@@ -1333,7 +1333,7 @@ L__eeprom_save86:
 	SUBI       R20, 1
 	STD        Y+7, R16
 	STD        Y+8, R17
-	LDI        R16, 56
+	LDI        R16, 24
 	LDI        R17, 0
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
@@ -1631,7 +1631,7 @@ L_libs/EEprom_eeprom99:
 	LDS        R16, _week+0
 	SUBI       R16, 1
 	LDI        R17, 0
-	LDI        R20, 224
+	LDI        R20, 96
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
 	LDI        R18, #lo_addr(_on_a_0+0)
@@ -1642,7 +1642,7 @@ L_libs/EEprom_eeprom99:
 	SUBI       R20, 1
 	STD        Y+26, R16
 	STD        Y+27, R17
-	LDI        R16, 56
+	LDI        R16, 24
 	LDI        R17, 0
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
@@ -1677,7 +1677,7 @@ L_libs/EEprom_eeprom99:
 	LDS        R16, _week+0
 	SUBI       R16, 1
 	LDI        R17, 0
-	LDI        R20, 224
+	LDI        R20, 96
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
 	LDI        R18, #lo_addr(_on_a_0+0)
@@ -1688,7 +1688,7 @@ L_libs/EEprom_eeprom99:
 	SUBI       R20, 1
 	STD        Y+26, R16
 	STD        Y+27, R17
-	LDI        R16, 56
+	LDI        R16, 24
 	LDI        R17, 0
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
@@ -1878,7 +1878,6 @@ _ext_twi_eeprom_ini:
 	PUSH       R3
 	PUSH       R4
 	PUSH       R5
-	PUSH       R6
 	LDI        R27, 0
 	STS        _EEprom_data_read+0, R27
 ;libs/EEprom.mbas,285 :: 		Read_eeprom_ext_TWI(1)
@@ -2425,26 +2424,24 @@ L__ext_twi_eeprom_ini137:
 	DEC        R18
 	BRNE       L__ext_twi_eeprom_ini137
 	NOP
-;libs/EEprom.mbas,334 :: 		on_off_initial (1,1,0,0,17)    '' On mode on_off initial (dim on_off22,en,hr,mint,prc as integer)
-	LDI        R27, 17
-	MOV        R6, R27
-	CLR        R5
-	CLR        R4
-	LDI        R27, 1
-	MOV        R3, R27
+;libs/EEprom.mbas,334 :: 		On_mSec_initial_Heater (1,0,10,18)  '' On mode Heater initial (dim en,mint,sec,prc as integer)
+	LDI        R27, 18
+	MOV        R5, R27
+	LDI        R27, 10
+	MOV        R4, R27
+	CLR        R3
 	LDI        R27, 1
 	MOV        R2, R27
-	CALL       _on_off_initial+0
-;libs/EEprom.mbas,335 :: 		on_off_initial (2,1,0,0,17)    '''OFF mode
-	LDI        R27, 17
-	MOV        R6, R27
-	CLR        R5
-	CLR        R4
+	CALL       _On_mSec_initial_heater+0
+;libs/EEprom.mbas,335 :: 		On_mSec_initial_Motor (1,0,10,18)    '''mode
+	LDI        R27, 18
+	MOV        R5, R27
+	LDI        R27, 10
+	MOV        R4, R27
+	CLR        R3
 	LDI        R27, 1
-	MOV        R3, R27
-	LDI        R27, 2
 	MOV        R2, R27
-	CALL       _on_off_initial+0
+	CALL       _On_mSec_initial_Motor+0
 ;libs/EEprom.mbas,337 :: 		Lcd_0()
 	CALL       _Lcd_0+0
 ;libs/EEprom.mbas,338 :: 		Lcd_Out(1,1,"Wrting to EEPROM ..." )
@@ -2631,7 +2628,7 @@ L__ext_twi_eeprom_ini137:
 	STS        _week+0, R27
 ;libs/EEprom.mbas,352 :: 		ByteToStr(on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off2-1][3],txt)
 	LDI        R18, 64
-	LDI        R19, 5
+	LDI        R19, 2
 	LDI        R16, #lo_addr(_on_a_0+0)
 	LDI        R17, hi_addr(_on_a_0+0)
 	ADD        R16, R18
@@ -2718,7 +2715,7 @@ L__ext_twi_eeprom_ini141:
 	STS        _week+0, R27
 ;libs/EEprom.mbas,362 :: 		ByteToStr(on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off2-1][0],txt)
 	LDI        R18, 64
-	LDI        R19, 5
+	LDI        R19, 2
 	LDI        R16, #lo_addr(_on_a_0+0)
 	LDI        R17, hi_addr(_on_a_0+0)
 	MOVW       R30, R18
@@ -2782,7 +2779,7 @@ L__ext_twi_eeprom_ini143:
 	LDS        R16, _week+0
 	SUBI       R16, 1
 	LDI        R17, 0
-	LDI        R20, 224
+	LDI        R20, 96
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
 	LDI        R18, #lo_addr(_on_a_0+0)
@@ -2793,7 +2790,7 @@ L__ext_twi_eeprom_ini143:
 	SUBI       R20, 1
 	STD        Y+24, R16
 	STD        Y+25, R17
-	LDI        R16, 56
+	LDI        R16, 24
 	LDI        R17, 0
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
@@ -3198,7 +3195,6 @@ L__ext_twi_eeprom_ini156:
 	CALL       _Lcd_0+0
 ;libs/EEprom.mbas,393 :: 		end sub
 L_end_ext_twi_eeprom_ini:
-	POP        R6
 	POP        R5
 	POP        R4
 	POP        R3
@@ -3227,7 +3223,6 @@ _int_eeprom_ini:
 	PUSH       R3
 	PUSH       R4
 	PUSH       R5
-	PUSH       R6
 	CALL       _Lcd_0+0
 ;libs/EEprom.mbas,401 :: 		Lcd_Out(1,1,"EEprom  :" )
 	MOVW       R30, R28
@@ -3416,26 +3411,24 @@ L__int_eeprom_ini160:
 	CLR        R2
 	CLR        R3
 	CALL       _EEPROM_Write+0
-;libs/EEprom.mbas,414 :: 		on_off_initial (1,1,0,0,14)    '' off mode on_off initial (dim on_off22,en,hr,mint,prc as integer)
-	LDI        R27, 14
-	MOV        R6, R27
-	CLR        R5
-	CLR        R4
-	LDI        R27, 1
-	MOV        R3, R27
+;libs/EEprom.mbas,414 :: 		On_mSec_initial_Heater (1,0,10,18)  '' On mode Heater initial (dim en,mint,sec,prc as integer)
+	LDI        R27, 18
+	MOV        R5, R27
+	LDI        R27, 10
+	MOV        R4, R27
+	CLR        R3
 	LDI        R27, 1
 	MOV        R2, R27
-	CALL       _on_off_initial+0
-;libs/EEprom.mbas,415 :: 		on_off_initial (2,1,0,0,14)    '''on mode
-	LDI        R27, 14
-	MOV        R6, R27
-	CLR        R5
-	CLR        R4
+	CALL       _On_mSec_initial_heater+0
+;libs/EEprom.mbas,415 :: 		On_mSec_initial_Motor (1,0,10,18)    ''' Motor mode
+	LDI        R27, 18
+	MOV        R5, R27
+	LDI        R27, 10
+	MOV        R4, R27
+	CLR        R3
 	LDI        R27, 1
-	MOV        R3, R27
-	LDI        R27, 2
 	MOV        R2, R27
-	CALL       _on_off_initial+0
+	CALL       _On_mSec_initial_Motor+0
 ;libs/EEprom.mbas,416 :: 		Lcd_0() Lcd_Out(1,1,"Writing to  " ) Lcd_Out(2,1,"EEprom ..." )
 	CALL       _Lcd_0+0
 	MOVW       R30, R28
@@ -3552,7 +3545,6 @@ L__int_eeprom_ini162:
 	NOP
 ;libs/EEprom.mbas,424 :: 		end sub
 L_end_int_eeprom_ini:
-	POP        R6
 	POP        R5
 	POP        R4
 	POP        R3
@@ -3581,7 +3573,6 @@ libs/EEprom_ext_eeprom_ini:
 	PUSH       R3
 	PUSH       R4
 	PUSH       R5
-	PUSH       R6
 	CALL       _Lcd_0+0
 ;libs/EEprom.mbas,432 :: 		EEprom_data_read=0
 	LDI        R27, 0
@@ -3909,26 +3900,24 @@ L_libs/EEprom_ext_eeprom_ini172:
 	CLR        R2
 	CLR        R3
 	CALL       libs/EEprom_Write_EEprom+0
-;libs/EEprom.mbas,454 :: 		on_off_initial (1,1,0,0,18)    '' off mode on_off initial (dim on_off22,en,hr,mint,prc as integer)
+;libs/EEprom.mbas,454 :: 		On_mSec_initial_Heater (1,0,10,18)  '' On mode Heater initial (dim en,mint,sec,prc as integer)
 	LDI        R27, 18
-	MOV        R6, R27
-	CLR        R5
-	CLR        R4
-	LDI        R27, 1
-	MOV        R3, R27
+	MOV        R5, R27
+	LDI        R27, 10
+	MOV        R4, R27
+	CLR        R3
 	LDI        R27, 1
 	MOV        R2, R27
-	CALL       _on_off_initial+0
-;libs/EEprom.mbas,455 :: 		on_off_initial (2,1,0,0,18)    '''on mode
+	CALL       _On_mSec_initial_heater+0
+;libs/EEprom.mbas,455 :: 		On_mSec_initial_Motor (1,0,10,18)    ''' Motor mode
 	LDI        R27, 18
-	MOV        R6, R27
-	CLR        R5
-	CLR        R4
+	MOV        R5, R27
+	LDI        R27, 10
+	MOV        R4, R27
+	CLR        R3
 	LDI        R27, 1
-	MOV        R3, R27
-	LDI        R27, 2
 	MOV        R2, R27
-	CALL       _on_off_initial+0
+	CALL       _On_mSec_initial_Motor+0
 ;libs/EEprom.mbas,456 :: 		Lcd_0()    Lcd_Out(1,1,"Writing to  " )    Lcd_Out(2,1,"EEPROM ... " )
 	CALL       _Lcd_0+0
 	MOVW       R30, R28
@@ -4200,7 +4189,6 @@ L_libs/EEprom_ext_eeprom_ini181:
 	CALL       _Lcd_0+0
 ;libs/EEprom.mbas,480 :: 		end sub
 L_end_ext_eeprom_ini:
-	POP        R6
 	POP        R5
 	POP        R4
 	POP        R3

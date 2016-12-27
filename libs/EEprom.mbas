@@ -12,8 +12,8 @@ const read_address_bus = 161  ' or 0XA0
 'Dim write_address_bus as integer external ' or 0XA0
 'Dim read_address_bus as integer  external' or 0XA0
 
-dim on_a_0 as Byte[7][4][7][2][4]  external ''[week-1][chanel-1][pwm_chanel-1][on_off2-1][0]
-dim on_a_1 as Byte[7][4][7][2][4]  external ''[week-1][chanel-1][pwm_chanel-1][on_off2-1][0]
+'dim on_a_0 as Byte[1][4][3][2][4]  external ''[week-1][chanel-1][pwm_chanel-1][on_off2-1][0]
+'dim on_a_1 as Byte[7][4][7][2][4]  external ''[week-1][chanel-1][pwm_chanel-1][on_off2-1][0]
 'dim on_a_1 as integer[7][4][7][2][4]  external ''[week-1][chanel-1][pwm_chanel-1][on_off2-1][0]
 'dim on_a_0 as byte[7][1][3][2][4]   external'' on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off22-1][0]
 
@@ -331,8 +331,8 @@ sub procedure ext_twi_eeprom_ini()
                          Lcd_0()
                          Lcd_Out(1,1,"ext not writed111111111" )
                          delay_ms(500)
-                         on_off_initial (1,1,0,0,17)    '' On mode on_off initial (dim on_off22,en,hr,mint,prc as integer)
-                         on_off_initial (2,1,0,0,17)    '''OFF mode
+                         On_mSec_initial_Heater (1,0,10,18)  '' On mode Heater initial (dim en,mint,sec,prc as integer)
+                         On_mSec_initial_Motor (1,0,10,18)    '''mode
 
                          Lcd_0()
                          Lcd_Out(1,1,"Wrting to EEPROM ..." )
@@ -411,8 +411,8 @@ sub procedure int_eeprom_ini()     ''internal eeprm of avr
                          Lcd_Out(2,1,txt )
                     else
                         EEPROM_Write(0x00 ,12 )
-                        on_off_initial (1,1,0,0,14)    '' off mode on_off initial (dim on_off22,en,hr,mint,prc as integer)
-                        on_off_initial (2,1,0,0,14)    '''on mode
+                        On_mSec_initial_Heater (1,0,10,18)  '' On mode Heater initial (dim en,mint,sec,prc as integer)
+                        On_mSec_initial_Motor (1,0,10,18)    ''' Motor mode
                         Lcd_0() Lcd_Out(1,1,"Writing to  " ) Lcd_Out(2,1,"EEprom ..." )
                          eeprom_save()
 '                         eeprom_save_ext()
@@ -451,8 +451,8 @@ sub procedure ext_eeprom_ini()
                          Lcd_Out(1,1,"ext not writed111111111" )
                          delay_ms(1500)
                           Write_EEprom(0 ,12 )
-                          on_off_initial (1,1,0,0,18)    '' off mode on_off initial (dim on_off22,en,hr,mint,prc as integer)
-                          on_off_initial (2,1,0,0,18)    '''on mode
+                          On_mSec_initial_Heater (1,0,10,18)  '' On mode Heater initial (dim en,mint,sec,prc as integer)
+                          On_mSec_initial_Motor (1,0,10,18)    ''' Motor mode
                           Lcd_0()    Lcd_Out(1,1,"Writing to  " )    Lcd_Out(2,1,"EEPROM ... " )
                           eeprom_save_ext()
                          Lcd_Out(1,1,"writing ext eeprom" )

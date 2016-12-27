@@ -1,6 +1,6 @@
 main
 	Lcd_Port_Init
-	Key_Port_Init
+	Key_Port_Init_mainfunc
 	PWM_Port_Initialize
 	Lcd_Init
 		Delay_5500us
@@ -32,7 +32,11 @@ main
 		Lcd_Chr
 			Lcd_Cmd
 	Lcd_Chr
-	on_off_initial
+	On_mSec_initial_heater
+		Lcd_0
+		Lcd_Out
+		HWMul_16x16
+	On_mSec_initial_Motor
 		Lcd_0
 		Lcd_Out
 		HWMul_16x16
@@ -61,8 +65,6 @@ main
 		Div_16x16_S
 	PWM_Initialize
 		PWM16bit_Init
-		PWM1_Set_Duty
-		PWM2_Set_Duty
 		PWM_MAKE
 			ceil
 				float_fpint
@@ -111,6 +113,10 @@ main
 				Div_16x16_S
 			Lcd_Out
 			PWM16bit_Change_Duty
+			SetPWM2
+			PWM2_Set_Duty
+			SetPWM1_A
+			SetPWM1_B
 			SetPWM0
 			HWMul_32x32
 			float_slong2fp
@@ -124,119 +130,35 @@ main
 Timer0_overflow
 Timer2_Compare
 interrupt_ISR_6
-	Lcd_0
-	Lcd_Out
 	WDT_on
 		Lcd_Cmd
 		Lcd_Out
-	Easy_vacuum_95_10_4_simple
+	Easy_vacuum_95_10_4_simple_crupted
+		Button
+			Delay_500us
+		Lcd_0
+		Lcd_Out
 		Read_Time
 		Shamsi_call
 		Shamsi_show_lcd
 		miladi_call
-		Button
-			Delay_500us
-		Lcd_Out
 		Dec2Bcd
 			Div_8x8_U
 		Write_Time
-		Lcd_0
+		ByteToStr
+			Div_8x8_U
+		StrToInt
+			Div_32x32_S
+			Mul_32x32
+			Div_16x16_U
 		IntToStr
+		Bcd2Dec
+			Mul_8x8_U
 		PWM_MAKE
 		HWMul_16x16
+	Lcd_Out
 interrupt_ISR
 	Lcd_0
 	Lcd_Out
 	WDT_on
-	Keypad_set__date_time_import_On_hour_teben
-		Lcd_0
-		ByteToStr
-			Div_8x8_U
-		Lcd_Out
-		Button
-	Keypad_set__date_time_import_On_minut_teben
-		Lcd_0
-		ByteToStr
-		Lcd_Out
-		Button
-	Keypad_set__date_time_import_Yes_No_teben
-		Lcd_0
-		ByteToStr
-		Lcd_Out
-		Button
-	Keypad_set__date_time_import_PWM_Red_teben
-		Lcd_0
-		ByteToStr
-		Lcd_Out
-		Lcd_Chr
-		Button
-		PWM_MAKE
-	Keypad_set__date_time_import_save_exit_teben
-		Lcd_Out
-		Button
-		Lcd_0
-	Keypad_3
-		Lcd_Keypad_3
-			Lcd_0
-			Lcd_Out
-			Lcd_Chr
-		Button
-		Lcd_0
-		Lcd_Out
-		IntToStr
-		Keypad_set__date_time
-			__CA2AW
-			Lcd_0
-			Read_Time
-			Shamsi_transfer_time
-			Lcd_Out
-			IntToStr
-			Keypad_set__date_time_import
-				Button
-				IntToStr
-				Lcd_Out
-			Button
-			Keypad_set__date_time_import_save_exit_calander
-				Lcd_Out
-				Button
-				Lcd_0
-			Dec2Bcd
-			Write_Time
-		Keypad_Relay_set__date_time_stack_overflow_teben
-			__CA2AW
-			Lcd_0
-			Read_Time
-			Shamsi_transfer_time
-			Button
-			Keypad_set__date_time_import_week_day_teben
-				Lcd_Out
-				Button
-				Lcd_0
-				IntToStr
-			Keypad_set__date_time_import_On_off_teben
-				Lcd_Out
-				Button
-				Lcd_0
-			Lcd_Out
-			Keypad_set__date_time_import_On_hour_teben
-			Keypad_set__date_time_import_On_minut_teben
-			Keypad_set__date_time_import_off_minut_teben
-				Lcd_0
-				ByteToStr
-				Lcd_Out
-				Button
-			IntToStr
-			Keypad_set__date_time_import_Yes_No_teben
-			Keypad_set__date_time_import_PWM_Red_teben
-			Keypad_set__date_time_import_save_exit_teben
-			eeprom_save
-				EEPROM_Write
-				HWMul_16x16
-			Keypad_set__date_time_import
-			HWMul_16x16
 	Button
-	HWMul_16x16
-interrupt_ISR_0
-	Lcd_Out
-	WDT_on
-	Keypad_3

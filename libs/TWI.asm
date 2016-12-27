@@ -5,14 +5,14 @@ _write_eeprom_ext_TWI:
 ;libs/TWI.mbas,35 :: 		TWI_Init(100000)         ' initialize TWI communication
 	PUSH       R2
 	PUSH       R3
-	LDS        R27, TWPS0_bit+0
+	IN         R27, TWPS0_bit+0
 	CBR        R27, BitMask(TWPS0_bit+0)
-	STS        TWPS0_bit+0, R27
-	LDS        R27, TWPS1_bit+0
+	OUT        TWPS0_bit+0, R27
+	IN         R27, TWPS1_bit+0
 	CBR        R27, BitMask(TWPS1_bit+0)
-	STS        TWPS1_bit+0, R27
+	OUT        TWPS1_bit+0, R27
 	LDI        R27, 32
-	STS        TWBR+0, R27
+	OUT        TWBR+0, R27
 	CALL       _TWI_Init+0
 ;libs/TWI.mbas,36 :: 		TWI_Start()              ' issue TWI start signal
 	CALL       _TWI_Start+0
@@ -53,14 +53,14 @@ _Read_eeprom_ext_TWI:
 ;libs/TWI.mbas,50 :: 		TWI_Init(100000)         ' initialize TWI communication
 	PUSH       R2
 	PUSH       R3
-	LDS        R27, TWPS0_bit+0
+	IN         R27, TWPS0_bit+0
 	CBR        R27, BitMask(TWPS0_bit+0)
-	STS        TWPS0_bit+0, R27
-	LDS        R27, TWPS1_bit+0
+	OUT        TWPS0_bit+0, R27
+	IN         R27, TWPS1_bit+0
 	CBR        R27, BitMask(TWPS1_bit+0)
-	STS        TWPS1_bit+0, R27
+	OUT        TWPS1_bit+0, R27
 	LDI        R27, 32
-	STS        TWBR+0, R27
+	OUT        TWBR+0, R27
 	CALL       _TWI_Init+0
 ;libs/TWI.mbas,51 :: 		TWI_Start()              ' issue TWI start signal
 	CALL       _TWI_Start+0
@@ -150,7 +150,7 @@ L__eeprom_call_back_ext_twi23:
 	LDD        R16, Y+1
 	SUBI       R16, 1
 	LDI        R17, 0
-	LDI        R20, 224
+	LDI        R20, 96
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
 	LDI        R18, #lo_addr(_on_a_0+0)
@@ -161,7 +161,7 @@ L__eeprom_call_back_ext_twi23:
 	SUBI       R20, 1
 	STD        Y+21, R16
 	STD        Y+22, R17
-	LDI        R16, 56
+	LDI        R16, 24
 	LDI        R17, 0
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
@@ -205,7 +205,7 @@ L__eeprom_call_back_ext_twi23:
 	LDD        R16, Y+1
 	SUBI       R16, 1
 	LDI        R17, 0
-	LDI        R20, 224
+	LDI        R20, 96
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
 	LDI        R18, #lo_addr(_on_a_0+0)
@@ -216,7 +216,7 @@ L__eeprom_call_back_ext_twi23:
 	SUBI       R20, 1
 	STD        Y+21, R16
 	STD        Y+22, R17
-	LDI        R16, 56
+	LDI        R16, 24
 	LDI        R17, 0
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
@@ -261,7 +261,7 @@ L__eeprom_call_back_ext_twi23:
 	LDD        R16, Y+1
 	SUBI       R16, 1
 	LDI        R17, 0
-	LDI        R20, 224
+	LDI        R20, 96
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
 	LDI        R18, #lo_addr(_on_a_0+0)
@@ -272,7 +272,7 @@ L__eeprom_call_back_ext_twi23:
 	SUBI       R20, 1
 	STD        Y+21, R16
 	STD        Y+22, R17
-	LDI        R16, 56
+	LDI        R16, 24
 	LDI        R17, 0
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
@@ -317,7 +317,7 @@ L__eeprom_call_back_ext_twi23:
 	LDD        R16, Y+1
 	SUBI       R16, 1
 	LDI        R17, 0
-	LDI        R20, 224
+	LDI        R20, 96
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
 	LDI        R18, #lo_addr(_on_a_0+0)
@@ -328,7 +328,7 @@ L__eeprom_call_back_ext_twi23:
 	SUBI       R20, 1
 	STD        Y+21, R16
 	STD        Y+22, R17
-	LDI        R16, 56
+	LDI        R16, 24
 	LDI        R17, 0
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
@@ -611,7 +611,7 @@ L__eeprom_save_ext_twi44:
 	LDD        R16, Y+1
 	SUBI       R16, 1
 	LDI        R17, 0
-	LDI        R20, 224
+	LDI        R20, 96
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
 	LDI        R18, #lo_addr(_on_a_0+0)
@@ -622,7 +622,7 @@ L__eeprom_save_ext_twi44:
 	SUBI       R20, 1
 	STD        Y+37, R16
 	STD        Y+38, R17
-	LDI        R16, 56
+	LDI        R16, 24
 	LDI        R17, 0
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
@@ -666,7 +666,7 @@ L__eeprom_save_ext_twi44:
 	LDD        R16, Y+1
 	SUBI       R16, 1
 	LDI        R17, 0
-	LDI        R20, 224
+	LDI        R20, 96
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
 	LDI        R18, #lo_addr(_on_a_0+0)
@@ -677,7 +677,7 @@ L__eeprom_save_ext_twi44:
 	SUBI       R20, 1
 	STD        Y+37, R16
 	STD        Y+38, R17
-	LDI        R16, 56
+	LDI        R16, 24
 	LDI        R17, 0
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
@@ -722,7 +722,7 @@ L__eeprom_save_ext_twi44:
 	LDD        R16, Y+1
 	SUBI       R16, 1
 	LDI        R17, 0
-	LDI        R20, 224
+	LDI        R20, 96
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
 	LDI        R18, #lo_addr(_on_a_0+0)
@@ -733,7 +733,7 @@ L__eeprom_save_ext_twi44:
 	SUBI       R20, 1
 	STD        Y+37, R16
 	STD        Y+38, R17
-	LDI        R16, 56
+	LDI        R16, 24
 	LDI        R17, 0
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
@@ -778,7 +778,7 @@ L__eeprom_save_ext_twi44:
 	LDD        R16, Y+1
 	SUBI       R16, 1
 	LDI        R17, 0
-	LDI        R20, 224
+	LDI        R20, 96
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
 	LDI        R18, #lo_addr(_on_a_0+0)
@@ -789,7 +789,7 @@ L__eeprom_save_ext_twi44:
 	SUBI       R20, 1
 	STD        Y+37, R16
 	STD        Y+38, R17
-	LDI        R16, 56
+	LDI        R16, 24
 	LDI        R17, 0
 	LDI        R21, 0
 	CALL       _HWMul_16x16+0
