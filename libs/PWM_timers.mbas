@@ -195,26 +195,26 @@ end sub
 '     PWM_MAKE_as_max(jj,512) ii=output
 '     jj=floor((jj*255)/100)
            if jj=0 then
-             SetPWM0(max_duty-ii)
+             SetPWM0(ii)
            else
-                SetPWM0(max_duty-ii-1)
+                SetPWM0(ii)
 '                PWM1_Set_Duty(ii)
            end if
      case 4
 '     PWM_MAKE_as_max(jj,512) ii=output
 '     jj=floor((jj*255)/100)
-           if jj=0 then
-             SetPWM2(max_duty-ii)
-           else
-                SetPWM2(max_duty-ii)
-'                PWM1_Set_Duty(ii)
-           end if
            'if jj=0 then
-'             SetPWM2(0)
+'             SetPWM2(max_duty-ii)
 '           else
-'                SetPWM2(ii)
+'                SetPWM2(max_duty-ii)
 ''                PWM1_Set_Duty(ii)
 '           end if
+           if jj=0 then
+             SetPWM2(0)
+           else
+                SetPWM2(ii)
+'                PWM1_Set_Duty(ii)
+           end if
      case 55
 '     PWM_MAKE_as_max(jj,512) ii=output
 '     jj=floor((jj*255)/100)
@@ -358,10 +358,11 @@ J=0
 ''     TCCR0=(1<<WGM00) or (1<<COM01) or (1<<COM00) or (1<<WGM01) or (1<<CS02) or (0<<CS01) or (1<<CS00)
 '     TCCR0=(0<<WGM00) or (1<<COM01) or (1<<COM00) or (1<<WGM01) or (1<<CS02) or (0<<CS01) or (1<<CS00)
 '     TCCR0 = (1<<FOC0)or(1<<COM01)or(1<<COM00)or(0<<COM01)or(1<<WGM00) or(1<<CS00) or (0<<WGM01)
-      TCCR0 = (1<<FOC2)or(1<<COM21)or(1<<COM20)or(0<<COM21)or(1<<WGM20) or(1<<CS00) or(0<<CS01) or(1<<CS02) or (0<<WGM21)
+      TCCR0 = (1<<FOC2)or(1<<COM00)or(1<<COM01)or(1<<WGM00) or(0<<WGM01)or(1<<CS00) or(0<<CS01) or(1<<CS02) or (0<<WGM21)
      TCNT0=0x00
 '     TCCR2 = (1<<FOC2)or(1<<COM21)or(1<<COM20)or(0<<COM21)or(1<<WGM20) or(1<<CS00) ''or (1<<WGM21)
-     TCCR2 = (1<<FOC2)or(1<<COM21)or(1<<COM20)or(0<<COM21)or(1<<WGM20) or(1<<CS00)or(0<<CS01) or(1<<CS02) or (0<<WGM21)
+'     TCCR2 = (1<<FOC2)or(1<<COM21)or(1<<COM20)or(0<<COM21)or(1<<WGM20) or(1<<CS00)or(0<<CS01) or(1<<CS02) or (0<<WGM21)
+     TCCR2 = (1<<FOC2)or(1<<COM01)or(0<<COM00)or(1<<WGM00) or(0<<WGM01)or(1<<CS00) or(0<<CS01) or(1<<CS02) or (0<<WGM21)
      TCNT2=0x00
      ocr0=0xFF
      ocr2=0xFF

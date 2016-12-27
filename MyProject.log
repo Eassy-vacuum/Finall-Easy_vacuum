@@ -42,7 +42,7 @@ warning: 153	1516	Warning: Source size (4) does not match destination size (23)	
 hint: 97	1001	Hint: Variable "txt_s" has been declared, but not used	libs/PWM_timers.mbas
 hint: 97	1011	Hint: Variable "txt_s" has been eliminated by optimizer	libs/PWM_timers.mbas
 hint: 292	1011	Hint: Variable "j" has been eliminated by optimizer	libs/PWM_timers.mbas
-hint: 589	1010	Hint: Unit "libs/PWM_timers.mbas" has been recompiled	libs/PWM_timers.mbas
+hint: 590	1010	Hint: Unit "libs/PWM_timers.mbas" has been recompiled	libs/PWM_timers.mbas
 hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\libs/LCD.mbas"	libs/LCD.mbas
 hint: 134	1010	Hint: Unit "libs/LCD.mbas" has been recompiled	libs/LCD.mbas
 hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\libs/I2C.mbas"	libs/I2C.mbas
@@ -95,12 +95,12 @@ hint: 124	1021	Hint: interrupt handler (interrupt_ISR_6 at 0x0006)	libs/interrup
 hint: 184	1010	Hint: Unit "libs/interrupts_Atmega32.mbas" has been recompiled	libs/interrupts_Atmega32.mbas
 hint: 473	1010	Hint: Unit "MyProject.mbas" has been recompiled	MyProject.mbas
 diagnostics: 0	134	Compiled Successfully	E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\MyProject.mbas
-diagnostics: 0	139	All files Compiled in 827 ms	 
+diagnostics: 0	139	All files Compiled in 952 ms	 
 hint: 0	1144	Used RX (bytes): 32 (100%)   Free RX (bytes): 0 (0%)	Used RX (bytes): 32 (100%)   Free RX (bytes): 0 (0%)
 hint: 0	1144	Static RAM (bytes): 225   Dynamic RAM (bytes): 1823	Static RAM (bytes): 225   Dynamic RAM (bytes): 1823
-hint: 0	1144	Used ROM (bytes): 21602 (66%)  Free ROM (bytes): 11166 (34%)	Used ROM (bytes): 21602 (66%)  Free ROM (bytes): 11166 (34%)
+hint: 0	1144	Used ROM (bytes): 21568 (66%)  Free ROM (bytes): 11200 (34%)	Used ROM (bytes): 21568 (66%)  Free ROM (bytes): 11200 (34%)
 diagnostics: 0	145	Project Linked Successfully	MyProject.mbpav
 hint: 0	1004	COFF file successfully generated	COFF file successfully generated
-diagnostics: 0	140	Linked in 2699 ms	 
-diagnostics: 0	141	Project 'MyProject.mbpav' completed: 4555 ms	 
-diagnostics: 0	103	Finished successfully: 27 œ”«„»— 2016, 13:48:30	MyProject.mbpav
+diagnostics: 0	140	Linked in 2667 ms	 
+diagnostics: 0	141	Project 'MyProject.mbpav' completed: 4898 ms	 
+diagnostics: 0	103	Finished successfully: 27 œ”«„»— 2016, 14:05:48	MyProject.mbpav
