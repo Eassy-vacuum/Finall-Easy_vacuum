@@ -303,19 +303,19 @@ L__main1:
 	BRNE       L__main1
 	NOP
 	NOP
-;MyProject.mbas,393 :: 		On_mSec_initial_Heater (1,0,10,100) 'On_mSec_initial_Heater(dim en,mint,sec,prc as byte)'On_mSec_initial_Heater[chanel_ini-1][Heater_Motor_Time_ini-1][Pwm_chanel_ini-1][0]
-	LDI        R27, 100
+;MyProject.mbas,393 :: 		On_mSec_initial_Heater (1,0,5,90) 'On_mSec_initial_Heater(dim en,mint,sec,prc as byte)'On_mSec_initial_Heater[chanel_ini-1][Heater_Motor_Time_ini-1][Pwm_chanel_ini-1][0]
+	LDI        R27, 90
 	MOV        R5, R27
-	LDI        R27, 10
+	LDI        R27, 5
 	MOV        R4, R27
 	CLR        R3
 	LDI        R27, 1
 	MOV        R2, R27
 	CALL       _On_mSec_initial_heater+0
-;MyProject.mbas,394 :: 		On_mSec_initial_Motor (1,0,10,18)
+;MyProject.mbas,394 :: 		On_mSec_initial_Motor (1,0,5,18)
 	LDI        R27, 18
 	MOV        R5, R27
-	LDI        R27, 10
+	LDI        R27, 5
 	MOV        R4, R27
 	CLR        R3
 	LDI        R27, 1
@@ -456,9 +456,9 @@ L__main3:
 	IN         R27, INT0_bit+0
 	SBR        R27, BitMask(INT0_bit+0)
 	OUT        INT0_bit+0, R27
-;MyProject.mbas,454 :: 		SREG_I_bit = 1
+;MyProject.mbas,454 :: 		SREG_I_bit = 0
 	IN         R27, SREG_I_bit+0
-	SBR        R27, BitMask(SREG_I_bit+0)
+	CBR        R27, BitMask(SREG_I_bit+0)
 	OUT        SREG_I_bit+0, R27
 ;MyProject.mbas,459 :: 		chanel=1
 	LDI        R27, 1
@@ -488,7 +488,13 @@ L__main6:
 	LDI        R27, 1
 	MOV        R2, R27
 	CALL       _Lcd_Out+0
-;MyProject.mbas,470 :: 		wend
+;MyProject.mbas,469 :: 		Easy_vacuum_95_10_4_simple_crupted(1,1)
+	LDI        R27, 1
+	MOV        R3, R27
+	LDI        R27, 1
+	MOV        R2, R27
+	CALL       _Easy_vacuum_95_10_4_simple_crupted+0
+;MyProject.mbas,471 :: 		wend
 	JMP        L__main6
 L_end_main:
 	POP        R9

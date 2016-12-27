@@ -390,8 +390,8 @@ LCD_Out(2,1,"TEST")
      LCD_Chr(2,4,4)    ' Display custom char B
      Delay_ms(1500)
 '    ###################### Start of EEPROM   #########################'
-     On_mSec_initial_Heater (1,0,10,100) 'On_mSec_initial_Heater(dim en,mint,sec,prc as byte)'On_mSec_initial_Heater[chanel_ini-1][Heater_Motor_Time_ini-1][Pwm_chanel_ini-1][0]
-     On_mSec_initial_Motor (1,0,10,18)
+     On_mSec_initial_Heater (1,0,5,90) 'On_mSec_initial_Heater(dim en,mint,sec,prc as byte)'On_mSec_initial_Heater[chanel_ini-1][Heater_Motor_Time_ini-1][Pwm_chanel_ini-1][0]
+     On_mSec_initial_Motor (1,0,5,18)
 '   on_off_initial (1,1,0,5,18)    '' off mode on_off initial (dim on_off22,en,hr,mint,prc as integer)
 '   on_off_initial (2,1,0,0,18)    '''on mode
 '   int_eeprom_ini()   ''internal AVR EEPROM Writing   77777777777777777777777777777777777
@@ -451,7 +451,7 @@ LCD_Out(2,1,"TEST")
 
     INT2_bit =1
     INT0_bit =1
-    SREG_I_bit = 1
+    SREG_I_bit = 0
 '#########################################
 #ENDIF
 '#########################################
@@ -466,6 +466,7 @@ LCD_Out(2,1,"TEST")
 
 '         Easy_vacuum_95_10_4(chanel)
 '        Easy_vacuum_95_10_4_simple(chanel,0)
+         Easy_vacuum_95_10_4_simple_crupted(1,1)
 
   wend
 

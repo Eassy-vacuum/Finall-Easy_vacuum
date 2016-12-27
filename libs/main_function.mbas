@@ -183,7 +183,13 @@ sub procedure Easy_vacuum_95_10_4_simple_Motor(dim program_number as byte,dim In
        end if
        Lcd_0()Lcd_Out(1,1,"End") Lcd_Out(2,1,"...") delay_ms(200) '' DDD7_bit =0
 end sub
-
+sub procedure Heater_relay_on()
+     if (while_state_import_main=0) then
+         Heater_relay_Pin =1
+         while_state_import_main=1
+'          result=1
+     end if
+end sub
 sub procedure Easy_vacuum_95_10_4_simple_crupted(dim program_number as byte,dim Interupt_en as byte)
      dim Heater_motor_index as byte
          txt_byte_min,txt_byte_sec as string[3]
@@ -200,10 +206,10 @@ sub procedure Easy_vacuum_95_10_4_simple_crupted(dim program_number as byte,dim 
      while_state_import=1  oldstate_3=0 chanel=program_number   week=1   on_off2 = 1
      while  (while_state_import )
        if (Interupt_en=0) then
-         if (Button(HET_SW_Port, HET_SW_bit, 0.5, 0)) then    ' Detect logical one up key
+         if (Button(HET_SW_Port, HET_SW_bit, 0.5, 1)) then    ' Detect logical one up key
                     oldstate_3 = 1                      ' Update flag
          end if
-         if (oldstate_3 and Button(HET_SW_Port, HET_SW_bit,0.5, 1)) then
+         if (oldstate_3 and Button(HET_SW_Port, HET_SW_bit,0.5, 0)) then
            Interupt_en=1 while_state_import=0
          end if
        else
@@ -301,7 +307,7 @@ sub procedure Easy_vacuum_95_10_4_simple_crupted(dim program_number as byte,dim 
               oldstate_3 =0
 '               for on_off2 =1 to 1   ' equal to on or off estate
 '
-              Heater_relay_Pin =0
+              Heater_relay_Pin =0  oldstate_3 = 0
               while_state_import=1    while_state_import_main=0
               while( while_state_import)
                   if (1)  then
@@ -313,17 +319,19 @@ sub procedure Easy_vacuum_95_10_4_simple_crupted(dim program_number as byte,dim 
                                Lcd_Out(2,1,"Prog num:") Lcd_Out(2,10,txt) delay_ms(200)
                                Lcd_Out(1,1,"On pwm heater mode")
     '                           inttostr(chanel,txt)                     ' ??? ????? ???? ? ?????? ????? ? ????
-'                               PWM_MAKE (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][3],255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
-                               if (while_state_import_main=0) then
-                                   Heater_relay_Pin =1
-                                   while_state_import_main=1
-                               end if
+                               PWM_MAKE (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][3],255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+                               Heater_relay_on()
+                               'if (while_state_import_main=0) then
+'                                   Heater_relay_Pin =1
+'                                   while_state_import_main=1
+'                               end if
                                if (Button(Mot_SW_Port,Mot_SW_bit, 0.5, 1)) then    ' Detect logical one up key
                                        oldstate_3 = 1 while_state_import=0  Heater_relay_Pin =0                    ' Update flag
+                                       PWM_MAKE (0,255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
                                end if
                                if (oldstate_3 and Button(Mot_SW_Port,Mot_SW_bit,0.5, 0)) then
                                     while_state_import=0
-'                                    PWM_MAKE (0,255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+                                    PWM_MAKE (0,255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
                                      Heater_relay_Pin =0
                                end if
 
@@ -337,7 +345,7 @@ sub procedure Easy_vacuum_95_10_4_simple_crupted(dim program_number as byte,dim 
                                Lcd_Out(2,1,"Prog num:") Lcd_Out(2,10,txt) delay_ms(300)
                                Lcd_Out(1,1,"Off pwm heater mode")
                                Heater_relay_Pin =0
-'                               PWM_MAKE (0,255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+                               PWM_MAKE (0,255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
                                while_state_import=0
                               end if
 
@@ -418,6 +426,15 @@ sub procedure Easy_vacuum_95_10_4_simple_crupted(dim program_number as byte,dim 
              end if
               Lcd_Out(1,1,"Wating for :") Lcd_Out(2,1,"Pressing Motor micro SW") delay_ms(200)
          wend
+         while_state_import_main=1
+         'while  (while_state_import_main )
+'             if (while_state_import_main=1) then
+'                   Heater_relay_Pin =0
+'                   while_state_import_main=0
+'             end if
+'         wend
+          Heater_relay_on()
+'        Heater_relay_Pin =0 PIND6_bit =0
         if (1) then
               LCD_Out(2,9, "motor running")  ''Show on LCD
               LCD_Out(2,1, "Value: ")  ''Show on LCD

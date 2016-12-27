@@ -113,11 +113,11 @@ main
 				Div_16x16_S
 			Lcd_Out
 			PWM16bit_Change_Duty
+			SetPWM0
 			SetPWM2
 			PWM2_Set_Duty
 			SetPWM1_A
 			SetPWM1_B
-			SetPWM0
 			HWMul_32x32
 			float_slong2fp
 			float_fpdiv1
@@ -127,12 +127,6 @@ main
 					float_tstr16_r19
 			float_fpint
 		HWMul_16x16
-Timer0_overflow
-Timer2_Compare
-interrupt_ISR_6
-	WDT_on
-		Lcd_Cmd
-		Lcd_Out
 	Easy_vacuum_95_10_4_simple_crupted
 		Button
 			Delay_500us
@@ -155,7 +149,15 @@ interrupt_ISR_6
 		Bcd2Dec
 			Mul_8x8_U
 		PWM_MAKE
+		Heater_relay_on
 		HWMul_16x16
+Timer0_overflow
+Timer2_Compare
+interrupt_ISR_6
+	WDT_on
+		Lcd_Cmd
+		Lcd_Out
+	Easy_vacuum_95_10_4_simple_crupted
 	Lcd_Out
 interrupt_ISR
 	Lcd_0
