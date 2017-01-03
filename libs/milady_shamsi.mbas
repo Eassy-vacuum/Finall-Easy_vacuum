@@ -49,14 +49,18 @@ implements
  '-------------------- Formats date and time
 sub procedure Shamsi_transfer_time()
 
-   seconds  =  ((seconds and 0x70) >> 4)*10 + (seconds and 0x0F)
-  minutes  =  ((minutes and 0xF0) >> 4)*10 + (minutes and 0x0F)
-  hours    =  ((hours and 0x30) >> 4)*10 + (hours and 0x0F)
+'   seconds  =  ((seconds and 0x70) >> 4)*10 + (seconds and 0x0F)
+   seconds  =  ((seconds and 0xF0) >> 4)*10 + (seconds and 0x0F)  ' Transform seconds
+   minutes  =  ((minutes and 0xF0) >> 4)*10 + (minutes and 0x0F)
+'  hours    =  ((hours and 0x30) >> 4)*10 + (hours and 0x0F)
+  hours    =  ((hours and 0xF0) >> 4)*10 + (hours and 0x0F)
   week     =  (week and 0x07)
   day      =  ((day and 0xF0) >> 4)*10 + (day and 0x0F)
   month    =  ((month and 0x10) >> 4)*10 + (month and 0x0F)
   year     =  ((year and 0xF0) >> 4)*10+(year and 0x0F)
 end sub
+
+
 
 sub procedure Shamsi_show_lcd(dim jjmonth,jjday,jjyear,jweek,jhours ,jminutes,jseconds as integer)
   select case jweek

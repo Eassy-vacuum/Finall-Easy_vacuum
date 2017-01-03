@@ -62,8 +62,8 @@ dim LCD_D6_Direction as sbit at LCD_D6_Direction_my
 dim LCD_D7_Direction as sbit at LCD_D7_Direction_my
 
 ''################# LCD Farsi character #################
-const character as byte[8] = (1,14,20,4,4,4,4,0)
- const heart as byte[8] = (0,10,21,17,10,4,0,0)
+    const character as byte[8] = (1,14,20,4,4,4,4,0)
+    const heart as byte[8] = (0,10,21,17,10,4,0,0)
     const co as byte[8] = (0,0,0,15,9,9,15,0)       ' Custom letter O
     const cn as byte[8] = (0,0,0,9,13,11,9,0)       ' Custom letter N
     const cf as byte[8] = (0,0,0,15,8,14,8,0)       ' Custom letter F

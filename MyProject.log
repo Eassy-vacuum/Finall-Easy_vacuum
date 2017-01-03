@@ -35,18 +35,24 @@ diagnostics: 0	134	Compiled Successfully	C:\Users\Public\Documents\Mikroelektron
 diagnostics: 0	133	Compilation Started	E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\MyProject.mbas
 hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\MyProject.mbas"	MyProject.mbas
 hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\libs/PWM_timers.mbas"	libs/PWM_timers.mbas
-hint: 57	1021	Hint: interrupt handler (Timer2_Compare at 0x0008)	libs/PWM_timers.mbas
-hint: 61	1021	Hint: interrupt handler (Timer0_overflow at 0x0016)	libs/PWM_timers.mbas
-warning: 152	1509	Warning: Implicit typecast performed from "longint" to "double"	libs/PWM_timers.mbas
-warning: 153	1516	Warning: Source size (4) does not match destination size (23)	libs/PWM_timers.mbas
-hint: 97	1001	Hint: Variable "txt_s" has been declared, but not used	libs/PWM_timers.mbas
-hint: 97	1011	Hint: Variable "txt_s" has been eliminated by optimizer	libs/PWM_timers.mbas
-hint: 292	1011	Hint: Variable "j" has been eliminated by optimizer	libs/PWM_timers.mbas
-hint: 590	1010	Hint: Unit "libs/PWM_timers.mbas" has been recompiled	libs/PWM_timers.mbas
+hint: 58	1021	Hint: interrupt handler (Timer2_Compare at 0x0008)	libs/PWM_timers.mbas
+hint: 62	1021	Hint: interrupt handler (Timer0_overflow at 0x0016)	libs/PWM_timers.mbas
+warning: 153	1509	Warning: Implicit typecast performed from "word" to "float"	libs/PWM_timers.mbas
+warning: 154	1516	Warning: Source size (4) does not match destination size (23)	libs/PWM_timers.mbas
+hint: 98	1001	Hint: Variable "txt_s" has been declared, but not used	libs/PWM_timers.mbas
+hint: 301	1001	Hint: Variable "k" has been declared, but not used	libs/PWM_timers.mbas
+hint: 98	1011	Hint: Variable "txt_s" has been eliminated by optimizer	libs/PWM_timers.mbas
+hint: 301	1011	Hint: Variable "j" has been eliminated by optimizer	libs/PWM_timers.mbas
+hint: 301	1011	Hint: Variable "k" has been eliminated by optimizer	libs/PWM_timers.mbas
+hint: 604	1010	Hint: Unit "libs/PWM_timers.mbas" has been recompiled	libs/PWM_timers.mbas
 hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\libs/LCD.mbas"	libs/LCD.mbas
 hint: 134	1010	Hint: Unit "libs/LCD.mbas" has been recompiled	libs/LCD.mbas
+hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\libs/milady_shamsi.mbas"	libs/milady_shamsi.mbas
+hint: 109	1011	Hint: Variable "farvardin1st_iMonth" has been eliminated by optimizer	libs/milady_shamsi.mbas
+hint: 109	1011	Hint: Variable "farvardin1st_iDay" has been eliminated by optimizer	libs/milady_shamsi.mbas
+hint: 353	1010	Hint: Unit "libs/milady_shamsi.mbas" has been recompiled	libs/milady_shamsi.mbas
 hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\libs/I2C.mbas"	libs/I2C.mbas
-hint: 86	1010	Hint: Unit "libs/I2C.mbas" has been recompiled	libs/I2C.mbas
+hint: 166	1010	Hint: Unit "libs/I2C.mbas" has been recompiled	libs/I2C.mbas
 hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\libs/TWI.mbas"	libs/TWI.mbas
 warning: 102	1509	Warning: Implicit typecast performed from "longint" to "double"	libs/TWI.mbas
 warning: 152	1509	Warning: Implicit typecast performed from "longint" to "double"	libs/TWI.mbas
@@ -58,49 +64,87 @@ warning: 38	1509	Warning: Implicit typecast performed from "integer" to "double"
 warning: 38	1509	Warning: Implicit typecast performed from "integer" to "double"	libs/Calculations.mbas
 warning: 38	1509	Warning: Implicit typecast performed from "double" to "integer"	libs/Calculations.mbas
 hint: 45	1010	Hint: Unit "libs/Calculations.mbas" has been recompiled	libs/Calculations.mbas
-hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\libs/milady_shamsi.mbas"	libs/milady_shamsi.mbas
-hint: 105	1011	Hint: Variable "farvardin1st_iMonth" has been eliminated by optimizer	libs/milady_shamsi.mbas
-hint: 105	1011	Hint: Variable "farvardin1st_iDay" has been eliminated by optimizer	libs/milady_shamsi.mbas
-hint: 349	1010	Hint: Unit "libs/milady_shamsi.mbas" has been recompiled	libs/milady_shamsi.mbas
 hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\libs/keypad.mbas"	libs/keypad.mbas
 hint: 13	1010	Hint: Unit "libs/keypad.mbas" has been recompiled	libs/keypad.mbas
+hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\libs/EEprom_Atmega32.mbas"	libs/EEprom_Atmega32.mbas
+hint: 75	1001	Hint: Variable "device_address" has been declared, but not used	libs/EEprom_Atmega32.mbas
+hint: 96	1001	Hint: Variable "on_off22" has been declared, but not used	libs/EEprom_Atmega32.mbas
+hint: 128	1001	Hint: Variable "on_off22" has been declared, but not used	libs/EEprom_Atmega32.mbas
+hint: 188	1001	Hint: Variable "hx" has been declared, but not used	libs/EEprom_Atmega32.mbas
+hint: 189	1001	Hint: Variable "hx1" has been declared, but not used	libs/EEprom_Atmega32.mbas
+hint: 190	1001	Hint: Variable "txt_sub" has been declared, but not used	libs/EEprom_Atmega32.mbas
+diagnostics: 215	162	variable 'tt' might not have been initialized	libs/EEprom_Atmega32.mbas
+hint: 47	1011	Hint: Variable "error" has been eliminated by optimizer	libs/EEprom_Atmega32.mbas
+hint: 74	1011	Hint: Variable "hi_" has been eliminated by optimizer	libs/EEprom_Atmega32.mbas
+hint: 75	1011	Hint: Variable "device_address" has been eliminated by optimizer	libs/EEprom_Atmega32.mbas
+hint: 96	1011	Hint: Variable "on_off22" has been eliminated by optimizer	libs/EEprom_Atmega32.mbas
+hint: 128	1011	Hint: Variable "on_off22" has been eliminated by optimizer	libs/EEprom_Atmega32.mbas
+hint: 188	1011	Hint: Variable "hx" has been eliminated by optimizer	libs/EEprom_Atmega32.mbas
+hint: 188	1011	Hint: Variable "on_off22" has been eliminated by optimizer	libs/EEprom_Atmega32.mbas
+hint: 189	1011	Hint: Variable "hx1" has been eliminated by optimizer	libs/EEprom_Atmega32.mbas
+hint: 190	1011	Hint: Variable "txt_sub" has been eliminated by optimizer	libs/EEprom_Atmega32.mbas
+hint: 443	1010	Hint: Unit "libs/EEprom_Atmega32.mbas" has been recompiled	libs/EEprom_Atmega32.mbas
 hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\libs/main_function.mbas"	libs/main_function.mbas
-warning: 100	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
-warning: 103	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
-warning: 123	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
-warning: 126	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
-warning: 152	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
-warning: 155	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
-warning: 209	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
-warning: 212	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
-warning: 254	1516	Warning: Source size (3) does not match destination size (6)	libs/main_function.mbas
-warning: 289	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
-warning: 292	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
-warning: 328	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
-warning: 332	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
-warning: 421	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
-warning: 424	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
-hint: 93	1001	Hint: Variable "Time_on" has been declared, but not used	libs/main_function.mbas
-hint: 195	1001	Hint: Variable "txt_byte_sec" has been declared, but not used	libs/main_function.mbas
-hint: 147	1011	Hint: Variable "Time_on" has been eliminated by optimizer	libs/main_function.mbas
-hint: 195	1011	Hint: Variable "txt_byte_sec" has been eliminated by optimizer	libs/main_function.mbas
-hint: 529	1010	Hint: Unit "libs/main_function.mbas" has been recompiled	libs/main_function.mbas
-hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\libs/interrupts_Atmega32.mbas"	libs/interrupts_Atmega32.mbas
-hint: 59	1021	Hint: interrupt handler (interrupt_ISR at 0x0002)	libs/interrupts_Atmega32.mbas
-hint: 60	1021	Hint: interrupt handler (interrupt_ISR_6 at 0x0006)	libs/interrupts_Atmega32.mbas
-hint: 66	1021	Hint: interrupt handler (interrupt_ISR at 0x0002)	libs/interrupts_Atmega32.mbas
-warning: 95	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/interrupts_Atmega32.mbas
-warning: 102	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/interrupts_Atmega32.mbas
-hint: 124	1021	Hint: interrupt handler (interrupt_ISR_6 at 0x0006)	libs/interrupts_Atmega32.mbas
-hint: 184	1010	Hint: Unit "libs/interrupts_Atmega32.mbas" has been recompiled	libs/interrupts_Atmega32.mbas
-hint: 473	1010	Hint: Unit "MyProject.mbas" has been recompiled	MyProject.mbas
+warning: 126	1518	Warning: Suspicious pointer conversion	libs/main_function.mbas
+warning: 126	1518	Warning: Suspicious pointer conversion	libs/main_function.mbas
+warning: 175	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
+warning: 178	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
+warning: 198	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
+warning: 201	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
+warning: 227	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
+warning: 230	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
+warning: 299	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
+warning: 303	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
+warning: 405	1516	Warning: Source size (3) does not match destination size (6)	libs/main_function.mbas
+warning: 425	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
+warning: 429	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
+warning: 477	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
+warning: 491	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
+warning: 497	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
+warning: 545	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
+warning: 548	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
+warning: 566	1518	Warning: Suspicious pointer conversion	libs/main_function.mbas
+warning: 566	1518	Warning: Suspicious pointer conversion	libs/main_function.mbas
+warning: 621	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/main_function.mbas
+hint: 168	1001	Hint: Variable "Time_on" has been declared, but not used	libs/main_function.mbas
+hint: 676	1010	Hint: Unit "libs/main_function.mbas" has been recompiled	libs/main_function.mbas
+hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\libs/keypad_Atmega32.mbas"	libs/keypad_Atmega32.mbas
+warning: 226	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/keypad_Atmega32.mbas
+warning: 229	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/keypad_Atmega32.mbas
+warning: 244	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/keypad_Atmega32.mbas
+warning: 247	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/keypad_Atmega32.mbas
+warning: 262	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/keypad_Atmega32.mbas
+warning: 263	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/keypad_Atmega32.mbas
+warning: 266	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/keypad_Atmega32.mbas
+warning: 267	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/keypad_Atmega32.mbas
+warning: 356	1516	Warning: Source size (17) does not match destination size (16)	libs/keypad_Atmega32.mbas
+warning: 403	1516	Warning: Source size (22) does not match destination size (16)	libs/keypad_Atmega32.mbas
+warning: 405	1516	Warning: Source size (21) does not match destination size (16)	libs/keypad_Atmega32.mbas
+warning: 456	1516	Warning: Source size (17) does not match destination size (16)	libs/keypad_Atmega32.mbas
+warning: 583	1516	Warning: Source size (4) does not match destination size (5)	libs/keypad_Atmega32.mbas
+warning: 602	1516	Warning: Source size (4) does not match destination size (5)	libs/keypad_Atmega32.mbas
+hint: 138	1001	Hint: Variable "location_my_1" has been declared, but not used	libs/keypad_Atmega32.mbas
+hint: 139	1001	Hint: Variable "location_my_2" has been declared, but not used	libs/keypad_Atmega32.mbas
+hint: 164	1001	Hint: Variable "k_for" has been declared, but not used	libs/keypad_Atmega32.mbas
+hint: 164	1001	Hint: Variable "k2" has been declared, but not used	libs/keypad_Atmega32.mbas
+hint: 164	1011	Hint: Variable "k_for" has been eliminated by optimizer	libs/keypad_Atmega32.mbas
+hint: 164	1011	Hint: Variable "k2" has been eliminated by optimizer	libs/keypad_Atmega32.mbas
+hint: 363	1011	Hint: Variable "var_in" has been eliminated by optimizer	libs/keypad_Atmega32.mbas
+hint: 675	1010	Hint: Unit "libs/keypad_Atmega32.mbas" has been recompiled	libs/keypad_Atmega32.mbas
+warning: 153	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 158	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 167	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 168	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 172	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 173	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+hint: 423	1010	Hint: Unit "MyProject.mbas" has been recompiled	MyProject.mbas
 diagnostics: 0	134	Compiled Successfully	E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\MyProject.mbas
-diagnostics: 0	139	All files Compiled in 952 ms	 
+diagnostics: 0	139	All files Compiled in 1123 ms	 
 hint: 0	1144	Used RX (bytes): 32 (100%)   Free RX (bytes): 0 (0%)	Used RX (bytes): 32 (100%)   Free RX (bytes): 0 (0%)
-hint: 0	1144	Static RAM (bytes): 225   Dynamic RAM (bytes): 1823	Static RAM (bytes): 225   Dynamic RAM (bytes): 1823
-hint: 0	1144	Used ROM (bytes): 21568 (66%)  Free ROM (bytes): 11200 (34%)	Used ROM (bytes): 21568 (66%)  Free ROM (bytes): 11200 (34%)
+hint: 0	1144	Static RAM (bytes): 1724   Dynamic RAM (bytes): 324	Static RAM (bytes): 1724   Dynamic RAM (bytes): 324
+hint: 0	1144	Used ROM (bytes): 31704 (97%)  Free ROM (bytes): 1064 (3%)	Used ROM (bytes): 31704 (97%)  Free ROM (bytes): 1064 (3%)
 diagnostics: 0	145	Project Linked Successfully	MyProject.mbpav
 hint: 0	1004	COFF file successfully generated	COFF file successfully generated
-diagnostics: 0	140	Linked in 2667 ms	 
-diagnostics: 0	141	Project 'MyProject.mbpav' completed: 4898 ms	 
-diagnostics: 0	103	Finished successfully: 27 œ”«„»— 2016, 14:05:48	MyProject.mbpav
+diagnostics: 0	140	Linked in 2465 ms	 
+diagnostics: 0	141	Project 'MyProject.mbpav' completed: 4306 ms	 
+diagnostics: 0	103	Finished successfully: 01 é«‰ÊÌÂ 2017, 19:14:33	MyProject.mbpav
