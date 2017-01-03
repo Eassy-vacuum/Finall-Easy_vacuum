@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=NN Pin=AC_P5-1
+Removed Pin From Net: NetName=LL Pin=AC_P5-2
+Added Pin To Net: NetName=LLMICRO Pin=AC_P5-2
+Added Net: Name=LLMICRO
+Added Pin To Net: NetName=NNMICRO Pin=AC_P5-1
+Added Net: Name=NNMICRO

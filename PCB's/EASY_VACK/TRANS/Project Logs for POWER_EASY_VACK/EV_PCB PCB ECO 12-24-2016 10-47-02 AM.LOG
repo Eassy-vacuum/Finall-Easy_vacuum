@@ -1,0 +1,6 @@
+Added Component: Designator=AC_P(AC_P)
+Added Pin To Net: NetName=1 Pin=AC_P-1
+Added Pin To Net: NetName=2 Pin=AC_P-2
+Added Pin To Net: NetName=P- Pin=AC_P-3
+Added Pin To Net: NetName=P+ Pin=AC_P-4
+Added Member To Class: ClassName=EV_SH Member=Component AC_P AC_POLE

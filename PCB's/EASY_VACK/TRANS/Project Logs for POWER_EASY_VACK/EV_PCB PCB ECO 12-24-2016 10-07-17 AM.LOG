@@ -1,0 +1,4 @@
+Added Component: Designator=V12_+A(AXIAL-0.3)
+Added Pin To Net: NetName=V12_+ Pin=V12_+A-1
+Added Pin To Net: NetName=V12_+ Pin=V12_+A-2
+Added Member To Class: ClassName=EV_SH Member=Component V12_+A Res1

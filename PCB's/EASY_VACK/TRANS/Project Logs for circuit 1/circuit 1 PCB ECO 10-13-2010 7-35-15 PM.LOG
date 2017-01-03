@@ -1,0 +1,18 @@
+Change Component Footprint: Designator=C1 Old Footprint=RAD-0.1 New Footprint=RAD-0.3
+Change Component Footprint: Designator=C2 Old Footprint=RAD-0.1 New Footprint=RAD-0.3
+Change Component Footprint: Designator=C3 Old Footprint=RAD-0.1 New Footprint=RAD-0.3
+Change Component Footprint: Designator=C4 Old Footprint=RAD-0.1 New Footprint=RAD-0.3
+Change Component Footprint: Designator=C5 Old Footprint=RAD-0.1 New Footprint=RAD-0.3
+Change Component Footprint: Designator=C8 Old Footprint=RAD-0.1 New Footprint=RAD-0.3
+Change Component Footprint: Designator=C9 Old Footprint=RAD-0.1 New Footprint=RAD-0.3
+Added Pin To Net: NetName=GND Pin=P4-1
+Added Pin To Net: NetName=NetP3_8 Pin=P3-8
+Added Pin To Net: NetName=NetP3_8 Pin=P3-9
+Added Net: Name=NetP3_8
+Added Pin To Net: NetName=NetP4_8 Pin=P4-8
+Added Pin To Net: NetName=NetP4_8 Pin=P4-9
+Added Net: Name=NetP4_8
+Added Pin To Net: NetName=NetP5_9 Pin=P5-9
+Added Pin To Net: NetName=NetP5_9 Pin=U1-13
+Added Net: Name=NetP5_9
+Added Room: Name=circuit 1

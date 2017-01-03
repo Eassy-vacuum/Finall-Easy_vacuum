@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=NetP8_9 Pin=U1-28
+Removed Pin From Net: NetName=NetP8_10 Pin=U1-29
+Change Component Footprint: Designator=Y1 Old Footprint=CAPR5.08-7.8x3.2 New Footprint=X2
+Added Pin To Net: NetName=NetP8_10 Pin=U1-28
+Added Pin To Net: NetName=NetP8_9 Pin=U1-29
+Added Room: Name=circuit 1

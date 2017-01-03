@@ -1,0 +1,4 @@
+Added Component: Designator=BUTT044(AXIAL-0.3)
+Added Pin To Net: NetName=BUTT4 Pin=BUTT044-1
+Added Pin To Net: NetName=BUTT4 Pin=BUTT044-2
+Added Member To Class: ClassName=AT32 Member=Component BUTT044 Res1

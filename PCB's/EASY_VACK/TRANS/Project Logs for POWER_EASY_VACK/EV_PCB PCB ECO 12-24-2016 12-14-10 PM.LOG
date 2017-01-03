@@ -1,0 +1,4 @@
+Added Component: Designator=HEATERFF(AXIAL-0.3)
+Added Pin To Net: NetName=HEATER_F Pin=HEATERFF-1
+Added Pin To Net: NetName=HEATER_F Pin=HEATERFF-2
+Added Member To Class: ClassName=EV_SH Member=Component HEATERFF Res1

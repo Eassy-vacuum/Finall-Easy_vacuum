@@ -1,0 +1,8 @@
+Added Component: Designator=EN_0(AXIAL-0.3)
+Added Component: Designator=RS_0(AXIAL-0.3)
+Added Pin To Net: NetName=EN Pin=EN_0-1
+Added Pin To Net: NetName=EN Pin=EN_0-2
+Added Pin To Net: NetName=RS Pin=RS_0-1
+Added Pin To Net: NetName=RS Pin=RS_0-2
+Added Member To Class: ClassName=AT32 Member=Component EN_0 Res1
+Added Member To Class: ClassName=AT32 Member=Component RS_0 Res1

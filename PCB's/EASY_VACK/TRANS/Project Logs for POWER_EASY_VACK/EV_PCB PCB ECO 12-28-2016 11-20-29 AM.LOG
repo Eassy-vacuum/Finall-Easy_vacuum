@@ -1,0 +1,4 @@
+Added Component: Designator=RELAY(AXIAL-0.3)
+Added Pin To Net: NetName=RELAY1 Pin=RELAY-1
+Added Pin To Net: NetName=RELAY1 Pin=RELAY-2
+Added Member To Class: ClassName=EV_SH Member=Component RELAY Res1

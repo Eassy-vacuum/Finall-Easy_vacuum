@@ -1,0 +1,13 @@
+Added Pin To Net: NetName=NetP7_4 Pin=P5-3
+Added Pin To Net: NetName=NetP5_7 Pin=P8-8
+Added Pin To Net: NetName=NetP5_1 Pin=P8-9
+Added Pin To Net: NetName=NetP5_1 Pin=P9-4
+Added Pin To Net: NetName=NetP7_4 Pin=P9-6
+Added Pin To Net: NetName=NetP5_5 Pin=P9-11
+Added Pin To Net: NetName=NetP5_6 Pin=P9-12
+Added Pin To Net: NetName=NetP5_7 Pin=P9-13
+Added Pin To Net: NetName=NetP5_8 Pin=P9-14
+Added Pin To Net: NetName=NetP7_4 Pin=U1-3
+Added Pin To Net: NetName=NetP5_1 Pin=U1-29
+Added Pin To Net: NetName=NetP5_7 Pin=U1-33
+Change Net Name : Old Net Name=NetP7_4 New Net Name=NetP5_3

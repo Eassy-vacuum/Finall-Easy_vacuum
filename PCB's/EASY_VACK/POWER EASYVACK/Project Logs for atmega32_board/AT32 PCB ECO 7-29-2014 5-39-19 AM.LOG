@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=VCC Pin=R20-1
+Removed Pin From Net: NetName=VCC Pin=R20-2
+Change Component Designator: OldDesignator=R21 NewDesignator=R20
+Added Component: Designator=R21(AXIAL-0.3)
+Added Pin To Net: NetName=VCC Pin=R20-1
+Added Pin To Net: NetName=VCC Pin=R20-2

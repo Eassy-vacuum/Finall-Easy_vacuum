@@ -1,0 +1,4 @@
+Added Pin To Net: NetName=NetP10_4 Pin=P10-1
+Added Pin To Net: NetName=GND Pin=P10-3
+Change Net Name : Old Net Name=NetP10_4 New Net Name=VCC2
+Added Room: Name=circuit 1

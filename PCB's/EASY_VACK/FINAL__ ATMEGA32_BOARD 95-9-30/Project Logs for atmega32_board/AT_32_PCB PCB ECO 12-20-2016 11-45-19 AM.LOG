@@ -1,0 +1,4 @@
+Added Component: Designator=VCC_0(AXIAL-0.3)
+Added Pin To Net: NetName=VCC Pin=VCC_0-1
+Added Pin To Net: NetName=VCC Pin=VCC_0-2
+Added Member To Class: ClassName=AT32 Member=Component VCC_0 Res1

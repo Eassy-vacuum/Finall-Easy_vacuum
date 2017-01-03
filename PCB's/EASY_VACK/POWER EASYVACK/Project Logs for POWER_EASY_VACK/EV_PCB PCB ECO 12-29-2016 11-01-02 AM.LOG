@@ -1,0 +1,5 @@
+Added Component: Designator=REG_12(T03B)
+Added Pin To Net: NetName=V12_+ Pin=REG_12-1
+Added Pin To Net: NetName=P- Pin=REG_12-2
+Added Pin To Net: NetName=P+ Pin=REG_12-3
+Added Member To Class: ClassName=EV_SH Member=Component REG_12 LM78L12ACZ

@@ -1,0 +1,11 @@
+Added Component: Designator=P10(HDR1X8)
+Added Pin To Net: NetName=GND Pin=P10-1
+Added Pin To Net: NetName=VCC Pin=P10-2
+Added Pin To Net: NetName=NetP5_8 Pin=P10-4
+Added Pin To Net: NetName=NetP5_7 Pin=P10-5
+Added Pin To Net: NetName=NetP5_6 Pin=P10-6
+Added Pin To Net: NetName=NetP10_3 Pin=P10-3
+Added Pin To Net: NetName=NetP10_3 Pin=S1-2
+Added Pin To Net: NetName=NetP10_3 Pin=U1-9
+Added Net: Name=NetP10_3
+Added Member To Class: ClassName=circuit 1 Member=Component P10 Header 8

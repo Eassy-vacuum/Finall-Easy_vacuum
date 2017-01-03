@@ -1,0 +1,8 @@
+Added Pin To Net: NetName=NetAC_1 Pin=AC-1
+Added Pin To Net: NetName=NetAC_1 Pin=AC_C-1
+Added Pin To Net: NetName=NetAC_1 Pin=POWER_DIODE-1
+Added Net: Name=NetAC_1
+Added Pin To Net: NetName=NetAC_2 Pin=AC-2
+Added Pin To Net: NetName=NetAC_2 Pin=AC_C-2
+Added Pin To Net: NetName=NetAC_2 Pin=POWER_DIODE-2
+Added Net: Name=NetAC_2

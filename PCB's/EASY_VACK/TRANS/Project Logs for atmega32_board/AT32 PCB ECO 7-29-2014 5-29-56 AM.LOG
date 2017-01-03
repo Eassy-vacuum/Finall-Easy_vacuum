@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=NetP5_7 Pin=P9-13
+Added Component: Designator=R21(AXIAL-0.3)
+Added Pin To Net: NetName=NetP9_13 Pin=P9-13
+Added Net: Name=NetP9_13

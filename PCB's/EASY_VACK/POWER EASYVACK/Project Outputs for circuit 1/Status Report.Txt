@@ -1,0 +1,10 @@
+Output: Protel
+Type  : ProtelNetlist
+From  : Project [circuit 1.PrjPcb]
+   Generated File[circuit 1.NET]
+
+
+Files Generated   : 1
+Documents Printed : 0
+
+Finished Output Generation At 8:31:38 AM On 10/13/2010

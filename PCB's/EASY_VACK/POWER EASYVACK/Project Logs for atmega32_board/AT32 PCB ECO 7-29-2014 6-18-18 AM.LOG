@@ -1,0 +1,10 @@
+Added Component: Designator=R21(AXIAL-0.3)
+Added Component: Designator=R22(AXIAL-0.3)
+Added Component: Designator=R23(AXIAL-0.3)
+Added Component: Designator=R24(AXIAL-0.3)
+Added Component: Designator=R25(AXIAL-0.3)
+Added Member To Class: ClassName=AT32 Member=Component R21 Res1
+Added Member To Class: ClassName=AT32 Member=Component R22 Res1
+Added Member To Class: ClassName=AT32 Member=Component R23 Res1
+Added Member To Class: ClassName=AT32 Member=Component R24 Res1
+Added Member To Class: ClassName=AT32 Member=Component R25 Res1

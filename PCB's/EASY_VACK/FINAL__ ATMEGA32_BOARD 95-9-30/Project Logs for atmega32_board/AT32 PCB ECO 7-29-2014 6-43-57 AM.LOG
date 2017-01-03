@@ -1,0 +1,18 @@
+Removed Pin From Net: NetName=NetP5_5 Pin=R22-2
+Removed Pin From Net: NetName=NetP5_6 Pin=R23-2
+Removed Pin From Net: NetName=NetP5_7 Pin=R24-2
+Removed Pin From Net: NetName=NetP5_8 Pin=R25-2
+Added Component: Designator=R26(AXIAL-0.3)
+Added Component: Designator=R27(AXIAL-0.3)
+Added Component: Designator=R28(AXIAL-0.3)
+Added Component: Designator=R29(AXIAL-0.3)
+Added Component: Designator=R30(AXIAL-0.3)
+Added Component: Designator=R31(AXIAL-0.3)
+Added Component: Designator=R32(AXIAL-0.3)
+Added Member To Class: ClassName=AT32 Member=Component R26 Res1
+Added Member To Class: ClassName=AT32 Member=Component R27 Res1
+Added Member To Class: ClassName=AT32 Member=Component R28 Res1
+Added Member To Class: ClassName=AT32 Member=Component R29 Res1
+Added Member To Class: ClassName=AT32 Member=Component R30 Res1
+Added Member To Class: ClassName=AT32 Member=Component R31 Res1
+Added Member To Class: ClassName=AT32 Member=Component R32 Res1

@@ -1,0 +1,26 @@
+Added Component: Designator=BUZZ(BUZZ)
+Added Component: Designator=DBUZZ(HDR1X2)
+Added Component: Designator=Q1(BCY-W3/E4)
+Added Component: Designator=RT1(AXIAL-0.3)
+Added Component: Designator=RT2(AXIAL-0.3)
+Added Pin To Net: NetName=NetBUZZ_2 Pin=BUZZ-2
+Added Pin To Net: NetName=NetBUZZ_2 Pin=Q1-3
+Added Net: Name=NetBUZZ_2
+Added Pin To Net: NetName=NetDBUZZ_1 Pin=DBUZZ-1
+Added Pin To Net: NetName=NetDBUZZ_1 Pin=RT1-2
+Added Net: Name=NetDBUZZ_1
+Added Pin To Net: NetName=NetDBUZZ_2 Pin=DBUZZ-2
+Added Pin To Net: NetName=NetDBUZZ_2 Pin=Q1-2
+Added Pin To Net: NetName=NetDBUZZ_2 Pin=RT2-1
+Added Net: Name=NetDBUZZ_2
+Added Pin To Net: NetName=NetQ1_1 Pin=Q1-1
+Added Pin To Net: NetName=NetQ1_1 Pin=RT2-2
+Added Net: Name=NetQ1_1
+Added Pin To Net: NetName=V12_+ Pin=BUZZ-1
+Added Pin To Net: NetName=V12_+ Pin=RT1-1
+Added Net: Name=V12_+
+Added Member To Class: ClassName=AT32 Member=Component BUZZ BUZZ_SH
+Added Member To Class: ClassName=AT32 Member=Component DBUZZ Header 2
+Added Member To Class: ClassName=AT32 Member=Component Q1 2N3904
+Added Member To Class: ClassName=AT32 Member=Component RT1 Res1
+Added Member To Class: ClassName=AT32 Member=Component RT2 Res1

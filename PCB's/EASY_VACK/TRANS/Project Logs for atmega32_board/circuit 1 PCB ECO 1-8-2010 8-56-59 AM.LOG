@@ -1,0 +1,33 @@
+Removed Pin From Net: NetName=VCC Pin=P3-2
+Added Component: Designator=P9(HDR1X16)
+Added Pin To Net: NetName=NetC4_1 Pin=P3-2
+Added Pin To Net: NetName=GND Pin=P9-1
+Added Pin To Net: NetName=VCC Pin=P9-2
+Added Pin To Net: NetName=VCC Pin=P9-15
+Added Pin To Net: NetName=GND Pin=P9-16
+Added Pin To Net: NetName=NetP9_3 Pin=P9-3
+Added Pin To Net: NetName=NetP9_3 Pin=R5-1
+Added Net: Name=NetP9_3
+Added Pin To Net: NetName=NetP9_4 Pin=P9-4
+Added Pin To Net: NetName=NetP9_4 Pin=U1-27
+Added Net: Name=NetP9_4
+Added Pin To Net: NetName=NetP9_5 Pin=P9-5
+Added Pin To Net: NetName=NetP9_5 Pin=R5-2
+Added Pin To Net: NetName=NetP9_5 Pin=R6-1
+Added Net: Name=NetP9_5
+Added Pin To Net: NetName=NetP9_6 Pin=P9-6
+Added Pin To Net: NetName=NetP9_6 Pin=U1-26
+Added Net: Name=NetP9_6
+Added Pin To Net: NetName=NetP9_11 Pin=P9-11
+Added Pin To Net: NetName=NetP9_11 Pin=U1-25
+Added Net: Name=NetP9_11
+Added Pin To Net: NetName=NetP9_12 Pin=P9-12
+Added Pin To Net: NetName=NetP9_12 Pin=U1-24
+Added Net: Name=NetP9_12
+Added Pin To Net: NetName=NetP9_13 Pin=P9-13
+Added Pin To Net: NetName=NetP9_13 Pin=U1-23
+Added Net: Name=NetP9_13
+Added Pin To Net: NetName=NetP9_14 Pin=P9-14
+Added Pin To Net: NetName=NetP9_14 Pin=U1-22
+Added Net: Name=NetP9_14
+Added Member To Class: ClassName=circuit 1 Member=Component P9 Header 16

@@ -1,0 +1,4 @@
+Added Component: Designator=P-(AXIAL-0.3)
+Added Pin To Net: NetName=P- Pin=P--1
+Added Pin To Net: NetName=P- Pin=P--2
+Added Member To Class: ClassName=EV_SH Member=Component P- Res1

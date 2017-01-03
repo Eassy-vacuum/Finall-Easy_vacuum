@@ -1,0 +1,3 @@
+Added Pin To Net: NetName=VCC Pin=BUZZ-1
+Added Pin To Net: NetName=VCC Pin=RT1-1
+Change Net Name : Old Net Name=VCC New Net Name=V12_+

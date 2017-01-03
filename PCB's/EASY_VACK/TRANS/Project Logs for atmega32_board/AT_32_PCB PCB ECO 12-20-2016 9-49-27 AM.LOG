@@ -1,0 +1,4 @@
+Added Component: Designator=RESET_0(AXIAL-0.3)
+Added Pin To Net: NetName=RESET Pin=RESET_0-1
+Added Pin To Net: NetName=RESET Pin=RESET_0-2
+Added Member To Class: ClassName=AT32 Member=Component RESET_0 Res1

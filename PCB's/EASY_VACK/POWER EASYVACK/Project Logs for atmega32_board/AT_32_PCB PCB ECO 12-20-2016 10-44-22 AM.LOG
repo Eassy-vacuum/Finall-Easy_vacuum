@@ -1,0 +1,4 @@
+Added Component: Designator=PWM_02(AXIAL-0.3)
+Added Pin To Net: NetName=PWM2 Pin=PWM_02-1
+Added Pin To Net: NetName=PWM2 Pin=PWM_02-2
+Added Member To Class: ClassName=AT32 Member=Component PWM_02 Res1

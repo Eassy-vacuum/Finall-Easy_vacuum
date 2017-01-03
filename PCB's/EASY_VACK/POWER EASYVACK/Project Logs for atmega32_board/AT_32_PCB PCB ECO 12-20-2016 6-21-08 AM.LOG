@@ -1,0 +1,4 @@
+Change Component Designator: OldDesignator=Aref_gnd NewDesignator=Gref
+Change Component Designator: OldDesignator=Aref_vcc NewDesignator=Vref
+Change Net Name : Old Net Name=NetAref_gnd_1 New Net Name=NetGref_1
+Change Net Name : Old Net Name=NetAref_gnd_2 New Net Name=NetC4_1

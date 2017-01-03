@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=GND Pin=INTRUPT-1
+Removed Pin From Net: NetName=INTO Pin=INTRUPT-2
+Removed Pin From Net: NetName=INT1 Pin=INTRUPT-3
+Removed Member From Class: ClassName=AT32 Member=INTRUPT

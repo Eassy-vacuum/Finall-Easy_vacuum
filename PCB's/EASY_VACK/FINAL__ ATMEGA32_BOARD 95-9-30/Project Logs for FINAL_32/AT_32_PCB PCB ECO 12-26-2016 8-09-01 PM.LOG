@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=EN Pin=EN_0-1
+Removed Pin From Net: NetName=EN Pin=EN_0-2
+Removed Pin From Net: NetName=VCC Pin=P100-10
+Removed Member From Class: ClassName=AT32 Member=EN_0

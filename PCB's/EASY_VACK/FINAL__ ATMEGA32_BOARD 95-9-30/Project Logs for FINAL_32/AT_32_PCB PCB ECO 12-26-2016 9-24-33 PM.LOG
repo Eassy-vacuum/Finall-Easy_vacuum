@@ -1,0 +1,3 @@
+Removed Pin From Net: NetName=BUTT3 Pin=BUTT033-1
+Removed Pin From Net: NetName=BUTT3 Pin=BUTT033-2
+Removed Member From Class: ClassName=AT32 Member=BUTT033

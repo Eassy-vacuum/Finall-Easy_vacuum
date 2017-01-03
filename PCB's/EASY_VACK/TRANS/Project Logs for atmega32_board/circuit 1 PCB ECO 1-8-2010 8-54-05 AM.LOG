@@ -1,0 +1,25 @@
+Removed Member From Class: ClassName=circuit 1 Member=P9
+Added Component: Designator=R5(AXIAL-0.3)
+Added Component: Designator=R6(AXIAL-0.3)
+Added Pin To Net: NetName=GND Pin=P3-1
+Added Pin To Net: NetName=VCC Pin=P3-2
+Added Pin To Net: NetName=GND Pin=R6-2
+Added Pin To Net: NetName=NetP3_3 Pin=R5-1
+Added Net: Name=NetP3_3
+Added Pin To Net: NetName=NetP3_4 Pin=U1-27
+Added Net: Name=NetP3_4
+Added Pin To Net: NetName=NetP3_5 Pin=R5-2
+Added Pin To Net: NetName=NetP3_5 Pin=R6-1
+Added Net: Name=NetP3_5
+Added Pin To Net: NetName=NetP3_6 Pin=U1-26
+Added Net: Name=NetP3_6
+Added Pin To Net: NetName=NetP3_11 Pin=U1-25
+Added Net: Name=NetP3_11
+Added Pin To Net: NetName=NetP3_12 Pin=U1-24
+Added Net: Name=NetP3_12
+Added Pin To Net: NetName=NetP3_13 Pin=U1-23
+Added Net: Name=NetP3_13
+Added Pin To Net: NetName=NetP3_14 Pin=U1-22
+Added Net: Name=NetP3_14
+Added Member To Class: ClassName=circuit 1 Member=Component R5 Res1
+Added Member To Class: ClassName=circuit 1 Member=Component R6 Res1

@@ -1,0 +1,13 @@
+Removed Pin From Net: NetName=VCC Pin=P100-12
+Added Pin To Net: NetName=GND Pin=P100-1
+Added Pin To Net: NetName=VCC Pin=P100-2
+Added Pin To Net: NetName=NetP100_3 Pin=P100-3
+Added Pin To Net: NetName=RS Pin=P100-4
+Added Pin To Net: NetName=GND Pin=P100-5
+Added Pin To Net: NetName=EN Pin=P100-6
+Added Pin To Net: NetName=D1 Pin=P100-11
+Added Pin To Net: NetName=D2 Pin=P100-12
+Added Pin To Net: NetName=D3 Pin=P100-13
+Added Pin To Net: NetName=D4 Pin=P100-14
+Added Pin To Net: NetName=VCC Pin=P100-15
+Added Pin To Net: NetName=GND Pin=P100-16

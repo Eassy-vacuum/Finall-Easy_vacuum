@@ -1,0 +1,3 @@
+Removed Pin From Net: NetName=P- Pin=VCC_MICRO-1
+Removed Pin From Net: NetName=V12_+ Pin=VCC_MICRO-2
+Removed Member From Class: ClassName=EV_SH Member=VCC_MICRO

@@ -1,0 +1,15 @@
+Removed Pin From Net: NetName=2 Pin=AC-2
+Removed Pin From Net: NetName=2 Pin=AC_C-2
+Removed Pin From Net: NetName=1 Pin=C7-1
+Removed Pin From Net: NetName=1 Pin=D1-1
+Removed Pin From Net: NetName=2 Pin=POWER_DIODE-2
+Removed Member From Class: ClassName=EV_SH Member=D1
+Change Net Name : Old Net Name=2 New Net Name=P-
+Added Pin To Net: NetName=2 Pin=AC-2
+Added Pin To Net: NetName=2 Pin=AC_C-2
+Added Pin To Net: NetName=2 Pin=POWER_DIODE-2
+Added Net: Name=2
+Added Pin To Net: NetName=P+ Pin=C2-2
+Added Pin To Net: NetName=P+ Pin=C7-1
+Added Pin To Net: NetName=P+ Pin=REG_12-3
+Added Net: Name=P+

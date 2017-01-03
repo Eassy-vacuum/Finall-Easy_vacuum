@@ -1,0 +1,22 @@
+Removed Pin From Net: NetName=P- Pin=HEATER-1
+Removed Pin From Net: NetName=HEATER_F Pin=HEATER-2
+Removed Pin From Net: NetName=P- Pin=PWM_1-1
+Removed Pin From Net: NetName=HEATER_F Pin=RT1-1
+Removed Pin From Net: NetName=P- Pin=V12_+-1
+Removed Pin From Net: NetName=V12_+ Pin=V12_+-2
+Removed Member From Class: ClassName=EV_SH Member=V12_+
+Added Pin To Net: NetName=V12_+ Pin=RT1-1
+Added Pin To Net: NetName=GATE1 Pin=PWM_1-2
+Added Pin To Net: NetName=GATE1 Pin=R4_IG-2
+Added Net: Name=GATE1
+Added Pin To Net: NetName=GATE2 Pin=PWM_1-1
+Added Pin To Net: NetName=GATE2 Pin=R1_IG-2
+Added Pin To Net: NetName=GATE2 Pin=R3_IG-1
+Added Net: Name=GATE2
+Added Pin To Net: NetName=H1 Pin=HEATER-2
+Added Pin To Net: NetName=H1 Pin=RT1-2
+Added Net: Name=H1
+Added Pin To Net: NetName=H2 Pin=HEATER-1
+Added Pin To Net: NetName=H2 Pin=Q1-2
+Added Pin To Net: NetName=H2 Pin=RT2-1
+Added Net: Name=H2

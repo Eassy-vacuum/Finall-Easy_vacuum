@@ -1,0 +1,8 @@
+Change Component Designator: OldDesignator=R7 NewDesignator=ROP_2
+Change Component Designator: OldDesignator=R8 NewDesignator=ROP1A
+Change Component Designator: OldDesignator=R9 NewDesignator=ROP_1B
+Change Component Designator: OldDesignator=R10 NewDesignator=ROP_0
+Change Net Name : Old Net Name=NetR7_1 New Net Name=NetROP_2_1
+Change Net Name : Old Net Name=NetR8_2 New Net Name=NetROP1A_2
+Change Net Name : Old Net Name=NetR9_2 New Net Name=NetROP_1B_2
+Change Net Name : Old Net Name=NetR10_2 New Net Name=NetROP_0_2

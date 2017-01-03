@@ -1,0 +1,15 @@
+Removed Pin From Net: NetName=P- Pin=D44Z-1
+Removed Pin From Net: NetName=P- Pin=DC_C2-2
+Removed Pin From Net: NetName=P- Pin=IGBT-3
+Removed Pin From Net: NetName=P- Pin=POWER_DIODE-3
+Removed Pin From Net: NetName=P- Pin=Q1-1
+Removed Pin From Net: NetName=P- Pin=R2_IG-1
+Removed Pin From Net: NetName=P- Pin=RT2-2
+Added Pin To Net: NetName=GND Pin=D44Z-1
+Added Pin To Net: NetName=GND Pin=DC_C2-2
+Added Pin To Net: NetName=GND Pin=IGBT-3
+Added Pin To Net: NetName=GND Pin=POWER_DIODE-3
+Added Pin To Net: NetName=GND Pin=Q1-1
+Added Pin To Net: NetName=GND Pin=R2_IG-1
+Added Pin To Net: NetName=GND Pin=RT2-2
+Added Net: Name=GND

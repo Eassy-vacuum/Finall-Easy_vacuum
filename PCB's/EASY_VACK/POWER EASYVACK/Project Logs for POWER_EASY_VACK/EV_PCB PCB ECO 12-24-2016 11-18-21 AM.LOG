@@ -1,0 +1,2 @@
+Removed Pin From Net: NetName=GND Pin=VCC_MICRO-1
+Added Pin To Net: NetName=P- Pin=VCC_MICRO-1

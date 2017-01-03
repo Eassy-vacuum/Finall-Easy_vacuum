@@ -1,0 +1,7 @@
+Removed Pin From Net: NetName=VCC_2 Pin=R000-1
+Removed Pin From Net: NetName=VCC Pin=R000-2
+Removed Member From Class: ClassName=AT32 Member=R000
+Added Component: Designator=G0(AXIAL-0.3)
+Added Pin To Net: NetName=GND Pin=G0-1
+Added Pin To Net: NetName=GND Pin=G0-2
+Added Member To Class: ClassName=AT32 Member=Component G0 Res1

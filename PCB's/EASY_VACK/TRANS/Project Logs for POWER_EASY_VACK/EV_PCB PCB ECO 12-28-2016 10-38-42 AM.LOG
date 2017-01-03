@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=P- Pin=DC_C2-2
+Removed Pin From Net: NetName=P- Pin=POWER_DIODE-3
+Added Pin To Net: NetName=1 Pin=AC-2
+Added Pin To Net: NetName=1 Pin=AC_C-1
+Added Pin To Net: NetName=1 Pin=POWER_DIODE-1
+Added Pin To Net: NetName=NetDC_C2_2 Pin=DC_C2-2
+Added Pin To Net: NetName=NetDC_C2_2 Pin=POWER_DIODE-3
+Added Net: Name=NetDC_C2_2

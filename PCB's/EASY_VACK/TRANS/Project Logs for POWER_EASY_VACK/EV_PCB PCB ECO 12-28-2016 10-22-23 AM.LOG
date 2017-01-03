@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=P- Pin=VCC_MICRO-1
+Added Pin To Net: NetName=P- Pin=D44Z-1
+Added Pin To Net: NetName=P- Pin=DC_C2-2
+Added Pin To Net: NetName=P- Pin=IGBT-3
+Added Pin To Net: NetName=P- Pin=POWER_DIODE-3
+Added Pin To Net: NetName=P- Pin=Q1-1
+Added Pin To Net: NetName=P- Pin=R2_IG-1
+Added Pin To Net: NetName=P- Pin=RT2-2
+Added Pin To Net: NetName=GND2 Pin=VCC_MICRO-1
+Added Net: Name=GND2

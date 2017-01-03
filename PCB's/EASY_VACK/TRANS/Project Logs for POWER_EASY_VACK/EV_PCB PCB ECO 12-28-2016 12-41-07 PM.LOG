@@ -1,0 +1,13 @@
+Change Component Designator: OldDesignator=AC_P NewDesignator=AC_P12
+Added Component: Designator=AC_P5(AC_P)
+Added Component: Designator=MICRO_DC(HDR1X2)
+Added Pin To Net: NetName=NN Pin=AC_P5-1
+Added Pin To Net: NetName=LL Pin=AC_P5-2
+Added Pin To Net: NetName=NetAC_P5_3 Pin=AC_P5-3
+Added Pin To Net: NetName=NetAC_P5_3 Pin=MICRO_DC-1
+Added Net: Name=NetAC_P5_3
+Added Pin To Net: NetName=NetAC_P5_4 Pin=AC_P5-4
+Added Pin To Net: NetName=NetAC_P5_4 Pin=MICRO_DC-2
+Added Net: Name=NetAC_P5_4
+Added Member To Class: ClassName=EV_SH Member=Component AC_P5 AC_POLE
+Added Member To Class: ClassName=EV_SH Member=Component MICRO_DC Header 2

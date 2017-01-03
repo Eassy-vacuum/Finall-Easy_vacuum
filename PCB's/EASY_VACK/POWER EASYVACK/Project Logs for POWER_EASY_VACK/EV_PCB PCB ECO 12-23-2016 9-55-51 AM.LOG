@@ -1,0 +1,95 @@
+Added Component: Designator=AC_C(AC_CAP_P)
+Added Component: Designator=AC(AC_IN)
+Added Component: Designator=C1_BUS(RB7.6-15)
+Added Component: Designator=D4(DIO10.46-5.3x2.8)
+Added Component: Designator=D44Z(DIO10.46-5.3x2.8)
+Added Component: Designator=DC_C(DC_CAP_P)
+Added Component: Designator=HEATER(HDR1X2)
+Added Component: Designator=IGBT(20N50_S)
+Added Component: Designator=MOTOR(HEADER_B)
+Added Component: Designator=POWER_DIODE(P_DIODE)
+Added Component: Designator=PWM_1(HDR1X2)
+Added Component: Designator=Q1(BCY-W3/E4)
+Added Component: Designator=R1_IG(AXIAL-0.3)
+Added Component: Designator=R2_IG(AXIAL-0.3)
+Added Component: Designator=R3_IG(AXIAL-0.3)
+Added Component: Designator=R4_IG(AXIAL-0.3)
+Added Component: Designator=REG_12(Z03A)
+Added Component: Designator=RELAY1(RELAY)
+Added Component: Designator=RT1(AXIAL-0.3)
+Added Component: Designator=RT2(AXIAL-0.3)
+Added Component: Designator=V12_+(HDR1X2)
+Added Component: Designator=VCC_MICRO(HEADER_B)
+Added Pin To Net: NetName=1 Pin=AC-1
+Added Pin To Net: NetName=1 Pin=AC_C-1
+Added Pin To Net: NetName=1 Pin=C7-1
+Added Pin To Net: NetName=1 Pin=D1-1
+Added Pin To Net: NetName=1 Pin=POWER_DIODE-1
+Added Net: Name=1
+Added Pin To Net: NetName=2 Pin=AC-2
+Added Pin To Net: NetName=2 Pin=AC_C-2
+Added Pin To Net: NetName=2 Pin=C1_BUS-2
+Added Pin To Net: NetName=2 Pin=C2-1
+Added Pin To Net: NetName=2 Pin=C6-2
+Added Pin To Net: NetName=2 Pin=C7-2
+Added Pin To Net: NetName=2 Pin=D2-2
+Added Pin To Net: NetName=2 Pin=D44Z-1
+Added Pin To Net: NetName=2 Pin=DC_C-2
+Added Pin To Net: NetName=2 Pin=HEATER-1
+Added Pin To Net: NetName=2 Pin=IGBT-3
+Added Pin To Net: NetName=2 Pin=POWER_DIODE-2
+Added Pin To Net: NetName=2 Pin=POWER_DIODE-3
+Added Pin To Net: NetName=2 Pin=PWM_1-1
+Added Pin To Net: NetName=2 Pin=Q1-1
+Added Pin To Net: NetName=2 Pin=R2_IG-1
+Added Pin To Net: NetName=2 Pin=REG_12-2
+Added Pin To Net: NetName=2 Pin=RT2-2
+Added Pin To Net: NetName=2 Pin=V12_+-1
+Added Pin To Net: NetName=2 Pin=VCC_MICRO-1
+Added Net: Name=2
+Added Pin To Net: NetName=GATE Pin=PWM_1-2
+Added Pin To Net: NetName=GATE Pin=R1_IG-2
+Added Pin To Net: NetName=GATE Pin=R3_IG-1
+Added Pin To Net: NetName=GATE Pin=R4_IG-2
+Added Net: Name=GATE
+Added Pin To Net: NetName=HEATER_F Pin=HEATER-2
+Added Pin To Net: NetName=HEATER_F Pin=RT1-1
+Added Net: Name=HEATER_F
+Added Pin To Net: NetName=NetC2_2 Pin=C2-2
+Added Pin To Net: NetName=NetC2_2 Pin=D1-2
+Added Pin To Net: NetName=NetC2_2 Pin=REG_12-3
+Added Net: Name=NetC2_2
+Added Pin To Net: NetName=NetD4_1 Pin=D4-1
+Added Pin To Net: NetName=NetD4_1 Pin=D44Z-2
+Added Pin To Net: NetName=NetD4_1 Pin=IGBT-1
+Added Pin To Net: NetName=NetD4_1 Pin=R2_IG-2
+Added Pin To Net: NetName=NetD4_1 Pin=R3_IG-2
+Added Net: Name=NetD4_1
+Added Pin To Net: NetName=NetD4_2 Pin=D4-2
+Added Pin To Net: NetName=NetD4_2 Pin=R1_IG-1
+Added Net: Name=NetD4_2
+Added Pin To Net: NetName=NetIGBT_2 Pin=IGBT-2
+Added Pin To Net: NetName=NetIGBT_2 Pin=MOTOR-2
+Added Net: Name=NetIGBT_2
+Added Pin To Net: NetName=NetQ1_2 Pin=Q1-2
+Added Pin To Net: NetName=NetQ1_2 Pin=RT1-2
+Added Pin To Net: NetName=NetQ1_2 Pin=RT2-1
+Added Net: Name=NetQ1_2
+Added Pin To Net: NetName=P_+ Pin=C1_BUS-1
+Added Pin To Net: NetName=P_+ Pin=DC_C-1
+Added Pin To Net: NetName=P_+ Pin=MOTOR-1
+Added Pin To Net: NetName=P_+ Pin=POWER_DIODE-4
+Added Net: Name=P_+
+Added Pin To Net: NetName=RELAY1 Pin=Q1-3
+Added Pin To Net: NetName=RELAY1 Pin=RELAY1-1
+Added Net: Name=RELAY1
+Added Pin To Net: NetName=V12_+ Pin=C6-1
+Added Pin To Net: NetName=V12_+ Pin=R4_IG-1
+Added Pin To Net: NetName=V12_+ Pin=REG_12-1
+Added Pin To Net: NetName=V12_+ Pin=RELAY1-2
+Added Pin To Net: NetName=V12_+ Pin=RLED-2
+Added Pin To Net: NetName=V12_+ Pin=V12_+-2
+Added Pin To Net: NetName=V12_+ Pin=VCC_MICRO-2
+Added Net: Name=V12_+
+Added Class: Name=EV_SH
+Added Room: Name=EV_SH

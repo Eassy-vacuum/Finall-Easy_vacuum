@@ -1,0 +1,4 @@
+Removed Member From Class: ClassName=circuit 1 Member=P6
+Removed Member From Class: ClassName=circuit 1 Member=P10
+Added Pin To Net: NetName=NetC3_1 Pin=P4-8
+Added Pin To Net: NetName=NetC8_1 Pin=P4-9

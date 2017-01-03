@@ -1,0 +1,4 @@
+Added Component: Designator=G01(AXIAL-0.3)
+Added Pin To Net: NetName=GND Pin=G01-1
+Added Pin To Net: NetName=GND Pin=G01-2
+Added Member To Class: ClassName=AT32 Member=Component G01 Res1

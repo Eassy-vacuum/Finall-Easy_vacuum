@@ -1,0 +1,8 @@
+Added Component: Designator=butt_INT1(pcb_butt)
+Added Pin To Net: NetName=INT1 Pin=butt_INT1-1
+Added Pin To Net: NetName=VCC Pin=butt_INT1-2
+Added Pin To Net: NetName=VCC Pin=butt_INT1-c1
+Added Pin To Net: NetName=INT1 Pin=butt_INT1-c2
+Added Pin To Net: NetName=INT1 Pin=butt_INT1-r1
+Added Pin To Net: NetName=GND Pin=butt_INT1-r2
+Added Member To Class: ClassName=AT32 Member=Component butt_INT1 sch_butt

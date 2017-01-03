@@ -1,0 +1,15 @@
+Removed Pin From Net: NetName=NetP4_8 Pin=P4-9
+Added Component: Designator=P6(PIN1)
+Added Component: Designator=P10(PIN1)
+Added Component: Designator=P11(HDR1X4)
+Added Pin To Net: NetName=NetP4_8 Pin=P6-1
+Added Pin To Net: NetName=NetP4_3 Pin=P11-1
+Added Pin To Net: NetName=NetP4_4 Pin=P11-2
+Added Pin To Net: NetName=NetP4_5 Pin=P11-3
+Added Pin To Net: NetName=GND Pin=P11-4
+Added Pin To Net: NetName=NetP4_9 Pin=P4-9
+Added Pin To Net: NetName=NetP4_9 Pin=P10-1
+Added Net: Name=NetP4_9
+Added Member To Class: ClassName=circuit 1 Member=Component P6 Plug
+Added Member To Class: ClassName=circuit 1 Member=Component P10 Plug
+Added Member To Class: ClassName=circuit 1 Member=Component P11 Header 4

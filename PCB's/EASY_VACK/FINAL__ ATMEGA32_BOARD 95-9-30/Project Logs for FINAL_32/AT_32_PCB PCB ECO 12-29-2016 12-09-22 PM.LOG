@@ -1,0 +1,10 @@
+Removed Member From Class: ClassName=AT32 Member=DBUZZ
+Added Pin To Net: NetName=3 Pin=P6-8
+Added Pin To Net: NetName=3 Pin=Q1-2
+Added Pin To Net: NetName=3 Pin=RT2-1
+Added Pin To Net: NetName=3 Pin=U6-3
+Added Net: Name=3
+Added Pin To Net: NetName=4 Pin=P6-7
+Added Pin To Net: NetName=4 Pin=RT1-2
+Added Pin To Net: NetName=4 Pin=U6-4
+Added Net: Name=4

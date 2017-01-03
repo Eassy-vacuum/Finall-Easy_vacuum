@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=VCC2 Pin=P6-9
+Change Component DesignItemId : Designator=P10 Old DesignItemId=Header 6 New DesignItemId=Header 8H
+Change Component DesignItemId : Designator=P6 Old DesignItemId=Header 9 New DesignItemId=Header 8
+Change Component Footprint: Designator=P10 Old Footprint=HDR1X6 New Footprint=HDR1X8H
+Change Component Footprint: Designator=P6 Old Footprint=HDR1X9 New Footprint=HDR1X8
+Change Component Comment : Designator=P6 Old Comment=Header 6 New Comment=Header 8
+Change Component Comment : Designator=P10 Old Comment=Header 6 New Comment=Header 8H
+Change Component Comment : Designator=P12 Old Comment=Header 12 New Comment=Header 2
+Added Pin To Net: NetName=VCC2 Pin=P10-7
+Added Pin To Net: NetName=VCC2 Pin=P10-8

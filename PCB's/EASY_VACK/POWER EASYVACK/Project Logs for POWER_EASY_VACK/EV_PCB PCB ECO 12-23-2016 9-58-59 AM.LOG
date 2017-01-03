@@ -1,0 +1,7 @@
+Removed Pin From Net: NetName=2 Pin=DC_C-2
+Added Component: Designator=DC_C2(DC_CAP_P)
+Added Pin To Net: NetName=2 Pin=DC_C2-2
+Added Pin To Net: NetName=NetDC_C2_1 Pin=DC_C2-1
+Added Pin To Net: NetName=NetDC_C2_1 Pin=DC_C-2
+Added Net: Name=NetDC_C2_1
+Added Member To Class: ClassName=EV_SH Member=Component DC_C2 DC_CAP

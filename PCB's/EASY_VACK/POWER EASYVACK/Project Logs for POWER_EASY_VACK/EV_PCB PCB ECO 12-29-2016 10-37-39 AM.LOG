@@ -1,0 +1,10 @@
+Added Component: Designator=CM_1(C_+)
+Added Component: Designator=CM_2(RAD-0.1)
+Added Pin To Net: NetName=NetAC_P5_4 Pin=CM_1-1
+Added Pin To Net: NetName=NetAC_P5_3 Pin=CM_1-2
+Added Pin To Net: NetName=NetAC_P5_4 Pin=CM_2-1
+Added Pin To Net: NetName=NetAC_P5_3 Pin=CM_2-2
+Added Member To Class: ClassName=EV_SH Member=Component AC_P5 AC_POLE
+Added Member To Class: ClassName=EV_SH Member=Component CM_1 Cap Pol1
+Added Member To Class: ClassName=EV_SH Member=Component CM_2 Cap
+Added Member To Class: ClassName=EV_SH Member=Component M_DC Header 2

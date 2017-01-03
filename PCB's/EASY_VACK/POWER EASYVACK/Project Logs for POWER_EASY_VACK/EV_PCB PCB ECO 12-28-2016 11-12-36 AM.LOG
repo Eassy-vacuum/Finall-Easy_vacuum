@@ -1,0 +1,3 @@
+Removed Pin From Net: NetName=HEATER_F Pin=HEATERFF-1
+Removed Pin From Net: NetName=HEATER_F Pin=HEATERFF-2
+Removed Member From Class: ClassName=EV_SH Member=HEATERFF
