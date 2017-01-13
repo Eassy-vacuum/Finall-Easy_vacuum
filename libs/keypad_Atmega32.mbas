@@ -30,6 +30,7 @@ include "libs/main_function"
   symbol Choice_number_sym = 7
   symbol level_Number=3
   symbol swich_time= 0.2
+  symbol swich_time_off=0.5
 
   symbol Heater_relay_Pin =PINE7_bit
 #ENDIF
@@ -53,7 +54,8 @@ include "libs/main_function"
   symbol Off_state = 0
   symbol Choice_number_sym = 7
   symbol level_Number=7
-  symbol swich_time= 0.5
+  symbol swich_time= 5
+  symbol swich_time_off=0.5
 #ENDIF
 
 dim txt33 as string[1] external
@@ -155,14 +157,45 @@ sub procedure Key_Port_Init()
 '                    Delay_mS(500)
                     
  end sub
+'************************************************************************************************
+'*    PROGRAM
+'**************************************************************************************************}
+sub procedure show_in_button(DIM var_in_old_on_off_2 as byte,dim var_in_2,var_in_lcd_2 as integer,dim num_2 as byte )
+'       num_=num_+1
+       if   var_in_old_on_off_2<>0 then
+           Show_text(Options_array[First_second_comand-1][lcd_line-1][var_in_lcd_2-1][0],
+                 Options_array[First_second_comand-1][lcd_line-1][var_in_lcd_2-1][1]
+                 ,lcd_line,Options_array[First_second_comand-1][lcd_line-1][var_in_lcd_2-1][2],
+                 Options_array[First_second_comand-1][lcd_line][var_in_old_on_off_2-1][0],
+                     Options_array[First_second_comand-1][lcd_line][var_in_old_on_off_2-1][1]
+                     ,lcd_line+1,Options_array[First_second_comand-1][lcd_line][var_in_old_on_off_2-1][2],num_2)
+       else
+           Show_text(Options_array[First_second_comand-1][lcd_line-1][var_in_lcd_2-1][0],
+                 Options_array[First_second_comand-1][lcd_line-1][var_in_lcd_2-1][1]
+                 ,lcd_line,Options_array[First_second_comand-1][lcd_line-1][var_in_lcd_2-1][2],
+                 Options_array[First_second_comand-1][lcd_line][var_in_lcd_2-1][0],
+                     Options_array[First_second_comand-1][lcd_line][var_in_lcd_2-1][1]
+                     ,lcd_line+1,Options_array[First_second_comand-1][lcd_line][var_in_lcd_2-1][2],num_2)
+           Bytetostr(var_in_2,txt)
+           if case_is_selceted_show[lcd_line-1][1]<> 0  then
+
+               LCD_Out(lcd_line,case_is_selceted_show[lcd_line-1][1], txt)
+            end if
+            if case_is_selceted_show[lcd_line][1]<> 0  then
+
+               LCD_Out(lcd_line+1,case_is_selceted_show[lcd_line][1], txt)
+            end if
+       end if
+end sub
+'***
 '**************************************************************************************************
 '* Keypad PROGRAM
 '**************************************************************************************************}
- sub Function Keypad__teben(dim var_in as byte, dim p_max as  byte, dim p_min as  byte,dim Choice_number,var_in_old_on_off as byte )  as byte
+ sub Function Keypad__teben(dim var_in as integer, dim p_max as  byte, dim p_min as  byte,dim Choice_number,var_in_old_on_off as byte )  as byte
 '    dim oldstate_4,oldstate_3,while_state_import,oldstate_2 as bit
 '      Delay_mS(200)
-  dim k_for,k2 as integer
-  dim oldstate_up,oldstate_down,oldstate_men_ok,var_in_lcd,num_ as byte
+  dim k_for,k2,k,j,var_in_lcd as integer
+  dim oldstate_up,oldstate_down,oldstate_men_ok,num_ as byte
 
 '     dim Options_array as  Byte[2][2][Choice_number][3]
 
@@ -188,7 +221,7 @@ sub procedure Key_Port_Init()
       var_in_lcd=var_in
   end if
   while_state_import=1
-  oldstate_up=0 oldstate_down=0    num_=0
+  oldstate_up=0 oldstate_down=0    num_=0  k=0
   oldstate_men_ok=0  oldstate_2=0
   while  (while_state_import )
          First_second_comand=1 lcd_line=1
@@ -224,39 +257,132 @@ sub procedure Key_Port_Init()
         while (while_state_2_2<=5 )
             while_state_2_2=while_state_2_2+1
             if (Button(Up_SW_Port, Up_SW_bit,swich_time,On_state)) then    ' Detect logical one up key
-                    oldstate_up = 1  Buzzer_on_off(1)    while_state_2_2=6                 ' Update flag
-            end if
-            if (oldstate_up and Button(Up_SW_Port, Up_SW_bit,swich_time,Off_state)) then
-                  if (var_in=p_max) then
-                      var_in=p_min
-                  else
-                     var_in=var_in+1
-                  end if
-                  if (var_in_lcd=Choice_number) then
-                      var_in_lcd=1
-                  else
-                     var_in_lcd=var_in_lcd+1
-                  end if
+                    oldstate_up = 1  Buzzer_on_off(1)    while_state_2_2=6  k=1  j=0 k_for=0                 ' Update flag
+               while (k_for=0)
+                        j=j+1
+                        if (Button(Up_SW_Port, Up_SW_bit,20,On_state)) then
+                            k= (j mod p_max)
+                        end if
+                        var_in=var_in+k
+                        if (var_in>=p_max) then
+                            var_in=p_min
+                        else
+'                                var_in=var_in-j
+                           'if k=0 then  var_in=var_in-1  end if
+      '                     if k>0 then  var_in=var_in-j  end if
+                        end if
+                        var_in_lcd=var_in_lcd+k
+                        if (var_in_lcd>Choice_number) then
+                            var_in_lcd=1
+                        else
+'                               var_in_lcd=var_in_lcd-j
+                        end if
+'                        if var_in>Choice_number then   var_in_lcd=(var_in mod Choice_number) end if
+                        if var_in_lcd=0 then   var_in_lcd=1 end if
+                        if num_>=2 then num_=0 end if
+                        num_=num_+1
+                        show_in_button(var_in_old_on_off,var_in,var_in_lcd,num_)
 
-                  oldstate_up = 0  while_state_2_2=6
+
+                        if (oldstate_Up and Button(Up_SW_Port, Up_SW_bit,swich_time_off,Off_state)) then
+                            oldstate_up = 0  while_state_2_2=6 k_for=1
+                        end if
+                        delay_ms(200)
+               wend
+            
             end if
+            'if (oldstate_up and Button(Up_SW_Port, Up_SW_bit,swich_time,Off_state)) then
+'                  if (var_in=p_max) then
+'                      var_in=p_min
+'                  else
+'                     var_in=var_in+1
+'                  end if
+'                  if (var_in_lcd=Choice_number) then
+'                      var_in_lcd=1
+'                  else
+'                     var_in_lcd=var_in_lcd+1
+'                  end if
+'
+'                  oldstate_up = 0  while_state_2_2=6
+'            end if
                                  ' Update flag
             if (Button(Down_SW_Port, Down_SW_bit,swich_time,On_state)) then    ' Detect logical one Down key
-                    oldstate_down = 1    Buzzer_on_off(1)  while_state_2_2=6                 ' Update flag
+                    oldstate_down = 1    Buzzer_on_off(1)  while_state_2_2=6    k=1  j=0  k_for=0         ' Update flag
+                    while (k_for=0)
+                        j=j+1
+                        if (Button(Down_SW_Port, Down_SW_bit,20,On_state)) then
+                            k= (j mod p_max)
+
+                        end if
+                        
+
+                        var_in=var_in-k
+                        if (var_in<=p_min) then
+                            var_in=p_max
+                        else
+'                                var_in=var_in-j
+                           'if k=0 then  var_in=var_in-1  end if
+      '                     if k>0 then  var_in=var_in-j  end if
+                        end if
+                        var_in_lcd=var_in_lcd-k
+                        if (var_in_lcd<1) then
+                            var_in_lcd=Choice_number
+                        else
+'                               var_in_lcd=var_in_lcd-j
+                        end if
+'                        if var_in>Choice_number then   var_in_lcd=(var_in mod Choice_number) end if
+                         if var_in_lcd=0 then   var_in_lcd=1 end if
+                         if num_>=2 then num_=0 end if
+                         num_=num_+1
+                         show_in_button(var_in_old_on_off,var_in,var_in_lcd,num_)
+                         'if   var_in_old_on_off<>0 then
+'                             Show_text(Options_array[First_second_comand-1][lcd_line-1][var_in_lcd-1][0],
+'                                   Options_array[First_second_comand-1][lcd_line-1][var_in_lcd-1][1]
+'                                   ,lcd_line,Options_array[First_second_comand-1][lcd_line-1][var_in_lcd-1][2],
+'                                   Options_array[First_second_comand-1][lcd_line][var_in_old_on_off-1][0],
+'                                       Options_array[First_second_comand-1][lcd_line][var_in_old_on_off-1][1]
+'                                       ,lcd_line+1,Options_array[First_second_comand-1][lcd_line][var_in_old_on_off-1][2],num_)
+'                         else
+'                             Show_text(Options_array[First_second_comand-1][lcd_line-1][var_in_lcd-1][0],
+'                                   Options_array[First_second_comand-1][lcd_line-1][var_in_lcd-1][1]
+'                                   ,lcd_line,Options_array[First_second_comand-1][lcd_line-1][var_in_lcd-1][2],
+'                                   Options_array[First_second_comand-1][lcd_line][var_in_lcd-1][0],
+'                                       Options_array[First_second_comand-1][lcd_line][var_in_lcd-1][1]
+'                                       ,lcd_line+1,Options_array[First_second_comand-1][lcd_line][var_in_lcd-1][2],num_)
+'                             if case_is_selceted_show[lcd_line-1][1]<> 0  then
+'                                 Bytetostr(var_in,txt)
+'                                 LCD_Out(lcd_line,case_is_selceted_show[lcd_line-1][1], txt)
+'                              end if
+'                              if case_is_selceted_show[lcd_line][1]<> 0  then
+'                                 Bytetostr(var_in,txt)
+'                                 LCD_Out(lcd_line+1,case_is_selceted_show[lcd_line][1], txt)
+'                              end if
+'                        end if
+                        if (oldstate_down and Button(Down_SW_Port, Down_SW_bit,swich_time_off,Off_state)) then
+
+                            oldstate_down=0  while_state_2_2=6  k_for=1
+
+                        end if
+                        delay_ms(200)
+                    wend
+                    
             end if
-            if (oldstate_down and Button(Down_SW_Port, Down_SW_bit,swich_time,Off_state)) then
-                  if (var_in=p_min) then
-                      var_in=p_max
-                  else
-                     var_in=var_in-1
-                  end if
-                  if (var_in_lcd=1) then
-                      var_in_lcd=Choice_number
-                  else
-                     var_in_lcd=var_in_lcd-1
-                  end if
-                  oldstate_down=0  while_state_2_2=6
-            end if
+            'if (oldstate_down and Button(Down_SW_Port, Down_SW_bit,swich_time,Off_state)) then
+'                  if k=0 then  var_in=var_in-1  end if
+'                  if k>0 then  var_in=var_in-j  end if
+'                  if (var_in<=p_min) then
+'                      var_in=p_max
+'                  else
+'                     'if k=0 then  var_in=var_in-1  end if
+''                     if k>0 then  var_in=var_in-j  end if
+'                  end if
+'                  if (var_in_lcd=1) then
+'                      var_in_lcd=Choice_number
+'                  else
+'                     var_in_lcd=var_in_lcd-1
+'                  end if
+'                  oldstate_down=0  while_state_2_2=6
+'            end if
             var_in_global=var_in
             First_second_comand=2  oldstate_2 = 0
             if (Button(Menu_SW_Port,Menu_SW_bit,swich_time,Off_state)<> 0)
@@ -577,7 +703,7 @@ end sub
 '* Keypad PROGRAM
 '**************************************************************************************************}
  sub procedure Keypad_start(dim chanel_ as byte )
-     dim var_main as byte[level_Number]
+     dim var_main as byte[8]
      Choice_number=3      ''first level
      Heater_motor_index=1 Pwm_chanel_main=3 chanel=chanel_
      key_choice_select(1,Choice_number,"Prog","Setng","<Ex>")
@@ -613,6 +739,10 @@ end sub
                       var_main[2]=Keypad__teben(chanel_,Choice_number,1,Choice_number,0)''dim var_in as byte, dim p_max as  byte, dim p_min as  byte,dim Choice_number,var_in_old_on_off as byte )
 
                       Mot_heater_On_mSec [7-1][Heater_motor_index-1][Pwm_chanel_main-1][0]= var_main[2]
+                      Heater_motor_index=2 Pwm_chanel_main=2 chanel=var_main[2]
+                      Key_Heat_mot_Time(1,Choice_number,"Motor","PWR")
+                      var_main[7]=Keypad__teben(Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][3],100,1,Choice_number,0)''dim var_in as byte, dim p_max as  byte, dim p_min as  byte,dim Choice_number,var_in_old_on_off as byte )
+                      Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][3]=var_main[7]
             '          key_choice_select(1,Choice_number) ''key_choice_select(varin,choice_num)
         '              Choice_number=7
         '              var_main[1]=Keypad__teben(1,Choice_number,1,Choice_number,0)''Keypad__teben(dim var_in,p_max,p_min,Choice_number,var_in_old_on_off as byte )
@@ -648,14 +778,18 @@ end sub
 
                           Heater_motor_index=2 Pwm_chanel_main=2 chanel=var_main[1]
                           Key_Heat_mot_Time(1,Choice_number,"Motor","Min")
-                          var_main[5]=Keypad__teben(Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main][1],59,0,Choice_number,0)''dim var_in as byte, dim p_max as  byte, dim p_min as  byte,dim Choice_number,var_in_old_on_off as byte )
+                          var_main[5]=Keypad__teben(Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][1],59,0,Choice_number,0)''dim var_in as byte, dim p_max as  byte, dim p_min as  byte,dim Choice_number,var_in_old_on_off as byte )
                           Key_Heat_mot_Time(1,Choice_number,"Motor","Sec")
-                          var_main[6]=Keypad__teben(Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main][2],59,0,Choice_number,0)''dim var_in as byte, dim p_max as  byte, dim p_min as  byte,dim Choice_number,var_in_old_on_off as byte )
+                          var_main[6]=Keypad__teben(Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][2],59,0,Choice_number,0)''dim var_in as byte, dim p_max as  byte, dim p_min as  byte,dim Choice_number,var_in_old_on_off as byte )
+
+                          Key_Heat_mot_Time(1,Choice_number,"Motor","PWR")
+                          var_main[7]=Keypad__teben(Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][3],100,1,Choice_number,0)''dim var_in as byte, dim p_max as  byte, dim p_min as  byte,dim Choice_number,var_in_old_on_off as byte )
 
 
 
-                          Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main][1]=var_main[5]
-                          Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main][2]=var_main[6]
+                          Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][1]=var_main[5]
+                          Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][2]=var_main[6]
+                          Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][3]=var_main[7]
 
                       Lcd_0()Lcd_Out(1,1,"Saving in") Lcd_Out(2,1,"EEPROM") delay_ms(200)
                        eeprom_save()

@@ -9,31 +9,30 @@ main
 		Delay_1us
 		Delay_5500us
 		Delay_50us
-	Lcd_Out
-		Lcd_Cmd
-		Lcd_Chr_CP
-			Lcd_Cmd
-	Write_Time
-		Soft_I2C_Start
-			Delay_1us
-		Soft_I2C_Write
-			Delay_1us
-		Soft_I2C_Stop
-			Delay_1us
 	PWM_Initialize
 		PWM16bit_Init
 	int_eeprom_ini
 		Lcd_0
 			Lcd_Init
 			Lcd_Cmd
-		Lcd_Out
 		EEPROM_Read
+		Lcd_Out
+			Lcd_Cmd
+			Lcd_Chr_CP
+				Lcd_Cmd
 		eeprom_call_back
 			EEPROM_Read
 			HWMul_16x16
 		ByteToStr
 			Div_8x8_U
 		EEPROM_Write
+		Write_Time
+			Soft_I2C_Start
+				Delay_1us
+			Soft_I2C_Write
+				Delay_1us
+			Soft_I2C_Stop
+				Delay_1us
 		On_mSec_initial_heater
 			Lcd_0
 			Lcd_Out
@@ -45,6 +44,9 @@ main
 		eeprom_save
 			EEPROM_Write
 			HWMul_16x16
+	On_mSec_initial_heater
+	On_mSec_initial_Motor
+	eeprom_save
 	key_test
 		Read_Time
 			Soft_I2C_Start
@@ -52,24 +54,8 @@ main
 			Soft_I2C_Read
 				Delay_1us
 			Soft_I2C_Stop
-		Shamsi_call
-			Shamsi_transfer_time
-			shamsi
-				Div_16x16_S
-			Lcd_Cmd
-		Shamsi_show_lcd
-			Lcd_Out
-			Lcd_Chr
-				Lcd_Cmd
-			Div_16x16_S
-		miladi_call
-			Lcd_0
-			shamsi_to_milady
-				Div_16x16_S
-				HWMul_16x16
-			Lcd_Out
-			Lcd_Chr
-			Div_16x16_S
+		Lcd_0
+		Lcd_Out
 		Button
 			Delay_500us
 		Easy_vacuum_95_10_4_simple_working
@@ -150,6 +136,7 @@ main
 				Lcd_0
 				Lcd_Out
 				Lcd_Chr
+					Lcd_Cmd
 				HWMul_16x16
 				Div_8x8_U
 			Heater_relay_on
@@ -158,9 +145,11 @@ main
 				Lcd_Out
 				HWMul_16x16
 			Shamsi_transfer_time
+			ceil
 			HWMul_16x16
-		Lcd_0
-		Lcd_Out
+			Div_8x8_U
+			float_ulong2fp
+			float_fpint
 		Keypad_start
 			key_choice_select
 				key_rest_all
@@ -175,7 +164,12 @@ main
 				Lcd_Out
 				Button
 				Buzzer_on_off
-				Div_8x8_U
+				show_in_button
+					Show_text
+					ByteToStr
+					Lcd_Out
+					HWMul_16x16
+				Div_16x16_S
 				HWMul_16x16
 			key_Prog_select
 				key_rest_all
@@ -186,11 +180,11 @@ main
 			Lcd_0
 			Lcd_Out
 			eeprom_save
-			Easy_vacuum_95_10_4_simple_working
 			Key_Heat_mot_Time
 				key_rest_all
 				__CS2S
 				HWMul_16x16
+			Easy_vacuum_95_10_4_simple_working
 			HWMul_16x16
 Timer0_overflow
 Timer2_Compare

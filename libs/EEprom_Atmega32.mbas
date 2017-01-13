@@ -3,6 +3,7 @@ module EEprom_Atmega32
 include "libs/LCD"  ' Include both used modules
 include "libs/TWI"  ' Include both used modules
 include "libs/PWM_timers"  ' Include both used modules
+include "libs/I2C"
 symbol Choice_number_sym=7
 
 dim txt as string[19]   external
@@ -354,7 +355,7 @@ end sub
 sub procedure int_eeprom_ini()     ''internal eeprm of avr
 
                          Lcd_0()
-                        Lcd_Out(1,1,"EEprom  :" )
+'                        Lcd_Out(1,1,"EEprom  :" )
 '                         on_off_initial (1,1,0,1,12)    '' off mode on_off initial (dim on_off22,en,hr,mint,prc as integer)
 '                        on_off_initial (2,1,0,0,12)    '''on mode
 
@@ -372,6 +373,11 @@ sub procedure int_eeprom_ini()     ''internal eeprm of avr
                         'On_mSec_initial_Heater (1,0,10,18)  '' On mode Heater initial (dim en,mint,sec,prc as integer)
 '                        On_mSec_initial_Motor (1,0,10,18)    ''' Motor mode
                         Lcd_0() Lcd_Out(1,1,"Writing to  " ) Lcd_Out(2,1,"EEprom ..." )
+                        hours=0x05  minutes=0x54   seconds=0x00 day= 0x31 week=2   month=0x12  year=0x15
+                      '   a = 17
+                      '   year = Dec2Bcd(a) ' b equals 34
+                        Write_Time(hours, minutes, seconds, 0x31, 0x01,   0x12,year)'
+                        
                         On_mSec_initial_Heater (1,0,20,100) 'On_mSec_initial_Heater(dim en,mint,sec,prc as byte)'On_mSec_initial_Heater[chanel_ini-1][Heater_Motor_Time_ini-1][Pwm_chanel_ini-1][0]
                         On_mSec_initial_Motor (1,0,12,100)
                         eeprom_save()

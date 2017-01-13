@@ -131,50 +131,101 @@ dim stringLength,temp,numberLength,ex , i as integer
       tempCh as char
 
 sub procedure key_test()
-      while_state_import=1  oldstate_3=0  oldstate_menu=0
-      Heater_motor_index=2 Pwm_chanel_main=3 
+      while_state_import=1  oldstate_3=0  oldstate_menu=0   oldstate_4=0
+      Heater_motor_index=2 Pwm_chanel_main=3   k=0
       chanel=Mot_heater_On_mSec [7-1][Heater_motor_index-1][Pwm_chanel_main-1][0]
 '      Mot_heater_On_mSec [1-1][Heater_motor_index-1][Pwm_chanel_main-1][1]
        while  (while_state_import )
           oldstate_menu=oldstate_menu+1
           Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
           if oldstate_menu=1 then
-              Shamsi_call()
-              Shamsi_show_lcd( jmonth,jday,jyear,week,hours ,minutes,seconds )
+'              Shamsi_call()
+'              Shamsi_show_lcd( jmonth,jday,jyear,week,hours ,minutes,seconds )
+               Lcd_0()Lcd_Out(1,1,"Ready to Work") Lcd_Out(2,1,"Press Start SW")
           else
-              miladi_call(jmonth,jday,jyear,week,hours ,minutes,seconds )
+'              miladi_call(jmonth,jday,jyear,week,hours ,minutes,seconds )
+               Lcd_0()Lcd_Out(1,1,"Ready to Work") Lcd_Out(2,1,"Or Hold Start SW")
           end if
 
 
           while_state_2_2=1
           while (while_state_2_2<=5 )
             while_state_2_2=while_state_2_2+1
-               if (1) then
-                 if (Button(HET_SW_Port, HET_SW_bit, 0.5, 1)) then    ' Detect logical one up key
-                            oldstate_3 = 1                      ' Update flag
-    '                         Lcd_0() Lcd_Out(1,6,"sssss") Lcd_Out(2,1,"fffffff") delay_ms(2000)
-                             Easy_vacuum_95_10_4_simple_working(chanel,1,0)
-                 end if
-                 if (oldstate_3 and Button(HET_SW_Port, HET_SW_bit,0.5, 0)) then
-                    while_state_import=0  oldstate_3=0   while_state_2_2=6
-                    'Lcd_0() Lcd_Out(1,6," int") Lcd_Out(2,1,"int")delay_ms(200)
-                 end if
-               else
-                  while_state_import=0
-                  Lcd_0()Lcd_Out(1,1,"Wating for :") Lcd_Out(2,1,"Pressing Heater micro SW") delay_ms(200) '' DDD7_bit =0
-               end if
-
-               if (Button(Menu_SW_Port,Menu_SW_bit,0.5,1)<> 0)
-                or (Button(Ok_SW_Port,Ok_SW_bit,0.5,1)<> 0)then    ' Detect logical one setting key
-                      Keypad_start(chanel) while_state_import=0 oldstate_3=1                  ' Update flag
+            
+               if (Button(Menu_SW_Port,Menu_SW_bit,3,1)<> 0)
+                or (Button(Ok_SW_Port,Ok_SW_bit,3,1)<> 0)then    ' Detect logical one setting key
+                                         ' Update flag
                       'Lcd_0()Lcd_Out(1,1,"Ok_SW_Port") Lcd_Out(2,1,"Ok_SW_Port") delay_ms(2000)
+                      k=1
+                      for j=1 to 10  step 1
+                          if (Button(Menu_SW_Port,Menu_SW_bit,200,1)<> 0)
+                             or (Button(Ok_SW_Port,Ok_SW_bit,200,1)<> 0)then
+                             k=j
+                          end if
+                      next j
+               end if
+               if k=10 then
+                         while_state_import=0 oldstate_3=1
+
+               end if
+               if k=1 then
+                        oldstate_4 = 1
+
+               end if
+               if k=0  then
+
+                       if (Button(Menu_SW_Port,Menu_SW_bit,0.5,1)<> 0)
+                        or (Button(Ok_SW_Port,Ok_SW_bit,0.5,1)<> 0)then    ' Detect logical one setting key
+                               oldstate_4 = 1                      ' Update flag
+        '                         Lcd_0() Lcd_Out(1,6,"sssss") Lcd_Out(2,1,"fffffff") delay_ms(2000)
+        '                       Easy_vacuum_95_10_4_simple_working(chanel,1,0)
+                       end if
+               end if
+               if (k<j) then ''else
+                       if (oldstate_4 and Button(Menu_SW_Port,Menu_SW_bit,0.5,0))
+                            or (while_state_import and oldstate_4 and Button(Ok_SW_Port,Ok_SW_bit,0.5,0))  then
+                           oldstate_4=0
+                           while_state_import_main2=1 oldstate_3=0
+                           Lcd_0() Lcd_Out(1,1,"Wating for :") Lcd_Out(2,1,"Pressing Heater micro SW") delay_ms(200)
+                           while (while_state_import_main2 )
+                               if (Button(HET_SW_Port, HET_SW_bit, 0.5, 0)) then    ' Detect logical one up key
+                                          oldstate_3 = 1    while_state_import_main2=0                  ' Update flag
+                                          Easy_vacuum_95_10_4_simple_working(chanel,1,0)
+                               end if
+                               if (oldstate_3 and Button(HET_SW_Port, HET_SW_bit,0.5, 1)) then
+                                  while_state_import_main2=0  oldstate_3=0   while_state_2_2=6
+                                  'Lcd_0() Lcd_Out(1,6," int") Lcd_Out(2,1,"int")delay_ms(200)
+                               end if
+                               if (oldstate_3=0) then
+                                  Lcd_Out(1,1,"Wating for :") Lcd_Out(2,1,"Pressing Heater micro SW") delay_ms(200)
+                               end if
+                           wend
+                       end if
+
+                       'if (1) then
+        '
+        '                 if (Button(HET_SW_Port, HET_SW_bit, 0.5, 0)) then    ' Detect logical one up key
+        '                            oldstate_3 = 1                      ' Update flag
+        '    '                         Lcd_0() Lcd_Out(1,6,"sssss") Lcd_Out(2,1,"fffffff") delay_ms(2000)
+        '                             Easy_vacuum_95_10_4_simple_working(chanel,1,0)
+        '                 end if
+        '                 if (oldstate_3 and Button(HET_SW_Port, HET_SW_bit,0.5, 1)) then
+        '                    while_state_import=0  oldstate_3=0   while_state_2_2=6
+        '                    'Lcd_0() Lcd_Out(1,6," int") Lcd_Out(2,1,"int")delay_ms(200)
+        '                 end if
+        '               else
+        '                  while_state_import=0
+        '                  Lcd_0()Lcd_Out(1,1,"Wating for :") Lcd_Out(2,1,"Pressing Heater micro SW") delay_ms(200) '' DDD7_bit =0
+        '               end if
                end if
                if (oldstate_3 and Button(Menu_SW_Port,Menu_SW_bit,0.5,0))
                     or (while_state_import and oldstate_3 and Button(Ok_SW_Port,Ok_SW_bit,0.5,0))  then
                   while_state_import=0     oldstate_3=0  while_state_2_2=6
+                  Keypad_start(chanel)
                   'Lcd_0()Lcd_Out(1,1,"Menu_SW_Port") Lcd_Out(2,1,"Menu_SW_Port") delay_ms(2000)
 
                end if
+
                Delay_mS(100)
            wend
        wend delay_ms(1000)
@@ -275,11 +326,11 @@ main:
 LCD_Init() ' Initialize LCD
 LCD_cmd(_LCD_CLEAR) ' Clear LCD
 LCD_cmd(_LCD_CURSOR_OFF)
-LCD_Out(2,1,"TEST")
- hours=0x05  minutes=0x54   seconds=0x00 day= 0x31 week=2   month=0x12  year=0x15
-'   a = 17
-'   year = Dec2Bcd(a) ' b equals 34
-  Write_Time(hours, minutes, seconds, 0x31, 0x01,   0x12,year)'
+'LCD_Out(2,1,"TEST")
+ 'hours=0x05  minutes=0x54   seconds=0x00 day= 0x31 week=2   month=0x12  year=0x15
+''   a = 17
+''   year = Dec2Bcd(a) ' b equals 34
+'  Write_Time(hours, minutes, seconds, 0x31, 0x01,   0x12,year)'
 'Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
 'Shamsi_call()
 '  Shamsi_show_lcd( jmonth,jday,jyear,week,hours ,minutes,seconds )
@@ -401,9 +452,11 @@ LCD_Out(2,1,"TEST")
 ''  Delay_mS(500)
 '  miladi_call(jmonth,jday,jyear,week,hours ,minutes,seconds )
   'On_mSec_initial_Heater (1,0,20,100) 'On_mSec_initial_Heater(dim en,mint,sec,prc as byte)'On_mSec_initial_Heater[chanel_ini-1][Heater_Motor_Time_ini-1][Pwm_chanel_ini-1][0]
-'  On_mSec_initial_Motor (1,0,12,100)
+'  On_mSec_initial_Motor (1,0,5,50)
 '  On_mSec_initial_Heater (1,0,5,100)
   PWM_Initialize () int_eeprom_ini()
+  On_mSec_initial_Heater (1,0,12,100)
+  On_mSec_initial_Motor (1,0,5,100) eeprom_save()
 '  interrupt_ini () ''MCUSR = 0x00
   while 1
   key_test()
