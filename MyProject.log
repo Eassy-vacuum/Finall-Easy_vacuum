@@ -10,7 +10,6 @@ warning: 0	1501	Specified search path does not exist: 'C:\Documents and Settings
 warning: 0	1501	Specified search path does not exist: 'C:\Documents and Settings\Elasa\Desktop\mikroBasic PRO for AVR\uses\lte64kw'	 
 warning: 0	1501	Specified search path does not exist: 'C:\Program Files\Mikroelektronika\mikroBasic PRO for AVR\defs'	 
 warning: 0	1501	Specified search path does not exist: 'C:\Program Files\Mikroelektronika\mikroBasic PRO for AVR\uses\lte64kw'	 
-warning: 0	1501	Specified search path does not exist: 'G:\button_test2'	 
 warning: 0	1501	Specified search path does not exist: 'C:\Documents and Settings\saeed\My Documents\Timer\button_test2'	 
 diagnostics: 0	133	Compilation Started	C:\Users\Public\Documents\Mikroelektronika\mikroBasic PRO for AVR\defs\ATMEGA32.mbas
 hint: 1	1015	Hint: Compiling unit "C:\Users\Public\Documents\Mikroelektronika\mikroBasic PRO for AVR\defs\ATMEGA32.mbas"	ATMEGA32.mbas
@@ -89,43 +88,39 @@ hint: 449	1010	Hint: Unit "libs/EEprom_Atmega32.mbas" has been recompiled	libs/E
 hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\libs/main_function.mbas"	libs/main_function.mbas
 warning: 126	1518	Warning: Suspicious pointer conversion	libs/main_function.mbas
 warning: 126	1518	Warning: Suspicious pointer conversion	libs/main_function.mbas
-warning: 405	1516	Warning: Source size (3) does not match destination size (6)	libs/main_function.mbas
-warning: 566	1518	Warning: Suspicious pointer conversion	libs/main_function.mbas
-warning: 566	1518	Warning: Suspicious pointer conversion	libs/main_function.mbas
-warning: 609	1509	Warning: Implicit typecast performed from "byte" to "float"	libs/main_function.mbas
-hint: 168	1001	Hint: Variable "Time_on" has been declared, but not used	libs/main_function.mbas
-hint: 678	1010	Hint: Unit "libs/main_function.mbas" has been recompiled	libs/main_function.mbas
+warning: 412	1516	Warning: Source size (3) does not match destination size (6)	libs/main_function.mbas
+warning: 595	1518	Warning: Suspicious pointer conversion	libs/main_function.mbas
+warning: 595	1518	Warning: Suspicious pointer conversion	libs/main_function.mbas
+warning: 641	1509	Warning: Implicit typecast performed from "byte" to "float"	libs/main_function.mbas
+hint: 172	1001	Hint: Variable "Time_on" has been declared, but not used	libs/main_function.mbas
+hint: 720	1010	Hint: Unit "libs/main_function.mbas" has been recompiled	libs/main_function.mbas
 hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\libs/keypad_Atmega32.mbas"	libs/keypad_Atmega32.mbas
-warning: 287	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/keypad_Atmega32.mbas
-warning: 361	1509	Warning: Implicit typecast performed from "double" to "byte"	libs/keypad_Atmega32.mbas
-warning: 482	1516	Warning: Source size (17) does not match destination size (16)	libs/keypad_Atmega32.mbas
-warning: 529	1516	Warning: Source size (22) does not match destination size (16)	libs/keypad_Atmega32.mbas
-warning: 531	1516	Warning: Source size (21) does not match destination size (16)	libs/keypad_Atmega32.mbas
-warning: 582	1516	Warning: Source size (17) does not match destination size (16)	libs/keypad_Atmega32.mbas
-warning: 709	1516	Warning: Source size (4) does not match destination size (5)	libs/keypad_Atmega32.mbas
-warning: 728	1516	Warning: Source size (4) does not match destination size (5)	libs/keypad_Atmega32.mbas
+warning: 483	1516	Warning: Source size (17) does not match destination size (16)	libs/keypad_Atmega32.mbas
+warning: 530	1516	Warning: Source size (22) does not match destination size (16)	libs/keypad_Atmega32.mbas
+warning: 532	1516	Warning: Source size (21) does not match destination size (16)	libs/keypad_Atmega32.mbas
+warning: 583	1516	Warning: Source size (17) does not match destination size (16)	libs/keypad_Atmega32.mbas
+warning: 710	1516	Warning: Source size (4) does not match destination size (5)	libs/keypad_Atmega32.mbas
+warning: 731	1516	Warning: Source size (4) does not match destination size (5)	libs/keypad_Atmega32.mbas
 hint: 140	1001	Hint: Variable "location_my_1" has been declared, but not used	libs/keypad_Atmega32.mbas
 hint: 141	1001	Hint: Variable "location_my_2" has been declared, but not used	libs/keypad_Atmega32.mbas
 hint: 197	1001	Hint: Variable "k2" has been declared, but not used	libs/keypad_Atmega32.mbas
 hint: 197	1011	Hint: Variable "k2" has been eliminated by optimizer	libs/keypad_Atmega32.mbas
-hint: 489	1011	Hint: Variable "var_in" has been eliminated by optimizer	libs/keypad_Atmega32.mbas
-hint: 809	1010	Hint: Unit "libs/keypad_Atmega32.mbas" has been recompiled	libs/keypad_Atmega32.mbas
-warning: 177	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
-warning: 178	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
-warning: 185	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
-warning: 186	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
-warning: 191	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+hint: 490	1011	Hint: Variable "var_in" has been eliminated by optimizer	libs/keypad_Atmega32.mbas
+hint: 822	1010	Hint: Unit "libs/keypad_Atmega32.mbas" has been recompiled	libs/keypad_Atmega32.mbas
+warning: 161	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 167	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 171	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 189	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
 warning: 195	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
-warning: 221	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
-warning: 222	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
-hint: 476	1010	Hint: Unit "MyProject.mbas" has been recompiled	MyProject.mbas
+warning: 199	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+hint: 526	1010	Hint: Unit "MyProject.mbas" has been recompiled	MyProject.mbas
 diagnostics: 0	134	Compiled Successfully	E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\MyProject.mbas
-diagnostics: 0	139	All files Compiled in 1700 ms	 
+diagnostics: 0	139	All files Compiled in 1170 ms	 
 hint: 0	1144	Used RX (bytes): 32 (100%)   Free RX (bytes): 0 (0%)	Used RX (bytes): 32 (100%)   Free RX (bytes): 0 (0%)
-hint: 0	1144	Static RAM (bytes): 1679   Dynamic RAM (bytes): 369	Static RAM (bytes): 1679   Dynamic RAM (bytes): 369
-hint: 0	1144	Used ROM (bytes): 31038 (95%)  Free ROM (bytes): 1730 (5%)	Used ROM (bytes): 31038 (95%)  Free ROM (bytes): 1730 (5%)
+hint: 0	1144	Static RAM (bytes): 1680   Dynamic RAM (bytes): 368	Static RAM (bytes): 1680   Dynamic RAM (bytes): 368
+hint: 0	1144	Used ROM (bytes): 30558 (93%)  Free ROM (bytes): 2210 (7%)	Used ROM (bytes): 30558 (93%)  Free ROM (bytes): 2210 (7%)
 diagnostics: 0	145	Project Linked Successfully	MyProject.mbpav
 hint: 0	1004	COFF file successfully generated	COFF file successfully generated
-diagnostics: 0	140	Linked in 3370 ms	 
-diagnostics: 0	141	Project 'MyProject.mbpav' completed: 6178 ms	 
-diagnostics: 0	103	Finished successfully: 13 é«‰ÊÌÂ 2017, 19:53:43	MyProject.mbpav
+diagnostics: 0	140	Linked in 1498 ms	 
+diagnostics: 0	141	Project 'MyProject.mbpav' completed: 3385 ms	 
+diagnostics: 0	103	Finished successfully: 24 é«‰ÊÌÂ 2017, 22:31:55	MyProject.mbpav

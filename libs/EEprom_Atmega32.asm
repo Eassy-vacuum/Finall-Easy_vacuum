@@ -3095,12 +3095,13 @@ L__int_eeprom_ini138:
 	LDI        R27, 5
 	MOV        R2, R27
 	CALL       _Write_Time+0
-;libs/EEprom_Atmega32.mbas,381 :: 		On_mSec_initial_Heater (1,0,20,100) 'On_mSec_initial_Heater(dim en,mint,sec,prc as byte)'On_mSec_initial_Heater[chanel_ini-1][Heater_Motor_Time_ini-1][Pwm_chanel_ini-1][0]
+;libs/EEprom_Atmega32.mbas,381 :: 		On_mSec_initial_Heater (1,1,2,100) 'On_mSec_initial_Heater(dim en,mint,sec,prc as byte)'On_mSec_initial_Heater[chanel_ini-1][Heater_Motor_Time_ini-1][Pwm_chanel_ini-1][0]
 	LDI        R27, 100
 	MOV        R5, R27
-	LDI        R27, 20
+	LDI        R27, 2
 	MOV        R4, R27
-	CLR        R3
+	LDI        R27, 1
+	MOV        R3, R27
 	LDI        R27, 1
 	MOV        R2, R27
 	CALL       _On_mSec_initial_heater+0

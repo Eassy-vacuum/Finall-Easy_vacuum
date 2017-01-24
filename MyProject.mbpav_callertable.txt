@@ -44,9 +44,6 @@ main
 		eeprom_save
 			EEPROM_Write
 			HWMul_16x16
-	On_mSec_initial_heater
-	On_mSec_initial_Motor
-	eeprom_save
 	key_test
 		Read_Time
 			Soft_I2C_Start
@@ -130,6 +127,8 @@ main
 			IntToStr
 			PWM_MAKE
 			Write_Time
+			Shamsi_transfer_time
+			Heater_relay_on
 			Show_message_done
 				Read_Time
 				Buzzer_on_off
@@ -139,12 +138,6 @@ main
 					Lcd_Cmd
 				HWMul_16x16
 				Div_8x8_U
-			Heater_relay_on
-			Saving_Mot_heater_On_mSec
-				Lcd_0
-				Lcd_Out
-				HWMul_16x16
-			Shamsi_transfer_time
 			ceil
 			HWMul_16x16
 			Div_8x8_U
@@ -158,17 +151,17 @@ main
 				HWMul_16x16
 			Keypad__teben
 				Lcd_0
-				Show_text
-					Lcd_Out
-				ByteToStr
-				Lcd_Out
-				Button
-				Buzzer_on_off
 				show_in_button
 					Show_text
+						Lcd_Out
 					ByteToStr
 					Lcd_Out
 					HWMul_16x16
+				Button
+				Buzzer_on_off
+				Show_text
+				ByteToStr
+				Lcd_Out
 				Div_16x16_S
 				HWMul_16x16
 			key_Prog_select
@@ -176,15 +169,15 @@ main
 				key_Prog_123
 					HWMul_16x16
 				HWMul_16x16
-			ByteToStr
+			eeprom_save
 			Lcd_0
 			Lcd_Out
-			eeprom_save
+			Easy_vacuum_95_10_4_simple_working
 			Key_Heat_mot_Time
 				key_rest_all
 				__CS2S
 				HWMul_16x16
-			Easy_vacuum_95_10_4_simple_working
 			HWMul_16x16
+		Div_8x8_U
 Timer0_overflow
 Timer2_Compare

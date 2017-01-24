@@ -378,7 +378,7 @@ sub procedure int_eeprom_ini()     ''internal eeprm of avr
                       '   year = Dec2Bcd(a) ' b equals 34
                         Write_Time(hours, minutes, seconds, 0x31, 0x01,   0x12,year)'
                         
-                        On_mSec_initial_Heater (1,0,20,100) 'On_mSec_initial_Heater(dim en,mint,sec,prc as byte)'On_mSec_initial_Heater[chanel_ini-1][Heater_Motor_Time_ini-1][Pwm_chanel_ini-1][0]
+                        On_mSec_initial_Heater (1,1,2,100) 'On_mSec_initial_Heater(dim en,mint,sec,prc as byte)'On_mSec_initial_Heater[chanel_ini-1][Heater_Motor_Time_ini-1][Pwm_chanel_ini-1][0]
                         On_mSec_initial_Motor (1,0,12,100)
                         eeprom_save()
 '                         eeprom_save_ext()
