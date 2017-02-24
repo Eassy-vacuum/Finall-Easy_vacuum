@@ -2193,10 +2193,10 @@ L__key_test142:
 ;MyProject.mbas,378 :: 		while_state_2_2=1
 	LDI        R27, 1
 	STS        _while_state_2_2+0, R27
-;MyProject.mbas,379 :: 		while (while_state_2_2<=5 )
+;MyProject.mbas,379 :: 		while (while_state_2_2<=8 )
 L__key_test144:
 	LDS        R17, _while_state_2_2+0
-	LDI        R16, 5
+	LDI        R16, 8
 	CP         R16, R17
 	BRSH       L__key_test236
 	JMP        L__key_test145
@@ -2530,14 +2530,14 @@ L__key_test170:
 	BRNE       L__key_test243
 	JMP        L__key_test173
 L__key_test243:
-;MyProject.mbas,426 :: 		while_state_import_main2=0  oldstate_3=0   while_state_2_2=6
+;MyProject.mbas,426 :: 		while_state_import_main2=0  oldstate_3=0   while_state_2_2=11
 	LDS        R27, _while_state_import_main2+0
 	CBR        R27, BitMask(_while_state_import_main2+0)
 	STS        _while_state_import_main2+0, R27
 	LDS        R27, _oldstate_3+0
 	CBR        R27, BitMask(_oldstate_3+0)
 	STS        _oldstate_3+0, R27
-	LDI        R27, 6
+	LDI        R27, 11
 	STS        _while_state_2_2+0, R27
 L__key_test173:
 ;MyProject.mbas,429 :: 		if (oldstate_3=0) then
@@ -2659,14 +2659,14 @@ L__key_test160:
 	LDS        R27, _oldstate_3+0
 	SBR        R27, BitMask(_oldstate_3+0)
 	STS        _oldstate_3+0, R27
-;MyProject.mbas,439 :: 		while_state_import=0     oldstate_3=0  while_state_2_2=6
+;MyProject.mbas,439 :: 		while_state_import=0     oldstate_3=0  while_state_2_2=11
 	LDS        R27, _while_state_import+0
 	CBR        R27, BitMask(_while_state_import+0)
 	STS        _while_state_import+0, R27
 	LDS        R27, _oldstate_3+0
 	CBR        R27, BitMask(_oldstate_3+0)
 	STS        _oldstate_3+0, R27
-	LDI        R27, 6
+	LDI        R27, 11
 	STS        _while_state_2_2+0, R27
 ;MyProject.mbas,441 :: 		Keypad_start(chanel)
 	LDS        R2, _chanel+0

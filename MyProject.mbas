@@ -376,7 +376,7 @@ sub procedure key_test()
 '          sec_n1[0]=seconds
 
           while_state_2_2=1
-          while (while_state_2_2<=5 )
+          while (while_state_2_2<=8 )
             while_state_2_2=while_state_2_2+1
                Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
                sec_n1[0]=seconds
@@ -423,7 +423,7 @@ sub procedure key_test()
 
                                        end if
                                        if (oldstate_3 and Button(HET_SW_Port, HET_SW_bit,0.5, 1)) then
-                                          while_state_import_main2=0  oldstate_3=0   while_state_2_2=6
+                                          while_state_import_main2=0  oldstate_3=0   while_state_2_2=11
                                           'Lcd_0() Lcd_Out(1,6," int") Lcd_Out(2,1,"int")delay_ms(200)
                                        end if
                                        if (oldstate_3=0) then
@@ -436,7 +436,7 @@ sub procedure key_test()
                                   oldstate_3=1
 
       '                              or (while_state_import and oldstate_3 and Button(Ok_SW_Port,Ok_SW_bit,2,0))  then
-                                  while_state_import=0     oldstate_3=0  while_state_2_2=6
+                                  while_state_import=0     oldstate_3=0  while_state_2_2=11
       '                            delay_ms(2000)
                                   Keypad_start(chanel)
                                   'Lcd_0()Lcd_Out(1,1,"Menu_SW_Port") Lcd_Out(2,1,"Menu_SW_Port") delay_ms(2000)
