@@ -95,7 +95,7 @@ warning: 602	1518	Warning: Suspicious pointer conversion	libs/main_function.mbas
 warning: 602	1518	Warning: Suspicious pointer conversion	libs/main_function.mbas
 warning: 648	1509	Warning: Implicit typecast performed from "byte" to "float"	libs/main_function.mbas
 hint: 175	1001	Hint: Variable "Time_on" has been declared, but not used	libs/main_function.mbas
-hint: 738	1010	Hint: Unit "libs/main_function.mbas" has been recompiled	libs/main_function.mbas
+hint: 745	1010	Hint: Unit "libs/main_function.mbas" has been recompiled	libs/main_function.mbas
 hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\libs/keypad_Atmega32.mbas"	libs/keypad_Atmega32.mbas
 warning: 483	1516	Warning: Source size (17) does not match destination size (16)	libs/keypad_Atmega32.mbas
 warning: 530	1516	Warning: Source size (22) does not match destination size (16)	libs/keypad_Atmega32.mbas
@@ -123,12 +123,12 @@ warning: 420	1509	Warning: Implicit typecast performed from "double" to "byte"	M
 warning: 425	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
 hint: 708	1010	Hint: Unit "MyProject.mbas" has been recompiled	MyProject.mbas
 diagnostics: 0	134	Compiled Successfully	E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\MyProject.mbas
-diagnostics: 0	139	All files Compiled in 1124 ms	 
+diagnostics: 0	139	All files Compiled in 1076 ms	 
 hint: 0	1144	Used RX (bytes): 32 (100%)   Free RX (bytes): 0 (0%)	Used RX (bytes): 32 (100%)   Free RX (bytes): 0 (0%)
 hint: 0	1144	Static RAM (bytes): 1682   Dynamic RAM (bytes): 366	Static RAM (bytes): 1682   Dynamic RAM (bytes): 366
-hint: 0	1144	Used ROM (bytes): 29374 (90%)  Free ROM (bytes): 3394 (10%)	Used ROM (bytes): 29374 (90%)  Free ROM (bytes): 3394 (10%)
+hint: 0	1144	Used ROM (bytes): 29404 (90%)  Free ROM (bytes): 3364 (10%)	Used ROM (bytes): 29404 (90%)  Free ROM (bytes): 3364 (10%)
 diagnostics: 0	145	Project Linked Successfully	MyProject.mbpav
 hint: 0	1004	COFF file successfully generated	COFF file successfully generated
-diagnostics: 0	140	Linked in 1934 ms	 
-diagnostics: 0	141	Project 'MyProject.mbpav' completed: 3635 ms	 
-diagnostics: 0	103	Finished successfully: 24 ›Ê—ÌÂ 2017, 21:30:35	MyProject.mbpav
+diagnostics: 0	140	Linked in 2200 ms	 
+diagnostics: 0	141	Project 'MyProject.mbpav' completed: 3947 ms	 
+diagnostics: 0	103	Finished successfully: 24 ›Ê—ÌÂ 2017, 21:37:31	MyProject.mbpav
