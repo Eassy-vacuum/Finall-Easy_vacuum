@@ -757,7 +757,7 @@ end sub
                        Lcd_0()Lcd_Out(1,1,"Pls Do normal Wo") Lcd_Out(2,1,"rk we save times!!!") delay_ms(200)
 
                        Easy_vacuum_95_10_4_simple_working(var_main[2],0,1)
-                       Lcd_0()Lcd_Out(1,1,"Saving in") Lcd_Out(2,1,"EEPROM") delay_ms(200)
+                       Lcd_0()Lcd_Out(1,1,"Saving in") Lcd_Out(2,1,"Memory") delay_ms(200)
                        eeprom_save()
 
 
@@ -804,7 +804,7 @@ end sub
 '                          Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][3]=var_main[7]
 
 
-                      Lcd_0()Lcd_Out(1,1,"Saving in") Lcd_Out(2,1,"EEPROM") delay_ms(200)
+                      Lcd_0()Lcd_Out(1,1,"Saving in") Lcd_Out(2,1,"Memory") delay_ms(200)
                        eeprom_save()
                       while_state_import=0
                  case 3
@@ -812,7 +812,7 @@ end sub
                       Lcd_0()Lcd_Out(1,1,"Exit From Setting") Lcd_Out(2,1,"Pls Press Ht micro SW") delay_ms(200) '' DDD7_bit =0
                  end select
              wend
-             Lcd_0()Lcd_Out(1,1,"END keypad") Lcd_Out(2,1,"EEPROM") delay_ms(1000)
+'             Lcd_0()Lcd_Out(1,1,"END keypad") Lcd_Out(2,1,"EEPROM") delay_ms(1000)
        case 3
             while_state_2=0
             Lcd_0()Lcd_Out(1,1,"Exit From Setting") Lcd_Out(2,1,"Pls Press Ht micro SW") delay_ms(200) '' DDD7_bit =0

@@ -10,6 +10,7 @@ warning: 0	1501	Specified search path does not exist: 'C:\Documents and Settings
 warning: 0	1501	Specified search path does not exist: 'C:\Documents and Settings\Elasa\Desktop\mikroBasic PRO for AVR\uses\lte64kw'	 
 warning: 0	1501	Specified search path does not exist: 'C:\Program Files\Mikroelektronika\mikroBasic PRO for AVR\defs'	 
 warning: 0	1501	Specified search path does not exist: 'C:\Program Files\Mikroelektronika\mikroBasic PRO for AVR\uses\lte64kw'	 
+warning: 0	1501	Specified search path does not exist: 'G:\button_test2'	 
 warning: 0	1501	Specified search path does not exist: 'C:\Documents and Settings\saeed\My Documents\Timer\button_test2'	 
 diagnostics: 0	133	Compilation Started	C:\Users\Public\Documents\Mikroelektronika\mikroBasic PRO for AVR\defs\ATMEGA32.mbas
 hint: 1	1015	Hint: Compiling unit "C:\Users\Public\Documents\Mikroelektronika\mikroBasic PRO for AVR\defs\ATMEGA32.mbas"	ATMEGA32.mbas
@@ -86,14 +87,15 @@ hint: 190	1011	Hint: Variable "hx1" has been eliminated by optimizer	libs/EEprom
 hint: 191	1011	Hint: Variable "txt_sub" has been eliminated by optimizer	libs/EEprom_Atmega32.mbas
 hint: 449	1010	Hint: Unit "libs/EEprom_Atmega32.mbas" has been recompiled	libs/EEprom_Atmega32.mbas
 hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\libs/main_function.mbas"	libs/main_function.mbas
-warning: 126	1518	Warning: Suspicious pointer conversion	libs/main_function.mbas
-warning: 126	1518	Warning: Suspicious pointer conversion	libs/main_function.mbas
-warning: 412	1516	Warning: Source size (3) does not match destination size (6)	libs/main_function.mbas
-warning: 595	1518	Warning: Suspicious pointer conversion	libs/main_function.mbas
-warning: 595	1518	Warning: Suspicious pointer conversion	libs/main_function.mbas
-warning: 641	1509	Warning: Implicit typecast performed from "byte" to "float"	libs/main_function.mbas
-hint: 172	1001	Hint: Variable "Time_on" has been declared, but not used	libs/main_function.mbas
-hint: 720	1010	Hint: Unit "libs/main_function.mbas" has been recompiled	libs/main_function.mbas
+warning: 128	1518	Warning: Suspicious pointer conversion	libs/main_function.mbas
+warning: 128	1518	Warning: Suspicious pointer conversion	libs/main_function.mbas
+warning: 130	1516	Warning: Source size (1) does not match destination size (3)	libs/main_function.mbas
+warning: 415	1516	Warning: Source size (3) does not match destination size (6)	libs/main_function.mbas
+warning: 602	1518	Warning: Suspicious pointer conversion	libs/main_function.mbas
+warning: 602	1518	Warning: Suspicious pointer conversion	libs/main_function.mbas
+warning: 648	1509	Warning: Implicit typecast performed from "byte" to "float"	libs/main_function.mbas
+hint: 175	1001	Hint: Variable "Time_on" has been declared, but not used	libs/main_function.mbas
+hint: 732	1010	Hint: Unit "libs/main_function.mbas" has been recompiled	libs/main_function.mbas
 hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\libs/keypad_Atmega32.mbas"	libs/keypad_Atmega32.mbas
 warning: 483	1516	Warning: Source size (17) does not match destination size (16)	libs/keypad_Atmega32.mbas
 warning: 530	1516	Warning: Source size (22) does not match destination size (16)	libs/keypad_Atmega32.mbas
@@ -107,20 +109,26 @@ hint: 197	1001	Hint: Variable "k2" has been declared, but not used	libs/keypad_A
 hint: 197	1011	Hint: Variable "k2" has been eliminated by optimizer	libs/keypad_Atmega32.mbas
 hint: 490	1011	Hint: Variable "var_in" has been eliminated by optimizer	libs/keypad_Atmega32.mbas
 hint: 822	1010	Hint: Unit "libs/keypad_Atmega32.mbas" has been recompiled	libs/keypad_Atmega32.mbas
-warning: 161	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
-warning: 167	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
-warning: 171	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
-warning: 189	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
-warning: 195	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
-warning: 199	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
-hint: 526	1010	Hint: Unit "MyProject.mbas" has been recompiled	MyProject.mbas
+warning: 163	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 169	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 173	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 191	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 197	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 201	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 322	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 330	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 336	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 340	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 420	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 425	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+hint: 708	1010	Hint: Unit "MyProject.mbas" has been recompiled	MyProject.mbas
 diagnostics: 0	134	Compiled Successfully	E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\MyProject.mbas
-diagnostics: 0	139	All files Compiled in 1170 ms	 
+diagnostics: 0	139	All files Compiled in 936 ms	 
 hint: 0	1144	Used RX (bytes): 32 (100%)   Free RX (bytes): 0 (0%)	Used RX (bytes): 32 (100%)   Free RX (bytes): 0 (0%)
-hint: 0	1144	Static RAM (bytes): 1680   Dynamic RAM (bytes): 368	Static RAM (bytes): 1680   Dynamic RAM (bytes): 368
-hint: 0	1144	Used ROM (bytes): 30558 (93%)  Free ROM (bytes): 2210 (7%)	Used ROM (bytes): 30558 (93%)  Free ROM (bytes): 2210 (7%)
+hint: 0	1144	Static RAM (bytes): 1682   Dynamic RAM (bytes): 366	Static RAM (bytes): 1682   Dynamic RAM (bytes): 366
+hint: 0	1144	Used ROM (bytes): 29208 (89%)  Free ROM (bytes): 3560 (11%)	Used ROM (bytes): 29208 (89%)  Free ROM (bytes): 3560 (11%)
 diagnostics: 0	145	Project Linked Successfully	MyProject.mbpav
 hint: 0	1004	COFF file successfully generated	COFF file successfully generated
-diagnostics: 0	140	Linked in 1498 ms	 
-diagnostics: 0	141	Project 'MyProject.mbpav' completed: 3385 ms	 
-diagnostics: 0	103	Finished successfully: 24 é«‰ÊÌÂ 2017, 22:31:55	MyProject.mbpav
+diagnostics: 0	140	Linked in 1623 ms	 
+diagnostics: 0	141	Project 'MyProject.mbpav' completed: 3167 ms	 
+diagnostics: 0	103	Finished successfully: 24 ›Ê—ÌÂ 2017, 21:09:12	MyProject.mbpav

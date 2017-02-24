@@ -169,20 +169,20 @@ end sub
 
 
      case 2
-          Lcd_0()
-     Lcd_Out(1,1,st)
-     Lcd_Out(2,6,txt)
-     IntToStr(jj, txt)
-     Lcd_Out(2,1,txt)
+'          Lcd_0()
+'     Lcd_Out(1,1,st)
+'     Lcd_Out(2,6,txt)
+'     IntToStr(jj, txt)
+'     Lcd_Out(2,1,txt)
 '          jj=ceil((jj*1024)/100)
           PWM16bit_Change_Duty(ii,_TIMER1_CH_B )
           PWM16bit_Change_Duty(ii,_TIMER1_CH_B )
      case 1
-     Lcd_0()
-     Lcd_Out(1,1,st)
-     Lcd_Out(2,6,txt)
-     IntToStr(jj, txt)
-     Lcd_Out(2,1,txt)
+'     Lcd_0()
+'     Lcd_Out(1,1,st)
+'     Lcd_Out(2,6,txt)
+'     IntToStr(jj, txt)
+'     Lcd_Out(2,1,txt)
 '     jj=floor((jj*1024)/100)
 '           PWM_MAKE_as_max(jj,1024) ii=output
           PWM16bit_Change_Duty(ii,_TIMER1_CH_A )

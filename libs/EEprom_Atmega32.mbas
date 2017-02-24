@@ -362,7 +362,7 @@ sub procedure int_eeprom_ini()     ''internal eeprm of avr
                      if  (EEPROM_Read(0x00)=12)   then
                          Lcd_0() Lcd_Out(1,1,"Reading from " ) Lcd_Out(2,1,"EEprom ..." )
                          eeprom_call_back()
-                         'On_mSec_initial_Heater (1,0,22,100) 'On_mSec_initial_Heater(dim en,mint,sec,prc as byte)'On_mSec_initial_Heater[chanel_ini-1][Heater_Motor_Time_ini-1][Pwm_chanel_ini-1][0]
+                         'On_mSec_initial_Heater (1,1,12,100) 'On_mSec_initial_Heater(dim en,mint,sec,prc as byte)'On_mSec_initial_Heater[chanel_ini-1][Heater_Motor_Time_ini-1][Pwm_chanel_ini-1][0]
 '                         On_mSec_initial_Motor (1,0,2,100)
                          Lcd_Out(1,1,"EEprom  writed befor" )
                          ByteToStr(EEPROM_Read(0x00), txt)
@@ -386,7 +386,7 @@ sub procedure int_eeprom_ini()     ''internal eeprm of avr
 
 
                     end if
-                     Delay_mS(1500)
+'                     Delay_mS(1500)
 end sub
 ''################# EEPROM Initial #################
 

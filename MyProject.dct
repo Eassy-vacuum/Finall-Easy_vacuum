@@ -1152,6 +1152,8 @@ k_set_max
 key_port_init
 key_port_init_mainfunc
 key_test
+key_test_currpted
+key_test_old
 keypad_init
 keypad_key_click
 keypad_key_press
@@ -1808,6 +1810,7 @@ s1d13700_write_text_return_pos
 sd_sector_size
 se
 se_bit
+sec_n1
 sec1
 seconds
 sect
@@ -2901,6 +2904,7 @@ while_satat
 while_satate_in_1
 while_state
 while_state_2
+while_state_2_1
 while_state_2_2
 while_state_blinking
 while_state_import

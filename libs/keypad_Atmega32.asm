@@ -60,9 +60,9 @@ libs/keypad_Atmega32_Show_text:
 	LDD        R16, Y+7
 ;libs/keypad_Atmega32.mbas,150 :: 		if num_ = 1 then
 	CPI        R16, 1
-	BREQ       L_libs/keypad_Atmega32_Show_text220
+	BREQ       L_libs/keypad_Atmega32_Show_text218
 	JMP        L_libs/keypad_Atmega32_Show_text3
-L_libs/keypad_Atmega32_Show_text220:
+L_libs/keypad_Atmega32_Show_text218:
 ; num_ end address is: 16 (R16)
 ;libs/keypad_Atmega32.mbas,151 :: 		LCD_Out(lcd_line_1,1,text_main_1)  ''Show on LCD
 	MOVW       R4, R2
@@ -126,9 +126,9 @@ libs/keypad_Atmega32_show_in_button:
 	PUSH       R8
 	LDI        R27, 0
 	CP         R2, R27
-	BRNE       L_libs/keypad_Atmega32_show_in_button222
+	BRNE       L_libs/keypad_Atmega32_show_in_button220
 	JMP        L_libs/keypad_Atmega32_show_in_button7
-L_libs/keypad_Atmega32_show_in_button222:
+L_libs/keypad_Atmega32_show_in_button220:
 ;libs/keypad_Atmega32.mbas,166 :: 		Show_text(Options_array[First_second_comand-1][lcd_line-1][var_in_lcd_2-1][0],
 	LDS        R16, _First_second_comand+0
 	SUBI       R16, 1
@@ -466,9 +466,9 @@ L_libs/keypad_Atmega32_show_in_button7:
 	ADIW       R30, 1
 	LD         R16, Z
 	CPI        R16, 0
-	BRNE       L_libs/keypad_Atmega32_show_in_button223
+	BRNE       L_libs/keypad_Atmega32_show_in_button221
 	JMP        L_libs/keypad_Atmega32_show_in_button10
-L_libs/keypad_Atmega32_show_in_button223:
+L_libs/keypad_Atmega32_show_in_button221:
 ;libs/keypad_Atmega32.mbas,182 :: 		LCD_Out(lcd_line,case_is_selceted_show[lcd_line-1][1], txt)
 	LDS        R16, _lcd_line+0
 	SUBI       R16, 1
@@ -505,9 +505,9 @@ L_libs/keypad_Atmega32_show_in_button10:
 	ADIW       R30, 1
 	LD         R16, Z
 	CPI        R16, 0
-	BRNE       L_libs/keypad_Atmega32_show_in_button224
+	BRNE       L_libs/keypad_Atmega32_show_in_button222
 	JMP        L_libs/keypad_Atmega32_show_in_button13
-L_libs/keypad_Atmega32_show_in_button224:
+L_libs/keypad_Atmega32_show_in_button222:
 ;libs/keypad_Atmega32.mbas,186 :: 		LCD_Out(lcd_line+1,case_is_selceted_show[lcd_line][1], txt)
 	LDS        R16, _lcd_line+0
 	MOV        R20, R16
@@ -584,13 +584,13 @@ libs/keypad_Atmega32_Keypad__teben:
 ;libs/keypad_Atmega32.mbas,218 :: 		if var_in=0 then
 	LDI        R27, 0
 	CP         R3, R27
-	BRNE       L_libs/keypad_Atmega32_Keypad__teben226
+	BRNE       L_libs/keypad_Atmega32_Keypad__teben224
 	LDI        R27, 0
 	CP         R2, R27
-L_libs/keypad_Atmega32_Keypad__teben226:
-	BREQ       L_libs/keypad_Atmega32_Keypad__teben227
+L_libs/keypad_Atmega32_Keypad__teben224:
+	BREQ       L_libs/keypad_Atmega32_Keypad__teben225
 	JMP        L_libs/keypad_Atmega32_Keypad__teben17
-L_libs/keypad_Atmega32_Keypad__teben227:
+L_libs/keypad_Atmega32_Keypad__teben225:
 ;libs/keypad_Atmega32.mbas,219 :: 		var_in_lcd=var_in+1
 	MOVW       R16, R2
 	SUBI       R16, 255
@@ -633,9 +633,9 @@ L_libs/keypad_Atmega32_Keypad__teben20:
 	LDI        R17, 0
 	CP         R16, R2
 	CPC        R17, R3
-	BRLT       L_libs/keypad_Atmega32_Keypad__teben228
+	BRLT       L_libs/keypad_Atmega32_Keypad__teben226
 	JMP        L_libs/keypad_Atmega32_Keypad__teben25
-L_libs/keypad_Atmega32_Keypad__teben228:
+L_libs/keypad_Atmega32_Keypad__teben226:
 	PUSH       R7
 	PUSH       R6
 	PUSH       R5
@@ -660,12 +660,12 @@ L_libs/keypad_Atmega32_Keypad__teben25:
 	LDD        R16, Y+7
 	LDD        R17, Y+8
 	CPI        R17, 0
-	BRNE       L_libs/keypad_Atmega32_Keypad__teben229
+	BRNE       L_libs/keypad_Atmega32_Keypad__teben227
 	CPI        R16, 0
-L_libs/keypad_Atmega32_Keypad__teben229:
-	BREQ       L_libs/keypad_Atmega32_Keypad__teben230
+L_libs/keypad_Atmega32_Keypad__teben227:
+	BREQ       L_libs/keypad_Atmega32_Keypad__teben228
 	JMP        L_libs/keypad_Atmega32_Keypad__teben28
-L_libs/keypad_Atmega32_Keypad__teben230:
+L_libs/keypad_Atmega32_Keypad__teben228:
 	LDI        R27, 1
 	STD        Y+7, R27
 	LDI        R27, 0
@@ -674,9 +674,9 @@ L_libs/keypad_Atmega32_Keypad__teben28:
 ;libs/keypad_Atmega32.mbas,231 :: 		if num_=2 then num_=0 end if
 	LDD        R16, Y+12
 	CPI        R16, 2
-	BREQ       L_libs/keypad_Atmega32_Keypad__teben231
+	BREQ       L_libs/keypad_Atmega32_Keypad__teben229
 	JMP        L_libs/keypad_Atmega32_Keypad__teben31
-L_libs/keypad_Atmega32_Keypad__teben231:
+L_libs/keypad_Atmega32_Keypad__teben229:
 	LDI        R27, 0
 	STD        Y+12, R27
 L_libs/keypad_Atmega32_Keypad__teben31:
@@ -712,9 +712,9 @@ L_libs/keypad_Atmega32_Keypad__teben34:
 	LDS        R17, _while_state_2_2+0
 	LDI        R16, 5
 	CP         R16, R17
-	BRSH       L_libs/keypad_Atmega32_Keypad__teben232
+	BRSH       L_libs/keypad_Atmega32_Keypad__teben230
 	JMP        L_libs/keypad_Atmega32_Keypad__teben35
-L_libs/keypad_Atmega32_Keypad__teben232:
+L_libs/keypad_Atmega32_Keypad__teben230:
 ;libs/keypad_Atmega32.mbas,259 :: 		while_state_2_2=while_state_2_2+1
 	LDS        R16, _while_state_2_2+0
 	SUBI       R16, 255
@@ -744,9 +744,9 @@ L_libs/keypad_Atmega32_Keypad__teben232:
 	POP        R6
 	POP        R7
 	TST        R16
-	BRNE       L_libs/keypad_Atmega32_Keypad__teben233
+	BRNE       L_libs/keypad_Atmega32_Keypad__teben231
 	JMP        L_libs/keypad_Atmega32_Keypad__teben39
-L_libs/keypad_Atmega32_Keypad__teben233:
+L_libs/keypad_Atmega32_Keypad__teben231:
 ;libs/keypad_Atmega32.mbas,261 :: 		oldstate_up = 1  Buzzer_on_off(1)    while_state_2_2=6  k=1  j=0 k_for=0                 ' Update flag
 	LDI        R27, 1
 	STD        Y+9, R27
@@ -782,12 +782,12 @@ L_libs/keypad_Atmega32_Keypad__teben42:
 	LDD        R16, Y+1
 	LDD        R17, Y+2
 	CPI        R17, 0
-	BRNE       L_libs/keypad_Atmega32_Keypad__teben234
+	BRNE       L_libs/keypad_Atmega32_Keypad__teben232
 	CPI        R16, 0
-L_libs/keypad_Atmega32_Keypad__teben234:
-	BREQ       L_libs/keypad_Atmega32_Keypad__teben235
+L_libs/keypad_Atmega32_Keypad__teben232:
+	BREQ       L_libs/keypad_Atmega32_Keypad__teben233
 	JMP        L_libs/keypad_Atmega32_Keypad__teben43
-L_libs/keypad_Atmega32_Keypad__teben235:
+L_libs/keypad_Atmega32_Keypad__teben233:
 ;libs/keypad_Atmega32.mbas,263 :: 		j=j+1
 	LDD        R16, Y+5
 	LDD        R17, Y+6
@@ -820,9 +820,9 @@ L_libs/keypad_Atmega32_Keypad__teben235:
 	POP        R6
 	POP        R7
 	TST        R16
-	BRNE       L_libs/keypad_Atmega32_Keypad__teben236
+	BRNE       L_libs/keypad_Atmega32_Keypad__teben234
 	JMP        L_libs/keypad_Atmega32_Keypad__teben47
-L_libs/keypad_Atmega32_Keypad__teben236:
+L_libs/keypad_Atmega32_Keypad__teben234:
 ;libs/keypad_Atmega32.mbas,265 :: 		k= (j mod p_max)
 	PUSH       R7
 	PUSH       R6
@@ -857,9 +857,9 @@ L_libs/keypad_Atmega32_Keypad__teben47:
 	LDI        R17, 0
 	CP         R16, R18
 	CPC        R17, R19
-	BRLT       L_libs/keypad_Atmega32_Keypad__teben237
+	BRLT       L_libs/keypad_Atmega32_Keypad__teben235
 	JMP        L_libs/keypad_Atmega32_Keypad__teben50
-L_libs/keypad_Atmega32_Keypad__teben237:
+L_libs/keypad_Atmega32_Keypad__teben235:
 ;libs/keypad_Atmega32.mbas,269 :: 		var_in=p_min
 	MOV        R2, R5
 	LDI        R27, 0
@@ -883,9 +883,9 @@ L_libs/keypad_Atmega32_Keypad__teben51:
 	LDI        R17, 0
 	CP         R16, R18
 	CPC        R17, R19
-	BRLT       L_libs/keypad_Atmega32_Keypad__teben238
+	BRLT       L_libs/keypad_Atmega32_Keypad__teben236
 	JMP        L_libs/keypad_Atmega32_Keypad__teben53
-L_libs/keypad_Atmega32_Keypad__teben238:
+L_libs/keypad_Atmega32_Keypad__teben236:
 ;libs/keypad_Atmega32.mbas,277 :: 		var_in_lcd=1
 	LDI        R27, 1
 	STD        Y+7, R27
@@ -900,12 +900,12 @@ L_libs/keypad_Atmega32_Keypad__teben54:
 	LDD        R16, Y+7
 	LDD        R17, Y+8
 	CPI        R17, 0
-	BRNE       L_libs/keypad_Atmega32_Keypad__teben239
+	BRNE       L_libs/keypad_Atmega32_Keypad__teben237
 	CPI        R16, 0
-L_libs/keypad_Atmega32_Keypad__teben239:
-	BREQ       L_libs/keypad_Atmega32_Keypad__teben240
+L_libs/keypad_Atmega32_Keypad__teben237:
+	BREQ       L_libs/keypad_Atmega32_Keypad__teben238
 	JMP        L_libs/keypad_Atmega32_Keypad__teben56
-L_libs/keypad_Atmega32_Keypad__teben240:
+L_libs/keypad_Atmega32_Keypad__teben238:
 	LDI        R27, 1
 	STD        Y+7, R27
 	LDI        R27, 0
@@ -914,9 +914,9 @@ L_libs/keypad_Atmega32_Keypad__teben56:
 ;libs/keypad_Atmega32.mbas,283 :: 		if num_>=2 then num_=0 end if
 	LDD        R16, Y+12
 	CPI        R16, 2
-	BRSH       L_libs/keypad_Atmega32_Keypad__teben241
+	BRSH       L_libs/keypad_Atmega32_Keypad__teben239
 	JMP        L_libs/keypad_Atmega32_Keypad__teben59
-L_libs/keypad_Atmega32_Keypad__teben241:
+L_libs/keypad_Atmega32_Keypad__teben239:
 	LDI        R27, 0
 	STD        Y+12, R27
 L_libs/keypad_Atmega32_Keypad__teben59:
@@ -957,9 +957,9 @@ L_libs/keypad_Atmega32_Keypad__teben59:
 	POP        R7
 	LDD        R17, Y+9
 	AND        R16, R17
-	BRNE       L_libs/keypad_Atmega32_Keypad__teben242
+	BRNE       L_libs/keypad_Atmega32_Keypad__teben240
 	JMP        L_libs/keypad_Atmega32_Keypad__teben62
-L_libs/keypad_Atmega32_Keypad__teben242:
+L_libs/keypad_Atmega32_Keypad__teben240:
 ;libs/keypad_Atmega32.mbas,289 :: 		oldstate_up = 0  while_state_2_2=6 k_for=1
 	LDI        R27, 0
 	STD        Y+9, R27
@@ -1011,9 +1011,9 @@ L_libs/keypad_Atmega32_Keypad__teben39:
 	POP        R6
 	POP        R7
 	TST        R16
-	BRNE       L_libs/keypad_Atmega32_Keypad__teben243
+	BRNE       L_libs/keypad_Atmega32_Keypad__teben241
 	JMP        L_libs/keypad_Atmega32_Keypad__teben67
-L_libs/keypad_Atmega32_Keypad__teben243:
+L_libs/keypad_Atmega32_Keypad__teben241:
 ;libs/keypad_Atmega32.mbas,311 :: 		oldstate_down = 1    Buzzer_on_off(1)  while_state_2_2=6    k=1  j=0  k_for=0         ' Update flag
 	LDI        R27, 1
 	STD        Y+10, R27
@@ -1049,12 +1049,12 @@ L_libs/keypad_Atmega32_Keypad__teben70:
 	LDD        R16, Y+1
 	LDD        R17, Y+2
 	CPI        R17, 0
-	BRNE       L_libs/keypad_Atmega32_Keypad__teben244
+	BRNE       L_libs/keypad_Atmega32_Keypad__teben242
 	CPI        R16, 0
-L_libs/keypad_Atmega32_Keypad__teben244:
-	BREQ       L_libs/keypad_Atmega32_Keypad__teben245
+L_libs/keypad_Atmega32_Keypad__teben242:
+	BREQ       L_libs/keypad_Atmega32_Keypad__teben243
 	JMP        L_libs/keypad_Atmega32_Keypad__teben71
-L_libs/keypad_Atmega32_Keypad__teben245:
+L_libs/keypad_Atmega32_Keypad__teben243:
 ;libs/keypad_Atmega32.mbas,313 :: 		j=j+1
 	LDD        R16, Y+5
 	LDD        R17, Y+6
@@ -1087,9 +1087,9 @@ L_libs/keypad_Atmega32_Keypad__teben245:
 	POP        R6
 	POP        R7
 	TST        R16
-	BRNE       L_libs/keypad_Atmega32_Keypad__teben246
+	BRNE       L_libs/keypad_Atmega32_Keypad__teben244
 	JMP        L_libs/keypad_Atmega32_Keypad__teben75
-L_libs/keypad_Atmega32_Keypad__teben246:
+L_libs/keypad_Atmega32_Keypad__teben244:
 ;libs/keypad_Atmega32.mbas,315 :: 		k= (j mod p_max)
 	PUSH       R7
 	PUSH       R6
@@ -1123,9 +1123,9 @@ L_libs/keypad_Atmega32_Keypad__teben75:
 	CP         R16, R5
 	LDI        R27, 0
 	CPC        R17, R27
-	BRLT       L_libs/keypad_Atmega32_Keypad__teben247
+	BRLT       L_libs/keypad_Atmega32_Keypad__teben245
 	JMP        L_libs/keypad_Atmega32_Keypad__teben78
-L_libs/keypad_Atmega32_Keypad__teben247:
+L_libs/keypad_Atmega32_Keypad__teben245:
 ;libs/keypad_Atmega32.mbas,322 :: 		var_in=p_max
 	MOV        R2, R4
 	LDI        R27, 0
@@ -1149,9 +1149,9 @@ L_libs/keypad_Atmega32_Keypad__teben79:
 	LDI        R17, 0
 	CP         R18, R16
 	CPC        R19, R17
-	BRLT       L_libs/keypad_Atmega32_Keypad__teben248
+	BRLT       L_libs/keypad_Atmega32_Keypad__teben246
 	JMP        L_libs/keypad_Atmega32_Keypad__teben81
-L_libs/keypad_Atmega32_Keypad__teben248:
+L_libs/keypad_Atmega32_Keypad__teben246:
 ;libs/keypad_Atmega32.mbas,330 :: 		var_in_lcd=Choice_number
 	STD        Y+7, R6
 	LDI        R27, 0
@@ -1165,12 +1165,12 @@ L_libs/keypad_Atmega32_Keypad__teben82:
 	LDD        R16, Y+7
 	LDD        R17, Y+8
 	CPI        R17, 0
-	BRNE       L_libs/keypad_Atmega32_Keypad__teben249
+	BRNE       L_libs/keypad_Atmega32_Keypad__teben247
 	CPI        R16, 0
-L_libs/keypad_Atmega32_Keypad__teben249:
-	BREQ       L_libs/keypad_Atmega32_Keypad__teben250
+L_libs/keypad_Atmega32_Keypad__teben247:
+	BREQ       L_libs/keypad_Atmega32_Keypad__teben248
 	JMP        L_libs/keypad_Atmega32_Keypad__teben84
-L_libs/keypad_Atmega32_Keypad__teben250:
+L_libs/keypad_Atmega32_Keypad__teben248:
 	LDI        R27, 1
 	STD        Y+7, R27
 	LDI        R27, 0
@@ -1179,9 +1179,9 @@ L_libs/keypad_Atmega32_Keypad__teben84:
 ;libs/keypad_Atmega32.mbas,336 :: 		if num_>=2 then num_=0 end if
 	LDD        R16, Y+12
 	CPI        R16, 2
-	BRSH       L_libs/keypad_Atmega32_Keypad__teben251
+	BRSH       L_libs/keypad_Atmega32_Keypad__teben249
 	JMP        L_libs/keypad_Atmega32_Keypad__teben87
-L_libs/keypad_Atmega32_Keypad__teben251:
+L_libs/keypad_Atmega32_Keypad__teben249:
 	LDI        R27, 0
 	STD        Y+12, R27
 L_libs/keypad_Atmega32_Keypad__teben87:
@@ -1222,9 +1222,9 @@ L_libs/keypad_Atmega32_Keypad__teben87:
 	POP        R7
 	LDD        R17, Y+10
 	AND        R16, R17
-	BRNE       L_libs/keypad_Atmega32_Keypad__teben252
+	BRNE       L_libs/keypad_Atmega32_Keypad__teben250
 	JMP        L_libs/keypad_Atmega32_Keypad__teben90
-L_libs/keypad_Atmega32_Keypad__teben252:
+L_libs/keypad_Atmega32_Keypad__teben250:
 ;libs/keypad_Atmega32.mbas,364 :: 		oldstate_down=0  while_state_2_2=6  k_for=1
 	LDI        R27, 0
 	STD        Y+10, R27
@@ -1278,9 +1278,9 @@ L_libs/keypad_Atmega32_Keypad__teben67:
 	CALL       _Button+0
 	CPI        R16, 0
 	LDI        R27, 0
-	BREQ       L_libs/keypad_Atmega32_Keypad__teben253
+	BREQ       L_libs/keypad_Atmega32_Keypad__teben251
 	LDI        R27, 255
-L_libs/keypad_Atmega32_Keypad__teben253:
+L_libs/keypad_Atmega32_Keypad__teben251:
 	MOV        R16, R27
 	STD        Y+25, R16
 ;libs/keypad_Atmega32.mbas,390 :: 		or (Button(Ok_SW_Port,Ok_SW_bit,swich_time,Off_state)<> 0)then    ' Detect logical one setting key
@@ -1301,14 +1301,14 @@ L_libs/keypad_Atmega32_Keypad__teben253:
 	POP        R7
 	CPI        R16, 0
 	LDI        R17, 0
-	BREQ       L_libs/keypad_Atmega32_Keypad__teben254
+	BREQ       L_libs/keypad_Atmega32_Keypad__teben252
 	LDI        R17, 255
-L_libs/keypad_Atmega32_Keypad__teben254:
+L_libs/keypad_Atmega32_Keypad__teben252:
 	LDD        R16, Y+25
 	OR         R16, R17
-	BRNE       L_libs/keypad_Atmega32_Keypad__teben255
+	BRNE       L_libs/keypad_Atmega32_Keypad__teben253
 	JMP        L_libs/keypad_Atmega32_Keypad__teben95
-L_libs/keypad_Atmega32_Keypad__teben255:
+L_libs/keypad_Atmega32_Keypad__teben253:
 ;libs/keypad_Atmega32.mbas,391 :: 		oldstate_men_ok = 1   Buzzer_on_off(1)    while_state_2_2=6                ' Update flag
 	LDI        R27, 1
 	STD        Y+11, R27
@@ -1357,9 +1357,9 @@ L_libs/keypad_Atmega32_Keypad__teben95:
 	CLT
 	SBRC       R1, BitPos(_while_state_import+0)
 	SBRS       R0, BitPos(_oldstate_3+0)
-	RJMP       L_libs/keypad_Atmega32_Keypad__teben259
+	RJMP       L_libs/keypad_Atmega32_Keypad__teben257
 	SET
-L_libs/keypad_Atmega32_Keypad__teben259:
+L_libs/keypad_Atmega32_Keypad__teben257:
 	BLD        R4, 0
 	LDI        R27, 1
 	MOV        R6, R27
@@ -1383,9 +1383,9 @@ L_libs/keypad_Atmega32_Keypad__teben259:
 	AND        R17, R16
 	LDD        R16, Y+25
 	OR         R16, R17
-	BRNE       L_libs/keypad_Atmega32_Keypad__teben260
+	BRNE       L_libs/keypad_Atmega32_Keypad__teben258
 	JMP        L_libs/keypad_Atmega32_Keypad__teben98
-L_libs/keypad_Atmega32_Keypad__teben260:
+L_libs/keypad_Atmega32_Keypad__teben258:
 ;libs/keypad_Atmega32.mbas,395 :: 		oldstate_men_ok = 0
 	LDI        R27, 0
 	STD        Y+11, R27
@@ -1403,9 +1403,9 @@ L_libs/keypad_Atmega32_Keypad__teben260:
 ;libs/keypad_Atmega32.mbas,398 :: 		if k_set=K_set_max then
 	LDS        R16, _K_set_max+0
 	CP         R17, R16
-	BREQ       L_libs/keypad_Atmega32_Keypad__teben261
+	BREQ       L_libs/keypad_Atmega32_Keypad__teben259
 	JMP        L_libs/keypad_Atmega32_Keypad__teben101
-L_libs/keypad_Atmega32_Keypad__teben261:
+L_libs/keypad_Atmega32_Keypad__teben259:
 ;libs/keypad_Atmega32.mbas,399 :: 		k_set=1
 	LDI        R27, 1
 	STS        _k_set+0, R27
@@ -1586,9 +1586,9 @@ L_libs/keypad_Atmega32_Keypad__teben101:
 	ADC        R31, R17
 	LD         R16, Z
 	CPI        R16, 0
-	BRNE       L_libs/keypad_Atmega32_Keypad__teben262
+	BRNE       L_libs/keypad_Atmega32_Keypad__teben260
 	JMP        L_libs/keypad_Atmega32_Keypad__teben104
-L_libs/keypad_Atmega32_Keypad__teben262:
+L_libs/keypad_Atmega32_Keypad__teben260:
 ;libs/keypad_Atmega32.mbas,409 :: 		Bytetostr(var_in,txt)
 	PUSH       R7
 	PUSH       R6
@@ -1641,9 +1641,9 @@ L_libs/keypad_Atmega32_Keypad__teben104:
 	ADC        R31, R17
 	LD         R16, Z
 	CPI        R16, 0
-	BRNE       L_libs/keypad_Atmega32_Keypad__teben263
+	BRNE       L_libs/keypad_Atmega32_Keypad__teben261
 	JMP        L_libs/keypad_Atmega32_Keypad__teben107
-L_libs/keypad_Atmega32_Keypad__teben263:
+L_libs/keypad_Atmega32_Keypad__teben261:
 ;libs/keypad_Atmega32.mbas,413 :: 		Bytetostr(var_in,txt)
 	PUSH       R7
 	PUSH       R6
@@ -1754,9 +1754,9 @@ L_libs/keypad_Atmega32_key_rest_all120:
 L_libs/keypad_Atmega32_key_rest_all124:
 	LDD        R16, Y+1
 	CP         R2, R16
-	BRSH       L_libs/keypad_Atmega32_key_rest_all265
+	BRSH       L_libs/keypad_Atmega32_key_rest_all263
 	JMP        L_libs/keypad_Atmega32_key_rest_all128
-L_libs/keypad_Atmega32_key_rest_all265:
+L_libs/keypad_Atmega32_key_rest_all263:
 ;libs/keypad_Atmega32.mbas,433 :: 		Options_array[First_second_comand-1][lcd_line-1][var_in-1][0]= "                "
 	LDD        R16, Y+0
 	SUBI       R16, 1
@@ -1971,9 +1971,9 @@ L_libs/keypad_Atmega32_key_rest_all265:
 ;libs/keypad_Atmega32.mbas,438 :: 		next var_in
 	LDD        R16, Y+1
 	CP         R16, R2
-	BRNE       L_libs/keypad_Atmega32_key_rest_all266
+	BRNE       L_libs/keypad_Atmega32_key_rest_all264
 	JMP        L_libs/keypad_Atmega32_key_rest_all128
-L_libs/keypad_Atmega32_key_rest_all266:
+L_libs/keypad_Atmega32_key_rest_all264:
 	LDD        R16, Y+1
 	SUBI       R16, 255
 	STD        Y+1, R16
@@ -1982,9 +1982,9 @@ L_libs/keypad_Atmega32_key_rest_all128:
 ;libs/keypad_Atmega32.mbas,439 :: 		next lcd_line
 	LDD        R16, Y+2
 	CPI        R16, 2
-	BRNE       L_libs/keypad_Atmega32_key_rest_all267
+	BRNE       L_libs/keypad_Atmega32_key_rest_all265
 	JMP        L_libs/keypad_Atmega32_key_rest_all123
-L_libs/keypad_Atmega32_key_rest_all267:
+L_libs/keypad_Atmega32_key_rest_all265:
 	LDD        R16, Y+2
 	SUBI       R16, 255
 	STD        Y+2, R16
@@ -1993,9 +1993,9 @@ L_libs/keypad_Atmega32_key_rest_all123:
 ;libs/keypad_Atmega32.mbas,440 :: 		next First_second_comand
 	LDD        R16, Y+0
 	CPI        R16, 2
-	BRNE       L_libs/keypad_Atmega32_key_rest_all268
+	BRNE       L_libs/keypad_Atmega32_key_rest_all266
 	JMP        L_libs/keypad_Atmega32_key_rest_all118
-L_libs/keypad_Atmega32_key_rest_all268:
+L_libs/keypad_Atmega32_key_rest_all266:
 	LDD        R16, Y+0
 	SUBI       R16, 255
 	STD        Y+0, R16
@@ -2045,9 +2045,9 @@ libs/keypad_Atmega32_key_choice_select:
 	MOV        R2, R27
 L_libs/keypad_Atmega32_key_choice_select130:
 	CP         R3, R2
-	BRSH       L_libs/keypad_Atmega32_key_choice_select270
+	BRSH       L_libs/keypad_Atmega32_key_choice_select268
 	JMP        L_libs/keypad_Atmega32_key_choice_select134
-L_libs/keypad_Atmega32_key_choice_select270:
+L_libs/keypad_Atmega32_key_choice_select268:
 ;libs/keypad_Atmega32.mbas,458 :: 		Options_array[First_second_comand-1][lcd_line-1][var_in-1][0]= one_+" "+two_+" "+three_ ''"Auto Manul <Ex>"
 	LDS        R16, _First_second_comand+0
 	SUBI       R16, 1
@@ -2164,9 +2164,9 @@ L_libs/keypad_Atmega32_key_choice_select270:
 	ST         X+, R16
 ;libs/keypad_Atmega32.mbas,463 :: 		next var_in
 	CP         R2, R3
-	BRNE       L_libs/keypad_Atmega32_key_choice_select271
+	BRNE       L_libs/keypad_Atmega32_key_choice_select269
 	JMP        L_libs/keypad_Atmega32_key_choice_select134
-L_libs/keypad_Atmega32_key_choice_select271:
+L_libs/keypad_Atmega32_key_choice_select269:
 	MOV        R16, R2
 	SUBI       R16, 255
 	MOV        R2, R16
@@ -2362,9 +2362,9 @@ L_libs/keypad_Atmega32_key_choice_select134:
 	MOV        R2, R27
 L_libs/keypad_Atmega32_key_choice_select135:
 	CP         R3, R2
-	BRSH       L_libs/keypad_Atmega32_key_choice_select272
+	BRSH       L_libs/keypad_Atmega32_key_choice_select270
 	JMP        L_libs/keypad_Atmega32_key_choice_select139
-L_libs/keypad_Atmega32_key_choice_select272:
+L_libs/keypad_Atmega32_key_choice_select270:
 ;libs/keypad_Atmega32.mbas,476 :: 		Options_array[First_second_comand-1][lcd_line][var_in-1][0]=" is selcted"
 	LDS        R16, _First_second_comand+0
 	SUBI       R16, 1
@@ -2426,9 +2426,9 @@ L_libs/keypad_Atmega32_key_choice_select272:
 	ST         Z+, R27
 ;libs/keypad_Atmega32.mbas,480 :: 		next var_in
 	CP         R2, R3
-	BRNE       L_libs/keypad_Atmega32_key_choice_select273
+	BRNE       L_libs/keypad_Atmega32_key_choice_select271
 	JMP        L_libs/keypad_Atmega32_key_choice_select139
-L_libs/keypad_Atmega32_key_choice_select273:
+L_libs/keypad_Atmega32_key_choice_select271:
 	MOV        R16, R2
 	SUBI       R16, 255
 	MOV        R2, R16
@@ -3105,9 +3105,9 @@ libs/keypad_Atmega32_key_Prog_select:
 	MOV        R2, R27
 L_libs/keypad_Atmega32_key_Prog_select142:
 	CP         R3, R2
-	BRSH       L_libs/keypad_Atmega32_key_Prog_select276
+	BRSH       L_libs/keypad_Atmega32_key_Prog_select274
 	JMP        L_libs/keypad_Atmega32_key_Prog_select146
-L_libs/keypad_Atmega32_key_Prog_select276:
+L_libs/keypad_Atmega32_key_Prog_select274:
 ;libs/keypad_Atmega32.mbas,513 :: 		Options_array[First_second_comand-1][lcd_line-1][var_in-1][0]= "Pls Chs Prg Num"
 	LDS        R16, _First_second_comand+0
 	SUBI       R16, 1
@@ -3316,9 +3316,9 @@ L_libs/keypad_Atmega32_key_Prog_select276:
 	ST         Z+, R27
 ;libs/keypad_Atmega32.mbas,518 :: 		next var_in
 	CP         R2, R3
-	BRNE       L_libs/keypad_Atmega32_key_Prog_select277
+	BRNE       L_libs/keypad_Atmega32_key_Prog_select275
 	JMP        L_libs/keypad_Atmega32_key_Prog_select146
-L_libs/keypad_Atmega32_key_Prog_select277:
+L_libs/keypad_Atmega32_key_Prog_select275:
 	MOV        R16, R2
 	SUBI       R16, 255
 	MOV        R2, R16
@@ -3345,9 +3345,9 @@ L_libs/keypad_Atmega32_key_Prog_select146:
 	MOV        R2, R27
 L_libs/keypad_Atmega32_key_Prog_select147:
 	CP         R3, R2
-	BRSH       L_libs/keypad_Atmega32_key_Prog_select278
+	BRSH       L_libs/keypad_Atmega32_key_Prog_select276
 	JMP        L_libs/keypad_Atmega32_key_Prog_select151
-L_libs/keypad_Atmega32_key_Prog_select278:
+L_libs/keypad_Atmega32_key_Prog_select276:
 ;libs/keypad_Atmega32.mbas,530 :: 		Options_array[First_second_comand-1][lcd_line-1][var_in-1][0]="Program     is selcted"
 	LDS        R16, _First_second_comand+0
 	SUBI       R16, 1
@@ -3512,9 +3512,9 @@ L_libs/keypad_Atmega32_key_Prog_select278:
 	ST         Z+, R27
 ;libs/keypad_Atmega32.mbas,536 :: 		next var_in
 	CP         R2, R3
-	BRNE       L_libs/keypad_Atmega32_key_Prog_select279
+	BRNE       L_libs/keypad_Atmega32_key_Prog_select277
 	JMP        L_libs/keypad_Atmega32_key_Prog_select151
-L_libs/keypad_Atmega32_key_Prog_select279:
+L_libs/keypad_Atmega32_key_Prog_select277:
 	MOV        R16, R2
 	SUBI       R16, 255
 	MOV        R2, R16
@@ -3582,9 +3582,9 @@ libs/keypad_Atmega32_Key_Time_Select:
 	MOV        R2, R27
 L_libs/keypad_Atmega32_Key_Time_Select153:
 	CP         R3, R2
-	BRSH       L_libs/keypad_Atmega32_Key_Time_Select281
+	BRSH       L_libs/keypad_Atmega32_Key_Time_Select279
 	JMP        L_libs/keypad_Atmega32_Key_Time_Select157
-L_libs/keypad_Atmega32_Key_Time_Select281:
+L_libs/keypad_Atmega32_Key_Time_Select279:
 ;libs/keypad_Atmega32.mbas,557 :: 		Options_array[First_second_comand-1][lcd_line-1][var_in-1][0]= "Time:Heatr Motor"
 	LDS        R16, _First_second_comand+0
 	SUBI       R16, 1
@@ -3726,9 +3726,9 @@ L_libs/keypad_Atmega32_Key_Time_Select281:
 	ST         Z+, R27
 ;libs/keypad_Atmega32.mbas,562 :: 		next var_in
 	CP         R2, R3
-	BRNE       L_libs/keypad_Atmega32_Key_Time_Select282
+	BRNE       L_libs/keypad_Atmega32_Key_Time_Select280
 	JMP        L_libs/keypad_Atmega32_Key_Time_Select157
-L_libs/keypad_Atmega32_Key_Time_Select282:
+L_libs/keypad_Atmega32_Key_Time_Select280:
 	MOV        R16, R2
 	SUBI       R16, 255
 	MOV        R2, R16
@@ -4157,9 +4157,9 @@ libs/keypad_Atmega32_Key_Heat_mot_Time:
 	MOV        R2, R27
 L_libs/keypad_Atmega32_Key_Heat_mot_Time159:
 	CP         R3, R2
-	BRSH       L_libs/keypad_Atmega32_Key_Heat_mot_Time284
+	BRSH       L_libs/keypad_Atmega32_Key_Heat_mot_Time282
 	JMP        L_libs/keypad_Atmega32_Key_Heat_mot_Time163
-L_libs/keypad_Atmega32_Key_Heat_mot_Time284:
+L_libs/keypad_Atmega32_Key_Heat_mot_Time282:
 ;libs/keypad_Atmega32.mbas,616 :: 		Options_array[First_second_comand-1][lcd_line-1][var_in-1][0]= ht_or_mt+":>>>"+min_sec+"<<<"
 	LDS        R16, _First_second_comand+0
 	SUBI       R16, 1
@@ -4361,9 +4361,9 @@ L_libs/keypad_Atmega32_Key_Heat_mot_Time284:
 	ST         Z+, R27
 ;libs/keypad_Atmega32.mbas,622 :: 		next var_in
 	CP         R2, R3
-	BRNE       L_libs/keypad_Atmega32_Key_Heat_mot_Time285
+	BRNE       L_libs/keypad_Atmega32_Key_Heat_mot_Time283
 	JMP        L_libs/keypad_Atmega32_Key_Heat_mot_Time163
-L_libs/keypad_Atmega32_Key_Heat_mot_Time285:
+L_libs/keypad_Atmega32_Key_Heat_mot_Time283:
 	MOV        R16, R2
 	SUBI       R16, 255
 	MOV        R2, R16
@@ -4379,9 +4379,9 @@ L_libs/keypad_Atmega32_Key_Heat_mot_Time163:
 	MOV        R2, R27
 L_libs/keypad_Atmega32_Key_Heat_mot_Time164:
 	CP         R3, R2
-	BRSH       L_libs/keypad_Atmega32_Key_Heat_mot_Time286
+	BRSH       L_libs/keypad_Atmega32_Key_Heat_mot_Time284
 	JMP        L_libs/keypad_Atmega32_Key_Heat_mot_Time168
-L_libs/keypad_Atmega32_Key_Heat_mot_Time286:
+L_libs/keypad_Atmega32_Key_Heat_mot_Time284:
 ;libs/keypad_Atmega32.mbas,637 :: 		Options_array[First_second_comand-1][lcd_line-1][var_in-1][0]=ht_or_mt+" Timer Sett"
 	LDS        R16, _First_second_comand+0
 	SUBI       R16, 1
@@ -4508,9 +4508,9 @@ L_libs/keypad_Atmega32_Key_Heat_mot_Time286:
 	ST         Z+, R27
 ;libs/keypad_Atmega32.mbas,641 :: 		next var_in
 	CP         R2, R3
-	BRNE       L_libs/keypad_Atmega32_Key_Heat_mot_Time287
+	BRNE       L_libs/keypad_Atmega32_Key_Heat_mot_Time285
 	JMP        L_libs/keypad_Atmega32_Key_Heat_mot_Time168
-L_libs/keypad_Atmega32_Key_Heat_mot_Time287:
+L_libs/keypad_Atmega32_Key_Heat_mot_Time285:
 	MOV        R16, R2
 	SUBI       R16, 255
 	MOV        R2, R16
@@ -4591,9 +4591,9 @@ libs/keypad_Atmega32_Key_exit_back:
 	MOV        R2, R27
 L_libs/keypad_Atmega32_Key_exit_back170:
 	CP         R3, R2
-	BRSH       L_libs/keypad_Atmega32_Key_exit_back289
+	BRSH       L_libs/keypad_Atmega32_Key_exit_back287
 	JMP        L_libs/keypad_Atmega32_Key_exit_back174
-L_libs/keypad_Atmega32_Key_exit_back289:
+L_libs/keypad_Atmega32_Key_exit_back287:
 ;libs/keypad_Atmega32.mbas,664 :: 		Options_array[First_second_comand-1][lcd_line-1][var_in-1][0]= "<"+Back_+">"+"<"+Save_+">"
 	LDS        R16, _First_second_comand+0
 	SUBI       R16, 1
@@ -4714,9 +4714,9 @@ L_libs/keypad_Atmega32_Key_exit_back289:
 	ST         X+, R16
 ;libs/keypad_Atmega32.mbas,669 :: 		next var_in
 	CP         R2, R3
-	BRNE       L_libs/keypad_Atmega32_Key_exit_back290
+	BRNE       L_libs/keypad_Atmega32_Key_exit_back288
 	JMP        L_libs/keypad_Atmega32_Key_exit_back174
-L_libs/keypad_Atmega32_Key_exit_back290:
+L_libs/keypad_Atmega32_Key_exit_back288:
 	MOV        R16, R2
 	SUBI       R16, 255
 	MOV        R2, R16
@@ -5208,9 +5208,9 @@ L__Keypad_start177:
 ;libs/keypad_Atmega32.mbas,718 :: 		case 1
 	LDD        R16, Y+0
 	CPI        R16, 1
-	BREQ       L__Keypad_start292
+	BREQ       L__Keypad_start290
 	JMP        L__Keypad_start184
-L__Keypad_start292:
+L__Keypad_start290:
 ;libs/keypad_Atmega32.mbas,719 :: 		Choice_number=7 while_state_2=0
 	LDI        R27, 7
 	STS        _Choice_number+0, R27
@@ -5273,9 +5273,9 @@ L__Keypad_start184:
 ;libs/keypad_Atmega32.mbas,728 :: 		case 2
 	LDD        R16, Y+0
 	CPI        R16, 2
-	BREQ       L__Keypad_start293
+	BREQ       L__Keypad_start291
 	JMP        L__Keypad_start187
-L__Keypad_start293:
+L__Keypad_start291:
 ;libs/keypad_Atmega32.mbas,729 :: 		Choice_number=3    while_state_2=0  ''first level
 	LDI        R27, 3
 	STS        _Choice_number+0, R27
@@ -5369,9 +5369,9 @@ L__Keypad_start189:
 ;libs/keypad_Atmega32.mbas,741 :: 		case 1
 	LDD        R16, Y+1
 	CPI        R16, 1
-	BREQ       L__Keypad_start294
+	BREQ       L__Keypad_start292
 	JMP        L__Keypad_start196
-L__Keypad_start294:
+L__Keypad_start292:
 ;libs/keypad_Atmega32.mbas,742 :: 		Choice_number=7 while_state_import=0
 	LDI        R27, 7
 	STS        _Choice_number+0, R27
@@ -5548,7 +5548,7 @@ L__Keypad_start197:
 	CLR        R3
 	LDD        R2, Y+2
 	CALL       _Easy_vacuum_95_10_4_simple_working+0
-;libs/keypad_Atmega32.mbas,760 :: 		Lcd_0()Lcd_Out(1,1,"Saving in") Lcd_Out(2,1,"EEPROM") delay_ms(200)
+;libs/keypad_Atmega32.mbas,760 :: 		Lcd_0()Lcd_Out(1,1,"Saving in") Lcd_Out(2,1,"Memory") delay_ms(200)
 	CALL       _Lcd_0+0
 	MOVW       R30, R28
 	ADIW       R30, 8
@@ -5583,17 +5583,17 @@ L__Keypad_start197:
 	CALL       _Lcd_Out+0
 	MOVW       R30, R28
 	ADIW       R30, 8
-	LDI        R27, 69
-	ST         Z+, R27
-	LDI        R27, 69
-	ST         Z+, R27
-	LDI        R27, 80
-	ST         Z+, R27
-	LDI        R27, 82
-	ST         Z+, R27
-	LDI        R27, 79
-	ST         Z+, R27
 	LDI        R27, 77
+	ST         Z+, R27
+	LDI        R27, 101
+	ST         Z+, R27
+	LDI        R27, 109
+	ST         Z+, R27
+	LDI        R27, 111
+	ST         Z+, R27
+	LDI        R27, 114
+	ST         Z+, R27
+	LDI        R27, 121
 	ST         Z+, R27
 	LDI        R27, 0
 	ST         Z+, R27
@@ -5625,9 +5625,9 @@ L__Keypad_start196:
 ;libs/keypad_Atmega32.mbas,764 :: 		case 2
 	LDD        R16, Y+1
 	CPI        R16, 2
-	BREQ       L__Keypad_start295
+	BREQ       L__Keypad_start293
 	JMP        L__Keypad_start203
-L__Keypad_start295:
+L__Keypad_start293:
 ;libs/keypad_Atmega32.mbas,765 :: 		Choice_number=7 ''while_state_import=0
 	LDI        R27, 7
 	STS        _Choice_number+0, R27
@@ -6150,7 +6150,7 @@ L__Keypad_start295:
 	ADIW       R30, 2
 	LDD        R16, Y+6
 	ST         Z, R16
-;libs/keypad_Atmega32.mbas,807 :: 		Lcd_0()Lcd_Out(1,1,"Saving in") Lcd_Out(2,1,"EEPROM") delay_ms(200)
+;libs/keypad_Atmega32.mbas,807 :: 		Lcd_0()Lcd_Out(1,1,"Saving in") Lcd_Out(2,1,"Memory") delay_ms(200)
 	CALL       _Lcd_0+0
 	MOVW       R30, R28
 	ADIW       R30, 8
@@ -6185,17 +6185,17 @@ L__Keypad_start295:
 	CALL       _Lcd_Out+0
 	MOVW       R30, R28
 	ADIW       R30, 8
-	LDI        R27, 69
-	ST         Z+, R27
-	LDI        R27, 69
-	ST         Z+, R27
-	LDI        R27, 80
-	ST         Z+, R27
-	LDI        R27, 82
-	ST         Z+, R27
-	LDI        R27, 79
-	ST         Z+, R27
 	LDI        R27, 77
+	ST         Z+, R27
+	LDI        R27, 101
+	ST         Z+, R27
+	LDI        R27, 109
+	ST         Z+, R27
+	LDI        R27, 111
+	ST         Z+, R27
+	LDI        R27, 114
+	ST         Z+, R27
+	LDI        R27, 121
 	ST         Z+, R27
 	LDI        R27, 0
 	ST         Z+, R27
@@ -6231,9 +6231,9 @@ L__Keypad_start203:
 ;libs/keypad_Atmega32.mbas,810 :: 		case 3
 	LDD        R16, Y+1
 	CPI        R16, 3
-	BREQ       L__Keypad_start296
+	BREQ       L__Keypad_start294
 	JMP        L__Keypad_start208
-L__Keypad_start296:
+L__Keypad_start294:
 ;libs/keypad_Atmega32.mbas,811 :: 		while_state_import=0
 	LDS        R27, _while_state_import+0
 	CBR        R27, BitMask(_while_state_import+0)
@@ -6361,86 +6361,14 @@ L__Keypad_start193:
 ;libs/keypad_Atmega32.mbas,814 :: 		wend
 	JMP        L__Keypad_start189
 L__Keypad_start190:
-;libs/keypad_Atmega32.mbas,815 :: 		Lcd_0()Lcd_Out(1,1,"END keypad") Lcd_Out(2,1,"EEPROM") delay_ms(1000)
-	PUSH       R2
-	CALL       _Lcd_0+0
-	MOVW       R30, R28
-	ADIW       R30, 8
-	LDI        R27, 69
-	ST         Z+, R27
-	LDI        R27, 78
-	ST         Z+, R27
-	LDI        R27, 68
-	ST         Z+, R27
-	LDI        R27, 32
-	ST         Z+, R27
-	LDI        R27, 107
-	ST         Z+, R27
-	LDI        R27, 101
-	ST         Z+, R27
-	LDI        R27, 121
-	ST         Z+, R27
-	LDI        R27, 112
-	ST         Z+, R27
-	LDI        R27, 97
-	ST         Z+, R27
-	LDI        R27, 100
-	ST         Z+, R27
-	LDI        R27, 0
-	ST         Z+, R27
-	MOVW       R16, R28
-	SUBI       R16, 248
-	SBCI       R17, 255
-	MOVW       R4, R16
-	LDI        R27, 1
-	MOV        R3, R27
-	LDI        R27, 1
-	MOV        R2, R27
-	CALL       _Lcd_Out+0
-	MOVW       R30, R28
-	ADIW       R30, 8
-	LDI        R27, 69
-	ST         Z+, R27
-	LDI        R27, 69
-	ST         Z+, R27
-	LDI        R27, 80
-	ST         Z+, R27
-	LDI        R27, 82
-	ST         Z+, R27
-	LDI        R27, 79
-	ST         Z+, R27
-	LDI        R27, 77
-	ST         Z+, R27
-	LDI        R27, 0
-	ST         Z+, R27
-	MOVW       R16, R28
-	SUBI       R16, 248
-	SBCI       R17, 255
-	MOVW       R4, R16
-	LDI        R27, 1
-	MOV        R3, R27
-	LDI        R27, 2
-	MOV        R2, R27
-	CALL       _Lcd_Out+0
-	POP        R2
-	LDI        R18, 41
-	LDI        R17, 150
-	LDI        R16, 128
-L__Keypad_start211:
-	DEC        R16
-	BRNE       L__Keypad_start211
-	DEC        R17
-	BRNE       L__Keypad_start211
-	DEC        R18
-	BRNE       L__Keypad_start211
 	JMP        L__Keypad_start181
 L__Keypad_start187:
 ;libs/keypad_Atmega32.mbas,816 :: 		case 3
 	LDD        R16, Y+0
 	CPI        R16, 3
-	BREQ       L__Keypad_start297
-	JMP        L__Keypad_start215
-L__Keypad_start297:
+	BREQ       L__Keypad_start295
+	JMP        L__Keypad_start213
+L__Keypad_start295:
 ;libs/keypad_Atmega32.mbas,817 :: 		while_state_2=0
 	LDS        R27, _while_state_2+0
 	CBR        R27, BitMask(_while_state_2+0)
@@ -6554,16 +6482,16 @@ L__Keypad_start297:
 	LDI        R18, 9
 	LDI        R17, 30
 	LDI        R16, 229
-L__Keypad_start216:
+L__Keypad_start214:
 	DEC        R16
-	BRNE       L__Keypad_start216
+	BRNE       L__Keypad_start214
 	DEC        R17
-	BRNE       L__Keypad_start216
+	BRNE       L__Keypad_start214
 	DEC        R18
-	BRNE       L__Keypad_start216
+	BRNE       L__Keypad_start214
 	NOP
 	JMP        L__Keypad_start181
-L__Keypad_start215:
+L__Keypad_start213:
 L__Keypad_start181:
 ;libs/keypad_Atmega32.mbas,820 :: 		wend
 	JMP        L__Keypad_start177
