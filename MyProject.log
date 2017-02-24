@@ -123,12 +123,12 @@ warning: 420	1509	Warning: Implicit typecast performed from "double" to "byte"	M
 warning: 425	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
 hint: 708	1010	Hint: Unit "MyProject.mbas" has been recompiled	MyProject.mbas
 diagnostics: 0	134	Compiled Successfully	E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\MyProject.mbas
-diagnostics: 0	139	All files Compiled in 1279 ms	 
+diagnostics: 0	139	All files Compiled in 1295 ms	 
 hint: 0	1144	Used RX (bytes): 32 (100%)   Free RX (bytes): 0 (0%)	Used RX (bytes): 32 (100%)   Free RX (bytes): 0 (0%)
 hint: 0	1144	Static RAM (bytes): 1682   Dynamic RAM (bytes): 366	Static RAM (bytes): 1682   Dynamic RAM (bytes): 366
 hint: 0	1144	Used ROM (bytes): 30120 (92%)  Free ROM (bytes): 2648 (8%)	Used ROM (bytes): 30120 (92%)  Free ROM (bytes): 2648 (8%)
 diagnostics: 0	145	Project Linked Successfully	MyProject.mbpav
 hint: 0	1004	COFF file successfully generated	COFF file successfully generated
-diagnostics: 0	140	Linked in 2324 ms	 
-diagnostics: 0	141	Project 'MyProject.mbpav' completed: 4274 ms	 
-diagnostics: 0	103	Finished successfully: 24 ›Ê—ÌÂ 2017, 21:51:57	MyProject.mbpav
+diagnostics: 0	140	Linked in 2371 ms	 
+diagnostics: 0	141	Project 'MyProject.mbpav' completed: 4462 ms	 
+diagnostics: 0	103	Finished successfully: 24 ›Ê—ÌÂ 2017, 21:54:28	MyProject.mbpav
