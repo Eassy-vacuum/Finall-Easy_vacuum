@@ -729,7 +729,7 @@ end sub
              Choice_number=3    while_state_2=0  ''first level
              Heater_motor_index=2 Pwm_chanel_main=3 chanel=chanel_
              key_choice_select(1,Choice_number,"Auto","Manul","<Ex>")
-             var_main[1]=Keypad__teben(2,Choice_number,1,Choice_number,0)''Keypad__teben(dim var_in,p_max,p_min,Choice_number,var_in_old_on_off as byte )
+             var_main[1]=Keypad__teben(1,Choice_number,1,Choice_number,0)''Keypad__teben(dim var_in,p_max,p_min,Choice_number,var_in_old_on_off as byte )
 
 '                  ByteToStr(var_main[1], txt_byte_min)
 '                          Lcd_0()Lcd_Out(1,1,"Prog is:") Lcd_Out(2,1,txt_byte_min) delay_ms(2000)

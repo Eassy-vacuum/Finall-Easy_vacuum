@@ -478,7 +478,9 @@ sub procedure Easy_vacuum_95_10_4_simple_working(dim program_number as byte,dim 
 '                                  pwm_precnt=Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][3]
 '                                  PWM_MAKE (pwm_precnt,255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
                                end if
-
+                               if (Button(HET_SW_Port,HET_SW_bit, swich_time, 0)) then
+                                  j=2
+                               end if
 
                                Heater_relay_on()
                                'if (while_state_import_main=0) then
@@ -503,7 +505,7 @@ sub procedure Easy_vacuum_95_10_4_simple_working(dim program_number as byte,dim 
 '                                       end if
                                
                                    else
-                                       if (Button(Mot_SW_Port,Mot_SW_bit, swich_time, 0)) then    ' Detect logical one up key
+                                       if (Button(Mot_SW_Port,Mot_SW_bit, swich_time, 0)) and (j=2) then    ' Detect logical one up key
                                                oldstate_3 = 1 while_state_import=0  Heater_relay_Pin =0                    ' Update flag
                                                PWM_MAKE (0,255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
                                                ''Saving_Mot_heater_On_mSec(auto_setting_enable)
@@ -634,7 +636,25 @@ sub procedure Easy_vacuum_95_10_4_simple_working(dim program_number as byte,dim 
                      while( while_state_import)
            '                 #####################  check Off is accured and enabled  #############
                           if (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][1]= minutes ) and (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][2]< (seconds)) then '' and (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][0]<>0) then  '''OFF mode
-                              while_state_import=0
+
+                              if (j=2) then    ' Detect logical one up key
+                                  PWM_MAKE (0,255,Pwm_chanel_main)
+
+                               Show_message_done("Motor",chanel) delay_ms(2000)
+                               Lcd_0()
+                               Lcd_Out(1,1,txt) Lcd_Out(1,8,"is Off:")
+                               Lcd_Out(2,1,"Prog num:") Lcd_Out(2,10,txt) delay_ms(200)
+                               Lcd_Out(1,1,"Off pwm Motor mode")
+                               inttostr(chanel,txt)                     ' ??? ????? ???? ? ?????? ????? ? ????
+
+                               while_state_import=0
+                               else
+
+                                 Lcd_0() Lcd_Out(1,1,"Wating for :") Lcd_Out(2,1,"Downing the Pad !!") delay_ms(3000)
+                                 if (Button(Mot_SW_Port,Mot_SW_bit, swich_time, 0))   then
+                                    j=2
+                                 end if
+                               end if
                           end if
                      if (while_state_import<>0)and ((auto_setting_enable=1) or (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][1]>= minutes ) or    (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][2]> seconds)) then '' and (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][0]<>0) then  '''OFF mode
                         '
@@ -699,7 +719,7 @@ sub procedure Easy_vacuum_95_10_4_simple_working(dim program_number as byte,dim 
                                while_state_import=0
                                else
                                
-                                 Lcd_Out(1,1,"Wating for :") Lcd_Out(2,1,"Downing the Pad !!") delay_ms(200)
+                                  Lcd_0()Lcd_Out(1,1,"Wating for :") Lcd_Out(2,1,"Downing the Pad !!") delay_ms(3000)
                                  if (Button(Mot_SW_Port,Mot_SW_bit, swich_time, 0))   then
                                     j=2
                                  end if

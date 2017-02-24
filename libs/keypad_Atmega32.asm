@@ -5344,13 +5344,13 @@ L__Keypad_start291:
 	LDI        R27, 1
 	MOV        R2, R27
 	CALL       libs/keypad_Atmega32_key_choice_select+0
-;libs/keypad_Atmega32.mbas,732 :: 		var_main[1]=Keypad__teben(2,Choice_number,1,Choice_number,0)''Keypad__teben(dim var_in,p_max,p_min,Choice_number,var_in_old_on_off as byte )
+;libs/keypad_Atmega32.mbas,732 :: 		var_main[1]=Keypad__teben(1,Choice_number,1,Choice_number,0)''Keypad__teben(dim var_in,p_max,p_min,Choice_number,var_in_old_on_off as byte )
 	CLR        R7
 	LDS        R6, _Choice_number+0
 	LDI        R27, 1
 	MOV        R5, R27
 	LDS        R4, _Choice_number+0
-	LDI        R27, 2
+	LDI        R27, 1
 	MOV        R2, R27
 	LDI        R27, 0
 	MOV        R3, R27
