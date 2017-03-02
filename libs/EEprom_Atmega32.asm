@@ -324,9 +324,9 @@ L_libs/EEprom_Atmega32_eeprom_call_back_ext18:
 ;libs/EEprom_Atmega32.mbas,118 :: 		next Pwm_chanel_main
 	LDS        R16, _Pwm_chanel_main+0
 	CPI        R16, 3
-	BRNE       L_libs/EEprom_Atmega32_eeprom_call_back_ext162
+	BRNE       L_libs/EEprom_Atmega32_eeprom_call_back_ext164
 	JMP        L_libs/EEprom_Atmega32_eeprom_call_back_ext21
-L_libs/EEprom_Atmega32_eeprom_call_back_ext162:
+L_libs/EEprom_Atmega32_eeprom_call_back_ext164:
 	LDS        R16, _Pwm_chanel_main+0
 	SUBI       R16, 255
 	STS        _Pwm_chanel_main+0, R16
@@ -335,9 +335,9 @@ L_libs/EEprom_Atmega32_eeprom_call_back_ext21:
 ;libs/EEprom_Atmega32.mbas,119 :: 		next Heater_motor_index
 	LDS        R16, _Heater_motor_index+0
 	CPI        R16, 2
-	BRNE       L_libs/EEprom_Atmega32_eeprom_call_back_ext163
+	BRNE       L_libs/EEprom_Atmega32_eeprom_call_back_ext165
 	JMP        L_libs/EEprom_Atmega32_eeprom_call_back_ext16
-L_libs/EEprom_Atmega32_eeprom_call_back_ext163:
+L_libs/EEprom_Atmega32_eeprom_call_back_ext165:
 	LDS        R16, _Heater_motor_index+0
 	SUBI       R16, 255
 	STS        _Heater_motor_index+0, R16
@@ -346,9 +346,9 @@ L_libs/EEprom_Atmega32_eeprom_call_back_ext16:
 ;libs/EEprom_Atmega32.mbas,120 :: 		next Heater_motor_index
 	LDS        R16, _chanel+0
 	CPI        R16, 7
-	BRNE       L_libs/EEprom_Atmega32_eeprom_call_back_ext164
+	BRNE       L_libs/EEprom_Atmega32_eeprom_call_back_ext166
 	JMP        L_libs/EEprom_Atmega32_eeprom_call_back_ext11
-L_libs/EEprom_Atmega32_eeprom_call_back_ext164:
+L_libs/EEprom_Atmega32_eeprom_call_back_ext166:
 	LDS        R16, _chanel+0
 	SUBI       R16, 255
 	STS        _chanel+0, R16
@@ -595,9 +595,9 @@ L__eeprom_save_ext34:
 ;libs/EEprom_Atmega32.mbas,144 :: 		next Pwm_chanel_main
 	LDS        R16, _Pwm_chanel_main+0
 	CPI        R16, 3
-	BRNE       L__eeprom_save_ext166
+	BRNE       L__eeprom_save_ext168
 	JMP        L__eeprom_save_ext37
-L__eeprom_save_ext166:
+L__eeprom_save_ext168:
 	LDS        R16, _Pwm_chanel_main+0
 	SUBI       R16, 255
 	STS        _Pwm_chanel_main+0, R16
@@ -606,9 +606,9 @@ L__eeprom_save_ext37:
 ;libs/EEprom_Atmega32.mbas,145 :: 		next Heater_motor_index
 	LDS        R16, _Heater_motor_index+0
 	CPI        R16, 2
-	BRNE       L__eeprom_save_ext167
+	BRNE       L__eeprom_save_ext169
 	JMP        L__eeprom_save_ext32
-L__eeprom_save_ext167:
+L__eeprom_save_ext169:
 	LDS        R16, _Heater_motor_index+0
 	SUBI       R16, 255
 	STS        _Heater_motor_index+0, R16
@@ -617,9 +617,9 @@ L__eeprom_save_ext32:
 ;libs/EEprom_Atmega32.mbas,146 :: 		next Heater_motor_index
 	LDS        R16, _chanel+0
 	CPI        R16, 7
-	BRNE       L__eeprom_save_ext168
+	BRNE       L__eeprom_save_ext170
 	JMP        L__eeprom_save_ext27
-L__eeprom_save_ext168:
+L__eeprom_save_ext170:
 	LDS        R16, _chanel+0
 	SUBI       R16, 255
 	STS        _chanel+0, R16
@@ -863,9 +863,9 @@ L_libs/EEprom_Atmega32_eeprom_call_back50:
 ;libs/EEprom_Atmega32.mbas,166 :: 		next Pwm_chanel_main
 	LDS        R16, _Pwm_chanel_main+0
 	CPI        R16, 3
-	BRNE       L_libs/EEprom_Atmega32_eeprom_call_back170
+	BRNE       L_libs/EEprom_Atmega32_eeprom_call_back172
 	JMP        L_libs/EEprom_Atmega32_eeprom_call_back53
-L_libs/EEprom_Atmega32_eeprom_call_back170:
+L_libs/EEprom_Atmega32_eeprom_call_back172:
 	LDS        R16, _Pwm_chanel_main+0
 	SUBI       R16, 255
 	STS        _Pwm_chanel_main+0, R16
@@ -874,9 +874,9 @@ L_libs/EEprom_Atmega32_eeprom_call_back53:
 ;libs/EEprom_Atmega32.mbas,167 :: 		next Heater_motor_index
 	LDS        R16, _Heater_motor_index+0
 	CPI        R16, 2
-	BRNE       L_libs/EEprom_Atmega32_eeprom_call_back171
+	BRNE       L_libs/EEprom_Atmega32_eeprom_call_back173
 	JMP        L_libs/EEprom_Atmega32_eeprom_call_back48
-L_libs/EEprom_Atmega32_eeprom_call_back171:
+L_libs/EEprom_Atmega32_eeprom_call_back173:
 	LDS        R16, _Heater_motor_index+0
 	SUBI       R16, 255
 	STS        _Heater_motor_index+0, R16
@@ -885,9 +885,9 @@ L_libs/EEprom_Atmega32_eeprom_call_back48:
 ;libs/EEprom_Atmega32.mbas,168 :: 		next Heater_motor_index
 	LDS        R16, _chanel+0
 	CPI        R16, 7
-	BRNE       L_libs/EEprom_Atmega32_eeprom_call_back172
+	BRNE       L_libs/EEprom_Atmega32_eeprom_call_back174
 	JMP        L_libs/EEprom_Atmega32_eeprom_call_back43
-L_libs/EEprom_Atmega32_eeprom_call_back172:
+L_libs/EEprom_Atmega32_eeprom_call_back174:
 	LDS        R16, _chanel+0
 	SUBI       R16, 255
 	STS        _chanel+0, R16
@@ -1128,9 +1128,9 @@ L__eeprom_save66:
 ;libs/EEprom_Atmega32.mbas,183 :: 		next Pwm_chanel_main
 	LDS        R16, _Pwm_chanel_main+0
 	CPI        R16, 3
-	BRNE       L__eeprom_save174
+	BRNE       L__eeprom_save176
 	JMP        L__eeprom_save69
-L__eeprom_save174:
+L__eeprom_save176:
 	LDS        R16, _Pwm_chanel_main+0
 	SUBI       R16, 255
 	STS        _Pwm_chanel_main+0, R16
@@ -1139,9 +1139,9 @@ L__eeprom_save69:
 ;libs/EEprom_Atmega32.mbas,184 :: 		next Heater_motor_index
 	LDS        R16, _Heater_motor_index+0
 	CPI        R16, 2
-	BRNE       L__eeprom_save175
+	BRNE       L__eeprom_save177
 	JMP        L__eeprom_save64
-L__eeprom_save175:
+L__eeprom_save177:
 	LDS        R16, _Heater_motor_index+0
 	SUBI       R16, 255
 	STS        _Heater_motor_index+0, R16
@@ -1150,9 +1150,9 @@ L__eeprom_save64:
 ;libs/EEprom_Atmega32.mbas,185 :: 		next Heater_motor_index
 	LDS        R16, _chanel+0
 	CPI        R16, 7
-	BRNE       L__eeprom_save176
+	BRNE       L__eeprom_save178
 	JMP        L__eeprom_save59
-L__eeprom_save176:
+L__eeprom_save178:
 	LDS        R16, _chanel+0
 	SUBI       R16, 255
 	STS        _chanel+0, R16
@@ -1224,9 +1224,9 @@ L_libs/EEprom_Atmega32_eeprom71:
 	CLR        R3
 	CALL       _EEPROM_Read+0
 	CPI        R16, 122
-	BREQ       L_libs/EEprom_Atmega32_eeprom178
+	BREQ       L_libs/EEprom_Atmega32_eeprom180
 	JMP        L_libs/EEprom_Atmega32_eeprom74
-L_libs/EEprom_Atmega32_eeprom178:
+L_libs/EEprom_Atmega32_eeprom180:
 ;libs/EEprom_Atmega32.mbas,200 :: 		Lcd_Out(1,1,"EEprom  writed befor" )
 	MOVW       R30, R28
 	ADIW       R30, 2
@@ -1368,9 +1368,9 @@ L_libs/EEprom_Atmega32_eeprom84:
 ;libs/EEprom_Atmega32.mbas,217 :: 		next counter
 	LDD        R16, Y+0
 	CPI        R16, 4
-	BRNE       L_libs/EEprom_Atmega32_eeprom179
+	BRNE       L_libs/EEprom_Atmega32_eeprom181
 	JMP        L_libs/EEprom_Atmega32_eeprom87
-L_libs/EEprom_Atmega32_eeprom179:
+L_libs/EEprom_Atmega32_eeprom181:
 	LDD        R16, Y+0
 	SUBI       R16, 255
 	STD        Y+0, R16
@@ -1392,9 +1392,9 @@ L_libs/EEprom_Atmega32_eeprom88:
 	CLR        R3
 	CALL       _EEPROM_Read+0
 	TST        R16
-	BRNE       L_libs/EEprom_Atmega32_eeprom180
+	BRNE       L_libs/EEprom_Atmega32_eeprom182
 	JMP        L_libs/EEprom_Atmega32_eeprom91
-L_libs/EEprom_Atmega32_eeprom180:
+L_libs/EEprom_Atmega32_eeprom182:
 ;libs/EEprom_Atmega32.mbas,223 :: 		for counter = 1 to  4
 	LDI        R27, 1
 	STD        Y+0, R27
@@ -1453,9 +1453,9 @@ L_libs/EEprom_Atmega32_eeprom94:
 ;libs/EEprom_Atmega32.mbas,229 :: 		next counter
 	LDD        R16, Y+0
 	CPI        R16, 4
-	BRNE       L_libs/EEprom_Atmega32_eeprom181
+	BRNE       L_libs/EEprom_Atmega32_eeprom183
 	JMP        L_libs/EEprom_Atmega32_eeprom97
-L_libs/EEprom_Atmega32_eeprom181:
+L_libs/EEprom_Atmega32_eeprom183:
 	LDD        R16, Y+0
 	SUBI       R16, 255
 	STD        Y+0, R16
@@ -1465,9 +1465,9 @@ L_libs/EEprom_Atmega32_eeprom91:
 ;libs/EEprom_Atmega32.mbas,231 :: 		next  chanel
 	LDS        R16, _chanel+0
 	CPI        R16, 4
-	BRNE       L_libs/EEprom_Atmega32_eeprom182
+	BRNE       L_libs/EEprom_Atmega32_eeprom184
 	JMP        L_libs/EEprom_Atmega32_eeprom82
-L_libs/EEprom_Atmega32_eeprom182:
+L_libs/EEprom_Atmega32_eeprom184:
 	LDS        R16, _chanel+0
 	SUBI       R16, 255
 	STS        _chanel+0, R16
@@ -1514,9 +1514,9 @@ _ext_twi_eeprom_ini:
 ;libs/EEprom_Atmega32.mbas,245 :: 		if  (EEprom_data_read=10)   then
 	LDS        R16, _EEprom_data_read+0
 	CPI        R16, 10
-	BREQ       L__ext_twi_eeprom_ini184
+	BREQ       L__ext_twi_eeprom_ini186
 	JMP        L__ext_twi_eeprom_ini100
-L__ext_twi_eeprom_ini184:
+L__ext_twi_eeprom_ini186:
 ;libs/EEprom_Atmega32.mbas,246 :: 		Lcd_0() Lcd_Out(1,1,"TWI EEPROM" ) Lcd_Out(2,1,"is working" )
 	CALL       _Lcd_0+0
 	MOVW       R30, R28
@@ -1815,9 +1815,9 @@ L__ext_twi_eeprom_ini101:
 ;libs/EEprom_Atmega32.mbas,265 :: 		if  (EEprom_data_read =10)   then
 	LDS        R16, _EEprom_data_read+0
 	CPI        R16, 10
-	BREQ       L__ext_twi_eeprom_ini185
+	BREQ       L__ext_twi_eeprom_ini187
 	JMP        L__ext_twi_eeprom_ini109
-L__ext_twi_eeprom_ini185:
+L__ext_twi_eeprom_ini187:
 ;libs/EEprom_Atmega32.mbas,266 :: 		Lcd_Out(1,1,"ext EEp writed befor" )
 	MOVW       R30, R28
 	LDI        R27, 101
@@ -2506,9 +2506,9 @@ L__ext_twi_eeprom_ini123:
 ;libs/EEprom_Atmega32.mbas,333 :: 		if  (EEprom_data_read=10)   then
 	LDS        R16, _EEprom_data_read+0
 	CPI        R16, 10
-	BREQ       L__ext_twi_eeprom_ini186
+	BREQ       L__ext_twi_eeprom_ini188
 	JMP        L__ext_twi_eeprom_ini126
-L__ext_twi_eeprom_ini186:
+L__ext_twi_eeprom_ini188:
 ;libs/EEprom_Atmega32.mbas,334 :: 		Lcd_0() Lcd_Out(1,1,"TWI EEPROM" ) Lcd_Out(2,1,"is working" )
 	CALL       _Lcd_0+0
 	MOVW       R30, R28
@@ -2846,9 +2846,9 @@ _int_eeprom_ini:
 	CLR        R3
 	CALL       _EEPROM_Read+0
 	CPI        R16, 12
-	BREQ       L__int_eeprom_ini188
+	BREQ       L__int_eeprom_ini190
 	JMP        L__int_eeprom_ini138
-L__int_eeprom_ini188:
+L__int_eeprom_ini190:
 ;libs/EEprom_Atmega32.mbas,363 :: 		Lcd_0() Lcd_Out(1,1,"Reading from " ) Lcd_Out(2,1,"EEprom ..." )
 	CALL       _Lcd_0+0
 	MOVW       R30, R28
@@ -3095,21 +3095,19 @@ L__int_eeprom_ini138:
 	LDI        R27, 5
 	MOV        R2, R27
 	CALL       _Write_Time+0
-;libs/EEprom_Atmega32.mbas,381 :: 		On_mSec_initial_Heater (1,1,2,100) 'On_mSec_initial_Heater(dim en,mint,sec,prc as byte)'On_mSec_initial_Heater[chanel_ini-1][Heater_Motor_Time_ini-1][Pwm_chanel_ini-1][0]
+;libs/EEprom_Atmega32.mbas,381 :: 		On_mSec_initial_Heater (1,5,0,100) 'On_mSec_initial_Heater(dim en,mint,sec,prc as byte)'On_mSec_initial_Heater[chanel_ini-1][Heater_Motor_Time_ini-1][Pwm_chanel_ini-1][0]
 	LDI        R27, 100
 	MOV        R5, R27
-	LDI        R27, 2
-	MOV        R4, R27
-	LDI        R27, 1
+	CLR        R4
+	LDI        R27, 5
 	MOV        R3, R27
 	LDI        R27, 1
 	MOV        R2, R27
 	CALL       _On_mSec_initial_heater+0
-;libs/EEprom_Atmega32.mbas,382 :: 		On_mSec_initial_Motor (1,0,12,100)
+;libs/EEprom_Atmega32.mbas,382 :: 		On_mSec_initial_Motor (1,0,0,100)
 	LDI        R27, 100
 	MOV        R5, R27
-	LDI        R27, 12
-	MOV        R4, R27
+	CLR        R4
 	CLR        R3
 	LDI        R27, 1
 	MOV        R2, R27
@@ -3147,6 +3145,17 @@ L__int_eeprom_ini138:
 	LDI        R27, 1
 	MOV        R2, R27
 	CALL       _Lcd_Out+0
+;libs/EEprom_Atmega32.mbas,386 :: 		Delay_mS(100)
+	LDI        R18, 5
+	LDI        R17, 15
+	LDI        R16, 242
+L__int_eeprom_ini140:
+	DEC        R16
+	BRNE       L__int_eeprom_ini140
+	DEC        R17
+	BRNE       L__int_eeprom_ini140
+	DEC        R18
+	BRNE       L__int_eeprom_ini140
 ;libs/EEprom_Atmega32.mbas,388 :: 		end if
 L__int_eeprom_ini139:
 ;libs/EEprom_Atmega32.mbas,390 :: 		end sub
@@ -3193,9 +3202,9 @@ libs/EEprom_Atmega32_ext_eeprom_ini:
 ;libs/EEprom_Atmega32.mbas,400 :: 		if  (EEprom_data_read =12)   then
 	LDS        R16, _EEprom_data_read+0
 	CPI        R16, 12
-	BREQ       L_libs/EEprom_Atmega32_ext_eeprom_ini190
-	JMP        L_libs/EEprom_Atmega32_ext_eeprom_ini142
-L_libs/EEprom_Atmega32_ext_eeprom_ini190:
+	BREQ       L_libs/EEprom_Atmega32_ext_eeprom_ini192
+	JMP        L_libs/EEprom_Atmega32_ext_eeprom_ini144
+L_libs/EEprom_Atmega32_ext_eeprom_ini192:
 ;libs/EEprom_Atmega32.mbas,401 :: 		Lcd_Out(1,1,"ext EEprom writed befor" )
 	MOVW       R30, R28
 	LDI        R27, 101
@@ -3273,13 +3282,13 @@ L_libs/EEprom_Atmega32_ext_eeprom_ini190:
 	LDI        R18, 61
 	LDI        R17, 225
 	LDI        R16, 64
-L_libs/EEprom_Atmega32_ext_eeprom_ini144:
+L_libs/EEprom_Atmega32_ext_eeprom_ini146:
 	DEC        R16
-	BRNE       L_libs/EEprom_Atmega32_ext_eeprom_ini144
+	BRNE       L_libs/EEprom_Atmega32_ext_eeprom_ini146
 	DEC        R17
-	BRNE       L_libs/EEprom_Atmega32_ext_eeprom_ini144
+	BRNE       L_libs/EEprom_Atmega32_ext_eeprom_ini146
 	DEC        R18
-	BRNE       L_libs/EEprom_Atmega32_ext_eeprom_ini144
+	BRNE       L_libs/EEprom_Atmega32_ext_eeprom_ini146
 	NOP
 	NOP
 ;libs/EEprom_Atmega32.mbas,405 :: 		Lcd_0()    Lcd_Out(1,1,"Reading from " )    Lcd_Out(2,1,"EEPROM ... " )
@@ -3421,18 +3430,18 @@ L_libs/EEprom_Atmega32_ext_eeprom_ini144:
 	LDI        R18, 61
 	LDI        R17, 225
 	LDI        R16, 64
-L_libs/EEprom_Atmega32_ext_eeprom_ini146:
+L_libs/EEprom_Atmega32_ext_eeprom_ini148:
 	DEC        R16
-	BRNE       L_libs/EEprom_Atmega32_ext_eeprom_ini146
+	BRNE       L_libs/EEprom_Atmega32_ext_eeprom_ini148
 	DEC        R17
-	BRNE       L_libs/EEprom_Atmega32_ext_eeprom_ini146
+	BRNE       L_libs/EEprom_Atmega32_ext_eeprom_ini148
 	DEC        R18
-	BRNE       L_libs/EEprom_Atmega32_ext_eeprom_ini146
+	BRNE       L_libs/EEprom_Atmega32_ext_eeprom_ini148
 	NOP
 	NOP
-	JMP        L_libs/EEprom_Atmega32_ext_eeprom_ini143
+	JMP        L_libs/EEprom_Atmega32_ext_eeprom_ini145
 ;libs/EEprom_Atmega32.mbas,415 :: 		else
-L_libs/EEprom_Atmega32_ext_eeprom_ini142:
+L_libs/EEprom_Atmega32_ext_eeprom_ini144:
 ;libs/EEprom_Atmega32.mbas,417 :: 		Lcd_Out(1,1,"ext not writed111111111" )
 	MOVW       R30, R28
 	LDI        R27, 101
@@ -3494,13 +3503,13 @@ L_libs/EEprom_Atmega32_ext_eeprom_ini142:
 	LDI        R18, 61
 	LDI        R17, 225
 	LDI        R16, 64
-L_libs/EEprom_Atmega32_ext_eeprom_ini148:
+L_libs/EEprom_Atmega32_ext_eeprom_ini150:
 	DEC        R16
-	BRNE       L_libs/EEprom_Atmega32_ext_eeprom_ini148
+	BRNE       L_libs/EEprom_Atmega32_ext_eeprom_ini150
 	DEC        R17
-	BRNE       L_libs/EEprom_Atmega32_ext_eeprom_ini148
+	BRNE       L_libs/EEprom_Atmega32_ext_eeprom_ini150
 	DEC        R18
-	BRNE       L_libs/EEprom_Atmega32_ext_eeprom_ini148
+	BRNE       L_libs/EEprom_Atmega32_ext_eeprom_ini150
 	NOP
 	NOP
 ;libs/EEprom_Atmega32.mbas,419 :: 		Write_EEprom(0 ,12 )
@@ -3645,18 +3654,18 @@ L_libs/EEprom_Atmega32_ext_eeprom_ini148:
 	MOV        R2, R27
 	CALL       _Lcd_Out+0
 ;libs/EEprom_Atmega32.mbas,426 :: 		end if
-L_libs/EEprom_Atmega32_ext_eeprom_ini143:
+L_libs/EEprom_Atmega32_ext_eeprom_ini145:
 ;libs/EEprom_Atmega32.mbas,427 :: 		delay_ms(1500)
 	LDI        R18, 61
 	LDI        R17, 225
 	LDI        R16, 64
-L_libs/EEprom_Atmega32_ext_eeprom_ini150:
+L_libs/EEprom_Atmega32_ext_eeprom_ini152:
 	DEC        R16
-	BRNE       L_libs/EEprom_Atmega32_ext_eeprom_ini150
+	BRNE       L_libs/EEprom_Atmega32_ext_eeprom_ini152
 	DEC        R17
-	BRNE       L_libs/EEprom_Atmega32_ext_eeprom_ini150
+	BRNE       L_libs/EEprom_Atmega32_ext_eeprom_ini152
 	DEC        R18
-	BRNE       L_libs/EEprom_Atmega32_ext_eeprom_ini150
+	BRNE       L_libs/EEprom_Atmega32_ext_eeprom_ini152
 	NOP
 	NOP
 ;libs/EEprom_Atmega32.mbas,428 :: 		Lcd_0()
@@ -3671,9 +3680,9 @@ L_libs/EEprom_Atmega32_ext_eeprom_ini150:
 ;libs/EEprom_Atmega32.mbas,431 :: 		if  (EEprom_data_read=12)   then
 	LDS        R16, _EEprom_data_read+0
 	CPI        R16, 12
-	BREQ       L_libs/EEprom_Atmega32_ext_eeprom_ini191
-	JMP        L_libs/EEprom_Atmega32_ext_eeprom_ini153
-L_libs/EEprom_Atmega32_ext_eeprom_ini191:
+	BREQ       L_libs/EEprom_Atmega32_ext_eeprom_ini193
+	JMP        L_libs/EEprom_Atmega32_ext_eeprom_ini155
+L_libs/EEprom_Atmega32_ext_eeprom_ini193:
 ;libs/EEprom_Atmega32.mbas,432 :: 		Lcd_Out(1,1,"12 is good" )
 	MOVW       R30, R28
 	LDI        R27, 49
@@ -3722,9 +3731,9 @@ L_libs/EEprom_Atmega32_ext_eeprom_ini191:
 	LDI        R27, 2
 	MOV        R2, R27
 	CALL       _Lcd_Out+0
-	JMP        L_libs/EEprom_Atmega32_ext_eeprom_ini154
+	JMP        L_libs/EEprom_Atmega32_ext_eeprom_ini156
 ;libs/EEprom_Atmega32.mbas,436 :: 		else
-L_libs/EEprom_Atmega32_ext_eeprom_ini153:
+L_libs/EEprom_Atmega32_ext_eeprom_ini155:
 ;libs/EEprom_Atmega32.mbas,438 :: 		Lcd_Out(1,1,"ext not working" )
 	MOVW       R30, R28
 	LDI        R27, 101
@@ -3770,21 +3779,6 @@ L_libs/EEprom_Atmega32_ext_eeprom_ini153:
 	LDI        R18, 61
 	LDI        R17, 225
 	LDI        R16, 64
-L_libs/EEprom_Atmega32_ext_eeprom_ini155:
-	DEC        R16
-	BRNE       L_libs/EEprom_Atmega32_ext_eeprom_ini155
-	DEC        R17
-	BRNE       L_libs/EEprom_Atmega32_ext_eeprom_ini155
-	DEC        R18
-	BRNE       L_libs/EEprom_Atmega32_ext_eeprom_ini155
-	NOP
-	NOP
-;libs/EEprom_Atmega32.mbas,443 :: 		end if
-L_libs/EEprom_Atmega32_ext_eeprom_ini154:
-;libs/EEprom_Atmega32.mbas,444 :: 		delay_ms(1500)
-	LDI        R18, 61
-	LDI        R17, 225
-	LDI        R16, 64
 L_libs/EEprom_Atmega32_ext_eeprom_ini157:
 	DEC        R16
 	BRNE       L_libs/EEprom_Atmega32_ext_eeprom_ini157
@@ -3792,6 +3786,21 @@ L_libs/EEprom_Atmega32_ext_eeprom_ini157:
 	BRNE       L_libs/EEprom_Atmega32_ext_eeprom_ini157
 	DEC        R18
 	BRNE       L_libs/EEprom_Atmega32_ext_eeprom_ini157
+	NOP
+	NOP
+;libs/EEprom_Atmega32.mbas,443 :: 		end if
+L_libs/EEprom_Atmega32_ext_eeprom_ini156:
+;libs/EEprom_Atmega32.mbas,444 :: 		delay_ms(1500)
+	LDI        R18, 61
+	LDI        R17, 225
+	LDI        R16, 64
+L_libs/EEprom_Atmega32_ext_eeprom_ini159:
+	DEC        R16
+	BRNE       L_libs/EEprom_Atmega32_ext_eeprom_ini159
+	DEC        R17
+	BRNE       L_libs/EEprom_Atmega32_ext_eeprom_ini159
+	DEC        R18
+	BRNE       L_libs/EEprom_Atmega32_ext_eeprom_ini159
 	NOP
 	NOP
 ;libs/EEprom_Atmega32.mbas,445 :: 		Lcd_0()

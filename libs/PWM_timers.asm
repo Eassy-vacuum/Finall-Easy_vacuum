@@ -1253,7 +1253,7 @@ L__On_mSec_initial_Motor109:
 	MOVW       R30, R16
 	ADIW       R30, 1
 	ST         Z, R3
-;libs/PWM_timers.mbas,546 :: 		Mot_heater_On_mSec [chanel_ini-1][Heater_Motor_Time_ini-1][Pwm_chanel_ini-1][2] =sec
+;libs/PWM_timers.mbas,546 :: 		Mot_heater_On_mSec [chanel_ini-1][Heater_Motor_Time_ini-1][Pwm_chanel_ini-1][2] =sec+chanel_ini
 	LDD        R16, Y+1
 	SUBI       R16, 1
 	LDI        R17, 0
@@ -1287,7 +1287,9 @@ L__On_mSec_initial_Motor109:
 	ADC        R17, R19
 	MOVW       R30, R16
 	ADIW       R30, 2
-	ST         Z, R4
+	LDD        R16, Y+1
+	ADD        R16, R4
+	ST         Z, R16
 ;libs/PWM_timers.mbas,547 :: 		Mot_heater_On_mSec [chanel_ini-1][Heater_Motor_Time_ini-1][Pwm_chanel_ini-1][3]=prc
 	LDD        R16, Y+1
 	SUBI       R16, 1

@@ -48,14 +48,18 @@ main
 	key_test
 		Lcd_0
 		Lcd_Out
+		Button
+			Delay_500us
+		Dec2Bcd
+			Div_8x8_U
+		Write_Time
 		Read_Time
 			Soft_I2C_Start
 			Soft_I2C_Write
 			Soft_I2C_Read
 				Delay_1us
 			Soft_I2C_Stop
-		Button
-			Delay_500us
+		Shamsi_transfer_time
 		Easy_vacuum_95_10_4_simple_working
 			Button
 			Buzzer_on_off

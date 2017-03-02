@@ -54,8 +54,8 @@ include "libs/main_function"
   symbol Off_state = 0
   symbol Choice_number_sym = 7
   symbol level_Number=7
-  symbol swich_time= 5
-  symbol swich_time_off=3
+  symbol swich_time= 0.5
+  symbol swich_time_off=0.5
 #ENDIF
 
 dim txt33 as string[1] external
@@ -257,10 +257,11 @@ end sub
 '              end if
 '        end if
         while_state_2_2=1
-        while (while_state_2_2<=5 )
+        while (while_state_2_2<=245 )
             while_state_2_2=while_state_2_2+1
             if (Button(Up_SW_Port, Up_SW_bit,swich_time,On_state)) then    ' Detect logical one up key
-                    oldstate_up = 1  Buzzer_on_off(1)    while_state_2_2=6  k=1  j=0 k_for=0                 ' Update flag
+                    oldstate_up = 1  Buzzer_on_off(1)    while_state_2_2=246  k=1  j=0 k_for=0                 ' Update flag
+                    delay_ms(100)
                while (k_for=0)
                         j=j+1
                         if (Button(Up_SW_Port, Up_SW_bit,100,On_state)) then
@@ -288,9 +289,9 @@ end sub
 
 
                         if (oldstate_Up and Button(Up_SW_Port, Up_SW_bit,swich_time_off,Off_state)) then
-                            oldstate_up = 0  while_state_2_2=6 k_for=1
+                            oldstate_up = 0  while_state_2_2=56 k_for=1
                         end if
-                        delay_ms(200)
+'                        delay_ms(200)
                wend
             
             end if
@@ -310,7 +311,8 @@ end sub
 '            end if
                                  ' Update flag
             if (Button(Down_SW_Port, Down_SW_bit,swich_time,On_state)) then    ' Detect logical one Down key
-                    oldstate_down = 1    Buzzer_on_off(1)  while_state_2_2=6    k=1  j=0  k_for=0         ' Update flag
+                    oldstate_down = 1    Buzzer_on_off(1)  while_state_2_2=246    k=1  j=0  k_for=0         ' Update flag
+                    delay_ms(100)
                     while (k_for=0)
                         j=j+1
                         if (Button(Down_SW_Port, Down_SW_bit,100,On_state)) then
@@ -363,10 +365,10 @@ end sub
 '                        end if
                         if (oldstate_down and Button(Down_SW_Port, Down_SW_bit,swich_time_off,Off_state)) then
 
-                            oldstate_down=0  while_state_2_2=6  k_for=1
+                            oldstate_down=0  while_state_2_2=246  k_for=1
 
                         end if
-                        delay_ms(200)
+'                        delay_ms(200)
                     wend
                     
             end if
@@ -390,12 +392,12 @@ end sub
             First_second_comand=2  oldstate_2 = 0
             if (Button(Menu_SW_Port,Menu_SW_bit,swich_time,Off_state)<> 0)
                 or (Button(Ok_SW_Port,Ok_SW_bit,swich_time,Off_state)<> 0)then    ' Detect logical one setting key
-                    oldstate_men_ok = 1   Buzzer_on_off(1)    while_state_2_2=6                ' Update flag
+                    oldstate_men_ok = 1   Buzzer_on_off(1)    while_state_2_2=246                ' Update flag
             end if
             if (oldstate_men_ok and Button(Menu_SW_Port,Menu_SW_bit,swich_time,On_state))
                     or (while_state_import and oldstate_3 and Button(Ok_SW_Port,Ok_SW_bit,swich_time,On_state))  then
                    oldstate_men_ok = 0
-                   while_state_import=0   while_state_2_2=6
+                   while_state_import=0   while_state_2_2=246
                            k_set=k_set+1
                            if k_set=K_set_max then
                             k_set=1
@@ -416,7 +418,7 @@ end sub
                      LCD_Out(lcd_line+1,case_is_selceted_show[lcd_line][0], txt)
                   end if
             end if
-        delay_ms(10)
+'        delay_ms(1)
         wend
         var_in_global= var_in
     wend
@@ -730,7 +732,7 @@ end sub
          case 2
              Choice_number=3    while_state_2=0  ''first level
              Heater_motor_index=2 Pwm_chanel_main=3 chanel=chanel_
-             key_choice_select(1,Choice_number,"Auto","Manul","<Ex>")
+             key_choice_select(1,Choice_number,"Manul","Auto","<Ex>")
              var_main[1]=Keypad__teben(1,Choice_number,1,Choice_number,0)''Keypad__teben(dim var_in,p_max,p_min,Choice_number,var_in_old_on_off as byte )
 
 '                  ByteToStr(var_main[1], txt_byte_min)
@@ -740,7 +742,7 @@ end sub
              while  (while_state_import )
                  select case  var_main[1]
 
-                 case 1
+                 case 2
                       Choice_number=7 while_state_import=0
                       Heater_motor_index=2 Pwm_chanel_main=3 chanel=chanel_
                       key_Prog_select(1,Choice_number)
@@ -763,7 +765,7 @@ end sub
                        eeprom_save()
 
 
-                 case 2
+                 case 1
                       Choice_number=7 ''while_state_import=0
                       key_Prog_select(1,Choice_number)
                       var_main[2]=Keypad__teben(chanel_,Choice_number,1,Choice_number,0)''dim var_in as byte, dim p_max as  byte, dim p_min as  byte,dim Choice_number,var_in_old_on_off as byte )

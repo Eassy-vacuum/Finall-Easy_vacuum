@@ -378,17 +378,21 @@ sub procedure key_test()
           while_state_2_2=1
           while (while_state_2_2<=8 )
             while_state_2_2=while_state_2_2+1
-               Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
-                k =seconds
+'               Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)  Shamsi_transfer_time()
+'                k =seconds
 
-               if (Button(Menu_SW_Port,Menu_SW_bit,50,1)<> 0)
-                or (Button(Ok_SW_Port,Ok_SW_bit,50,1)<> 0)then    ' Detect logical one setting key
+               if (Button(Menu_SW_Port,Menu_SW_bit,5,1)<> 0)
+                or (Button(Ok_SW_Port,Ok_SW_bit,5,1)<> 0)then    ' Detect logical one setting key
                       oldstate_4=1
-
+                      Write_Time(Dec2Bcd(1),Dec2Bcd(0),Dec2Bcd(0),Dec2Bcd(1),Dec2Bcd(1),Dec2Bcd(1),Dec2Bcd(Start_year))
+                      Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)  Shamsi_transfer_time()
+                      k =seconds
                       while (while_state_import=1)
                         j=j+1
-                        Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
-                         if (oldstate_4 and Button(Menu_SW_Port,Menu_SW_bit,2,0)) then
+                        
+                        Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)  Shamsi_transfer_time()
+                        delay_ms(50)
+                         if (oldstate_4 and Button(Menu_SW_Port,Menu_SW_bit,5,0)) then
 '                                  if (seconds<sec_n1[0]+3 )  then
 '
 ''                                    or (while_state_import and oldstate_4 and Button(Ok_SW_Port,Ok_SW_bit,0.5,0))  then
@@ -410,19 +414,19 @@ sub procedure key_test()
 '                                       end if
 '                                   wend
 '                               end if
-                              if (seconds< k +2 )  then
+                              if (seconds< k + 1 )  then
 '
 ''                                    or (while_state_import and oldstate_4 and Button(Ok_SW_Port,Ok_SW_bit,0.5,0))  then
                                    oldstate_4=0 while_state_import=0
                                    while_state_import_main2=1 oldstate_3=0
                                    Lcd_0() Lcd_Out(1,1,"Wating for :") Lcd_Out(2,1,"Pressing Heater micro SW") delay_ms(200)
                                    while (while_state_import_main2 )
-                                       if (Button(HET_SW_Port, HET_SW_bit, 0.5, 0)) then    ' Detect logical one up key
+                                       if (Button(HET_SW_Port, HET_SW_bit, 5, 0)) then    ' Detect logical one up key
                                                   oldstate_3 = 1    while_state_import_main2=0                  ' Update flag
                                                   Easy_vacuum_95_10_4_simple_working(chanel,1,0)
 
                                        end if
-                                       if (oldstate_3 and Button(HET_SW_Port, HET_SW_bit,0.5, 1)) then
+                                       if (oldstate_3 and Button(HET_SW_Port, HET_SW_bit,50, 1)) then
                                           while_state_import_main2=0  oldstate_3=0   while_state_2_2=11
                                           'Lcd_0() Lcd_Out(1,6," int") Lcd_Out(2,1,"int")delay_ms(200)
                                        end if

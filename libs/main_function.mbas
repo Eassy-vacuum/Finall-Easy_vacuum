@@ -482,6 +482,22 @@ sub procedure Easy_vacuum_95_10_4_simple_working(dim program_number as byte,dim 
                                   j=2
                                end if
 
+                               
+                               if (Button(HET_SW_Port,HET_SW_bit, swich_time, 1)) then    ' Detect logical one up key
+'                                               oldstate_3 = 1
+                                               while_state_import=0                    ' Update flag
+                                               PWM_MAKE (0,255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+'                                               PWM_MAKE (0,255,Motor_pwm_num)
+                                               delay_ms(200)
+                                               PWM_MAKE (Mot_heater_On_mSec[chanel-1][Heater_motor_index-1][Motor_pwm_num-1][3],255,Motor_pwm_num)
+                                               Heater_relay_Pin =0
+'                                               Saving_Mot_heater_On_mSec(auto_setting_enable)
+'                                                Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][1]=minutes
+'                                                Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][2]=seconds
+                                               Buzzer_on_off(1)
+
+                                end if
+
                                Heater_relay_on()
                                'if (while_state_import_main=0) then
 '                                   Heater_relay_Pin =1
@@ -491,6 +507,8 @@ sub procedure Easy_vacuum_95_10_4_simple_working(dim program_number as byte,dim 
                                        if (Button(HET_SW_Port,HET_SW_bit, swich_time, 1)) then    ' Detect logical one up key
                                                oldstate_3 = 1 while_state_import=0                    ' Update flag
                                                PWM_MAKE (0,255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+'                                               PWM_MAKE (0,255,Motor_pwm_num)
+'                                               PWM_MAKE (Mot_heater_On_mSec[chanel-1][Heater_motor_index-1][Motor_pwm_num-1][3],255,Motor_pwm_num)
                                                Heater_relay_Pin =0
 '                                               Saving_Mot_heater_On_mSec(auto_setting_enable)
                                                 Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][1]=minutes
