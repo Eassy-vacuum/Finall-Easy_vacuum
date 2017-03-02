@@ -8,7 +8,7 @@ Value=0
 [BOOT_TYPE]
 Value=0
 [ACTIVE_TAB]
-Value=libs\main_function.mbas
+Value=libs\EEprom_Atmega32.mbas
 [USE_EEPROM]
 Value=0
 [USE_HEAP]
@@ -40,25 +40,28 @@ Count=0
 [OTHER_FILES]
 Count=0
 [SEARCH_PATH]
-Count=18
+Count=21
 Path0=C:\Users\Public\Documents\Mikroelektronika\mikroBasic PRO for AVR\defs\
 Path1=C:\Users\Public\Documents\Mikroelektronika\mikroBasic PRO for AVR\uses\lte64kw\
-Path2=E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\
-Path3=E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - Copy\
-Path4=E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names\
-Path5=E:\„œ«—Â«\Easy Vacuum\button-test2\
-Path6=C:\Users\Hamed\IGC\Desktop\pressure sensor\trash\New folder (3)\
-Path7=E:\„œ«—Â«\button_test2\
-Path8=H:\button_test2\
-Path9=C:\Program Files\mikroBasic PRO for AVR\defs\
-Path10=C:\Program Files\mikroBasic PRO for AVR\uses\lte64kw\
-Path11=C:\Documents and Settings\Elasa\Desktop\mikroBasic PRO for AVR\defs\
-Path12=C:\Documents and Settings\Elasa\Desktop\mikroBasic PRO for AVR\uses\lte64kw\
-Path13=C:\Program Files\Mikroelektronika\mikroBasic PRO for AVR\defs\
-Path14=C:\Program Files\Mikroelektronika\mikroBasic PRO for AVR\uses\lte64kw\
-Path15=G:\button_test2\
-Path16=C:\Documents and Settings\saeed\My Documents\Timer\button_test2\
-Path17=E:\microc_test\button_test\button_test2\
+Path2=E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good-final(95-12-12 corrected ok!)\
+Path3=E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good-final(95-12-12 with lcd crupted!!)\
+Path4=E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good-final(95-12-12)\
+Path5=E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\
+Path6=E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - Copy\
+Path7=E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names\
+Path8=E:\„œ«—Â«\Easy Vacuum\button-test2\
+Path9=C:\Users\Hamed\IGC\Desktop\pressure sensor\trash\New folder (3)\
+Path10=E:\„œ«—Â«\button_test2\
+Path11=H:\button_test2\
+Path12=C:\Program Files\mikroBasic PRO for AVR\defs\
+Path13=C:\Program Files\mikroBasic PRO for AVR\uses\lte64kw\
+Path14=C:\Documents and Settings\Elasa\Desktop\mikroBasic PRO for AVR\defs\
+Path15=C:\Documents and Settings\Elasa\Desktop\mikroBasic PRO for AVR\uses\lte64kw\
+Path16=C:\Program Files\Mikroelektronika\mikroBasic PRO for AVR\defs\
+Path17=C:\Program Files\Mikroelektronika\mikroBasic PRO for AVR\uses\lte64kw\
+Path18=G:\button_test2\
+Path19=C:\Documents and Settings\saeed\My Documents\Timer\button_test2\
+Path20=E:\microc_test\button_test\button_test2\
 [HEADER_PATH]
 Count=0
 [HEADERS]

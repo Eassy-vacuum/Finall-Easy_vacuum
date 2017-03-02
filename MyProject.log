@@ -1,4 +1,7 @@
-0	1	mBAVR.exe -MSF -DBG -pATMEGA32 -LHF -GC -Y -DL -SSA -RA -O11111114 -fo8 -N"E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\MyProject.mbpav" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroBasic PRO for AVR\defs\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroBasic PRO for AVR\uses\lte64kw\" -SP"E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\" -SP"E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - Copy\" -SP"E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names\" -SP"E:\„œ«—Â«\Easy Vacuum\button-test2\" -SP"C:\Users\Hamed\IGC\Desktop\pressure sensor\trash\New folder (3)\" -SP"E:\„œ«—Â«\button_test2\" -SP"H:\button_test2\" -SP"C:\Program Files\mikroBasic PRO for AVR\defs\" -SP"C:\Program Files\mikroBasic PRO for AVR\uses\lte64kw\" -SP"C:\Documents and Settings\Elasa\Desktop\mikroBasic PRO for AVR\defs\" -SP"C:\Documents and Settings\Elasa\Desktop\mikroBasic PRO for AVR\uses\lte64kw\" -SP"C:\Program Files\Mikroelektronika\mikroBasic PRO for AVR\defs\" -SP"C:\Program Files\Mikroelektronika\mikroBasic PRO for AVR\uses\lte64kw\" -SP"G:\button_test2\" -SP"C:\Documents and Settings\saeed\My Documents\Timer\button_test2\" -SP"E:\microc_test\button_test\button_test2\" "__Lib_Math.mcl" "__Lib_MathDouble.mcl" "__Lib_System.mcl" "__Lib_Delays.mcl" "__Lib_CType.mcl" "__Lib_String.mcl" "__Lib_CStdlib.mcl" "__Lib_MemManager.mcl" "__Lib_Conversions.mcl" "__Lib_Time.mcl" "__Lib_Trigon.mcl" "__Lib_Trigonometry.mcl" "__Lib_Button.mcl" "__Lib_Keypad4x4.mcl" "__Lib_Manchester.mcl" "__Lib_OneWire.mcl" "__Lib_PS2.mcl" "__Lib_Sound.mcl" "__Lib_SoftI2C.mcl" "__Lib_SoftSPI.mcl" "__Lib_SoftUART.mcl" "__Lib_ADC.mcl" "__Lib_EEPROM_eew.mcl" "__Lib_FLASH_rwe.mcl" "__Lib_PWM_0.mcl" "__Lib_PWM1_2_presc.mcl" "__Lib_PWM16bit_12.mcl" "__Lib_SPI_b7654_x2.mcl" "__Lib_TWI.mcl" "__Lib_UART_d01_ursel.mcl" "__Lib_PortExpander.mcl" "__Lib_CANSPI.mcl" "__Lib_CF.mcl" "__Lib_CFFat16.mcl" "__Lib_GlcdFonts.mcl" "__Lib_Glcd.mcl" "__Lib_LcdConsts.mcl" "__Lib_Lcd.mcl" "__Lib_Mmc.mcl" "__Lib_MmcFat16.mcl" "__Lib_MmcFat16_Defs.mcl" "__Lib_RS485.mcl" "__Lib_S1D13700.mcl" "__Lib_T6963C.mcl" "__Lib_T6963C_Consts.mcl" "__Lib_SPIGlcd.mcl" "__Lib_SPILcd.mcl" "__Lib_SPILcd8.mcl" "__Lib_SPIT6963C.mcl" "__Lib_SPIT6963C_Const.mcl" "__Lib_TFT.mcl" "__Lib_TFT_Defs.mcl" "__Lib_TFT_16bit.mcl" "__Lib_TFT_16bit_Defs.mcl" "__Lib_TouchPanel_TFT_C.mcl" "__Lib_TouchPanel.mcl" "__Lib_EthEnc28j60.mcl" "__Lib_EthEnc24j600.mcl" "MyProject.mbas"	 
+0	1	mBAVR.exe -MSF -DBG -pATMEGA32 -LHF -GC -Y -DL -SSA -RA -O11111114 -fo8 -N"E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good-final(95-12-12 corrected ok!)\MyProject.mbpav" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroBasic PRO for AVR\defs\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroBasic PRO for AVR\uses\lte64kw\" -SP"E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good-final(95-12-12 corrected ok!)\" -SP"E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good-final(95-12-12 with lcd crupted!!)\" -SP"E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good-final(95-12-12)\" -SP"E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\" -SP"E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - Copy\" -SP"E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names\" -SP"E:\„œ«—Â«\Easy Vacuum\button-test2\" -SP"C:\Users\Hamed\IGC\Desktop\pressure sensor\trash\New folder (3)\" -SP"E:\„œ«—Â«\button_test2\" -SP"H:\button_test2\" -SP"C:\Program Files\mikroBasic PRO for AVR\defs\" -SP"C:\Program Files\mikroBasic PRO for AVR\uses\lte64kw\" -SP"C:\Documents and Settings\Elasa\Desktop\mikroBasic PRO for AVR\defs\" -SP"C:\Documents and Settings\Elasa\Desktop\mikroBasic PRO for AVR\uses\lte64kw\" -SP"C:\Program Files\Mikroelektronika\mikroBasic PRO for AVR\defs\" -SP"C:\Program Files\Mikroelektronika\mikroBasic PRO for AVR\uses\lte64kw\" -SP"G:\button_test2\" -SP"C:\Documents and Settings\saeed\My Documents\Timer\button_test2\" -SP"E:\microc_test\button_test\button_test2\" "__Lib_Math.mcl" "__Lib_MathDouble.mcl" "__Lib_System.mcl" "__Lib_Delays.mcl" "__Lib_CType.mcl" "__Lib_String.mcl" "__Lib_CStdlib.mcl" "__Lib_MemManager.mcl" "__Lib_Conversions.mcl" "__Lib_Time.mcl" "__Lib_Trigon.mcl" "__Lib_Trigonometry.mcl" "__Lib_Button.mcl" "__Lib_Keypad4x4.mcl" "__Lib_Manchester.mcl" "__Lib_OneWire.mcl" "__Lib_PS2.mcl" "__Lib_Sound.mcl" "__Lib_SoftI2C.mcl" "__Lib_SoftSPI.mcl" "__Lib_SoftUART.mcl" "__Lib_ADC.mcl" "__Lib_EEPROM_eew.mcl" "__Lib_FLASH_rwe.mcl" "__Lib_PWM_0.mcl" "__Lib_PWM1_2_presc.mcl" "__Lib_PWM16bit_12.mcl" "__Lib_SPI_b7654_x2.mcl" "__Lib_TWI.mcl" "__Lib_UART_d01_ursel.mcl" "__Lib_PortExpander.mcl" "__Lib_CANSPI.mcl" "__Lib_CF.mcl" "__Lib_CFFat16.mcl" "__Lib_GlcdFonts.mcl" "__Lib_Glcd.mcl" "__Lib_LcdConsts.mcl" "__Lib_Lcd.mcl" "__Lib_Mmc.mcl" "__Lib_MmcFat16.mcl" "__Lib_MmcFat16_Defs.mcl" "__Lib_RS485.mcl" "__Lib_S1D13700.mcl" "__Lib_T6963C.mcl" "__Lib_T6963C_Consts.mcl" "__Lib_SPIGlcd.mcl" "__Lib_SPILcd.mcl" "__Lib_SPILcd8.mcl" "__Lib_SPIT6963C.mcl" "__Lib_SPIT6963C_Const.mcl" "__Lib_TFT.mcl" "__Lib_TFT_Defs.mcl" "__Lib_TFT_16bit.mcl" "__Lib_TFT_16bit_Defs.mcl" "__Lib_TouchPanel_TFT_C.mcl" "__Lib_TouchPanel.mcl" "__Lib_EthEnc28j60.mcl" "__Lib_EthEnc24j600.mcl" "MyProject.mbas"	 
+warning: 0	1501	Specified search path does not exist: 'E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good-final(95-12-12 with lcd crupted!!)'	 
+warning: 0	1501	Specified search path does not exist: 'E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good-final(95-12-12)'	 
+warning: 0	1501	Specified search path does not exist: 'E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good'	 
 warning: 0	1501	Specified search path does not exist: 'E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - Copy'	 
 warning: 0	1501	Specified search path does not exist: 'E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names'	 
 warning: 0	1501	Specified search path does not exist: 'E:\„œ«—Â«\Easy Vacuum\button-test2'	 
@@ -34,9 +37,9 @@ diagnostics: 0	133	Compilation Started	C:\Users\Public\Documents\Mikroelektronik
 hint: 1	1015	Hint: Compiling unit "C:\Users\Public\Documents\Mikroelektronika\mikroBasic PRO for AVR\Uses\LTE64KW\__Lib_TFT_16bit_Defs.mbas"	__Lib_TFT_16bit_Defs.mbas
 hint: 2071	1010	Hint: Unit "__Lib_TFT_16bit_Defs.mbas" has been recompiled	__Lib_TFT_16bit_Defs.mbas
 diagnostics: 0	134	Compiled Successfully	C:\Users\Public\Documents\Mikroelektronika\mikroBasic PRO for AVR\Uses\LTE64KW\__Lib_TFT_16bit_Defs.mbas
-diagnostics: 0	133	Compilation Started	E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\MyProject.mbas
-hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\MyProject.mbas"	MyProject.mbas
-hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\libs/PWM_timers.mbas"	libs/PWM_timers.mbas
+diagnostics: 0	133	Compilation Started	E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good-final(95-12-12 corrected ok!)\MyProject.mbas
+hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good-final(95-12-12 corrected ok!)\MyProject.mbas"	MyProject.mbas
+hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good-final(95-12-12 corrected ok!)\libs/PWM_timers.mbas"	libs/PWM_timers.mbas
 hint: 58	1021	Hint: interrupt handler (Timer2_Compare at 0x0008)	libs/PWM_timers.mbas
 hint: 62	1021	Hint: interrupt handler (Timer0_overflow at 0x0016)	libs/PWM_timers.mbas
 warning: 153	1509	Warning: Implicit typecast performed from "word" to "float"	libs/PWM_timers.mbas
@@ -47,28 +50,28 @@ hint: 98	1011	Hint: Variable "txt_s" has been eliminated by optimizer	libs/PWM_t
 hint: 301	1011	Hint: Variable "j" has been eliminated by optimizer	libs/PWM_timers.mbas
 hint: 301	1011	Hint: Variable "k" has been eliminated by optimizer	libs/PWM_timers.mbas
 hint: 605	1010	Hint: Unit "libs/PWM_timers.mbas" has been recompiled	libs/PWM_timers.mbas
-hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\libs/LCD.mbas"	libs/LCD.mbas
+hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good-final(95-12-12 corrected ok!)\libs/LCD.mbas"	libs/LCD.mbas
 hint: 134	1010	Hint: Unit "libs/LCD.mbas" has been recompiled	libs/LCD.mbas
-hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\libs/milady_shamsi.mbas"	libs/milady_shamsi.mbas
+hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good-final(95-12-12 corrected ok!)\libs/milady_shamsi.mbas"	libs/milady_shamsi.mbas
 hint: 109	1011	Hint: Variable "farvardin1st_iMonth" has been eliminated by optimizer	libs/milady_shamsi.mbas
 hint: 109	1011	Hint: Variable "farvardin1st_iDay" has been eliminated by optimizer	libs/milady_shamsi.mbas
 hint: 353	1010	Hint: Unit "libs/milady_shamsi.mbas" has been recompiled	libs/milady_shamsi.mbas
-hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\libs/I2C.mbas"	libs/I2C.mbas
+hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good-final(95-12-12 corrected ok!)\libs/I2C.mbas"	libs/I2C.mbas
 hint: 166	1010	Hint: Unit "libs/I2C.mbas" has been recompiled	libs/I2C.mbas
-hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\libs/TWI.mbas"	libs/TWI.mbas
+hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good-final(95-12-12 corrected ok!)\libs/TWI.mbas"	libs/TWI.mbas
 warning: 102	1509	Warning: Implicit typecast performed from "longint" to "double"	libs/TWI.mbas
 warning: 152	1509	Warning: Implicit typecast performed from "longint" to "double"	libs/TWI.mbas
 hint: 201	1010	Hint: Unit "libs/TWI.mbas" has been recompiled	libs/TWI.mbas
-hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\libs/Calculations.mbas"	libs/Calculations.mbas
+hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good-final(95-12-12 corrected ok!)\libs/Calculations.mbas"	libs/Calculations.mbas
 warning: 38	1509	Warning: Implicit typecast performed from "longint" to "float"	libs/Calculations.mbas
 warning: 38	1509	Warning: Implicit typecast performed from "byte" to "float"	libs/Calculations.mbas
 warning: 38	1509	Warning: Implicit typecast performed from "integer" to "double"	libs/Calculations.mbas
 warning: 38	1509	Warning: Implicit typecast performed from "integer" to "double"	libs/Calculations.mbas
 warning: 38	1509	Warning: Implicit typecast performed from "double" to "integer"	libs/Calculations.mbas
 hint: 45	1010	Hint: Unit "libs/Calculations.mbas" has been recompiled	libs/Calculations.mbas
-hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\libs/keypad.mbas"	libs/keypad.mbas
+hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good-final(95-12-12 corrected ok!)\libs/keypad.mbas"	libs/keypad.mbas
 hint: 13	1010	Hint: Unit "libs/keypad.mbas" has been recompiled	libs/keypad.mbas
-hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\libs/EEprom_Atmega32.mbas"	libs/EEprom_Atmega32.mbas
+hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good-final(95-12-12 corrected ok!)\libs/EEprom_Atmega32.mbas"	libs/EEprom_Atmega32.mbas
 hint: 76	1001	Hint: Variable "device_address" has been declared, but not used	libs/EEprom_Atmega32.mbas
 hint: 97	1001	Hint: Variable "on_off22" has been declared, but not used	libs/EEprom_Atmega32.mbas
 hint: 129	1001	Hint: Variable "on_off22" has been declared, but not used	libs/EEprom_Atmega32.mbas
@@ -86,7 +89,7 @@ hint: 189	1011	Hint: Variable "on_off22" has been eliminated by optimizer	libs/E
 hint: 190	1011	Hint: Variable "hx1" has been eliminated by optimizer	libs/EEprom_Atmega32.mbas
 hint: 191	1011	Hint: Variable "txt_sub" has been eliminated by optimizer	libs/EEprom_Atmega32.mbas
 hint: 449	1010	Hint: Unit "libs/EEprom_Atmega32.mbas" has been recompiled	libs/EEprom_Atmega32.mbas
-hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\libs/main_function.mbas"	libs/main_function.mbas
+hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good-final(95-12-12 corrected ok!)\libs/main_function.mbas"	libs/main_function.mbas
 warning: 128	1518	Warning: Suspicious pointer conversion	libs/main_function.mbas
 warning: 128	1518	Warning: Suspicious pointer conversion	libs/main_function.mbas
 warning: 130	1516	Warning: Source size (1) does not match destination size (3)	libs/main_function.mbas
@@ -96,39 +99,35 @@ warning: 604	1518	Warning: Suspicious pointer conversion	libs/main_function.mbas
 warning: 668	1509	Warning: Implicit typecast performed from "byte" to "float"	libs/main_function.mbas
 hint: 175	1001	Hint: Variable "Time_on" has been declared, but not used	libs/main_function.mbas
 hint: 765	1010	Hint: Unit "libs/main_function.mbas" has been recompiled	libs/main_function.mbas
-hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\libs/keypad_Atmega32.mbas"	libs/keypad_Atmega32.mbas
-warning: 483	1516	Warning: Source size (17) does not match destination size (16)	libs/keypad_Atmega32.mbas
-warning: 530	1516	Warning: Source size (22) does not match destination size (16)	libs/keypad_Atmega32.mbas
-warning: 532	1516	Warning: Source size (21) does not match destination size (16)	libs/keypad_Atmega32.mbas
-warning: 583	1516	Warning: Source size (17) does not match destination size (16)	libs/keypad_Atmega32.mbas
-warning: 710	1516	Warning: Source size (4) does not match destination size (5)	libs/keypad_Atmega32.mbas
-warning: 731	1516	Warning: Source size (4) does not match destination size (5)	libs/keypad_Atmega32.mbas
+hint: 1	1015	Hint: Compiling unit "E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good-final(95-12-12 corrected ok!)\libs/keypad_Atmega32.mbas"	libs/keypad_Atmega32.mbas
+warning: 485	1516	Warning: Source size (17) does not match destination size (16)	libs/keypad_Atmega32.mbas
+warning: 532	1516	Warning: Source size (22) does not match destination size (16)	libs/keypad_Atmega32.mbas
+warning: 534	1516	Warning: Source size (21) does not match destination size (16)	libs/keypad_Atmega32.mbas
+warning: 585	1516	Warning: Source size (17) does not match destination size (16)	libs/keypad_Atmega32.mbas
+warning: 712	1516	Warning: Source size (4) does not match destination size (5)	libs/keypad_Atmega32.mbas
+warning: 733	1516	Warning: Source size (4) does not match destination size (5)	libs/keypad_Atmega32.mbas
 hint: 140	1001	Hint: Variable "location_my_1" has been declared, but not used	libs/keypad_Atmega32.mbas
 hint: 141	1001	Hint: Variable "location_my_2" has been declared, but not used	libs/keypad_Atmega32.mbas
-hint: 197	1001	Hint: Variable "k2" has been declared, but not used	libs/keypad_Atmega32.mbas
-hint: 197	1011	Hint: Variable "k2" has been eliminated by optimizer	libs/keypad_Atmega32.mbas
-hint: 490	1011	Hint: Variable "var_in" has been eliminated by optimizer	libs/keypad_Atmega32.mbas
-hint: 822	1010	Hint: Unit "libs/keypad_Atmega32.mbas" has been recompiled	libs/keypad_Atmega32.mbas
-warning: 163	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
-warning: 169	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
-warning: 173	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
-warning: 191	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
-warning: 197	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
-warning: 201	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
-warning: 322	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
-warning: 330	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
-warning: 336	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
-warning: 340	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+hint: 199	1001	Hint: Variable "k2" has been declared, but not used	libs/keypad_Atmega32.mbas
+hint: 199	1011	Hint: Variable "k2" has been eliminated by optimizer	libs/keypad_Atmega32.mbas
+hint: 492	1011	Hint: Variable "var_in" has been eliminated by optimizer	libs/keypad_Atmega32.mbas
+hint: 824	1010	Hint: Unit "libs/keypad_Atmega32.mbas" has been recompiled	libs/keypad_Atmega32.mbas
+warning: 164	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 170	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 174	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 192	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 198	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 202	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
 warning: 420	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
 warning: 425	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
 hint: 708	1010	Hint: Unit "MyProject.mbas" has been recompiled	MyProject.mbas
-diagnostics: 0	134	Compiled Successfully	E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good\MyProject.mbas
-diagnostics: 0	139	All files Compiled in 1295 ms	 
+diagnostics: 0	134	Compiled Successfully	E:\„œ«—Â«\Easy Vacuum\button-test2 - working new lib based github - changed names - main atmega128 working 95-10-5 new good-final(95-12-12 corrected ok!)\MyProject.mbas
+diagnostics: 0	139	All files Compiled in 920 ms	 
 hint: 0	1144	Used RX (bytes): 32 (100%)   Free RX (bytes): 0 (0%)	Used RX (bytes): 32 (100%)   Free RX (bytes): 0 (0%)
-hint: 0	1144	Static RAM (bytes): 1682   Dynamic RAM (bytes): 366	Static RAM (bytes): 1682   Dynamic RAM (bytes): 366
-hint: 0	1144	Used ROM (bytes): 30120 (92%)  Free ROM (bytes): 2648 (8%)	Used ROM (bytes): 30120 (92%)  Free ROM (bytes): 2648 (8%)
+hint: 0	1144	Static RAM (bytes): 1680   Dynamic RAM (bytes): 368	Static RAM (bytes): 1680   Dynamic RAM (bytes): 368
+hint: 0	1144	Used ROM (bytes): 30136 (92%)  Free ROM (bytes): 2632 (8%)	Used ROM (bytes): 30136 (92%)  Free ROM (bytes): 2632 (8%)
 diagnostics: 0	145	Project Linked Successfully	MyProject.mbpav
 hint: 0	1004	COFF file successfully generated	COFF file successfully generated
-diagnostics: 0	140	Linked in 2371 ms	 
-diagnostics: 0	141	Project 'MyProject.mbpav' completed: 4462 ms	 
-diagnostics: 0	103	Finished successfully: 24 ›Ê—ÌÂ 2017, 21:54:28	MyProject.mbpav
+diagnostics: 0	140	Linked in 1545 ms	 
+diagnostics: 0	141	Project 'MyProject.mbpav' completed: 3011 ms	 
+diagnostics: 0	103	Finished successfully: 02 „«—” 2017, 20:10:07	MyProject.mbpav

@@ -1152,7 +1152,6 @@ k_set_max
 key_port_init
 key_port_init_mainfunc
 key_test
-key_test_currpted
 key_test_old
 keypad_init
 keypad_key_click
@@ -1810,7 +1809,6 @@ s1d13700_write_text_return_pos
 sd_sector_size
 se
 se_bit
-sec_n1
 sec1
 seconds
 sect

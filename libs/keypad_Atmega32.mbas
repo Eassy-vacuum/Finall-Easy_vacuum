@@ -162,6 +162,8 @@ sub procedure Key_Port_Init()
 '**************************************************************************************************}
 sub procedure show_in_button(DIM var_in_old_on_off_2 as byte,dim var_in_2,var_in_lcd_2 as integer,dim num_2 as byte )
 '       num_=num_+1
+'       Lcd_Cmd(_LCD_TURN_OFF) Delay_mS(500) Lcd_Cmd(_LCD_TURN_On)
+'        LCD_Out(1,1, "dd")
        if   var_in_old_on_off_2<>0 then
            Show_text(Options_array[First_second_comand-1][lcd_line-1][var_in_lcd_2-1][0],
                  Options_array[First_second_comand-1][lcd_line-1][var_in_lcd_2-1][1]
