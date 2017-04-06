@@ -38,9 +38,9 @@ dim txt as string[19]   external
 
 'sub procedure Lcd_0()    external
 
-sub procedure Shamsi_call()
-sub procedure Shamsi_show_lcd(dim jjmonth,jjday,jjyear,jweek,jhours ,jminutes,jseconds as integer)
-sub procedure miladi_call(dim jjmonth,jjday,jjyear,jweek,jhours ,jminutes,jseconds as integer)
+'sub procedure Shamsi_call()
+'sub procedure Shamsi_show_lcd(dim jjmonth,jjday,jjyear,jweek,jhours ,jminutes,jseconds as integer)
+'sub procedure miladi_call(dim jjmonth,jjday,jjyear,jweek,jhours ,jminutes,jseconds as integer)
 sub procedure Shamsi_transfer_time()
 implements
  '**************************************************************************************************

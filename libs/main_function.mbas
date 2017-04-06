@@ -5,19 +5,27 @@ include "libs/PWM_timers"
 include "libs/LCD"
 include "libs/I2C"
 
-include "libs/TWI"
+'include "libs/TWI"
 include "libs/Calculations"
 include "libs/milady_shamsi"
+
+include "libs/EEprom_Atmega32"
 'include "libs/keypad"
-#IFDEF ATmega128
-'include "libs/keypad_Atmega128"
-'include "libs/keypad_Atmega32"
-include "libs/EEprom_Atmega32"
-#ENDIF
-#IFDEF ATmega32
-'include "libs/keypad_Atmega32"
-include "libs/EEprom_Atmega32"
-#ENDIF
+'#IFDEF ATmega128
+''include "libs/keypad_Atmega128"
+''include "libs/keypad_Atmega32"
+'include "libs/EEprom_Atmega32"
+'#ENDIF
+'#IFDEF ATmega32
+''include "libs/keypad_Atmega32"
+'include "libs/EEprom_Atmega32"
+'#ENDIF
+'
+'#IFDEF ATmega32a
+''include "libs/keypad_Atmega32"
+'include "libs/EEprom_Atmega32"
+'#ENDIF
+
 
 #IFDEF ATmega128
   symbol HET_SW_Port  = PINE
@@ -34,7 +42,8 @@ include "libs/EEprom_Atmega32"
   symbol Down_SW_bit =   4
   symbol On_state = 1
   symbol Off_state = 0
-  symbol Choice_number = 7
+'  symbol Choice_number = 7
+  symbol Choice_number_sym = 3
   symbol Heater_pwm_num = 1
   symbol Motor_pwm_num = 2
   symbol Heater_relay_Pin =PINE7_bit
@@ -58,7 +67,32 @@ include "libs/EEprom_Atmega32"
   symbol Heater_relay_Pin =PIND6_bit
   symbol On_state = 1
   symbol Off_state = 0
-  symbol Choice_number = 7
+'  symbol Choice_number = 7
+  symbol Choice_number_sym = 3
+  symbol Heater_pwm_num = 1
+  symbol Motor_pwm_num = 2
+  symbol swich_time= 5
+  #ENDIF
+  
+#IFDEF ATmega32a
+  symbol HET_SW_Port  = PIND
+  symbol HET_SW_bit =   3
+  symbol Mot_SW_Port = PIND
+  symbol Mot_SW_bit=   2
+
+  symbol Ok_SW_Port  = PINB
+  symbol Ok_SW_bit =   0
+  symbol Menu_SW_Port  = PINB
+  symbol Menu_SW_bit =   2
+  symbol Up_SW_Port  = PINB
+  symbol UP_SW_bit =   1
+  symbol Down_SW_Port  =PINB
+  symbol Down_SW_bit =   4
+  symbol Heater_relay_Pin =PIND6_bit
+  symbol On_state = 1
+  symbol Off_state = 0
+'  symbol Choice_number = 7
+  symbol Choice_number_sym = 3
   symbol Heater_pwm_num = 1
   symbol Motor_pwm_num = 2
   symbol swich_time= 5
@@ -67,6 +101,7 @@ include "libs/EEprom_Atmega32"
     k as integer   external
  dim heater_On_mSec as integer external
  dim hours, minutes, seconds, day, week, month, year as byte  external  ' Global date/time variables
+ dim target_hr,target_min,target_sec as byte  external
  dim kp,ok,k_set,week_new,chanel,Pwm_Percent,Pwm_chanel,Pwm_chanel_main ,Yes_no,on_off,on_off2 as  byte  external
  dim  Interupt_first_time, on_test as byte external
 ' dim on_a_0 as Byte[1][4][3][2][4]  external ''[week-1][chanel-1][pwm_chanel-1][on_off2-1][0]
@@ -74,14 +109,14 @@ include "libs/EEprom_Atmega32"
 'dim on_a_1 as integer[7][4][7][2][4]  external ''[week-1][chanel-1][pwm_chanel-1][on_off2-1][0]
 'dim on_a_0 as byte[7][1][3][2][4]   external'' on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off22-1][0]
 
-dim Mot_heater_On_mSec as  Byte[Choice_number][2][3][4]  external  ''Mot_heater_On_mSec[chanel-1][Heater_motor_index-1][Pwm_chanel_main-1]
+dim Mot_heater_On_mSec as  Byte[Choice_number_sym][2][3][4]  external  ''Mot_heater_On_mSec[chanel-1][Heater_motor_index-1][Pwm_chanel_main-1]
 ' dim sec_n1 as byte [2]  ''external
  dim Heater_motor_index as byte 
  dim chanel_active as  byte   external
  dim txt,txt3 ,txt1 as string[19]  external
   dim while_state_import,oldstate_2,while_state_import_main ,oldstate_3 as bit   external
  dim ht_start_min, ht_start_sec ,ht_end_sec,ht_end_min,Mo_start_min,Mo_start_sec ,Mo_end_sec,Mo_end_min as byte
-  dim Start_hours, Start_minutes, Start_seconds, Start_day, Start_week, Start_month, Start_year as byte     ' Global date/time variables
+  dim Start_hours, Start_minutes, Start_seconds, Start_day, Start_week, Start_month, Start_year as byte  external    ' Global date/time variables
   dim  Start_minutes_next, Start_seconds_next as integer 
        End_minutes_next, End_seconds_next as byte    ' Global date/time variables
 dim    txt_byte_min,txt_byte_sec as string[3]
@@ -93,7 +128,109 @@ sub procedure Easy_vacuum_95_10_4_simple_working(dim program_number as byte,dim 
 'sub procedure Easy_vacuum_95_10_4_simple_heater(dim program_number as byte,dim Interupt_en as byte,dim byref Time_on as integer)
 sub procedure Key_Port_Init_mainfunc()
 sub procedure Buzzer_on_off(dim on_ as byte)
+sub procedure DS1307(dim hours, minutes, seconds as byte)
 implements
+
+'sub function DS1307(dim hours, minutes, seconds as byte,
+'                       dim hours_first,minutes_first,seconds_first as byte,
+'                            dim target_hr,target_min,target_sec as byte)
+'
+'     if target_hr+hours_first>23 then
+'             if hours<>0 then
+'                if target_min+minutes_first>59 then
+'                   if  min<>0 then
+'                       if target_sec > ( 59-seconds) then
+'                          if seconds=0 then
+'                             target_sec=target_sec-(59-seconds)  +1
+'                          end if
+'                       end if
+'                   else
+'                       target_min=target_min-1
+'                   end if
+'                   if target_sec+seconds_first>59 then
+'                       if  seconds=0 then
+'                           if target_sec > ( 59-seconds) then
+'                              if seconds=0 then
+'                                 target_sec=target_sec-(59-seconds)  +1
+'                              end if
+'                           end if
+'                       else
+'                           target_min=target_min-1
+'                       end if
+'             else
+'                 target_hr=target_hr-(23-hours)  +1
+'            end if
+'
+'     if target_min+min>59 then
+'         if  min<>0 then
+'             if target_sec > ( 59-seconds) then
+'                if seconds=0 then
+'                   target_sec=target_sec-(59-seconds)  +1
+'         else
+'            target_min=target_min-1
+'            end if
+'         if target_hr+hours>23 then
+'             if hours<>0 then
+'                if target_min > ( 23-minutes) then
+'                   if minutes=0 then
+'                       target_min=target_min-(23-minutes)  +1
+'
+
+sub procedure DS1307(dim hours, minutes, seconds as byte)
+                      ''', dim hours_first,minutes_first,seconds_first as byte)
+                           '' ,dim target_hr,target_min,target_sec as byte)
+'    dim sec_t,min_t,hr_t as byte
+'    sec_t=0 min_t=0 hr_t=0
+'    lcd_0() bytetostr(Start_seconds,TXT) Lcd_out(1, 1, "St_s:"+ txt) BYTETOSTR(seconds,TXT ) Lcd_out(1, 11, "s:"+ txt)
+'    BYTETOSTR(Start_minutes,TXT) Lcd_out(2, 1, "St_m"+ txt) BYTETOSTR(minutes,TXT) Lcd_out(2, 11, "m:"+ txt) delay_ms(200)
+
+    if seconds>=Start_seconds+1 or ((seconds=0) and (Start_seconds=59))  then
+       target_sec=target_sec+1   Start_seconds=seconds
+    else if seconds<>Start_seconds  then
+          Start_seconds=seconds
+         end if
+    end if
+    if minutes>=Start_minutes+1 or ((minutes=0) and (Start_minutes=59))  then
+          Start_minutes=minutes
+'          target_min=target_min+1
+    else if minutes<>Start_minutes  then
+          Start_minutes=minutes
+         end if
+    end if
+'   lcd_0() bytetostr(Start_seconds,TXT) Lcd_out(1, 1, "St_s:"+ txt) BYTETOSTR(seconds,TXT ) Lcd_out(1, 9, "s:"+ txt)
+'    BYTETOSTR(Start_minutes,TXT) Lcd_out(2, 1, "St_m"+ txt) BYTETOSTR(minutes,TXT) Lcd_out(2, 9, "m:"+ txt) delay_ms(200)
+    
+    'if minutes=Start_minutes+1  or ((minutes=0) and (Start_minutes=59)) then
+'       target_min=target_min+1   Start_minutes=minutes
+'    end if
+'    if hours=Start_hours+1 or ((hours=0) and (Start_hours=23)) then
+'       target_hr=target_hr+1     Start_hours= hours
+'    end if
+    if target_sec>=60 then
+               target_sec=0         target_min=target_min+1
+    end if
+    if target_min>=60 then
+           target_min=0  target_sec=0       target_hr=target_hr+1
+    end if
+    if target_hr>=24 then
+       target_hr=0 target_min=0 target_sec=0
+    end if
+    
+    'if target_hr=24 then
+'       target_hr=0 target_min=0 target_sec=0
+'    else
+'        if target_min=60 then
+'           target_min=0  target_sec=0       ''target_hr=target_hr+1
+'        else
+'            if target_sec=60 then
+'               target_sec=0         ''target_min=target_min+1
+'            end if
+'        end if
+'    end if
+'
+    
+end sub
+
 sub procedure Key_Port_Init_mainfunc()
     #IFDEF ATmega128
          ''################switches Ports #############
@@ -110,14 +247,28 @@ sub procedure Key_Port_Init_mainfunc()
      ''################ End of switches Ports #############
      DDD6_bit = 1
     #ENDIF
+    #IFDEF ATmega32a
+     ''################switches Ports #############
+     DDB4_bit = 0 DDB2_bit = 0  DDB0_bit = 0  DDB1_bit = 0              ' Set PORTE pin 7 as input pin for the Heater switches
+     DDD2_bit = 0 DDD3_bit = 0
+     ''################ End of switches Ports #############
+     DDD6_bit = 1
+    #ENDIF
  end sub
 
 sub procedure Buzzer_on_off(dim on_ as byte)
-   if On_=1 then
-      PWM_MAKE (100,255,3)delay_ms(300)PWM_MAKE (0,255,3)
-   else
-      PWM_MAKE (0,255,3)delay_ms(300)PWM_MAKE (100,255,3)
-   end if
+ '   DDD7_bit=1
+'    DDRA=0xFF
+''    Sound_Init(PORTD,7) ' Initialize sound pin
+'
+'   if On_=1 then
+''      PWM_MAKE (100,255,4)delay_ms(300)PWM_MAKE (0,255,4)
+'      PORTD7_bit=1 PORTA = 0xAA
+''       Sound_Play(2000, 1000)          ' Play starting sound, 2kHz, 1 second
+'   else
+''      PWM_MAKE (0,255,4)delay_ms(300)PWM_MAKE (100,255,4)
+'      PORTD7_bit=0  PORTA = 0x00
+'   end if
 
 end sub
 sub procedure Show_message_done(dim byref ht_or_mot as string[5],dim chanel_1 as byte)
@@ -133,11 +284,14 @@ sub procedure Show_message_done(dim byref ht_or_mot as string[5],dim chanel_1 as
 '     ByteToStr(Start_seconds_next, txt_byte_min) Lcd_Out(2,11,txt_byte_min) delay_ms(100)
       Start_seconds_next  =  ((Start_seconds_next and 0xF0) >> 4)*10 + (Start_seconds_next and 0x0F)
       Start_minutes_next  =  ((Start_minutes_next and 0xF0) >> 4)*10 + (Start_minutes_next and 0x0F)
-      mi=Start_minutes_next se=Start_seconds_next
+'      mi=Start_minutes_next se=Start_seconds_next
+      mi=target_min se=target_sec
       Lcd_Chr(2, 5, (mi div 10) + 48)
       Lcd_Chr(2,6, (mi mod 10) + 48)
       Lcd_Chr(2,14, (se div 10) + 48)
       Lcd_Chr(2,15, (se mod 10) + 48)
+      
+      
 
 end sub
 sub procedure Heater_relay_on()
@@ -153,10 +307,10 @@ sub procedure Saving_Mot_heater_On_mSec(dim auto_setting_enable as byte)
 '    Heater_motor_index=2
     if auto_setting_enable=1 then
        for  Heater_motor_index_1=1 to 2
-          Mot_heater_On_mSec [chanel-1][Heater_motor_index_1-1][Pwm_chanel_main-1][1]= minutes
+          Mot_heater_On_mSec [chanel-1][Heater_motor_index_1-1][Pwm_chanel_main-1][1]= target_min
           ByteToStr(Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][1], txt_byte_min)
           Lcd_0()Lcd_Out(1,1,txt_byte_min) Lcd_Out(2,1,"On EEPROM") delay_ms(2000)
-          Mot_heater_On_mSec [chanel-1][Heater_motor_index_1-1][Pwm_chanel_main-1][2]= seconds
+          Mot_heater_On_mSec [chanel-1][Heater_motor_index_1-1][Pwm_chanel_main-1][2]= target_sec
           ByteToStr(Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][2], txt_byte_min)
           Lcd_0()Lcd_Out(1,1,txt_byte_min) Lcd_Out(2,1,"On EEPROM") delay_ms(2000)
        next Heater_motor_index_1
@@ -266,7 +420,7 @@ sub procedure Easy_vacuum_95_10_4_simple_Motor(dim program_number as byte,dim In
        Lcd_0()Lcd_Out(1,1,"End") Lcd_Out(2,1,"...") delay_ms(200) '' DDD7_bit =0
 end sub
 
-sub procedure Easy_vacuum_95_10_4_simple_working(dim program_number as byte,dim Interupt_en,auto_setting_enable as byte)
+sub procedure Easy_vacuum_95_10_4_simple_working_NoDS1307_fun(dim program_number as byte,dim Interupt_en,auto_setting_enable as byte)
 '     dim Heater_motor_index as byte
 
      dim pwm_precnt as integer
@@ -727,7 +881,7 @@ sub procedure Easy_vacuum_95_10_4_simple_working(dim program_number as byte,dim 
                                if (j=2) then    ' Detect logical one up key
                                   PWM_MAKE (0,255,Pwm_chanel_main)
 
-                               Show_message_done("Motor",chanel) delay_ms(2000)
+                               Show_message_done("Motor",chanel) delay_ms(200)
                                Lcd_0()
                                Lcd_Out(1,1,txt) Lcd_Out(1,8,"is Off:")
                                Lcd_Out(2,1,"Prog num:") Lcd_Out(2,10,txt) delay_ms(200)
@@ -737,7 +891,7 @@ sub procedure Easy_vacuum_95_10_4_simple_working(dim program_number as byte,dim 
                                while_state_import=0
                                else
                                
-                                  Lcd_0()Lcd_Out(1,1,"Wating for :") Lcd_Out(2,1,"Downing the Pad !!") delay_ms(3000)
+                                  Lcd_0()Lcd_Out(1,1,"Wating for :") Lcd_Out(2,1,"Downing the Pad !!") delay_ms(500)
                                  if (Button(Mot_SW_Port,Mot_SW_bit, swich_time, 0))   then
                                     j=2
                                  end if
@@ -778,6 +932,626 @@ sub procedure Easy_vacuum_95_10_4_simple_working(dim program_number as byte,dim 
      Lcd_Out(1,1,"Sec ended is :") Lcd_Out(1,10,txt)
      inttostr(End_minutes_next,txt)
      Lcd_Out(2,1,"Min ended is :") Lcd_Out(2,10,txt) delay_ms(200)
+ end sub
+
+sub procedure Easy_vacuum_95_10_4_simple_working(dim program_number as byte,dim Interupt_en,auto_setting_enable as byte)
+'     dim Heater_motor_index as byte
+
+     dim pwm_precnt as integer
+     Heater_motor_index=1 chanel=program_number Pwm_chanel_main=Heater_pwm_num''as heater
+'     PWM_MAKE (Mot_heater_On_mSec [0][0][0][3],255,1)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+     'PWM_MAKE (100,255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+'     delay_ms(200)
+'     PWM_MAKE (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][3],255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+'     delay_ms(200)
+'     PWM_MAKE (0,255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+'     delay_ms(200)
+'     PWM_MAKE (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][3],255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+'     delay_ms(200)
+'
+'     PWM_MAKE (0,255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+'     delay_ms(200)
+     'ByteToStr(Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][3], txt_byte_min)
+'     StrToInt(txt_byte_min)
+'     Lcd_0()Lcd_Out(1,1,"Wating for :") Lcd_Out(2,1,txt_byte_min) delay_ms(2000)
+
+
+     'Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
+'     Shamsi_call()
+'     Shamsi_show_lcd( jmonth,jday,jyear,week,hours ,minutes,seconds )
+'     Delay_mS(300)
+'     miladi_call(jmonth,jday,jyear,week,hours ,minutes,seconds )
+'     Delay_mS(300)
+     while_state_import=1  oldstate_3=0 chanel=program_number   week=1   on_off2 = 1
+     while  (while_state_import )
+       'Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
+'       Shamsi_call()
+'       Shamsi_show_lcd( jmonth,jday,jyear,week,hours ,minutes,seconds )
+'       Delay_mS(300)
+'       miladi_call(jmonth,jday,jyear,week,hours ,minutes,seconds )
+'       Delay_mS(300)
+       if (Interupt_en=0)  then
+         if (Button(HET_SW_Port, HET_SW_bit, swich_time, 0)) then    ' Detect logical one up key
+                    oldstate_3 = 1                      ' Update flag
+                    Interupt_en=1 while_state_import=0 Buzzer_on_off(1)
+         end if
+         if (oldstate_3 and Button(HET_SW_Port, HET_SW_bit,swich_time, 1)) then
+           Interupt_en=1 while_state_import=0
+         end if
+       else
+          while_state_import=0
+          Lcd_0()Lcd_Out(1,1,"Wating for :") Lcd_Out(2,1,"Pressing Heater micro SW") delay_ms(200) '' DDD7_bit =0
+       end if
+     wend
+
+
+
+        if (Interupt_en=1) then
+              'LCD_Out(2,9, "Heater running")  ''Show on LCD
+'              LCD_Out(2,1, "Value: ")  ''Show on LCD
+'              Delay_mS(100)
+'              Read_Time(@Start_hours, @Start_minutes, @Start_seconds, @Start_day, @Start_week, @Start_month, @Start_year)
+'              Write_Time(Dec2Bcd(1),Dec2Bcd(0),Dec2Bcd(0),Dec2Bcd(1),Dec2Bcd(1),Dec2Bcd(1),Dec2Bcd(Start_year))
+'              ''Write_Time(dim c_hours as byte, dim c_minutes as byte, dim c_seconds as byte,
+'                 ''dim c_day as byte, dim c_week as byte, dim c_month as byte, dim c_year as byte)
+'              hours=0x1  minutes=0x0   seconds=0x00 day= 0x2 week=2   month=0x11  year=0x16
+'              Write_Time(hours, minutes, seconds, 0x13, 0x02,   0x11,year)
+'              Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
+            Heater_motor_index=1 chanel=program_number Pwm_chanel_main=Heater_pwm_num''as heater
+'     PWM_MAKE (Mot_heater_On_mSec [0][0][0][3],255,1)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+'     PWM_MAKE (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][3],255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+    ' delay_ms(2000)
+'     PWM_MAKE (0,255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+
+            'Heater_motor_index=1 chanel=program_number Pwm_chanel_main=Heater_pwm_num''as heater
+'            ByteToStr(Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][3], txt_byte_min)
+'            pwm_precnt=StrToInt(txt_byte_min)
+'
+'            while_state_import=1    while_state_import_main=0
+''            while( while_state_import)
+'            if (1)then
+'       '                 #####################  check Off is accured and enabled  #############
+'                 if (auto_setting_enable=1) or (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][1]>= minutes ) and    (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][2]>= seconds)  and (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][0]<>0) then  '''OFF mode
+'     '         if  (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2-1][1]>= minutes ) and (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2-1][2]>= seconds) then ''and (on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off2][0]<>0)  then
+''                 ''On test down
+''                 if  (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][1]<= minutes ) and     (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][2]<= seconds) then
+''                       Lcd_0()
+'
+'                           inttostr(minutes,txt)
+'                           Lcd_Out(2,1,txt) Lcd_Out(1,1,"1 chcked:") delay_ms(500)
+'                           Heater_motor_index=1 chanel=program_number Pwm_chanel_main=Heater_pwm_num''as heater
+''                           PWM_MAKE (Mot_heater_On_mSec [chanel-1][Heater_motor_index][Pwm_chanel_main-1][3],255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+'                           delay_ms(500)
+''                           PWM_MAKE (pwm_precnt,255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+'                           delay_ms(100)
+'                           if (Button(Mot_SW_Port,Mot_SW_bit, swich_time, 1)) then    ' Detect logical one up key
+'                                   oldstate_3 = 1 while_state_import=0  Heater_relay_Pin =0   while_state_import=0                 ' Update flag
+'                           end if
+'                           if (oldstate_3 and Button(Mot_SW_Port,Mot_SW_bit,swich_time, 0)) then
+'                                while_state_import=0
+'                                PWM_MAKE (0,255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+'                                 Heater_relay_Pin =0
+'                           end if
+'
+'                 end if
+'              end if
+''              wend
+'              Pwm_chanel_main=Heater_pwm_num Pwm_chanel=Pwm_chanel_main ''heater
+'             if  (Pwm_chanel_main=Heater_pwm_num) then
+'                  txt="Heater"
+'                  ht_start_min= minutes   ht_start_sec=seconds
+'             else if  (Pwm_chanel_main=Motor_pwm_num)  then
+'                 txt="Motor"
+'                 Mo_start_min= minutes   Mo_start_sec=seconds
+'                end if
+'             end if
+              'ByteToStr(Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][3], txt_byte_min)
+'              StrToInt(txt_byte_min)
+'              Lcd_0()Lcd_Out(1,1,"Wating for :") Lcd_Out(2,1,txt_byte_min) delay_ms(2000) '' DDD7_bit =0
+
+      '       Min_start=on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][1] +minutes
+      '       Sec_start=on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][2] +seconds
+
+      '       ht_start_min, ht_start_sec ,ht_end_sec,ht_end_min,Mo_start_min,Mo_start_sec ,Mo_end_sec,Mo_end_min
+              Lcd_0()
+              'inttostr(( Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][3]),txt)
+'              inttostr(Bcd2Dec(minutes),txt)
+'              Lcd_Out(2,1,txt) Lcd_Out(1,1,"min in a is :") delay_ms(500)
+              Read_Time(@Start_hours, @Start_minutes, @Start_seconds, @Start_day, @Start_week, @Start_month, @Start_year)
+'              Write_Time(Dec2Bcd(Start_hours),Dec2Bcd(0),Dec2Bcd(0),Dec2Bcd(Start_day),Dec2Bcd(Start_week),Dec2Bcd(Start_month),Dec2Bcd(Start_year))
+              ''Write_Time(dim c_hours as byte, dim c_minutes as byte, dim c_seconds as byte,
+                 ''dim c_day as byte, dim c_week as byte, dim c_month as byte, dim c_year as byte)
+'              hours=0x1  minutes=0x00   seconds=0x00 day= 0x2 week=2   month=0x11  year=0x16
+'              Write_Time(hours, minutes, seconds, 0x13, 0x02,   0x11,year)
+              target_sec=0 target_min=0 target_hr=0
+              Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)  Shamsi_transfer_time()
+              Start_seconds=seconds Start_minutes=minutes Start_hours=hours
+              Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)  Shamsi_transfer_time()
+              DS1307(hours, minutes, seconds) 'seconds=target_sec minutes=target_min hours=target_hr
+
+'              PWM_MAKE (18,255,2)
+
+'              if  (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][1]<= minutes ) and     (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][2]<= seconds) then '' and (on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off2][0]<>0) then
+            while_state_import=1
+            if (auto_setting_enable=1)then  '''making unlimit time for auto setting
+                for  Pwm_chanel_main=Heater_pwm_num to 3
+                  for  Heater_motor_index=1 to 2
+                    Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][1]=60
+                    Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][2]=60
+                    Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][0]=1
+                   next Heater_motor_index
+                next Pwm_chanel_main
+
+            end if
+            Heater_motor_index=2 chanel=program_number Pwm_chanel_main=Heater_pwm_num''as heater
+            ByteToStr(Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][3], txt_byte_min)
+            pwm_precnt=StrToInt(txt_byte_min)
+
+            while_state_import=1    while_state_import_main=0   j=1
+'            while( while_state_import)
+            
+            ''################  comented in 96-1-13   #####################
+'            if (1)then
+'       '                 #####################  check Off is accured and enabled  #############
+'                 if (auto_setting_enable=1) or (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][1]>= target_min ) and    (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][2]>= target_sec)  and (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][0]<>0) then  '''OFF mode
+'     '         if  (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2-1][1]>= minutes ) and (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2-1][2]>= seconds) then ''and (on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off2][0]<>0)  then
+''                 ''On test down
+''                 if  (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][1]<= minutes ) and     (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][2]<= seconds) then
+''                       Lcd_0()
+'                           inttostr(pwm_precnt,txt)
+'                           inttostr(minutes,txt)
+''                           Lcd_Out(2,1,txt) Lcd_Out(1,1,"1 chcked:") delay_ms(500)
+'                           if j=0 then
+'                               PWM_MAKE (Mot_heater_On_mSec [chanel-1][Heater_motor_index][Pwm_chanel_main-1][3],255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+'                           j=1
+'                           end if
+'                           ' PWM_MAKE (pwm_precnt,255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+'                           delay_ms(100)
+'                           if (Button(Mot_SW_Port,Mot_SW_bit, swich_time, 0)) then    ' Detect logical one up key
+'                                   oldstate_3 = 1 while_state_import=0  Heater_relay_Pin =0   while_state_import=0                 ' Update flag
+'
+'                           end if
+'                           if (oldstate_3 and Button(Mot_SW_Port,Mot_SW_bit,swich_time, 1)) then
+'                                while_state_import=0
+'                                PWM_MAKE (0,255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+'                                 Heater_relay_Pin =0
+'                           end if
+'
+'                 end if
+'              end if
+'              PWM_MAKE (0,255,Pwm_chanel_main)
+'              '################  comented in 96-1-13   #####################
+              
+              
+'              wend
+'               Write_Time(Dec2Bcd(1),Dec2Bcd(0),Dec2Bcd(0),Dec2Bcd(1),Dec2Bcd(1),Dec2Bcd(1),Dec2Bcd(Start_year))
+              ''Write_Time(dim c_hours as byte, dim c_minutes as byte, dim c_seconds as byte,
+                 ''dim c_day as byte, dim c_week as byte, dim c_month as byte, dim c_year as byte)
+'              hours=0x1  minutes=0x00   seconds=0x00 day= 0x2 week=2   month=0x11  year=0x16
+'              Write_Time(hours, minutes, seconds, 0x13, 0x02,   0x11,year)
+'              Write_Time(hours, 0x00, 0x00, day, week,   month,year)
+
+              Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)  Shamsi_transfer_time()
+              Start_seconds=seconds Start_minutes=minutes Start_hours=hours
+              DS1307(hours, minutes, seconds) 'seconds=target_sec minutes=target_min hours=target_hr
+              target_sec=0 target_min=0 target_hr=0
+              oldstate_3 =0
+'               for on_off2 =1 to 1   ' equal to on or off estate
+'
+              ht_start_min=target_sec
+              j=0  Heater_motor_index=2   ht_start_sec=0 ht_start_min=0  ''sec_n1[0]=0 sec_n1[1]=0
+              Heater_relay_Pin =0  oldstate_3 = 0
+              while_state_import=1    while_state_import_main=0
+              while( while_state_import)
+'                target_sec=0 target_min=0 target_hr=0
+'  lcd_out(2,1,"test")
+'  while 1
+'              Start_seconds_next=target_sec  Start_minutes_next=target_min
+'              Start_seconds=seconds Start_minutes=minutes Start_hours=hours
+'              Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)  Shamsi_transfer_time()
+'              DS1307(hours, minutes, seconds) 'seconds=target_sec minutes=target_min hours=target_hr
+'
+'
+'        if  target_sec<>Start_seconds_next then
+''           lcd_out(1,1,"4 second pass")
+'            bytetostr(target_sec,txt)
+'            lcd_out(1,5,txt) delay_ms(200)
+'        end if
+'        if  target_min<>Start_minutes_next then
+''           lcd_out(1,1,"4 second pass")
+'            bytetostr(target_min,txt)
+'            lcd_out(1,1,txt) delay_ms(200)
+'        end if
+' wend            
+
+
+                  if (1)  then
+           '                 #####################  check Off is accured and enabled  #############
+                     if (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][1]= target_min ) and (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][2]<= (target_sec)) then '' and (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][0]<>0) then  '''OFF mode
+                              if  (target_min<>0) and (target_sec<>0) then
+                                  while_state_import=0  
+                                  Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)  Shamsi_transfer_time()
+                                  DS1307(hours, minutes, seconds) 'seconds=target_sec minutes=target_min hours=target_hr
+                                  PWM_MAKE (0,255,Pwm_chanel_main)
+                              end if
+                     end if
+                     if (while_state_import<>0)and ((auto_setting_enable=1))  or (((Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][1]> target_min ) or    (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][2]>= target_sec))) then '' and (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][0]<>0) then  '''OFF mode
+                    '         Lcd_0()
+'                        if ((Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][1]>= target_min ) and    (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][2]>= target_sec)) then
+'                               Start_seconds=seconds Start_minutes=minutes Start_hours=hours
+                               Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)  Shamsi_transfer_time()
+                               DS1307(hours, minutes, seconds) 'seconds=target_sec minutes=target_min hours=target_hr
+
+                               ht_start_sec=target_sec
+                                 ' if (target_sec<>ht_start_min ) or (target_sec=0) then
+'                                       if (target_sec=0) and (j=0)  then
+'                                         ht_start_min=target_sec
+'                                         Show_message_done("Heater",chanel)
+'
+'                                       end if
+'                                      if target_sec<>0 then
+'                                         ht_start_min=target_sec
+'                                         Show_message_done("Heater",chanel)
+'
+'                                      end if
+'                                 end if
+                                  if (target_sec<>ht_start_min )  then
+
+                                         ht_start_min=target_sec
+                                         Show_message_done("Heater",chanel)
+                                  end if
+'                                bytetostr(chanel,txt)                     ' ??? ????? ???? ? ?????? ????? ? ????
+'                               PWM_MAKE (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][3],255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+                               if j=0 then
+                                  PWM_MAKE (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][3],255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+                                  j=1
+'                                  pwm_precnt=Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][3]
+'                                  PWM_MAKE (pwm_precnt,255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+                               end if
+                               if (Button(HET_SW_Port,HET_SW_bit, swich_time, 0)) then
+                                  j=2
+                               end if
+
+
+                               if (Button(HET_SW_Port,HET_SW_bit, swich_time, 1)) then    ' Detect logical one up key
+'                                               oldstate_3 = 1
+                                               while_state_import=0                    ' Update flag
+                                               PWM_MAKE (0,255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+'                                               PWM_MAKE (0,255,Motor_pwm_num)
+                                               delay_ms(200)
+                                               PWM_MAKE (Mot_heater_On_mSec[chanel-1][Heater_motor_index-1][Motor_pwm_num-1][3],255,Motor_pwm_num)
+                                               Heater_relay_Pin =0
+'                                               Saving_Mot_heater_On_mSec(auto_setting_enable)
+'                                                Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][1]=minutes
+'                                                Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][2]=seconds
+                                               Buzzer_on_off(1)
+
+                                end if
+
+                               Heater_relay_on()
+                               'if (while_state_import_main=0) then
+'                                   Heater_relay_Pin =1
+'                                   while_state_import_main=1
+'                               end if
+                               if (auto_setting_enable=1) then
+                                       if (Button(HET_SW_Port,HET_SW_bit, swich_time, 1)) then    ' Detect logical one up key
+                                               oldstate_3 = 1 while_state_import=0                    ' Update flag
+                                               PWM_MAKE (0,255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+'                                               PWM_MAKE (0,255,Motor_pwm_num)
+'                                               PWM_MAKE (Mot_heater_On_mSec[chanel-1][Heater_motor_index-1][Motor_pwm_num-1][3],255,Motor_pwm_num)
+                                               Heater_relay_Pin =0
+'                                               Saving_Mot_heater_On_mSec(auto_setting_enable)
+                                                Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][1]=target_min
+                                                Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][2]=target_sec
+                                               Buzzer_on_off(1)
+
+                                       end if
+                                       'if (oldstate_3 and Button(HET_SW_Port,HET_SW_bit,swich_time, 0)) then
+'                                            while_state_import=0
+'                                            PWM_MAKE (0,255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+'                                             Heater_relay_Pin =0  Saving_Mot_heater_On_mSec()
+'                                       end if
+
+                                   else
+                                       if (Button(Mot_SW_Port,Mot_SW_bit, swich_time, 0)) and (j=2) then    ' Detect logical one up key
+                                               oldstate_3 = 1 while_state_import=0  Heater_relay_Pin =0                    ' Update flag
+                                               PWM_MAKE (0,255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+                                               ''Saving_Mot_heater_On_mSec(auto_setting_enable)
+                                               Buzzer_on_off(1)
+                                       end if
+                                       if (oldstate_3 and Button(Mot_SW_Port,Mot_SW_bit,swich_time, 1)) then
+                                            while_state_import=0
+                                            PWM_MAKE (0,255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+                                             Heater_relay_Pin =0  ''Saving_Mot_heater_On_mSec(auto_setting_enable)
+                                       end if
+                              end if
+
+'                               Lcd_Cmd(_LCD_CLEAR)  Lcd_Out(1,8,"Prog:")
+'                               bytetostr(chanel,txt) Lcd_Out(1,14,txt) delay_ms(300)      Lcd_Cmd(_LCD_CLEAR)
+
+'                      end if
+                      else
+    '                           end if
+    '                           if  not((on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2-1][1]>= minutes ) and    (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2-1][2]>= seconds)  and (on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off2-1][0]<>0)) then  '''OFF mode
+                               Heater_relay_Pin =0
+                               Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)  Shamsi_transfer_time()
+                               DS1307(hours, minutes, seconds) 'seconds=target_sec minutes=target_min hours=target_hr
+                               PWM_MAKE (0,255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+                               Show_message_done("Heater",chanel) ''delay_ms(100)
+                               Lcd_0()  ''Saving_Mot_heater_On_mSec()
+                               inttostr(chanel,txt)
+                               Lcd_Out(1,1,txt) Lcd_Out(1,8,"is Off:")
+                               if j=1 then Lcd_Out(2,1,"Heater off") Lcd_Out(2,10,txt) delay_ms(300)  end if
+                               if j=0 then Lcd_Out(2,1,"Heater Error") Lcd_Out(2,10,txt) delay_ms(300)  end if
+                               Lcd_Out(1,1,"Off pwm heater mode")
+                               while_state_import=0
+                              end if
+
+
+                  end if
+              wend
+'
+
+              while_state_import=0
+        end if
+
+
+
+      '############# Motor action ###############
+    Heater_motor_index=2 ''as Motor
+     Pwm_chanel_main=Motor_pwm_num ''Motor
+      while_state_import=1 Pwm_chanel=Pwm_chanel_main ''while_state_import_main2=1
+'       oldstate_3=0
+         while_state_import_main=1
+         Lcd_0()Lcd_Out(1,1,"Wating for :") Lcd_Out(2,1,"Pressing Motor micro SW") delay_ms(200) '' DDD7_bit =0
+         if (oldstate_3=1) then
+            if (auto_setting_enable=1) then
+                while_state_import_main=1 oldstate_3=0
+            else
+              while_state_import_main=0
+            end if
+         end if
+
+         '**************************************************************************************************
+        '* delte this part for no need to press motor button for running motor
+        '' and start motot imediatly after ended heter operation
+        '**************************************************************************************************}
+
+        ' while  (while_state_import_main )
+'
+'             if (Button(Mot_SW_Port,Mot_SW_bit, swich_time, 0)) then    ' Detect logical one up key
+'                        oldstate_3 = 1  while_state_import_main=0 Buzzer_on_off(1)                   ' Update flag
+'             end if
+'             if (oldstate_3 and Button(Mot_SW_Port,Mot_SW_bit,swich_time, 1)) then
+'                while_state_import_main=0
+'             end if
+'              Lcd_Out(1,1,"Wating for :") Lcd_Out(2,1,"Pressing Motor micro SW") delay_ms(200)
+'         wend
+        '**************************************************************************************************}
+
+         while  (while_state_import_main )
+             if ( Button(HET_SW_Port, HET_SW_bit,swich_time, 1)) then
+                while_state_import_main=0
+             end if
+              Lcd_Out(1,1,"Wating for :") Lcd_Out(2,1,"Downing the Pad !!") delay_ms(200)
+         wend
+         while_state_import_main=1
+         'while  (while_state_import_main )
+'             if (while_state_import_main=1) then
+'                   Heater_relay_Pin =0
+'                   while_state_import_main=0
+'             end if
+'         wend
+'          Heater_relay_on()
+'        Heater_relay_Pin =0 PIND6_bit =0
+        
+        ''######## commented at: 96-1-13 ##############
+'        if (1) then
+'              LCD_Out(2,9, "motor running")  ''Show on LCD
+'              LCD_Out(2,1, "Value: ")  ''Show on LCD
+''              Delay_mS(100)
+'              Read_Time(@Start_hours, @Start_minutes_next, @Start_seconds_next, @Start_day, @Start_week, @Start_month, @Start_year)
+''              Write_Time(Dec2Bcd(1),Dec2Bcd(0),Dec2Bcd(0),Dec2Bcd(1),Dec2Bcd(1),Dec2Bcd(1),Dec2Bcd(Start_year))
+'              'Write_Time(dim c_hours as byte, dim c_minutes as byte, dim c_seconds as byte,
+'                 ''dim c_day as byte, dim c_week as byte, dim c_month as byte, dim c_year as byte)
+'              week=1
+'              chanel=program_number
+'
+'             if  (Pwm_chanel_main=Heater_pwm_num) then
+'                  txt="Heater"
+'                  ht_start_min= minutes   ht_start_sec=seconds
+'             else if  (Pwm_chanel_main=Motor_pwm_num)  then
+'                 txt="Motor"
+'                 Mo_start_min= minutes   Mo_start_sec=seconds
+'                end if
+'             end if
+'        '######## commented at: 96-1-13 ##############
+
+      '       Min_start=on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][1] +minutes
+      '       Sec_start=on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][2] +seconds
+
+      '       ht_start_min, ht_start_sec ,ht_end_sec,ht_end_min,Mo_start_min,Mo_start_sec ,Mo_end_sec,Mo_end_min
+'             Write_Time(Dec2Bcd(1),Dec2Bcd(0),Dec2Bcd(0),Dec2Bcd(1),Dec2Bcd(1),Dec2Bcd(1),Dec2Bcd(Start_year))
+              ''Write_Time(dim c_hours as byte, dim c_minutes as byte, dim c_seconds as byte,
+                 ''dim c_day as byte, dim c_week as byte, dim c_month as byte, dim c_year as byte)
+'             hours=0x1  minutes=0x0   seconds=0x00 day= 0x2 week=2   month=0x11  year=0x16
+'              Write_Time(hours, 0x00, 0x00, day, week,   month,year)
+             while_state_import=1  j=0
+             target_sec=0 target_min=0 target_hr=0
+'             Start_seconds=seconds Start_minutes=minutes Start_hours=hours
+'             Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)  Shamsi_transfer_time()
+'
+'             DS1307(hours, minutes, seconds) 'seconds=target_sec minutes=target_min hours=target_hr
+
+             for on_off2 =1 to 1   ' equal to on or off estate
+'                 #####################  check On is accured and enabled  #############
+                 if (1) then ''if  (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][2]<= minutes ) and     (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][2]<= seconds) and (on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off2][0]<>0) then
+
+                     Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)  Shamsi_transfer_time()
+                     Start_seconds=seconds Start_minutes=minutes Start_hours=hours
+                     target_sec=1 target_min=0 target_hr=0
+'                     target_sec=1 target_min=0 target_hr=0
+                     ht_start_min=target_sec
+                     while_state_import=1
+                     while( while_state_import)
+           '                 #####################  check Off is accured and enabled  #############
+                          if (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][1]= target_min ) and (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][2]<= (target_sec)) then '' and (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][0]<>0) then  '''OFF mode
+
+                              if (j=2) then    ' Detect logical one up key
+                                  PWM_MAKE (0,255,Pwm_chanel_main)
+
+                               Show_message_done("Motor",chanel) delay_ms(200)
+                               Lcd_0()
+                               Lcd_Out(1,1,txt) Lcd_Out(1,8,"is Off:")
+                               Lcd_Out(2,1,"Prog num:") Lcd_Out(2,10,txt) delay_ms(200)
+                               Lcd_Out(1,1,"Off pwm Motor mode")
+                               inttostr(chanel,txt)                     ' ??? ????? ???? ? ?????? ????? ? ????
+
+                               while_state_import=0
+                               else
+
+                                 Lcd_0() Lcd_Out(1,1,"Wating for :") Lcd_Out(2,1,"Downing the Pad !!") delay_ms(300)
+                                 if (Button(Mot_SW_Port,Mot_SW_bit, swich_time, 0))   then
+                                    j=2
+                                 end if
+                               end if
+'                               target_sec=1 target_min=0 target_hr=0
+                               Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)  Shamsi_transfer_time()
+                               Start_seconds=seconds Start_minutes=minutes Start_hours=hours
+                               target_sec=1 target_min=0 target_hr=0
+                          end if
+                     'if (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][1]= target_min ) and (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][2]<= (target_sec)) then '' and (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][0]<>0) then  '''OFF mode
+''
+'                         if (target_min<>0) and (target_sec<>0) then
+'                            while_state_import=0
+'                         end if
+'                     end if
+                     if (while_state_import<>0)and ((auto_setting_enable=1)) or (((Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][1]> target_min ) or    (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][2]>= target_sec))) then '' and (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][0]<>0) then  '''OFF mode
+                        '
+'                        if  ((Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][1]>= target_min ) and    (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][2]>= target_sec)) then '' and (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][0]<>0) then  '''OFF mode
+                          'if  (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][1]= minutes ) and (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][2]< (seconds)) then '' and (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][0]<>0) then  '''OFF mode
+'                                  while_state_import=0
+'                          end if
+'                          if (while_state_import<>0)and ((auto_setting_enable=1) or ((Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][1]>= minutes ) or    (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][2]> seconds)))  then ''and (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][0]<>0) then  '''OFF mode
+'                           if  (auto_setting_enable=1) or ((Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][1]>= minutes ) or    (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][2]>= seconds))  then ''and (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][0]<>0) then  '''OFF mode
+     '
+'                           Start_seconds=seconds Start_minutes=minutes Start_hours=hours
+                           Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)  Shamsi_transfer_time()
+
+                           DS1307(hours, minutes, seconds) 'seconds=target_sec minutes=target_min hours=target_hr
+
+                           ht_start_sec=target_sec
+                            if (target_sec<>ht_start_min ) then
+'                                if j<>0 then
+'                                  ht_start_min=target_sec
+'                                  Show_message_done("Motor",chanel)
+'                                end if
+                                 'if (target_sec=0) and (j=0)  then
+'                                         ht_start_min=target_sec
+'                                         Show_message_done("Motor",chanel)
+'
+'                                 end if
+'                                  if target_sec<>0 then
+'                                         ht_start_min=target_sec
+'                                         Show_message_done("Motor",chanel)
+'
+'                                 end if
+                                  ht_start_min=target_sec
+                                  Show_message_done("Motor",chanel)
+                            end if
+                  '        chanel_active=chanel
+                           pwm_precnt=integer ( ceil(Mot_heater_On_mSec[chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][3]/10))
+                           if j=0 then
+                               'for k=1 to 10  step 1
+'                                   PWM_MAKE (k*pwm_precnt,255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+'                                   delay_ms(1000)
+'                               next k
+                               PWM_MAKE (Mot_heater_On_mSec[chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][3],255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+                               j=1
+                           end if
+                           if (Button(Mot_SW_Port,Mot_SW_bit, swich_time, 0)) then
+                              j=2
+                           end if
+                           'Lcd_0()
+'                           Lcd_Out(1,1,txt) Lcd_Out(1,8,"is ACTIVE:")
+'                           inttostr(chanel_active,txt)
+'                           Lcd_Out(2,1,"Prog num:") Lcd_Out(2,10,txt) delay_ms(200)
+'                           Show_message_done("Motor",chanel) delay_ms(300)
+'                           inttostr(chanel,txt)                   ' ??? ????? ???? ? ?????? ????? ? ????
+
+
+'                           PWM_MAKE (Mot_heater_On_mSec[chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][3],255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+'                           Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
+'                           Shamsi_transfer_time()
+                            if (auto_setting_enable=1) then
+
+                                 if (Button(Mot_SW_Port,Mot_SW_bit, swich_time, 1) and (seconds >=3)) then    ' Detect logical one up key
+                                         oldstate_3 = 1 while_state_import=0  Heater_relay_Pin =0                    ' Update flag
+                                         PWM_MAKE (0,255,Pwm_chanel_main)''(dim jj as byte,dim max_duty,Pwm_chanel as integer)
+'                                         Saving_Mot_heater_On_mSec(auto_setting_enable)
+                                          Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][1]=minutes
+                                          Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][2]=seconds
+                                           Buzzer_on_off(1)
+                                 end if
+
+                              end if
+'                            end if
+                          else
+                               ''Saving_Mot_heater_On_mSec(auto_setting_enable)
+                               if (j=2) then    ' Detect logical one up key
+                                  PWM_MAKE (0,255,Pwm_chanel_main)
+
+                               Show_message_done("Motor",chanel) delay_ms(200)
+                               Lcd_0()
+                               Lcd_Out(1,1,txt) Lcd_Out(1,8,"is Off:")
+                               Lcd_Out(2,1,"Prog num:") Lcd_Out(2,10,txt) delay_ms(200)
+                               Lcd_Out(1,1,"Off pwm Motor mode")
+                               inttostr(chanel,txt)                     ' ??? ????? ???? ? ?????? ????? ? ????
+
+                               while_state_import=0
+                               else
+
+                                  Lcd_0()Lcd_Out(1,1,"Wating for :") Lcd_Out(2,1,"Downing the Pad !!") delay_ms(500)
+                                 if (Button(Mot_SW_Port,Mot_SW_bit, swich_time, 0))   then
+                                    j=2
+                                 end if
+                               end if
+
+                          end if
+                     wend
+                 else '' if  (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][1]>= minutes ) and    (on_a_0 [week-1][chanel-1][Pwm_chanel_main-1][on_off2][2]>= seconds)  and (on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off2][0]<>0) then  '''OFF mode
+                      Lcd_0()
+                      Lcd_Out(1,1,"out of off Mt area")
+                      while_state_import=0
+                 end if
+             next on_off2
+
+
+
+                 Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
+
+              while_state_import=0
+'        end if
+
+     ''############## End and making back tier setting
+'     Read_Time(@Start_hours, @End_minutes_next, @End_seconds_next, @Start_day, @Start_week, @Start_month, @Start_year)
+'     Write_Time(Dec2Bcd(Start_hours),Dec2Bcd(Start_minutes+End_minutes_next),Dec2Bcd(Start_seconds+End_seconds_next),
+'               Dec2Bcd(Start_day),Dec2Bcd(Start_week),Dec2Bcd(Start_month),Dec2Bcd(Start_year))
+'     Write_Time((Start_hours),(Start_minutes+End_minutes_next),(Start_seconds+End_seconds_next),
+'               (Start_day),(Start_week),(Start_month),(Start_year))
+     'if (auto_setting_enable=1) then
+'         Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-2][1]= Heater_On_min
+'         Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-2][2]= Heater_On_sec
+'
+'         Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][1]= Motor_On_min
+'         Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][2]= Motor_On_sec
+'         Lcd_0()Lcd_Out(1,1,"Saving Mot_hea") Lcd_Out(2,1,"ter_On_mSec On EEPROM") delay_ms(200)
+'     end if
+'     Lcd_0()
+'     inttostr(End_seconds_next,txt)
+'     Lcd_Out(1,1,"Sec ended is :") Lcd_Out(1,10,txt)
+'     inttostr(End_minutes_next,txt)
+'     Lcd_Out(2,1,"Min ended is :") Lcd_Out(2,10,txt) delay_ms(200)
  end sub
 
 end.

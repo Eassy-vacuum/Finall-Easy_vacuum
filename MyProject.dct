@@ -479,8 +479,6 @@ cs22
 cs22_bit
 ctime
 ctime
-customchar
-customchar
 dataarea
 day
 dbl_mant_dig
@@ -602,6 +600,7 @@ dor
 dor_bit
 dord
 dord_bit
+ds1307
 e
 easy_vacuum_95_10_4_simple_working
 eear00
@@ -646,13 +645,9 @@ eedr7
 eedr7_bit
 eemwe
 eemwe_bit
-eeprom_call_back_ext_twi
 eeprom_data_read
-eeprom_ext_twi_ini
 eeprom_read
 eeprom_save
-eeprom_save_ext
-eeprom_save_ext_twi
 eeprom_write
 eere
 eere_bit
@@ -685,7 +680,6 @@ expander_write_byte
 expander_write_porta
 expander_write_portab
 expander_write_portb
-ext_twi_eeprom_ini
 extattrib
 extrf
 extrf_bit
@@ -1152,6 +1146,7 @@ k_set_max
 key_port_init
 key_port_init_mainfunc
 key_test
+key_test_0
 key_test_old
 keypad_init
 keypad_key_click
@@ -1188,8 +1183,6 @@ lcd_en_direction
 lcd_en_direction
 lcd_init
 lcd_line
-lcd_load
-lcd_load
 lcd_out
 lcd_out_cp
 lcd_port_init
@@ -1236,7 +1229,6 @@ memcmp
 memcpy
 memmove
 memset
-miladi_call
 miladidate_iday
 miladidate_imonth
 miladidate_iyear
@@ -1468,6 +1460,7 @@ oldstate_2
 oldstate_3
 oldstate_4
 oldstate_down
+oldstate_men_ok
 oldstate_menu
 oldstate_ok
 oldstate_up
@@ -1701,7 +1694,6 @@ r8
 r9
 rand
 read_address_bus
-read_eeprom_ext_twi
 read_time
 refs0
 refs0_bit
@@ -1818,8 +1810,6 @@ sectperfat
 seqmodebank0
 seqmodebank1
 sfior
-shamsi_call
-shamsi_show_lcd
 shamsi_transfer_time
 shorttohex
 shorttostr
@@ -2338,6 +2328,9 @@ t6963c_writedata
 tadc_get_sample
 tan
 tanh
+target_hr
+target_min
+target_sec
 tccr0
 tccr1a
 tccr1b
@@ -2860,8 +2853,9 @@ ursel
 ursel_bit
 usbs
 usbs_bit
-var_in_all
 var_in_global
+var_in_min
+var_in_sec
 vdelay_advanced_ms
 vdelay_ms
 wcol
@@ -2912,7 +2906,6 @@ wordtohex
 wordtostr
 wordtostrwithzeros
 write_address_bus
-write_eeprom_ext_twi
 write_time
 x
 xh

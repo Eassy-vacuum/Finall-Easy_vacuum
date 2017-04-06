@@ -31,6 +31,22 @@ module LCD
 '  symbol LCD_D7_Direction_my=DDc7_bit
 '#ENDIF
 
+#IFDEF ATmega32a
+  symbol LCD_RS_my = PORTc7_bit
+  symbol LCD_EN_my =PORTc6_bit
+  symbol LCD_D4_my =PORTc2_bit
+  symbol LCD_D5_my=PORTc3_bit
+  symbol LCD_D6_my =PORTc4_bit
+  symbol LCD_D7_my=PORTc5_bit
+
+  symbol LCD_RS_Direction_my = DDc7_bit
+  symbol LCD_EN_Direction_my =DDc6_bit
+  symbol LCD_D4_Direction_my =DDc2_bit
+  symbol LCD_D5_Direction_my=DDc3_bit
+  symbol LCD_D6_Direction_my =DDc4_bit
+  symbol LCD_D7_Direction_my=DDc5_bit
+#ENDIF
+'
 #IFDEF ATmega32
   symbol LCD_RS_my = PORTc7_bit
   symbol LCD_EN_my =PORTc6_bit
@@ -70,8 +86,8 @@ dim LCD_D7_Direction as sbit at LCD_D7_Direction_my
     const character_b as byte[8] = (0,0,17,17,31,0,4,0)
 
 sub procedure Lcd_0()
-sub procedure LCD_Load()
-sub procedure CustomChar(dim pos_row as byte, dim pos_char as byte)
+'sub procedure LCD_Load()
+'sub procedure CustomChar(dim pos_row as byte, dim pos_char as byte)
 sub procedure Lcd_Port_Init()
 implements
 ''################# LCD Initial #################
@@ -84,6 +100,13 @@ sub procedure Lcd_Port_Init()
      ''################LCD Ports #############
     #ENDIF
     #IFDEF ATmega32
+     ''################LCD Ports #############
+      DDC2_bit =1   DDC3_bit =1
+      DDC4_bit =1   DDC5_bit =1  ' configure PORTD as output
+      DDC6_bit =1   DDC7_bit =1
+     ''################LCD Ports #############
+    #ENDIF
+    #IFDEF ATmega32a
      ''################LCD Ports #############
       DDC2_bit =1   DDC3_bit =1
       DDC4_bit =1   DDC5_bit =1  ' configure PORTD as output

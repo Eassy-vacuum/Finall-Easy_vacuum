@@ -101,7 +101,7 @@ L_end_Shamsi_transfer_time:
 	RET
 ; end of _Shamsi_transfer_time
 
-_Shamsi_show_lcd:
+libs/milady_shamsi_Shamsi_show_lcd:
 	PUSH       R28
 	PUSH       R29
 	IN         R28, SPL+0
@@ -128,13 +128,13 @@ _Shamsi_show_lcd:
 ;libs/milady_shamsi.mbas,67 :: 		case 2
 	LDI        R27, 0
 	CP         R9, R27
-	BRNE       L__Shamsi_show_lcd105
+	BRNE       L_libs/milady_shamsi_Shamsi_show_lcd105
 	LDI        R27, 2
 	CP         R8, R27
-L__Shamsi_show_lcd105:
-	BREQ       L__Shamsi_show_lcd106
-	JMP        L__Shamsi_show_lcd5
-L__Shamsi_show_lcd106:
+L_libs/milady_shamsi_Shamsi_show_lcd105:
+	BREQ       L_libs/milady_shamsi_Shamsi_show_lcd106
+	JMP        L_libs/milady_shamsi_Shamsi_show_lcd5
+L_libs/milady_shamsi_Shamsi_show_lcd106:
 ;libs/milady_shamsi.mbas,68 :: 		txt = "Sun"
 	LDI        R27, 83
 	STS        _txt+0, R27
@@ -144,18 +144,18 @@ L__Shamsi_show_lcd106:
 	STS        _txt+2, R27
 	LDI        R27, 0
 	STS        _txt+3, R27
-	JMP        L__Shamsi_show_lcd2
-L__Shamsi_show_lcd5:
+	JMP        L_libs/milady_shamsi_Shamsi_show_lcd2
+L_libs/milady_shamsi_Shamsi_show_lcd5:
 ;libs/milady_shamsi.mbas,69 :: 		case 3
 	LDI        R27, 0
 	CP         R9, R27
-	BRNE       L__Shamsi_show_lcd107
+	BRNE       L_libs/milady_shamsi_Shamsi_show_lcd107
 	LDI        R27, 3
 	CP         R8, R27
-L__Shamsi_show_lcd107:
-	BREQ       L__Shamsi_show_lcd108
-	JMP        L__Shamsi_show_lcd8
-L__Shamsi_show_lcd108:
+L_libs/milady_shamsi_Shamsi_show_lcd107:
+	BREQ       L_libs/milady_shamsi_Shamsi_show_lcd108
+	JMP        L_libs/milady_shamsi_Shamsi_show_lcd8
+L_libs/milady_shamsi_Shamsi_show_lcd108:
 ;libs/milady_shamsi.mbas,70 :: 		txt = "Mon"
 	LDI        R27, 77
 	STS        _txt+0, R27
@@ -165,18 +165,18 @@ L__Shamsi_show_lcd108:
 	STS        _txt+2, R27
 	LDI        R27, 0
 	STS        _txt+3, R27
-	JMP        L__Shamsi_show_lcd2
-L__Shamsi_show_lcd8:
+	JMP        L_libs/milady_shamsi_Shamsi_show_lcd2
+L_libs/milady_shamsi_Shamsi_show_lcd8:
 ;libs/milady_shamsi.mbas,71 :: 		case 4
 	LDI        R27, 0
 	CP         R9, R27
-	BRNE       L__Shamsi_show_lcd109
+	BRNE       L_libs/milady_shamsi_Shamsi_show_lcd109
 	LDI        R27, 4
 	CP         R8, R27
-L__Shamsi_show_lcd109:
-	BREQ       L__Shamsi_show_lcd110
-	JMP        L__Shamsi_show_lcd11
-L__Shamsi_show_lcd110:
+L_libs/milady_shamsi_Shamsi_show_lcd109:
+	BREQ       L_libs/milady_shamsi_Shamsi_show_lcd110
+	JMP        L_libs/milady_shamsi_Shamsi_show_lcd11
+L_libs/milady_shamsi_Shamsi_show_lcd110:
 ;libs/milady_shamsi.mbas,72 :: 		txt = "Tue"
 	LDI        R27, 84
 	STS        _txt+0, R27
@@ -186,18 +186,18 @@ L__Shamsi_show_lcd110:
 	STS        _txt+2, R27
 	LDI        R27, 0
 	STS        _txt+3, R27
-	JMP        L__Shamsi_show_lcd2
-L__Shamsi_show_lcd11:
+	JMP        L_libs/milady_shamsi_Shamsi_show_lcd2
+L_libs/milady_shamsi_Shamsi_show_lcd11:
 ;libs/milady_shamsi.mbas,73 :: 		case 5
 	LDI        R27, 0
 	CP         R9, R27
-	BRNE       L__Shamsi_show_lcd111
+	BRNE       L_libs/milady_shamsi_Shamsi_show_lcd111
 	LDI        R27, 5
 	CP         R8, R27
-L__Shamsi_show_lcd111:
-	BREQ       L__Shamsi_show_lcd112
-	JMP        L__Shamsi_show_lcd14
-L__Shamsi_show_lcd112:
+L_libs/milady_shamsi_Shamsi_show_lcd111:
+	BREQ       L_libs/milady_shamsi_Shamsi_show_lcd112
+	JMP        L_libs/milady_shamsi_Shamsi_show_lcd14
+L_libs/milady_shamsi_Shamsi_show_lcd112:
 ;libs/milady_shamsi.mbas,74 :: 		txt = "Wed"
 	LDI        R27, 87
 	STS        _txt+0, R27
@@ -207,18 +207,18 @@ L__Shamsi_show_lcd112:
 	STS        _txt+2, R27
 	LDI        R27, 0
 	STS        _txt+3, R27
-	JMP        L__Shamsi_show_lcd2
-L__Shamsi_show_lcd14:
+	JMP        L_libs/milady_shamsi_Shamsi_show_lcd2
+L_libs/milady_shamsi_Shamsi_show_lcd14:
 ;libs/milady_shamsi.mbas,75 :: 		case 6
 	LDI        R27, 0
 	CP         R9, R27
-	BRNE       L__Shamsi_show_lcd113
+	BRNE       L_libs/milady_shamsi_Shamsi_show_lcd113
 	LDI        R27, 6
 	CP         R8, R27
-L__Shamsi_show_lcd113:
-	BREQ       L__Shamsi_show_lcd114
-	JMP        L__Shamsi_show_lcd17
-L__Shamsi_show_lcd114:
+L_libs/milady_shamsi_Shamsi_show_lcd113:
+	BREQ       L_libs/milady_shamsi_Shamsi_show_lcd114
+	JMP        L_libs/milady_shamsi_Shamsi_show_lcd17
+L_libs/milady_shamsi_Shamsi_show_lcd114:
 ;libs/milady_shamsi.mbas,76 :: 		txt = "Thu"
 	LDI        R27, 84
 	STS        _txt+0, R27
@@ -228,18 +228,18 @@ L__Shamsi_show_lcd114:
 	STS        _txt+2, R27
 	LDI        R27, 0
 	STS        _txt+3, R27
-	JMP        L__Shamsi_show_lcd2
-L__Shamsi_show_lcd17:
+	JMP        L_libs/milady_shamsi_Shamsi_show_lcd2
+L_libs/milady_shamsi_Shamsi_show_lcd17:
 ;libs/milady_shamsi.mbas,77 :: 		case 7
 	LDI        R27, 0
 	CP         R9, R27
-	BRNE       L__Shamsi_show_lcd115
+	BRNE       L_libs/milady_shamsi_Shamsi_show_lcd115
 	LDI        R27, 7
 	CP         R8, R27
-L__Shamsi_show_lcd115:
-	BREQ       L__Shamsi_show_lcd116
-	JMP        L__Shamsi_show_lcd20
-L__Shamsi_show_lcd116:
+L_libs/milady_shamsi_Shamsi_show_lcd115:
+	BREQ       L_libs/milady_shamsi_Shamsi_show_lcd116
+	JMP        L_libs/milady_shamsi_Shamsi_show_lcd20
+L_libs/milady_shamsi_Shamsi_show_lcd116:
 ;libs/milady_shamsi.mbas,78 :: 		txt = "Fri"
 	LDI        R27, 70
 	STS        _txt+0, R27
@@ -249,18 +249,18 @@ L__Shamsi_show_lcd116:
 	STS        _txt+2, R27
 	LDI        R27, 0
 	STS        _txt+3, R27
-	JMP        L__Shamsi_show_lcd2
-L__Shamsi_show_lcd20:
+	JMP        L_libs/milady_shamsi_Shamsi_show_lcd2
+L_libs/milady_shamsi_Shamsi_show_lcd20:
 ;libs/milady_shamsi.mbas,79 :: 		case 1
 	LDI        R27, 0
 	CP         R9, R27
-	BRNE       L__Shamsi_show_lcd117
+	BRNE       L_libs/milady_shamsi_Shamsi_show_lcd117
 	LDI        R27, 1
 	CP         R8, R27
-L__Shamsi_show_lcd117:
-	BREQ       L__Shamsi_show_lcd118
-	JMP        L__Shamsi_show_lcd23
-L__Shamsi_show_lcd118:
+L_libs/milady_shamsi_Shamsi_show_lcd117:
+	BREQ       L_libs/milady_shamsi_Shamsi_show_lcd118
+	JMP        L_libs/milady_shamsi_Shamsi_show_lcd23
+L_libs/milady_shamsi_Shamsi_show_lcd118:
 ;libs/milady_shamsi.mbas,80 :: 		txt = "Sat"
 	LDI        R27, 83
 	STS        _txt+0, R27
@@ -270,9 +270,9 @@ L__Shamsi_show_lcd118:
 	STS        _txt+2, R27
 	LDI        R27, 0
 	STS        _txt+3, R27
-	JMP        L__Shamsi_show_lcd2
-L__Shamsi_show_lcd23:
-L__Shamsi_show_lcd2:
+	JMP        L_libs/milady_shamsi_Shamsi_show_lcd2
+L_libs/milady_shamsi_Shamsi_show_lcd23:
+L_libs/milady_shamsi_Shamsi_show_lcd2:
 ;libs/milady_shamsi.mbas,83 :: 		LCD_Out(1,1, txt)
 	PUSH       R7
 	PUSH       R6
@@ -540,7 +540,7 @@ L_end_Shamsi_show_lcd:
 	POP        R29
 	POP        R28
 	RET
-; end of _Shamsi_show_lcd
+; end of libs/milady_shamsi_Shamsi_show_lcd
 
 libs/milady_shamsi_shamsi_to_milady:
 	PUSH       R28
@@ -1457,8 +1457,8 @@ L_libs/milady_shamsi_shamsi73:
 ;libs/milady_shamsi.mbas,278 :: 		End If
 L_libs/milady_shamsi_shamsi74:
 ;libs/milady_shamsi.mbas,279 :: 		Delay_ms(1)
-	LDI        R17, 11
-	LDI        R16, 99
+	LDI        R17, 21
+	LDI        R16, 199
 L_libs/milady_shamsi_shamsi75:
 	DEC        R16
 	BRNE       L_libs/milady_shamsi_shamsi75
@@ -1471,7 +1471,7 @@ L_end_shamsi:
 	RET
 ; end of libs/milady_shamsi_shamsi
 
-_miladi_call:
+libs/milady_shamsi_miladi_call:
 	PUSH       R28
 	PUSH       R29
 	IN         R28, SPL+0
@@ -1518,13 +1518,13 @@ _miladi_call:
 ;libs/milady_shamsi.mbas,289 :: 		case 2
 	LDI        R27, 0
 	CP         R9, R27
-	BRNE       L__miladi_call164
+	BRNE       L_libs/milady_shamsi_miladi_call164
 	LDI        R27, 2
 	CP         R8, R27
-L__miladi_call164:
-	BREQ       L__miladi_call165
-	JMP        L__miladi_call81
-L__miladi_call165:
+L_libs/milady_shamsi_miladi_call164:
+	BREQ       L_libs/milady_shamsi_miladi_call165
+	JMP        L_libs/milady_shamsi_miladi_call81
+L_libs/milady_shamsi_miladi_call165:
 ;libs/milady_shamsi.mbas,290 :: 		txt = "Sun"
 	LDI        R27, 83
 	STS        _txt+0, R27
@@ -1534,18 +1534,18 @@ L__miladi_call165:
 	STS        _txt+2, R27
 	LDI        R27, 0
 	STS        _txt+3, R27
-	JMP        L__miladi_call78
-L__miladi_call81:
+	JMP        L_libs/milady_shamsi_miladi_call78
+L_libs/milady_shamsi_miladi_call81:
 ;libs/milady_shamsi.mbas,291 :: 		case 3
 	LDI        R27, 0
 	CP         R9, R27
-	BRNE       L__miladi_call166
+	BRNE       L_libs/milady_shamsi_miladi_call166
 	LDI        R27, 3
 	CP         R8, R27
-L__miladi_call166:
-	BREQ       L__miladi_call167
-	JMP        L__miladi_call84
-L__miladi_call167:
+L_libs/milady_shamsi_miladi_call166:
+	BREQ       L_libs/milady_shamsi_miladi_call167
+	JMP        L_libs/milady_shamsi_miladi_call84
+L_libs/milady_shamsi_miladi_call167:
 ;libs/milady_shamsi.mbas,292 :: 		txt = "Mon"
 	LDI        R27, 77
 	STS        _txt+0, R27
@@ -1555,18 +1555,18 @@ L__miladi_call167:
 	STS        _txt+2, R27
 	LDI        R27, 0
 	STS        _txt+3, R27
-	JMP        L__miladi_call78
-L__miladi_call84:
+	JMP        L_libs/milady_shamsi_miladi_call78
+L_libs/milady_shamsi_miladi_call84:
 ;libs/milady_shamsi.mbas,293 :: 		case 4
 	LDI        R27, 0
 	CP         R9, R27
-	BRNE       L__miladi_call168
+	BRNE       L_libs/milady_shamsi_miladi_call168
 	LDI        R27, 4
 	CP         R8, R27
-L__miladi_call168:
-	BREQ       L__miladi_call169
-	JMP        L__miladi_call87
-L__miladi_call169:
+L_libs/milady_shamsi_miladi_call168:
+	BREQ       L_libs/milady_shamsi_miladi_call169
+	JMP        L_libs/milady_shamsi_miladi_call87
+L_libs/milady_shamsi_miladi_call169:
 ;libs/milady_shamsi.mbas,294 :: 		txt = "Tue"
 	LDI        R27, 84
 	STS        _txt+0, R27
@@ -1576,18 +1576,18 @@ L__miladi_call169:
 	STS        _txt+2, R27
 	LDI        R27, 0
 	STS        _txt+3, R27
-	JMP        L__miladi_call78
-L__miladi_call87:
+	JMP        L_libs/milady_shamsi_miladi_call78
+L_libs/milady_shamsi_miladi_call87:
 ;libs/milady_shamsi.mbas,295 :: 		case 5
 	LDI        R27, 0
 	CP         R9, R27
-	BRNE       L__miladi_call170
+	BRNE       L_libs/milady_shamsi_miladi_call170
 	LDI        R27, 5
 	CP         R8, R27
-L__miladi_call170:
-	BREQ       L__miladi_call171
-	JMP        L__miladi_call90
-L__miladi_call171:
+L_libs/milady_shamsi_miladi_call170:
+	BREQ       L_libs/milady_shamsi_miladi_call171
+	JMP        L_libs/milady_shamsi_miladi_call90
+L_libs/milady_shamsi_miladi_call171:
 ;libs/milady_shamsi.mbas,296 :: 		txt = "Wed"
 	LDI        R27, 87
 	STS        _txt+0, R27
@@ -1597,18 +1597,18 @@ L__miladi_call171:
 	STS        _txt+2, R27
 	LDI        R27, 0
 	STS        _txt+3, R27
-	JMP        L__miladi_call78
-L__miladi_call90:
+	JMP        L_libs/milady_shamsi_miladi_call78
+L_libs/milady_shamsi_miladi_call90:
 ;libs/milady_shamsi.mbas,297 :: 		case 6
 	LDI        R27, 0
 	CP         R9, R27
-	BRNE       L__miladi_call172
+	BRNE       L_libs/milady_shamsi_miladi_call172
 	LDI        R27, 6
 	CP         R8, R27
-L__miladi_call172:
-	BREQ       L__miladi_call173
-	JMP        L__miladi_call93
-L__miladi_call173:
+L_libs/milady_shamsi_miladi_call172:
+	BREQ       L_libs/milady_shamsi_miladi_call173
+	JMP        L_libs/milady_shamsi_miladi_call93
+L_libs/milady_shamsi_miladi_call173:
 ;libs/milady_shamsi.mbas,298 :: 		txt = "Thu"
 	LDI        R27, 84
 	STS        _txt+0, R27
@@ -1618,18 +1618,18 @@ L__miladi_call173:
 	STS        _txt+2, R27
 	LDI        R27, 0
 	STS        _txt+3, R27
-	JMP        L__miladi_call78
-L__miladi_call93:
+	JMP        L_libs/milady_shamsi_miladi_call78
+L_libs/milady_shamsi_miladi_call93:
 ;libs/milady_shamsi.mbas,299 :: 		case 7
 	LDI        R27, 0
 	CP         R9, R27
-	BRNE       L__miladi_call174
+	BRNE       L_libs/milady_shamsi_miladi_call174
 	LDI        R27, 7
 	CP         R8, R27
-L__miladi_call174:
-	BREQ       L__miladi_call175
-	JMP        L__miladi_call96
-L__miladi_call175:
+L_libs/milady_shamsi_miladi_call174:
+	BREQ       L_libs/milady_shamsi_miladi_call175
+	JMP        L_libs/milady_shamsi_miladi_call96
+L_libs/milady_shamsi_miladi_call175:
 ;libs/milady_shamsi.mbas,300 :: 		txt = "Fri"
 	LDI        R27, 70
 	STS        _txt+0, R27
@@ -1639,18 +1639,18 @@ L__miladi_call175:
 	STS        _txt+2, R27
 	LDI        R27, 0
 	STS        _txt+3, R27
-	JMP        L__miladi_call78
-L__miladi_call96:
+	JMP        L_libs/milady_shamsi_miladi_call78
+L_libs/milady_shamsi_miladi_call96:
 ;libs/milady_shamsi.mbas,301 :: 		case 1
 	LDI        R27, 0
 	CP         R9, R27
-	BRNE       L__miladi_call176
+	BRNE       L_libs/milady_shamsi_miladi_call176
 	LDI        R27, 1
 	CP         R8, R27
-L__miladi_call176:
-	BREQ       L__miladi_call177
-	JMP        L__miladi_call99
-L__miladi_call177:
+L_libs/milady_shamsi_miladi_call176:
+	BREQ       L_libs/milady_shamsi_miladi_call177
+	JMP        L_libs/milady_shamsi_miladi_call99
+L_libs/milady_shamsi_miladi_call177:
 ;libs/milady_shamsi.mbas,302 :: 		txt = "Sat"
 	LDI        R27, 83
 	STS        _txt+0, R27
@@ -1660,9 +1660,9 @@ L__miladi_call177:
 	STS        _txt+2, R27
 	LDI        R27, 0
 	STS        _txt+3, R27
-	JMP        L__miladi_call78
-L__miladi_call99:
-L__miladi_call78:
+	JMP        L_libs/milady_shamsi_miladi_call78
+L_libs/milady_shamsi_miladi_call99:
+L_libs/milady_shamsi_miladi_call78:
 ;libs/milady_shamsi.mbas,305 :: 		LCD_Out(1,1, txt)
 	LDI        R27, #lo_addr(_txt+0)
 	MOV        R4, R27
@@ -1890,16 +1890,20 @@ L__miladi_call78:
 	MOV        R2, R27
 	CALL       _Lcd_Chr+0
 ;libs/milady_shamsi.mbas,322 :: 		Delay_mS(1000)
-	LDI        R18, 41
-	LDI        R17, 150
-	LDI        R16, 128
-L__miladi_call100:
+	LDI        R18, 82
+	LDI        R17, 43
+	LDI        R16, 0
+L_libs/milady_shamsi_miladi_call100:
 	DEC        R16
-	BRNE       L__miladi_call100
+	BRNE       L_libs/milady_shamsi_miladi_call100
 	DEC        R17
-	BRNE       L__miladi_call100
+	BRNE       L_libs/milady_shamsi_miladi_call100
 	DEC        R18
-	BRNE       L__miladi_call100
+	BRNE       L_libs/milady_shamsi_miladi_call100
+	NOP
+	NOP
+	NOP
+	NOP
 ;libs/milady_shamsi.mbas,323 :: 		end sub
 L_end_miladi_call:
 	POP        R5
@@ -1909,9 +1913,9 @@ L_end_miladi_call:
 	POP        R29
 	POP        R28
 	RET
-; end of _miladi_call
+; end of libs/milady_shamsi_miladi_call
 
-_Shamsi_call:
+libs/milady_shamsi_Shamsi_call:
 
 ;libs/milady_shamsi.mbas,327 :: 		sub procedure Shamsi_call()
 ;libs/milady_shamsi.mbas,330 :: 		Shamsi_transfer_time()
@@ -1944,7 +1948,7 @@ _Shamsi_call:
 L_end_Shamsi_call:
 	POP        R2
 	RET
-; end of _Shamsi_call
+; end of libs/milady_shamsi_Shamsi_call
 
 _libs/milady_shamsi_?main:
 

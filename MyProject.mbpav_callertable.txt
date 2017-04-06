@@ -50,19 +50,67 @@ main
 		Lcd_Out
 		Button
 			Delay_500us
-		Dec2Bcd
-			Div_8x8_U
-		Write_Time
-		Read_Time
-			Soft_I2C_Start
-			Soft_I2C_Write
-			Soft_I2C_Read
-				Delay_1us
-			Soft_I2C_Stop
-		Shamsi_transfer_time
-		Easy_vacuum_95_10_4_simple_working
-			Button
-			Buzzer_on_off
+		Keypad_start
+			ByteToStr
+			key_choice_select
+				key_rest_all
+					HWMul_16x16
+				__CS2S
+				HWMul_16x16
+			strcmp
+			Keypad__teben
+				Lcd_0
+				show_in_button
+					Show_text
+						Lcd_Out
+					ByteToStr
+					Lcd_Out
+					HWMul_16x16
+				Button
+				Buzzer_on_off
+				Show_text
+				ByteToStr
+				Lcd_Out
+				Div_16x16_S
+				HWMul_16x16
+			__CS2S
+			Keypad__teben_saeed_new_button_up_down
+				Lcd_0
+				show_in_button_new_button
+					__CS2S
+					Lcd_Out
+					ByteToStr
+				strcmp
+				Buzzer_on_off
+				Button
+				Lcd_Out
+				__CS2S
+			Lcd_0
+			Lcd_Out
+			eeprom_save
+			key_Prog_select
+				key_rest_all
+				key_Prog_123
+					HWMul_16x16
+				HWMul_16x16
+			Easy_vacuum_95_10_4_simple_working
+				Button
+				Buzzer_on_off
+				Lcd_0
+				Lcd_Out
+				Read_Time
+					Soft_I2C_Start
+					Soft_I2C_Write
+					Soft_I2C_Read
+						Delay_1us
+					Soft_I2C_Stop
+				Shamsi_transfer_time
+				DS1307
+				ByteToStr
+				StrToInt
+					Div_32x32_S
+					Mul_32x32
+					Div_16x16_U
 				PWM_MAKE
 					ceil
 						float_fpint
@@ -119,69 +167,27 @@ main
 					float_ulong2fp
 						float_long2fp
 					float_fpint
-			Lcd_0
-			Lcd_Out
-			Read_Time
-			ByteToStr
-			StrToInt
-				Div_32x32_S
-				Mul_32x32
-				Div_16x16_U
-			IntToStr
-			PWM_MAKE
-			Write_Time
-			Shamsi_transfer_time
-			Heater_relay_on
-			Show_message_done
-				Read_Time
-				Buzzer_on_off
-				Lcd_0
-				Lcd_Out
-				ByteToStr
-				Lcd_Chr
-					Lcd_Cmd
+				Show_message_done
+					Read_Time
+					Buzzer_on_off
+					Lcd_0
+					Lcd_Out
+					ByteToStr
+					Lcd_Chr
+						Lcd_Cmd
+					HWMul_16x16
+					Div_8x8_U
+				Heater_relay_on
+				IntToStr
+				ceil
 				HWMul_16x16
 				Div_8x8_U
-			ceil
+				float_ulong2fp
 			HWMul_16x16
-			Div_8x8_U
-			float_ulong2fp
-			float_fpint
-		Keypad_start
-			key_choice_select
-				key_rest_all
-					HWMul_16x16
-				__CS2S
-				HWMul_16x16
-			Keypad__teben
-				Lcd_0
-				show_in_button
-					Show_text
-						Lcd_Out
-					ByteToStr
-					Lcd_Out
-					HWMul_16x16
-				Button
-				Buzzer_on_off
-				Show_text
-				ByteToStr
-				Lcd_Out
-				Div_16x16_S
-				HWMul_16x16
-			key_Prog_select
-				key_rest_all
-				key_Prog_123
-					HWMul_16x16
-				HWMul_16x16
-			eeprom_save
-			Lcd_0
-			Lcd_Out
-			Easy_vacuum_95_10_4_simple_working
-			Key_Heat_mot_Time
-				key_rest_all
-				__CS2S
-				HWMul_16x16
-			HWMul_16x16
+		Read_Time
+		Shamsi_transfer_time
+		DS1307
+		Easy_vacuum_95_10_4_simple_working
 		Div_8x8_U
 Timer0_overflow
 Timer2_Compare

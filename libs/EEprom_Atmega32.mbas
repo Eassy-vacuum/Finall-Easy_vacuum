@@ -1,11 +1,13 @@
 module EEprom_Atmega32
 
 include "libs/LCD"  ' Include both used modules
-include "libs/TWI"  ' Include both used modules
+'include "libs/TWI"  ' Include both used modules
 include "libs/PWM_timers"  ' Include both used modules
 include "libs/I2C"
-symbol Choice_number_sym=7
+symbol Choice_number_sym=3
 
+dim counter as integer  external
+    counter_ex as integer external
 dim txt as string[19]   external
 Dim EEprom_data_read As byte
 const write_address_bus = 160 ' or 0XA0
@@ -33,8 +35,10 @@ dim First_second_comand,lcd_line,Choice_number as byte
 'sub procedure eeprom_call_back_ext_twi() external'dim on_a_0 as integer[7][2][7][2][4] )
 'sub procedure write_eeprom_ext_TWI(dim address_ as integer,dim  data_ as Byte,dim write_address_bus as integer)  external
 'sub procedure on_off_initial (dim on_off22,en,hr,mint,prc as byte)  external
-sub procedure eeprom_save_ext() 'dim on_a_0 as integer[7][2][7][2][4] )
-sub procedure ext_twi_eeprom_ini()
+#IFDEF eeprom_ext_TWI_ini()
+   sub procedure eeprom_save_ext() 'dim on_a_0 as integer[7][2][7][2][4] )
+   sub procedure ext_twi_eeprom_ini()
+#ENDIF
 sub procedure eeprom_save()
 sub procedure int_eeprom_ini()     ''internal eeprm of avr
 implements
@@ -93,69 +97,10 @@ end sub
 end sub
 
 
-sub procedure eeprom_call_back_ext()'dim on_a_0 as integer[7][2][7][2][4] )
-dim on_off22 as integer
-'    counter_ex as integer
-'    hx1 as string[2]
-'    txt_sub as string[4]
-'    Lcd_0()
-     counter_ex=0
-'     dim chanel,Heater_motor_index,Pwm_chanel_main as byte
-     for chanel =1 to 7
-     for Heater_motor_index =1 to 2
-     for Pwm_chanel_main =1 to 3
-'     counter=counter+1
-         Read_EEprom(1+counter_ex)
-         Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][0]=  EEprom_data_read
-         Read_EEprom(2 + counter_ex)
-         Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][1]=  EEprom_data_read
-         Read_EEprom(3 + counter_ex)
-         Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][2]=  EEprom_data_read
-         Read_EEprom(4 + counter_ex)
-         Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][3]=  EEprom_data_read
-
-          counter_ex=counter_ex+4
-     next Pwm_chanel_main
-     next Heater_motor_index
-     next Heater_motor_index
-'  EEPROM_Write(0x100 ,  hours) EEPROM_Write(0x101 , minutes) EEPROM_Write(0x102 ,  seconds)
-'  EEPROM_Write(0x103 ,  day) EEPROM_Write(0x104 ,  week) EEPROM_Write(0x105 ,  month) EEPROM_Write(0x106 ,  year )
-'  dim hours, minutes, seconds, day, week, month, year as byte
-
- end sub
-
-
-sub procedure eeprom_save_ext()'dim on_a_0 as integer[7][2][7][2][4] )
-dim on_off22 as byte
-'    counter_ex as integer
-'    hx1 as string[2]
-'    txt_sub as string[4]
-'    Lcd_0()
-     counter_ex=0
-'     dim chanel,Heater_motor_index,Pwm_chanel_main as byte
-     for chanel =1 to 7
-     for Heater_motor_index =1 to 2
-     for Pwm_chanel_main =1 to 3
-         Write_EEprom(1 + counter_ex,Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][0] )
-        Write_EEprom(1 + counter_ex+1,Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][1] )
-         Write_EEprom(1 + counter_ex+2,Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][2] )
-         Write_EEprom(1 + counter_ex+3,Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][3] )
-          counter_ex=counter_ex+4
-     next Pwm_chanel_main
-     next Heater_motor_index
-     next Heater_motor_index
-'  EEPROM_Write(0x100 ,  hours) EEPROM_Write(0x101 , minutes) EEPROM_Write(0x102 ,  seconds)
-'  EEPROM_Write(0x103 ,  day) EEPROM_Write(0x104 ,  week) EEPROM_Write(0x105 ,  month) EEPROM_Write(0x106 ,  year )
-'  dim hours, minutes, seconds, day, week, month, year as byte
-
- end sub
-'**************************************************************************************************
-
-
   sub procedure eeprom_call_back()
      counter=0
 '     dim chanel,Heater_motor_index,Pwm_chanel_main as byte
-     for chanel =1 to 7
+     for chanel =1 to Choice_number_sym
      for Heater_motor_index =1 to 2
      for Pwm_chanel_main =1 to 3
          Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][0]=EEPROM_read(0x01 + counter)
@@ -231,6 +176,106 @@ dim counter,hx,tt,on_off22 as byte
    next  chanel
 
 end sub
+
+
+
+       ''################# EEPROM Initial #################
+
+sub procedure int_eeprom_ini()     ''internal eeprm of avr
+
+                         Lcd_0()
+'                        Lcd_Out(1,1,"EEprom  :" )
+'                         on_off_initial (1,1,0,1,12)    '' off mode on_off initial (dim on_off22,en,hr,mint,prc as integer)
+'                        on_off_initial (2,1,0,0,12)    '''on mode
+
+                     if  (EEPROM_Read(0x00)=12)   then
+                         Lcd_0() Lcd_Out(1,1,"Reading from " ) Lcd_Out(2,1,"EEprom ..." )
+                         eeprom_call_back()
+'                         On_mSec_initial_Heater (1,1,12,100) 'On_mSec_initial_Heater(dim en,mint,sec,prc as byte)'On_mSec_initial_Heater[chanel_ini-1][Heater_Motor_Time_ini-1][Pwm_chanel_ini-1][0]
+'                         On_mSec_initial_Motor (1,0,2,100)
+                         Lcd_Out(1,1,"EEprom  writed befor" )
+                         ByteToStr(EEPROM_Read(0x00), txt)
+'                        Lcd_Out(1,1,"EEprommmmmmmmmm" )
+                         Lcd_Out(2,1,txt )
+                    else
+                        EEPROM_Write(0x00 ,12 )
+                        'On_mSec_initial_Heater (1,0,10,18)  '' On mode Heater initial (dim en,mint,sec,prc as integer)
+'                        On_mSec_initial_Motor (1,0,10,18)    ''' Motor mode
+                        Lcd_0() Lcd_Out(1,1,"Writing to  " ) Lcd_Out(2,1,"EEprom ..." )
+                        hours=0x05  minutes=0x54   seconds=0x00 day= 0x31 week=2   month=0x12  year=0x15
+                      '   a = 17
+                      '   year = Dec2Bcd(a) ' b equals 34
+                        Write_Time(hours, minutes, seconds, 0x31, 0x01,   0x12,year)'
+                        
+                        On_mSec_initial_Heater (1,1,0,100) 'On_mSec_initial_Heater(dim en,mint,sec,prc as byte)'On_mSec_initial_Heater[chanel_ini-1][Heater_Motor_Time_ini-1][Pwm_chanel_ini-1][0]
+                        On_mSec_initial_Motor (1,0,4,100)
+                        eeprom_save()
+'                         eeprom_save_ext()
+                         Lcd_Out(1,1,"not writed" )
+                         Delay_mS(100)
+
+                    end if
+'                     Delay_mS(1500)
+end sub
+
+#IFDEF eeprom_ext_TWI_ini()
+sub procedure eeprom_call_back_ext()'dim on_a_0 as integer[7][2][7][2][4] )
+dim on_off22 as integer
+'    counter_ex as integer
+'    hx1 as string[2]
+'    txt_sub as string[4]
+'    Lcd_0()
+     counter_ex=0
+'     dim chanel,Heater_motor_index,Pwm_chanel_main as byte
+     for chanel =1 to 7
+     for Heater_motor_index =1 to 2
+     for Pwm_chanel_main =1 to 3
+'     counter=counter+1
+         Read_EEprom(1+counter_ex)
+         Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][0]=  EEprom_data_read
+         Read_EEprom(2 + counter_ex)
+         Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][1]=  EEprom_data_read
+         Read_EEprom(3 + counter_ex)
+         Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][2]=  EEprom_data_read
+         Read_EEprom(4 + counter_ex)
+         Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][3]=  EEprom_data_read
+
+          counter_ex=counter_ex+4
+     next Pwm_chanel_main
+     next Heater_motor_index
+     next Heater_motor_index
+'  EEPROM_Write(0x100 ,  hours) EEPROM_Write(0x101 , minutes) EEPROM_Write(0x102 ,  seconds)
+'  EEPROM_Write(0x103 ,  day) EEPROM_Write(0x104 ,  week) EEPROM_Write(0x105 ,  month) EEPROM_Write(0x106 ,  year )
+'  dim hours, minutes, seconds, day, week, month, year as byte
+
+ end sub
+
+
+sub procedure eeprom_save_ext()'dim on_a_0 as integer[7][2][7][2][4] )
+dim on_off22 as byte
+'    counter_ex as integer
+'    hx1 as string[2]
+'    txt_sub as string[4]
+'    Lcd_0()
+     counter_ex=0
+'     dim chanel,Heater_motor_index,Pwm_chanel_main as byte
+     for chanel =1 to 7
+     for Heater_motor_index =1 to 2
+     for Pwm_chanel_main =1 to 3
+         Write_EEprom(1 + counter_ex,Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][0] )
+        Write_EEprom(1 + counter_ex+1,Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][1] )
+         Write_EEprom(1 + counter_ex+2,Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][2] )
+         Write_EEprom(1 + counter_ex+3,Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][3] )
+          counter_ex=counter_ex+4
+     next Pwm_chanel_main
+     next Heater_motor_index
+     next Heater_motor_index
+'  EEPROM_Write(0x100 ,  hours) EEPROM_Write(0x101 , minutes) EEPROM_Write(0x102 ,  seconds)
+'  EEPROM_Write(0x103 ,  day) EEPROM_Write(0x104 ,  week) EEPROM_Write(0x105 ,  month) EEPROM_Write(0x106 ,  year )
+'  dim hours, minutes, seconds, day, week, month, year as byte
+
+ end sub
+'**************************************************************************************************
 
 ''################# EEPROM Initial #################
 
@@ -350,44 +395,6 @@ sub procedure ext_twi_eeprom_ini()
 end sub
 
 
-       ''################# EEPROM Initial #################
-
-sub procedure int_eeprom_ini()     ''internal eeprm of avr
-
-                         Lcd_0()
-'                        Lcd_Out(1,1,"EEprom  :" )
-'                         on_off_initial (1,1,0,1,12)    '' off mode on_off initial (dim on_off22,en,hr,mint,prc as integer)
-'                        on_off_initial (2,1,0,0,12)    '''on mode
-
-                     if  (EEPROM_Read(0x00)=12)   then
-                         Lcd_0() Lcd_Out(1,1,"Reading from " ) Lcd_Out(2,1,"EEprom ..." )
-                         eeprom_call_back()
-'                         On_mSec_initial_Heater (1,1,12,100) 'On_mSec_initial_Heater(dim en,mint,sec,prc as byte)'On_mSec_initial_Heater[chanel_ini-1][Heater_Motor_Time_ini-1][Pwm_chanel_ini-1][0]
-'                         On_mSec_initial_Motor (1,0,2,100)
-                         Lcd_Out(1,1,"EEprom  writed befor" )
-                         ByteToStr(EEPROM_Read(0x00), txt)
-'                        Lcd_Out(1,1,"EEprommmmmmmmmm" )
-                         Lcd_Out(2,1,txt )
-                    else
-                        EEPROM_Write(0x00 ,12 )
-                        'On_mSec_initial_Heater (1,0,10,18)  '' On mode Heater initial (dim en,mint,sec,prc as integer)
-'                        On_mSec_initial_Motor (1,0,10,18)    ''' Motor mode
-                        Lcd_0() Lcd_Out(1,1,"Writing to  " ) Lcd_Out(2,1,"EEprom ..." )
-                        hours=0x05  minutes=0x54   seconds=0x00 day= 0x31 week=2   month=0x12  year=0x15
-                      '   a = 17
-                      '   year = Dec2Bcd(a) ' b equals 34
-                        Write_Time(hours, minutes, seconds, 0x31, 0x01,   0x12,year)'
-                        
-                        On_mSec_initial_Heater (1,5,0,100) 'On_mSec_initial_Heater(dim en,mint,sec,prc as byte)'On_mSec_initial_Heater[chanel_ini-1][Heater_Motor_Time_ini-1][Pwm_chanel_ini-1][0]
-                        On_mSec_initial_Motor (1,0,0,100)
-                        eeprom_save()
-'                         eeprom_save_ext()
-                         Lcd_Out(1,1,"not writed" )
-                         Delay_mS(100)
-
-                    end if
-'                     Delay_mS(1500)
-end sub
 ''################# EEPROM Initial #################
 
 sub procedure ext_eeprom_ini()
@@ -445,5 +452,5 @@ sub procedure ext_eeprom_ini()
                      Lcd_0()
 end sub
 
-
+#endif
 end.

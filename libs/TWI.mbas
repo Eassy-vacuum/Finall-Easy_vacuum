@@ -7,8 +7,8 @@ include "libs/LCD"  ' Include both used modules
  Dim write_address_bus as integer external ' or 0XA0
 Dim read_address_bus as integer  external' or 0XA0
 
- dim counter as integer
-    counter_ex as integer
+ dim counter as integer  external
+    counter_ex as integer external
 
 Dim EEprom_data_read As byte external
 dim on_a_0 as Byte[1][4][3][2][4]  external ''[week-1][chanel-1][pwm_chanel-1][on_off2-1][0]

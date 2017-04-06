@@ -1,6 +1,6 @@
 [DEVICE]
-Name=ATMEGA32
-Clock=8000000
+Name=ATMEGA32A
+Clock=16000000
 [MEMORY_MODEL]
 Value=-1
 [BUILD_TYPE]
@@ -8,7 +8,7 @@ Value=0
 [BOOT_TYPE]
 Value=0
 [ACTIVE_TAB]
-Value=libs\keypad_Atmega32.mbas
+Value=libs\main_function.mbas
 [USE_EEPROM]
 Value=0
 [USE_HEAP]
@@ -26,7 +26,7 @@ Count=0
 Count=0
 ActiveImageIndex=-1
 [OPENED_FILES]
-Count=8
+Count=9
 File0=MyProject.mbas
 File1=libs\main_function.mbas
 File2=libs\keypad_Atmega32.mbas
@@ -35,6 +35,7 @@ File4=libs\EEprom_Atmega32.mbas
 File5=libs\LCD.mbas
 File6=libs\milady_shamsi.mbas
 File7=libs\I2C.mbas
+File8=libs\TWI.mbas
 [EEPROM]
 Count=0
 [ACTIVE_COMMENTS_FILES]
