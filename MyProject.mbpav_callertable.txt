@@ -44,8 +44,16 @@ main
 		eeprom_save
 			EEPROM_Write
 			HWMul_16x16
+	timer0_init
 	Lcd_0
 	key_test
+		Read_Time
+			Soft_I2C_Start
+			Soft_I2C_Write
+			Soft_I2C_Read
+				Delay_1us
+			Soft_I2C_Stop
+		Shamsi_transfer_time
 		Lcd_0
 		Lcd_Out
 		Button
@@ -99,11 +107,6 @@ main
 				Lcd_0
 				Lcd_Out
 				Read_Time
-					Soft_I2C_Start
-					Soft_I2C_Write
-					Soft_I2C_Read
-						Delay_1us
-					Soft_I2C_Stop
 				Shamsi_transfer_time
 				DS1307
 				ByteToStr
@@ -184,10 +187,8 @@ main
 				Div_8x8_U
 				float_ulong2fp
 			HWMul_16x16
-		Read_Time
-		Shamsi_transfer_time
 		DS1307
 		Easy_vacuum_95_10_4_simple_working
-		Div_8x8_U
-Timer0_overflow
+Timer0Overflow_ISR
+Timer2Overflow_ISR
 Timer2_Compare

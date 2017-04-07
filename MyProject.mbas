@@ -12,6 +12,7 @@ include "libs/main_function"
 
 include "libs/keypad_Atmega32"
 include "libs/EEprom_Atmega32"
+include "libs/Alarm_clock"
 
 'include "libs/keypad"
 '#IFDEF ATmega128
@@ -134,7 +135,8 @@ dim Mot_heater_On_mSec as Byte[Choice_number][2][3][4]
 'dim sec_n1 as byte [2]
 dim j,oldstate_menu as byte
     k as integer
-
+dim counter1,second_alarm_clock as byte
+    minutes_alarm_clock,hours_alarm_clock as byte
 '
 ' Relay arraye
 'structure On_arrayx
@@ -520,17 +522,29 @@ sub procedure key_test()
 '      Choice_number=3
       chanel=Mot_heater_On_mSec [Choice_number-1][Heater_motor_index-1][Pwm_chanel_main-1][0]
 '      Mot_heater_On_mSec [1-1][Heater_motor_index-1][Pwm_chanel_main-1][1]
+       Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)  Shamsi_transfer_time()
+       Start_seconds=seconds   kp1=0
+       Lcd_0() Lcd_Out(1,1,"      Ready      ") Lcd_Out(2,1,"Press Start SW")
        while  (while_state_import )
           oldstate_menu=oldstate_menu+1
-'          Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
-          if ((oldstate_menu mod 6)=1) or ((oldstate_menu mod 6)=3)or ((oldstate_menu mod 6)=5) then
-'              Shamsi_call()
-'              Shamsi_show_lcd( jmonth,jday,jyear,week,hours ,minutes,seconds )
-               Lcd_0()Lcd_Out(1,1,"      Ready      ") Lcd_Out(2,1,"Press Start SW")
-          else
-'              miladi_call(jmonth,jday,jyear,week,hours ,minutes,seconds )
-               Lcd_0()Lcd_Out(1,1,"      Ready      ") Lcd_Out(2,1,"Or Hold Start SW")
+          if seconds<>Start_seconds   then
+               inc(kp1)
+              Start_seconds=seconds
+              if ((kp1 mod 2)=1)  then
+                   Lcd_0() Lcd_Out(1,1,"      Ready      ") Lcd_Out(2,1,"Press Start SW")
+              else
+                   Lcd_0() Lcd_Out(1,1,"      Ready      ") Lcd_Out(2,1,"Or Hold Start SW")
+              end if
           end if
+          Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)  Shamsi_transfer_time()
+          'if ((oldstate_menu mod 6)=1) or ((oldstate_menu mod 6)=3)or ((oldstate_menu mod 6)=5) then
+''              Shamsi_call()
+''              Shamsi_show_lcd( jmonth,jday,jyear,week,hours ,minutes,seconds )
+'               Lcd_0()Lcd_Out(1,1,"      Ready      ") Lcd_Out(2,1,"Press Start SW")
+'          else
+''              miladi_call(jmonth,jday,jyear,week,hours ,minutes,seconds )
+'               Lcd_0()Lcd_Out(1,1,"      Ready      ") Lcd_Out(2,1,"Or Hold Start SW")
+'          end if
 '          Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
 '          sec_n1[0]=seconds
 
@@ -596,11 +610,12 @@ sub procedure key_test()
 '
 ''                                    or (while_state_import and oldstate_4 and Button(Ok_SW_Port,Ok_SW_bit,0.5,0))  then
                                    oldstate_4=0 while_state_import=0
-                                   while_state_import_main2=1 oldstate_3=0
+                                   while_state_import_main2=1 oldstate_3=0    j=0
 '                                   Lcd_0() Lcd_Out(1,1,"Wating for :") Lcd_Out(2,1,"Pressing Heater micro SW") delay_ms(200)
                                    while (while_state_import_main2 )
-                                        if (oldstate_3=0) then
-                                         Lcd_0() Lcd_Out(1,1,"Wating for :") Lcd_Out(2,1,"Pressing Heater micro SW") delay_ms(200)
+                                        if (oldstate_3=0) and (j=0) then
+                                         Lcd_0() Lcd_Out(1,1,"Wating for :") Lcd_Out(2,1,"Pressing Heater micro SW") ''delay_ms(700)
+                                         j=1
                                        end if
                                        if (Button(HET_SW_Port, HET_SW_bit, 5, 0)<>0) then    ' Detect logical one up key
                                                   oldstate_3 = 1    while_state_import_main2=0                  ' Update flag
@@ -874,6 +889,7 @@ LCD_cmd(_LCD_CURSOR_OFF)
 '  On_mSec_initial_Motor (1,0,5,50)
 '  On_mSec_initial_Heater (1,0,5,100)
   PWM_Initialize () int_eeprom_ini() 
+  timer0_init()
   Lcd_0() Delay_mS(200)
   'On_mSec_initial_Heater (1,0,4,100)
 '  On_mSec_initial_Motor (1,0,4,100) eeprom_save()
@@ -903,8 +919,12 @@ LCD_cmd(_LCD_CURSOR_OFF)
 '        end if
 ' wend
 
-
+  'while 1
+'    PORTD6_bit=not PORTD6_bit      ' toggle PORTD6_bit
+'   delay_ms(100)
+'   wend
   while 1
+  
 '  Buzzer_on_off(1) delay_ms(1000) Buzzer_on_off(0)  delay_ms(1000)
   key_test()
 '          SREG_I_bit = 1

@@ -202,11 +202,11 @@ sub procedure int_eeprom_ini()     ''internal eeprm of avr
                         'On_mSec_initial_Heater (1,0,10,18)  '' On mode Heater initial (dim en,mint,sec,prc as integer)
 '                        On_mSec_initial_Motor (1,0,10,18)    ''' Motor mode
                         Lcd_0() Lcd_Out(1,1,"Writing to  " ) Lcd_Out(2,1,"EEprom ..." )
-                        hours=0x05  minutes=0x54   seconds=0x00 day= 0x31 week=2   month=0x12  year=0x15
+                        hours=0x23  minutes=0x59   seconds=0x30 day= 0x11 week=2   month=0x12  year=0x17
                       '   a = 17
                       '   year = Dec2Bcd(a) ' b equals 34
                         Write_Time(hours, minutes, seconds, 0x31, 0x01,   0x12,year)'
-                        
+
                         On_mSec_initial_Heater (1,1,0,100) 'On_mSec_initial_Heater(dim en,mint,sec,prc as byte)'On_mSec_initial_Heater[chanel_ini-1][Heater_Motor_Time_ini-1][Pwm_chanel_ini-1][0]
                         On_mSec_initial_Motor (1,0,4,100)
                         eeprom_save()

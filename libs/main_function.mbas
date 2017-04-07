@@ -962,7 +962,7 @@ sub procedure Easy_vacuum_95_10_4_simple_working(dim program_number as byte,dim 
 '     Delay_mS(300)
 '     miladi_call(jmonth,jday,jyear,week,hours ,minutes,seconds )
 '     Delay_mS(300)
-     while_state_import=1  oldstate_3=0 chanel=program_number   week=1   on_off2 = 1
+     while_state_import=1  oldstate_3=0 chanel=program_number   week=1   on_off2 = 1   k=0
      while  (while_state_import )
        'Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
 '       Shamsi_call()
@@ -980,7 +980,10 @@ sub procedure Easy_vacuum_95_10_4_simple_working(dim program_number as byte,dim 
          end if
        else
           while_state_import=0
-          Lcd_0()Lcd_Out(1,1,"Wating for :") Lcd_Out(2,1,"Pressing Heater micro SW") delay_ms(200) '' DDD7_bit =0
+          if k=0 then 
+             Lcd_0()Lcd_Out(1,1,"Wating for :") Lcd_Out(2,1,"Pressing Heater micro SW") ''delay_ms(200) '' DDD7_bit =0
+             k=1
+          end if
        end if
      wend
 
@@ -1328,12 +1331,15 @@ sub procedure Easy_vacuum_95_10_4_simple_working(dim program_number as byte,dim 
 '              Lcd_Out(1,1,"Wating for :") Lcd_Out(2,1,"Pressing Motor micro SW") delay_ms(200)
 '         wend
         '**************************************************************************************************}
-
+         k=0
          while  (while_state_import_main )
              if ( Button(HET_SW_Port, HET_SW_bit,swich_time, 1)) then
                 while_state_import_main=0
              end if
-              Lcd_Out(1,1,"Wating for :") Lcd_Out(2,1,"Downing the Pad !!") delay_ms(200)
+              if k=0 then
+                 Lcd_Out(1,1,"Wating for :") Lcd_Out(2,1,"Downing the Pad !!")'' delay_ms(200)
+                 k=1
+              end if
          wend
          while_state_import_main=1
          'while  (while_state_import_main )
@@ -1392,7 +1398,7 @@ sub procedure Easy_vacuum_95_10_4_simple_working(dim program_number as byte,dim 
                      target_sec=1 target_min=0 target_hr=0
 '                     target_sec=1 target_min=0 target_hr=0
                      ht_start_min=target_sec
-                     while_state_import=1
+                     while_state_import=1  k=0
                      while( while_state_import)
            '                 #####################  check Off is accured and enabled  #############
                           if (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][1]= target_min ) and (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][2]<= (target_sec)) then '' and (Mot_heater_On_mSec [chanel-1][Heater_motor_index-1][Pwm_chanel_main-1][0]<>0) then  '''OFF mode
@@ -1409,8 +1415,10 @@ sub procedure Easy_vacuum_95_10_4_simple_working(dim program_number as byte,dim 
 
                                while_state_import=0
                                else
-
-                                 Lcd_0() Lcd_Out(1,1,"Wating for :") Lcd_Out(2,1,"Downing the Pad !!") delay_ms(300)
+                                 if k=0 then
+                                   Lcd_0() Lcd_Out(1,1,"Wating for :") Lcd_Out(2,1,"Downing the Pad !!")'' delay_ms(300)
+                                   k=1
+                                 end if
                                  if (Button(Mot_SW_Port,Mot_SW_bit, swich_time, 0))   then
                                     j=2
                                  end if
@@ -1501,7 +1509,7 @@ sub procedure Easy_vacuum_95_10_4_simple_working(dim program_number as byte,dim 
                                if (j=2) then    ' Detect logical one up key
                                   PWM_MAKE (0,255,Pwm_chanel_main)
 
-                               Show_message_done("Motor",chanel) delay_ms(200)
+'                               Show_message_done("Motor",chanel) delay_ms(200)
                                Lcd_0()
                                Lcd_Out(1,1,txt) Lcd_Out(1,8,"is Off:")
                                Lcd_Out(2,1,"Prog num:") Lcd_Out(2,10,txt) delay_ms(200)

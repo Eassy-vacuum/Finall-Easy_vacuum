@@ -64,11 +64,11 @@ Sub procedure Timer2_Compare iv IVT_ADDR_TIMER2_COMP 'L?st aus alle (8Mhz/1024/1
 inc(_ss)
 End sub
 
-sub procedure Timer0_overflow iv IVT_ADDR_TIMER0_OVF
-inc(_zz)
-TIFR.TOV0=0
-'portf0_bit=not Portf0_bit
-end sub
+'sub procedure Timer0_overflow iv IVT_ADDR_TIMER0_OVF
+'inc(_zz)
+'TIFR.TOV0=0
+''portf0_bit=not Portf0_bit
+'end sub
 
 sub procedure SetRegister()
 'TCCR0B.B0=1'' //CS00 --->Clock Select--->No Prescaling
@@ -380,13 +380,18 @@ J=0
 ''     TCCR0=(1<<WGM00) or (1<<COM01) or (1<<COM00) or (1<<WGM01) or (1<<CS02) or (0<<CS01) or (1<<CS00)
 '     TCCR0=(0<<WGM00) or (1<<COM01) or (1<<COM00) or (1<<WGM01) or (1<<CS02) or (0<<CS01) or (1<<CS00)
 '     TCCR0 = (1<<FOC0)or(1<<COM01)or(1<<COM00)or(0<<COM01)or(1<<WGM00) or(1<<CS00) or (0<<WGM01)
-      TCCR0 = (1<<FOC2)or(1<<COM00)or(1<<COM01)or(1<<WGM00) or(0<<WGM01)or(1<<CS00) or(0<<CS01) or(1<<CS02) or (0<<WGM21)
-     TCNT0=0x00
+      
+'      #### commented for alarm clock   96-1-18 ##########
+'      TCCR0 = (1<<FOC2)or(1<<COM00)or(1<<COM01)or(1<<WGM00) or(0<<WGM01)or(1<<CS00) or(0<<CS01) or(1<<CS02) or (0<<WGM21)
+'     TCNT0=0x00
+'     ocr0=0xFF
+     '      #### commented for alarm clock   96-1-18 ##########
+     
+     
 '     TCCR2 = (1<<FOC2)or(1<<COM21)or(1<<COM20)or(0<<COM21)or(1<<WGM20) or(1<<CS00) ''or (1<<WGM21)
 '     TCCR2 = (1<<FOC2)or(1<<COM21)or(1<<COM20)or(0<<COM21)or(1<<WGM20) or(1<<CS00)or(0<<CS01) or(1<<CS02) or (0<<WGM21)
      TCCR2 = (1<<FOC2)or(1<<COM01)or(0<<COM00)or(1<<WGM00) or(0<<WGM01)or(1<<CS00) or(0<<CS01) or(1<<CS02) or (0<<WGM21)
      TCNT2=0x00
-     ocr0=0xFF
      ocr2=0x00
 '    PWM16bit_Init(_PWM16_FAST_MODE_9BIT, _PWM16_PRESCALER_16bit_1, _PWM16_INVERTED, 255, 1)
 '    PWM16bit_Init(_PWM16_PHASE_CORRECT_MODE_8BIT, _PWM16_PRESCALER_16bit_8, _PWM16_NON_INVERTED, 255, _TIMER1)

@@ -1,7 +1,9 @@
 module I2C
 include "libs/milady_shamsi"
+include "libs/Alarm_clock"
 
 const RTC_ADDR = 0xD0
+const RTC_ControlRegAddress_output = 0x10
 ' #IFDEF ATmega128
 ' ' Software I2C connections
 '  dim Soft_I2C_Scl_Output    as sbit at PORTC0_bit
@@ -44,7 +46,10 @@ const RTC_ADDR = 0xD0
     Soft_I2C_Sda_Direction as sbit at DDC1_bit
     ' End Software I2C connections
  #ENDIF
-
+ dim second_alarm_clock as byte external
+     minutes_alarm_clock,hours_alarm_clock  as byte external
+ dim txt as string[19]   external
+ 
  sub procedure Read_Time(dim p_hours as ^byte, dim p_minutes as ^byte, dim p_seconds as ^byte,
               dim p_day as ^byte, dim p_week as ^byte, dim p_month as ^byte, dim p_year as ^byte)
 
@@ -105,13 +110,18 @@ sub procedure Write_Time(dim c_hours as byte, dim c_minutes as byte, dim c_secon
    Soft_I2C_Write(c_day)                    ' write 4 to date word (REG4)
    Soft_I2C_Write(c_month)                  ' write 5 (May) to month word (REG5)
    Soft_I2C_Write(c_year)                   ' write 01 to year word (REG6)
+   Soft_I2C_Write(RTC_ControlRegAddress_output)     ''Soft_I2C_Write(0X07, B00010000);// 1Hz
    Soft_I2C_Stop()                          ' issue stop signal
 
    'Soft_I2C_Start()                         ' issue start signal
 '   Soft_I2C_Write(RTC_ADDR)                 ' address DS1307
 '   Soft_I2C_Write(0)                        ' start from word at address 0
 '   Soft_I2C_Write(0 and c_seconds)          ' write 0 to REG0 (enable counting + 0 sec)       ???? ??? ? ?????
-   Soft_I2C_Stop()                          ' issue stop signal
+'   Soft_I2C_Stop() 
+                         ' issue stop signal
+    'Soft_I2C_Start()                         ' issue start signal
+'    Soft_I2C_Write(RTC_ControlRegAddress_output)                 ' address DS1307
+'    Soft_I2C_Stop()
 end sub
  '**************************************************************************************************
 '* Read_time
@@ -162,6 +172,19 @@ end sub
 '  Shamsi_transfer_time()
 end sub
 
+sub procedure Read_Time_alarm_clock(dim p_hours as ^byte, dim p_minutes as ^byte, dim p_seconds as ^byte,
+              dim p_day as ^byte, dim p_week as ^byte, dim p_month as ^byte, dim p_year as ^byte)
+'            p_seconds^ = 1      ' Read seconds byte
+            p_minutes^ = 1      ' Read minutes byte
+            p_hours^ = 1        ' Read hours byte
+            p_week^ =1
+            p_day^ = 1
+            p_month^ = 1
+            p_year^ = 1
 
+            p_seconds=second_alarm_clock
+'            bytetostr(second_alarm_clock,txt) lcd_out(1,1,txt+"  is second_alarm_clock") delay_ms(100)
+'              p_seconds=3
 
+end sub
 end.

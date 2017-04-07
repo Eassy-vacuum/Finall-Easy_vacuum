@@ -1221,23 +1221,23 @@ L__int_eeprom_ini68:
 	LDI        R27, 2
 	MOV        R2, R27
 	CALL       _Lcd_Out+0
-;libs/EEprom_Atmega32.mbas,205 :: 		hours=0x05  minutes=0x54   seconds=0x00 day= 0x31 week=2   month=0x12  year=0x15
-	LDI        R27, 5
+;libs/EEprom_Atmega32.mbas,205 :: 		hours=0x23  minutes=0x59   seconds=0x30 day= 0x11 week=2   month=0x12  year=0x17
+	LDI        R27, 35
 	STS        _hours+0, R27
-	LDI        R27, 84
+	LDI        R27, 89
 	STS        _minutes+0, R27
-	LDI        R27, 0
+	LDI        R27, 48
 	STS        _seconds+0, R27
-	LDI        R27, 49
+	LDI        R27, 17
 	STS        _day+0, R27
 	LDI        R27, 2
 	STS        _week+0, R27
 	LDI        R27, 18
 	STS        _month+0, R27
-	LDI        R27, 21
+	LDI        R27, 23
 	STS        _year+0, R27
 ;libs/EEprom_Atmega32.mbas,208 :: 		Write_Time(hours, minutes, seconds, 0x31, 0x01,   0x12,year)'
-	LDI        R27, 21
+	LDI        R27, 23
 	MOV        R8, R27
 	LDI        R27, 18
 	MOV        R7, R27
@@ -1245,10 +1245,11 @@ L__int_eeprom_ini68:
 	MOV        R6, R27
 	LDI        R27, 49
 	MOV        R5, R27
-	CLR        R4
-	LDI        R27, 84
+	LDI        R27, 48
+	MOV        R4, R27
+	LDI        R27, 89
 	MOV        R3, R27
-	LDI        R27, 5
+	LDI        R27, 35
 	MOV        R2, R27
 	CALL       _Write_Time+0
 ;libs/EEprom_Atmega32.mbas,210 :: 		On_mSec_initial_Heater (1,1,0,100) 'On_mSec_initial_Heater(dim en,mint,sec,prc as byte)'On_mSec_initial_Heater[chanel_ini-1][Heater_Motor_Time_ini-1][Pwm_chanel_ini-1][0]
